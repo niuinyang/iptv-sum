@@ -1,7 +1,7 @@
-name: Format M3U Files
+name: Auto Format & Publish M3U
 
 permissions:
-  contents: write   # ✅ 允许 Actions 提交到仓库
+  contents: write
 
 on:
   push:
@@ -10,28 +10,50 @@ on:
   workflow_dispatch:
 
 jobs:
-  format:
+  format_publish:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ 检出仓库
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}   # ✅ 确保用当前仓库的 token
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
+      # 2️⃣ 设置 Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Run M3U formatter
+      # 3️⃣ 安装依赖
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pypinyin
+
+      # 4️⃣ 运行脚本生成 total.csv 和 total.m3u
+      - name: Run M3U Formatter
         run: |
           python scripts/format_m3u.py
 
-      - name: Commit formatted output
+      # 5️⃣ 提交 total.csv 到 main 分支
+      - name: Commit total.csv to main
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/total.csv output/total.m3u
-          git commit -m "Auto update total.csv and total.m3u" || echo "No changes to commit"
+          git add output/total.csv
+          git commit -m "Auto update total.csv" || echo "No changes to commit"
           git push
+
+      # 6️⃣ 自动发布 total.m3u 到 gh-pages
+      - name: Deploy total.m3u to GitHub Pages
+        run: |
+          git fetch origin gh-pages
+          git checkout gh-pages || git checkout --orphan gh-pages
+          mkdir -p output
+          cp output/total.m3u output/total.m3u
+          git add output/total.m3u
+          git commit -m "Update total.m3u for GitHub Pages" || echo "No changes to commit"
+          git push origin gh-pages
