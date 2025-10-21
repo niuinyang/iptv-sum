@@ -1,6 +1,5 @@
 import os
 import csv
-import re
 
 # CSV 文件路径
 csv_file = "input/mysource/sum.csv"
@@ -11,7 +10,7 @@ default_icon = "png/default.png"
 output_dir = "output"
 os.makedirs(output_dir, exist_ok=True)
 
-# 分组优先顺序（只对央视频道排序）
+# 央视频道排序
 cctv_order = ["CCTV-1", "CCTV-2", "CCTV-3", "CCTV-4", "CCTV-5", "CCTV-6", "CCTV-7", "CCTV-8", "CCTV-9", "CCTV-10"]
 
 # 地址源排序
@@ -47,19 +46,20 @@ for ch in channels:
     else:
         ch["icon"] = ""
 
-# 分组排序函数
+# 分组排序：央视频道按 cctv_order，其他按拼音
+other_groups = sorted(set(ch["group"] for ch in channels if ch["group"] != "央视频道"))
+group_priority = {name: i+len(cctv_order) for i, name in enumerate(other_groups)}
+
 def group_sort_key(ch):
     if ch["group"] == "央视频道":
-        # CCTV-频道按照 cctv_order 排序
         try:
             return cctv_order.index(ch["name"])
         except ValueError:
             return len(cctv_order)
     else:
-        # 其他分组按拼音排序
-        return ch["group"]
+        return group_priority.get(ch["group"], len(cctv_order) + len(group_priority))
 
-# 地址源排序函数
+# 地址源排序
 def source_sort_key(ch, order):
     try:
         return order.index(ch["source"])
@@ -71,12 +71,10 @@ def generate_m3u(filename, source_priority, remove_source=None):
     filtered = channels.copy()
     if remove_source:
         filtered = [ch for ch in filtered if ch["source"] != remove_source]
-    # 先分组排序，再地址源排序，再频道名排序
+
     def sort_key(ch):
-        gkey = group_sort_key(ch)
-        skey = source_sort_key(ch, source_priority)
-        return (gkey, skey, ch["name"])
-    
+        return (group_sort_key(ch), source_sort_key(ch, source_priority), ch["name"])
+
     filtered.sort(key=sort_key)
 
     m3u_path = os.path.join(output_dir, filename)
