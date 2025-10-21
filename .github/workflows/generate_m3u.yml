@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ 检出仓库
+      # 1️⃣ 检出仓库代码
       - uses: actions/checkout@v3
 
       # 2️⃣ 安装 Python
@@ -26,15 +26,15 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      # 4️⃣ 执行 Python 脚本
+      # 4️⃣ 执行 CSV 转 M3U 脚本
       - name: Run CSV to M3U
         run: python scripts/csv_to_m3u.py
 
       # 5️⃣ 提交生成的 M3U 文件
-      - name: Commit and push M3U
+      - name: Commit and push M3U files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/*.m3u
-          git commit -m "Update M3U files" || echo "No changes"
+          git add output/dxl.m3u output/sjmz.m3u
+          git commit -m "Update dxl.m3u and sjmz.m3u" || echo "No changes"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
