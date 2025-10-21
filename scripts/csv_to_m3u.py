@@ -5,6 +5,8 @@ import csv
 csv_file = "input/mysource/sum.csv"
 # PNG 图标文件夹
 icon_dir = "png"
+# 默认图标（可自定义）
+default_icon = "png/default.png"
 # 输出 M3U 文件
 output_dir = "output"
 m3u_file = os.path.join(output_dir, "total.m3u")
@@ -24,16 +26,23 @@ with open(csv_file, newline="", encoding="utf-8") as f:
         group = row[1].strip() if row[1].strip() else "未分类"
         url = row[2].strip()
         source = row[3].strip() if len(row) > 3 else ""
-        
+
         # 查找图标
         icon_path = os.path.join(icon_dir, f"{name}.png")
         if os.path.exists(icon_path):
             icon_url = f"https://raw.githubusercontent.com/niuinyang/iptv-sum/main/{icon_path}"
+        elif os.path.exists(default_icon):
+            icon_url = f"https://raw.githubusercontent.com/niuinyang/iptv-sum/main/{default_icon}"
         else:
             icon_url = ""
 
-        # 生成 EXTINF 行
+        # EXTINF 行
         extinf = f'#EXTINF:-1 tvg-id="" tvg-name="{name}" tvg-logo="{icon_url}" group-title="{group}",{name}'
+
+        # 添加来源作为注释
+        if source:
+            extinf = f"# {source}\n" + extinf
+
         lines.append(f"{extinf}\n{url}")
 
 # 写入 M3U 文件
