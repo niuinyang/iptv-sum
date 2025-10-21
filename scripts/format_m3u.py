@@ -1,5 +1,6 @@
 import os
 import re
+from pypinyin import lazy_pinyin
 
 # 输入与输出路径
 input_dir = "input/mysource"
@@ -7,18 +8,23 @@ output_dir = "output"
 csv_file = os.path.join(output_dir, "total.csv")
 m3u_file = os.path.join(output_dir, "total.m3u")
 
-# 确保输出目录存在
 os.makedirs(output_dir, exist_ok=True)
 
-# 匹配 M3U 格式的正则
+# 正则匹配：tvg-name 可选，group-title 可选
 pattern = re.compile(
-    r'#EXTINF:-1.*?tvg-name="([^"]+)".*?group-title="([^"]+)".*?,(.*?)\n(.*?)$',
+    r'#EXTINF:-1.*?(?:tvg-name="([^"]*)")?.*?(?:group-title="([^"]*)")?.*?,(.*?)\n(.*?)$',
     re.MULTILINE
 )
 
 rows = []
 
-# 遍历 input/mysource 下所有 .m3u 文件
+# 检查输入目录
+if not os.path.exists(input_dir):
+    print(f"⚠️ 输入目录 {input_dir} 不存在，已自动创建（请上传 .m3u 文件后重新运行）")
+    os.makedirs(input_dir, exist_ok=True)
+    exit(0)
+
+# 遍历输入目录下所有 .m3u 文件
 for file in os.listdir(input_dir):
     if not file.endswith(".m3u"):
         continue
@@ -29,10 +35,16 @@ for file in os.listdir(input_dir):
 
     matches = pattern.findall(text)
     for tvg_name, group, display_name, url in matches:
-        rows.append((tvg_name.strip(), group.strip(), url.strip()))
+        tvg_name = tvg_name.strip() or display_name.strip() or "未知频道"
+        group = group.strip() if group.strip() else "待分类"
+        rows.append((tvg_name, group, url.strip()))
 
-# 去重并排序
-rows = sorted(set(rows), key=lambda x: (x[1], x[0]))
+# 去重并按频道名拼音排序
+def sort_key(item):
+    tvg_name = item[0]
+    return "".join(lazy_pinyin(tvg_name)).lower()
+
+rows = sorted(set(rows), key=sort_key)
 
 # 输出 CSV 文件
 with open(csv_file, "w", encoding="utf-8") as f:
