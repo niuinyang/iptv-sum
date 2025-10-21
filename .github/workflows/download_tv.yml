@@ -1,0 +1,31 @@
+name: Download TV Folder
+
+on:
+  workflow_dispatch:  # 可手动触发
+  schedule:
+    - cron: '0 0 * * *'  # 每天 0 点自动执行
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Run download script
+        run: python download_tv_folder.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add png
+          git commit -m "Update tv folder" || echo "No changes"
+          git push
