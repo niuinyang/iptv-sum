@@ -1,5 +1,8 @@
 name: Format M3U Files
 
+permissions:
+  contents: write   # ✅ 允许 Actions 提交到仓库
+
 on:
   push:
     paths:
@@ -13,6 +16,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}   # ✅ 确保用当前仓库的 token
 
       - name: Set up Python
         uses: actions/setup-python@v5
