@@ -1,5 +1,7 @@
 import os
 import csv
+import re
+from itertools import groupby
 
 # CSV 文件路径
 csv_file = "input/mysource/sum.csv"
@@ -10,7 +12,15 @@ default_icon = "png/default.png"
 output_dir = "output"
 os.makedirs(output_dir, exist_ok=True)
 
-# 央视频道排序
+# CCTV 频道自然排序
+def natural_key(name):
+    m = re.match(r"(CCTV-?)(\d+)", name, re.I)
+    if m:
+        prefix, num = m.groups()
+        return (prefix.lower(), int(num))
+    else:
+        return (name.lower(), 0)
+
 cctv_order = ["CCTV-1", "CCTV-2", "CCTV-3", "CCTV-4", "CCTV-5", "CCTV-6", "CCTV-7", "CCTV-8", "CCTV-9", "CCTV-10"]
 
 # 地址源排序
@@ -46,7 +56,7 @@ for ch in channels:
     else:
         ch["icon"] = ""
 
-# 分组排序：央视频道按 cctv_order，其他按拼音
+# 分组排序：央视频道按 CCTV 自然顺序，其他按拼音
 other_groups = sorted(set(ch["group"] for ch in channels if ch["group"] != "央视频道"))
 group_priority = {name: i+len(cctv_order) for i, name in enumerate(other_groups)}
 
@@ -72,20 +82,27 @@ def generate_m3u(filename, source_priority, remove_source=None):
     if remove_source:
         filtered = [ch for ch in filtered if ch["source"] != remove_source]
 
-    def sort_key(ch):
-        return (group_sort_key(ch), source_sort_key(ch, source_priority), ch["name"])
+    # 先按分组和频道名自然排序
+    filtered.sort(key=lambda ch: (group_sort_key(ch), natural_key(ch["name"])))
 
-    filtered.sort(key=sort_key)
+    # 每个频道内部按 source_priority 排序
+    final_list = []
+    for name, group_items in groupby(filtered, key=lambda ch: ch["name"]):
+        group_items = list(group_items)
+        group_items.sort(key=lambda ch: source_sort_key(ch, source_priority))
+        final_list.extend(group_items)
 
+    # 写入 M3U
     m3u_path = os.path.join(output_dir, filename)
     with open(m3u_path, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
-        for ch in filtered:
+        for ch in final_list:
             extinf = f'#EXTINF:-1 tvg-id="" tvg-name="{ch["name"]}" tvg-logo="{ch["icon"]}" group-title="{ch["group"]}",{ch["name"]}'
             if ch["source"]:
                 extinf = f"# {ch['source']}\n" + extinf
             f.write(f"{extinf}\n{ch['url']}\n")
-    print(f"✅ 已生成 {filename}, 共 {len(filtered)} 条频道")
+
+    print(f"✅ 已生成 {filename}, 共 {len(final_list)} 条频道")
 
 # 生成 dxl.m3u（去掉济南移动）
 generate_m3u("dxl.m3u", dxl_order, remove_source="济南移动")
