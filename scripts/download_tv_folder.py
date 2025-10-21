@@ -3,7 +3,7 @@ import zipfile
 import io
 import os
 
-# 目标 GitHub 仓库 URL
+# GitHub 仓库信息
 repo_url = "https://github.com/fanmingming/live"
 folder_in_repo = "tv"  # 仓库里要下载的文件夹
 output_dir = "png"     # 本地保存的目录
@@ -21,14 +21,15 @@ if r.status_code != 200:
 # 打开 ZIP
 z = zipfile.ZipFile(io.BytesIO(r.content))
 
-# 仓库 ZIP 内部文件前缀
-prefix = f"{z.namelist()[0].split('/')[0]}/{folder_in_repo}/"
+# ZIP 内文件前缀
+zip_root = z.namelist()[0].split('/')[0]  # 仓库压缩包的根目录名
+prefix = f"{zip_root}/{folder_in_repo}/"
 
-# 提取指定文件夹
+# 提取 tv 文件夹内容到 png
 print(f"正在解压 {folder_in_repo} 文件夹到 {output_dir} ...")
 for file in z.namelist():
     if file.startswith(prefix) and not file.endswith("/"):
-        # 去掉 ZIP 内的前缀，只保留 tv 文件夹下的相对路径
+        # 计算相对路径
         rel_path = os.path.relpath(file, prefix)
         out_path = os.path.join(output_dir, rel_path)
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
