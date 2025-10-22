@@ -390,17 +390,17 @@ http://192.168.31.2:4022/rtp/239.21.2.184:5002
 #EXTINF:-1 tvg-id="" tvg-name="东方卫视4K" tvg-logo="" group-title="4K频道",东方卫视4K
 http://123.235.73.237:9901/tsfile/live/0002_59.m3u8?key=txiptv
 # 济南联通
-#EXTINF:-1 tvg-id="" tvg-name="中央新影 中学生" tvg-logo="" group-title="央视频道",中央新影 中学生
+#EXTINF:-1 tvg-id="" tvg-name="中央新影中学生" tvg-logo="" group-title="央视频道",中央新影中学生
 rtsp://112.245.125.41:1554/iptv/import/Tvod/iptv/001/001/ch24012314300175015886.rsc/100054_Uni.sdp
-# 青岛联通
-#EXTINF:-1 tvg-id="" tvg-name="中央新影 中学生" tvg-logo="" group-title="央视频道",中央新影 中学生
-http://123.235.73.237:9901/tsfile/live/0002_66.m3u8?key=txiptv
-# 电信单播
-#EXTINF:-1 tvg-id="" tvg-name="中央新影 中学生" tvg-logo="" group-title="央视频道",中央新影 中学生
-http://150.138.8.143/00/SNM/CHANNEL00000673/index.m3u8
 # 电信组播
 #EXTINF:-1 tvg-id="" tvg-name="中央新影中学生" tvg-logo="" group-title="央视频道",中央新影中学生
 http://192.168.31.2:4022/rtp/239.21.2.176:5002
+# 青岛联通
+#EXTINF:-1 tvg-id="" tvg-name="中央新影中学生" tvg-logo="" group-title="央视频道",中央新影中学生
+http://123.235.73.237:9901/tsfile/live/0002_66.m3u8?key=txiptv
+# 电信单播
+#EXTINF:-1 tvg-id="" tvg-name="中央新影中学生" tvg-logo="" group-title="央视频道",中央新影中学生
+http://150.138.8.143/00/SNM/CHANNEL00000673/index.m3u8
 # 济南联通
 #EXTINF:-1 tvg-id="" tvg-name="北京卫视4K" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/北京卫视4K.png" group-title="4K频道",北京卫视4K
 rtsp://112.245.125.39:1554/iptv/import/Tvod/iptv/001/001/ch25032514071097767315.rsc/102825_Uni.sdp
