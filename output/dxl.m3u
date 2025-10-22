@@ -8,9 +8,6 @@ http://192.168.31.2:4022/rtp/239.21.1.1:5002
 # 济南联通
 #EXTINF:-1 tvg-id="" tvg-name="CCTV1" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CCTV1.png" group-title="央视频道",CCTV1
 rtsp://112.245.125.38:1554/iptv/import/Tvod/iptv/001/001/ch12122514263996485740.rsc/69958_Uni.sdp
-# 济南联通
-#EXTINF:-1 tvg-id="" tvg-name="CCTV1" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CCTV1.png" group-title="央视频道",CCTV1
-rtsp://112.245.125.39:1554/iptv/import/Tvod/iptv/001/001/ch13031310542255942002.rsc/70032_Uni.sdp
 # 上海移动
 #EXTINF:-1 tvg-id="" tvg-name="CCTV1" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CCTV1.png" group-title="央视频道",CCTV1
 http://[2409:8087:1e01:20::3]/PLTV/11/224/3221226163/1.m3u8
@@ -158,9 +155,6 @@ http://192.168.31.2:4022/rtp/239.21.1.152:5002
 # 济南联通
 #EXTINF:-1 tvg-id="" tvg-name="CCTV7" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CCTV7.png" group-title="央视频道",CCTV7
 rtsp://112.245.125.38:1554/iptv/import/Tvod/iptv/001/001/ch15111015535263088598.rsc/69960_Uni.sdp
-# 济南联通
-#EXTINF:-1 tvg-id="" tvg-name="CCTV7" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CCTV7.png" group-title="央视频道",CCTV7
-rtsp://112.245.125.38:1554/iptv/import/Tvod/iptv/001/001/ch15090915223200641077.rsc/70054_Uni.sdp
 # 上海移动
 #EXTINF:-1 tvg-id="" tvg-name="CCTV7" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CCTV7.png" group-title="央视频道",CCTV7
 http://[2409:8087:1e01:20::3]/PLTV/11/224/3221226143/1.m3u8
@@ -215,9 +209,6 @@ http://192.168.31.2:4022/rtp/239.21.1.155:5002
 # 济南联通
 #EXTINF:-1 tvg-id="" tvg-name="CCTV10" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CCTV10.png" group-title="央视频道",CCTV10
 rtsp://112.245.125.48:1554/iptv/import/Tvod/iptv/001/001/ch15111015554384702984.rsc/69941_Uni.sdp
-# 济南联通
-#EXTINF:-1 tvg-id="" tvg-name="CCTV10" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CCTV10.png" group-title="央视频道",CCTV10
-rtsp://112.245.125.39:1554/iptv/import/Tvod/iptv/001/001/ch13031310535009021862.rsc/70024_Uni.sdp
 # 上海移动
 #EXTINF:-1 tvg-id="" tvg-name="CCTV10" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CCTV10.png" group-title="央视频道",CCTV10
 http://[2409:8087:1e01:20::3]/PLTV/11/224/3221226169/1.m3u8
@@ -476,6 +467,9 @@ http://[2409:8087:1e01:20::3]/PLTV/11/224/3221225748/1.m3u8
 # 电信单播
 #EXTINF:-1 tvg-id="" tvg-name="金色学堂" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/金色学堂.png" group-title="上海频道",金色学堂
 http://150.138.8.143/00/SNM/CHANNEL00002018/index.m3u8
+# 青岛联通
+#EXTINF:-1 tvg-id="" tvg-name="金色学堂" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/金色学堂.png" group-title="上海频道",金色学堂
+http://123.235.73.237:9901/tsfile/live/0002_70.m3u8?key=txiptv
 # 电信组播
 #EXTINF:-1 tvg-id="" tvg-name="纪实科教" tvg-logo="" group-title="北京频道",纪实科教
 http://192.168.31.2:4022/rtp/239.21.1.172:5002
@@ -1469,6 +1463,9 @@ http://192.168.31.2:4022/rtp/239.21.1.141:5002
 # 济南联通
 #EXTINF:-1 tvg-id="" tvg-name="山东体育" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/山东体育.png" group-title="山东频道",山东体育
 rtsp://112.245.125.42:1554/iptv/import/Tvod/iptv/001/001/ch10111720502861127519.rsc/70066_Uni.sdp
+# 济南联通
+#EXTINF:-1 tvg-id="" tvg-name="山东体育" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/山东体育.png" group-title="山东频道",山东体育
+rtsp://112.245.125.47:1554/iptv/import/Tvod/iptv/001/001/ch23112315513709014787.rsc/99848_Uni.sdp
 # 电信单播
 #EXTINF:-1 tvg-id="" tvg-name="山东体育" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/山东体育.png" group-title="山东频道",山东体育
 http://150.138.8.143/00/SNM/CHANNEL00000315/index.m3u8
@@ -2234,6 +2231,9 @@ http://192.168.31.2:4022/rtp/239.21.2.146:5002
 # 电信单播
 #EXTINF:-1 tvg-id="" tvg-name="龙口综合" tvg-logo="" group-title="山东频道",龙口综合
 http://150.138.8.143/00/SNM/CHANNEL00001005/index.m3u8
+# 济南联通
+#EXTINF:-1 tvg-id="" tvg-name="CETV生态环境" tvg-logo="" group-title="数字频道",CETV生态环境
+rtsp://112.245.125.48:1554/iptv/import/Tvod/iptv/001/001/ch24111213061931833007.rsc/101604_Uni.sdp
 # 电信组播
 #EXTINF:-1 tvg-id="" tvg-name="CHC动作电影" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CHC动作电影.png" group-title="数字频道",CHC动作电影
 http://192.168.31.2:4022/rtp/239.21.2.128:5002
@@ -2264,6 +2264,18 @@ rtsp://112.245.125.48:1554/iptv/import/Tvod/iptv/001/001/ch18120514102191199606.
 # 电信单播
 #EXTINF:-1 tvg-id="" tvg-name="CHC影迷电影" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CHC影迷电影.png" group-title="数字频道",CHC影迷电影
 http://150.138.8.143/00/SNM/CHANNEL00002029/index.m3u8
+# 济南联通
+#EXTINF:-1 tvg-id="" tvg-name="IPTV军旅" tvg-logo="" group-title="数字频道",IPTV军旅
+rtsp://112.245.125.38:1554/iptv/import/Tvod/iptv/001/001/ch15090915223200641077.rsc/70054_Uni.sdp
+# 济南联通
+#EXTINF:-1 tvg-id="" tvg-name="IPTV武术" tvg-logo="" group-title="数字频道",IPTV武术
+rtsp://112.245.125.48:1554/iptv/import/Tvod/iptv/001/001/ch15090915491066711905.rsc/69984_Uni.sdp
+# 济南联通
+#EXTINF:-1 tvg-id="" tvg-name="IPTV法治" tvg-logo="" group-title="数字频道",IPTV法治
+rtsp://112.245.125.39:1554/iptv/import/Tvod/iptv/001/001/ch13031310542255942002.rsc/70032_Uni.sdp
+# 济南联通
+#EXTINF:-1 tvg-id="" tvg-name="IPTV野外" tvg-logo="" group-title="数字频道",IPTV野外
+rtsp://112.245.125.39:1554/iptv/import/Tvod/iptv/001/001/ch13031310535009021862.rsc/70024_Uni.sdp
 # 电信组播
 #EXTINF:-1 tvg-id="" tvg-name="中华特产" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/中华特产.png" group-title="数字频道",中华特产
 http://192.168.31.2:4022/rtp/239.21.2.177:5002
@@ -2276,6 +2288,9 @@ http://150.138.8.143/00/SNM/CHANNEL00000642/index.m3u8
 # 电信单播
 #EXTINF:-1 tvg-id="" tvg-name="中华特产" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/中华特产.png" group-title="数字频道",中华特产
 http://150.138.8.143/00/SNM/CHANNEL00000672/index.m3u8
+# 济南联通
+#EXTINF:-1 tvg-id="" tvg-name="中央新影老故事" tvg-logo="" group-title="数字频道",中央新影老故事
+rtsp://112.245.125.41:1554/iptv/import/Tvod/iptv/001/001/ch24012314302384136112.rsc/100078_Uni.sdp
 # 电信组播
 #EXTINF:-1 tvg-id="" tvg-name="乐游" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/乐游.png" group-title="数字频道",乐游
 http://192.168.31.2:4022/rtp/239.21.2.104:5002
@@ -2395,9 +2410,6 @@ http://[2409:8087:1e01:20::3]/PLTV/11/224/3221226021/1.m3u8
 http://150.138.8.143/00/SNM/CHANNEL00000074/index.m3u8
 # 电信组播
 #EXTINF:-1 tvg-id="" tvg-name="四海钓鱼" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/四海钓鱼.png" group-title="数字频道",四海钓鱼
-http://192.168.31.2:4022/rtp/239.21.2.99:5002
-# 电信组播
-#EXTINF:-1 tvg-id="" tvg-name="四海钓鱼" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/四海钓鱼.png" group-title="数字频道",四海钓鱼
 http://192.168.31.2:4022/rtp/239.21.2.180:5002
 # 济南联通
 #EXTINF:-1 tvg-id="" tvg-name="四海钓鱼" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/四海钓鱼.png" group-title="数字频道",四海钓鱼
@@ -2495,15 +2507,6 @@ http://[2409:8087:1e01:20::3]/PLTV/11/224/3221225994/1.m3u8
 # 电信单播
 #EXTINF:-1 tvg-id="" tvg-name="法治天地" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/法治天地.png" group-title="数字频道",法治天地
 http://150.138.8.143/00/SNM/CHANNEL00002010/index.m3u8
-# 青岛联通
-#EXTINF:-1 tvg-id="" tvg-name="海看教育" tvg-logo="" group-title="数字频道",海看教育
-http://123.235.73.237:9901/tsfile/live/0002_69.m3u8?key=txiptv
-# 济南联通
-#EXTINF:-1 tvg-id="" tvg-name="海看演艺" tvg-logo="" group-title="数字频道",海看演艺
-rtsp://112.245.125.47:1554/iptv/import/Tvod/iptv/001/001/ch23112315513709014787.rsc/99848_Uni.sdp
-# 青岛联通
-#EXTINF:-1 tvg-id="" tvg-name="海看演艺" tvg-logo="" group-title="数字频道",海看演艺
-http://123.235.73.237:9901/tsfile/live/0002_70.m3u8?key=txiptv
 # 电信组播
 #EXTINF:-1 tvg-id="" tvg-name="游戏风云" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/游戏风云.png" group-title="数字频道",游戏风云
 http://192.168.31.2:4022/rtp/239.21.2.107:5002
@@ -2516,6 +2519,9 @@ http://[2409:8087:1e01:20::3]/PLTV/11/224/3221226140/1.m3u8
 # 电信单播
 #EXTINF:-1 tvg-id="" tvg-name="游戏风云" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/游戏风云.png" group-title="数字频道",游戏风云
 http://150.138.8.143/00/SNM/CHANNEL00002024/index.m3u8
+# 青岛联通
+#EXTINF:-1 tvg-id="" tvg-name="游戏风云" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/游戏风云.png" group-title="数字频道",游戏风云
+http://123.235.73.237:9901/tsfile/live/0002_69.m3u8?key=txiptv
 # 济南联通
 #EXTINF:-1 tvg-id="" tvg-name="热播剧场" tvg-logo="" group-title="数字频道",热播剧场
 rtsp://112.245.125.48:1554/iptv/import/Tvod/iptv/001/001/ch11060317301148954080.rsc/70000_Uni.sdp
@@ -2546,9 +2552,6 @@ rtsp://112.245.125.48:1554/iptv/import/Tvod/iptv/001/001/ch22122209125585392509.
 # 电信单播
 #EXTINF:-1 tvg-id="" tvg-name="环球旅游" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/环球旅游.png" group-title="数字频道",环球旅游
 http://150.138.8.143/00/SNM/CHANNEL00000643/index.m3u8
-# 济南联通
-#EXTINF:-1 tvg-id="" tvg-name="生态环境" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/生态环境.png" group-title="数字频道",生态环境
-rtsp://112.245.125.48:1554/iptv/import/Tvod/iptv/001/001/ch24111213061931833007.rsc/101604_Uni.sdp
 # 济南联通
 #EXTINF:-1 tvg-id="" tvg-name="相声小品" tvg-logo="" group-title="数字频道",相声小品
 rtsp://112.245.125.48:1554/iptv/import/Tvod/iptv/001/001/ch13031310531244319435.rsc/70013_Uni.sdp
@@ -2588,9 +2591,6 @@ rtsp://112.245.125.47:1554/iptv/import/Tvod/iptv/001/001/ch15090916040665863835.
 # 济南联通
 #EXTINF:-1 tvg-id="" tvg-name="美妆" tvg-logo="" group-title="数字频道",美妆
 rtsp://112.245.125.48:1554/iptv/import/Tvod/iptv/001/001/ch15090915493052938184.rsc/70015_Uni.sdp
-# 济南联通
-#EXTINF:-1 tvg-id="" tvg-name="老故事" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/老故事.png" group-title="数字频道",老故事
-rtsp://112.245.125.41:1554/iptv/import/Tvod/iptv/001/001/ch24012314302384136112.rsc/100078_Uni.sdp
 # 济南联通
 #EXTINF:-1 tvg-id="" tvg-name="聚鲨环球" tvg-logo="" group-title="数字频道",聚鲨环球
 rtsp://112.245.125.48:1554/iptv/import/Tvod/iptv/001/001/ch24111213071421948951.rsc/101556_Uni.sdp
@@ -2654,9 +2654,6 @@ http://150.138.8.143/00/SNM/CHANNEL00000656/index.m3u8
 # 电信组播
 #EXTINF:-1 tvg-id="" tvg-name="武术世界" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/武术世界.png" group-title="河南频道",武术世界
 http://192.168.31.2:4022/rtp/239.21.2.96:5002
-# 济南联通
-#EXTINF:-1 tvg-id="" tvg-name="武术世界" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/武术世界.png" group-title="河南频道",武术世界
-rtsp://112.245.125.48:1554/iptv/import/Tvod/iptv/001/001/ch15090915491066711905.rsc/69984_Uni.sdp
 # 济南联通
 #EXTINF:-1 tvg-id="" tvg-name="武术世界" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/武术世界.png" group-title="河南频道",武术世界
 rtsp://112.245.125.41:1554/iptv/import/Tvod/iptv/001/001/ch21092610320200462249.rsc/96396_Uni.sdp
