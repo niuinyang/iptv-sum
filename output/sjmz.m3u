@@ -575,6 +575,9 @@ http://123.235.73.237:9901/tsfile/live/0002_46.m3u8?key=txiptv
 # 电信单播
 #EXTINF:-1 tvg-id="" tvg-name="CETV1" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CETV1.png" group-title="卫视频道",CETV1
 http://150.138.8.143/00/SNM/CHANNEL00000076/index.m3u8
+# 上海移动
+#EXTINF:-1 tvg-id="" tvg-name="CETV2" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CETV2.png" group-title="卫视频道",CETV2
+http://[2409:8087:1e01:20::3]/PLTV/11/224/3221226153/1.m3u8
 # 济南联通
 #EXTINF:-1 tvg-id="" tvg-name="CETV2" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CETV2.png" group-title="卫视频道",CETV2
 rtsp://112.245.125.39:1554/iptv/import/Tvod/iptv/001/001/ch17120417211408620162.rsc/74298_Uni.sdp
@@ -584,9 +587,6 @@ http://192.168.31.2:4022/rtp/239.21.2.8:5002
 # 电信单播
 #EXTINF:-1 tvg-id="" tvg-name="CETV2" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CETV2.png" group-title="卫视频道",CETV2
 http://150.138.8.143/00/SNM/CHANNEL00000077/index.m3u8
-# 上海移动
-#EXTINF:-1 tvg-id="" tvg-name="CETV4" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CETV4.png" group-title="卫视频道",CETV4
-http://[2409:8087:1e01:20::3]/PLTV/11/224/3221226153/1.m3u8
 # 济南联通
 #EXTINF:-1 tvg-id="" tvg-name="CETV4" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CETV4.png" group-title="卫视频道",CETV4
 rtsp://112.245.125.48:1554/iptv/import/Tvod/iptv/001/001/ch17120418055568047747.rsc/74289_Uni.sdp
