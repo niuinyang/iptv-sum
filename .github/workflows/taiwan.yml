@@ -32,13 +32,13 @@ jobs:
         run: python scripts/extract_taiwan_channels.py
 
       - name: Check sum.csv hash
-        run: sha256sum input/network/sum.csv
+        run: sha256sum input/network/taiwan_sum.csv
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: sum-csv
-          path: input/network/sum.csv
+          path: input/network/taiwan_sum.csv
 
       - name: Commit & push sum.csv if changed
         env:
