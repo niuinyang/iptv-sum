@@ -3,7 +3,7 @@ name: Extract Taiwan Channels
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 3 1 * *'
+    - cron: '0 3 1 * *'  # 每月1日凌晨3点
 
 permissions:
   contents: write  # 允许 workflow 写入仓库
@@ -31,6 +31,9 @@ jobs:
       - name: Run extract script
         run: python scripts/extract_taiwan_channels.py
 
+      - name: Check sum.csv hash
+        run: sha256sum input/network/sum.csv
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -38,6 +41,9 @@ jobs:
           path: input/network/sum.csv
 
       - name: Commit & push sum.csv if changed
+        env:
+          # 如果你使用 PAT，确保在仓库 Secrets 中添加 PAT_TOKEN
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -46,4 +52,10 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Update sum.csv [skip ci]"
-            git push
+            # 使用 PAT 或 GITHUB_TOKEN 推送
+            if [ -n "$PAT_TOKEN" ]; then
+              git push https://$PAT_TOKEN@github.com/niuinyang/iptv-sum.git
+            else
+              git push
+            fi
+          fi
