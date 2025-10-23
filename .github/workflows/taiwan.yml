@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: '0 3 1 * *'  # 每月1日凌晨3点自动运行
 
+permissions:
+  contents: write  # 允许推送文件
+
+
 jobs:
   extract_channels:
     runs-on: ubuntu-latest
