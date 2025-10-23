@@ -1,13 +1,18 @@
 import os
 import csv
 import re
-from itertools import groupby
+from collections import defaultdict
 
 # CSV 文件路径
-csv_file = "input/mysource/my_sum.csv"
+csv_files = [
+    "input/mysource/my_sum.csv",
+    "input/network/taiwan_sum.csv"  # 新增台湾 CSV
+]
+
 # 图标文件夹
 icon_dir = "png"
 default_icon = "png/default.png"
+
 # 输出目录
 output_dir = "output"
 os.makedirs(output_dir, exist_ok=True)
@@ -29,22 +34,26 @@ sjmz_order = ["济南移动", "上海移动", "济南联通", "电信组播", "�
 
 # 读取 CSV
 channels = []
-with open(csv_file, newline="", encoding="utf-8") as f:
-    reader = csv.reader(f)
-    next(reader)  # 跳过表头
-    for row in reader:
-        if len(row) < 3:
-            continue
-        name = row[0].strip()
-        group = row[1].strip() if row[1].strip() else "未分类"
-        url = row[2].strip()
-        source = row[3].strip() if len(row) > 3 else ""
-        channels.append({
-            "name": name,
-            "group": group,
-            "url": url,
-            "source": source
-        })
+for csv_file in csv_files:
+    with open(csv_file, newline="", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        next(reader)  # 跳过表头
+        for row in reader:
+            if len(row) < 3:
+                continue
+            name = row[0].strip()
+            group = row[1].strip() if row[1].strip() else "未分类"
+            # 台湾 CSV 的分组统一为 "台湾"
+            if "taiwan" in csv_file.lower():
+                group = "台湾"
+            url = row[2].strip()
+            source = row[3].strip() if len(row) > 3 else ""
+            channels.append({
+                "name": name,
+                "group": group,
+                "url": url,
+                "source": source
+            })
 
 # 图标处理
 for ch in channels:
@@ -56,18 +65,16 @@ for ch in channels:
     else:
         ch["icon"] = ""
 
-# 分组排序：央视频道按 CCTV 自然顺序，其他按拼音
-other_groups = sorted(set(ch["group"] for ch in channels if ch["group"] != "央视频道"))
-group_priority = {name: i+len(cctv_order) for i, name in enumerate(other_groups)}
+# 分组排序：央视频道按 CCTV 自然顺序，其他按拼音，台湾放最后
+other_groups = sorted(set(ch["group"] for ch in channels if ch["group"] != "央视频道" and ch["group"] != "台湾"))
+group_priority = {name: i for i, name in enumerate(other_groups)}
+group_priority["台湾"] = len(other_groups)  # 台湾排最后
 
 def group_sort_key(ch):
     if ch["group"] == "央视频道":
-        try:
-            return cctv_order.index(ch["name"])
-        except ValueError:
-            return len(cctv_order)
+        return (0, natural_key(ch["name"]))  # CCTV 自然顺序
     else:
-        return group_priority.get(ch["group"], len(cctv_order) + len(group_priority))
+        return (1, group_priority.get(ch["group"], len(group_priority)), ch["name"])
 
 # 地址源排序
 def source_sort_key(ch, order):
@@ -82,15 +89,19 @@ def generate_m3u(filename, source_priority, remove_source=None):
     if remove_source:
         filtered = [ch for ch in filtered if ch["source"] != remove_source]
 
-    # 先按分组和频道名自然排序
+    # 按分组 + 频道名自然排序
     filtered.sort(key=lambda ch: (group_sort_key(ch), natural_key(ch["name"])))
 
     # 每个频道内部按 source_priority 排序
+    name_dict = defaultdict(list)
+    for ch in filtered:
+        name_dict[ch["name"]].append(ch)
+
     final_list = []
-    for name, group_items in groupby(filtered, key=lambda ch: ch["name"]):
-        group_items = list(group_items)
-        group_items.sort(key=lambda ch: source_sort_key(ch, source_priority))
-        final_list.extend(group_items)
+    for name in sorted(name_dict.keys(), key=natural_key):
+        items = name_dict[name]
+        items.sort(key=lambda ch: source_sort_key(ch, source_priority))
+        final_list.extend(items)
 
     # 写入 M3U
     m3u_path = os.path.join(output_dir, filename)
