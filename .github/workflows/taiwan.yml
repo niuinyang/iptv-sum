@@ -24,7 +24,7 @@ jobs:
         pip install opencc-python-reimplemented
 
     - name: Run extract script
-      run: python scripts/extract_channels.py
+      run: python scripts/extract_taiwan_channels.py
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
