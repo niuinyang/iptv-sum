@@ -1,5 +1,6 @@
 import csv
 import re
+import unicodedata
 from opencc import OpenCC
 
 # 文件路径
@@ -10,10 +11,22 @@ output_file = "input/network/sum.csv"
 # 简繁转换器
 cc = OpenCC('t2s')  # 繁体 -> 简体
 
+# 用于标准化文本：去掉空格和标点
+def normalize_text(text):
+    if not text:
+        return ""
+    text = cc.convert(text)  # 繁转简
+    text = unicodedata.normalize("NFKC", text)  # 标准化字符
+    text = re.sub(r'[\s\p{P}\p{S}]', '', text, flags=re.UNICODE)  # 移除空格和标点
+    return text.lower()  # 转小写
+
 # 读取要查找的电视台列表（第一列），保持顺序
 with open(find_file, "r", encoding="utf-8") as f:
     reader = csv.reader(f)
     search_names = [row[0].strip() for row in reader if row]
+
+# 标准化搜索名
+search_norm = [normalize_text(name) for name in search_names]
 
 # 读取 M3U 内容并匹配
 matches_dict = {name: [] for name in search_names}  # 按 find.csv 顺序存储结果
@@ -31,15 +44,15 @@ while i < len(lines):
         if url_line in seen_urls:
             i += 2
             continue
-        # 提取 tvg-name 并转为简体
+        # 提取 tvg-name
         match_name = re.search(r'tvg-name="([^"]+)"', info_line)
         tvg_name_original = match_name.group(1) if match_name else ""
-        tvg_name_simplified = cc.convert(tvg_name_original)
+        tvg_norm = normalize_text(tvg_name_original)
 
-        # 遍历搜索列表，看是否匹配（简体匹配）
-        for name in search_names:
-            if name in tvg_name_simplified:
-                matches_dict[name].append([tvg_name_original, "台湾", url_line])
+        # 遍历搜索列表，看是否匹配
+        for idx, name_norm in enumerate(search_norm):
+            if name_norm in tvg_norm:
+                matches_dict[search_names[idx]].append([tvg_name_original, "台湾", url_line])
                 seen_urls.add(url_line)
                 break
         i += 2
