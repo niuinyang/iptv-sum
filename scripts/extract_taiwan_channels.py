@@ -2,11 +2,16 @@ import csv
 import re
 import unicodedata
 from opencc import OpenCC
+import os
 
 # 文件路径
 m3u_file = "output/working.m3u"
 find_file = "input/network/find.csv"
-output_file = "input/network/taiwan_sum.csv"  # 修改输出文件名
+output_dir = "input/network"
+output_file = os.path.join(output_dir, "taiwan_sum.csv")
+
+# 确保目录存在
+os.makedirs(output_dir, exist_ok=True)
 
 # 简繁转换器
 cc = OpenCC('t2s')  # 繁体 -> 简体
