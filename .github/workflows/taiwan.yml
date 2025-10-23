@@ -1,9 +1,9 @@
-name: Extract taiwan Channels
+name: Extract Taiwan Channels
 
 on:
-  workflow_dispatch:  # 手动触发
+  workflow_dispatch:
   schedule:
-    - cron: '0 3 1 * *'  # 每月1日凌晨3点自动运行
+    - cron: '0 3 1 * *'
 
 jobs:
   extract_channels:
@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        persist-credentials: true
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -26,18 +28,23 @@ jobs:
     - name: Run extract script
       run: python scripts/extract_taiwan_channels.py
 
+    - name: Check sum.csv hash
+      run: sha256sum input/network/sum.csv
+
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: sum-csv
         path: input/network/sum.csv
 
-    - name: Commit & push sum.csv
+    - name: Commit & push sum.csv if changed
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git add input/network/sum.csv
-        git diff --quiet && echo "No changes to commit" || git commit -m "Update sum.csv [skip ci]"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if git diff --cached --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Update sum.csv [skip ci]"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/niuinyang/iptv-sum.git
+        fi
