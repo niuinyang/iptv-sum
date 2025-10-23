@@ -1,13 +1,9 @@
-name: Extract Channels
+name: Extract taiwan Channels
 
 on:
-  workflow_dispatch:  # 可以手动触发
+  workflow_dispatch:  # 手动触发
   schedule:
     - cron: '0 3 1 * *'  # 每月1日凌晨3点自动运行
-
-permissions:
-  contents: write  # 允许推送文件
-
 
 jobs:
   extract_channels:
@@ -28,10 +24,20 @@ jobs:
         pip install opencc-python-reimplemented
 
     - name: Run extract script
-      run: python scripts/taiwan.py
+      run: python scripts/extract_channels.py
 
-    - name: Upload output
-      uses: actions/upload-artifact@v3
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
       with:
         name: sum-csv
         path: input/network/sum.csv
+
+    - name: Commit & push sum.csv
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add input/network/sum.csv
+        git diff --quiet && echo "No changes to commit" || git commit -m "Update sum.csv [skip ci]"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
