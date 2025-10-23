@@ -1,0 +1,33 @@
+name: Extract Channels
+
+on:
+  workflow_dispatch:  # 可以手动触发
+  schedule:
+    - cron: '0 3 1 * *'  # 每月1日凌晨3点自动运行
+
+jobs:
+  extract_channels:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install opencc-python-reimplemented
+
+    - name: Run extract script
+      run: python scripts/taiwan.py
+
+    - name: Upload output
+      uses: actions/upload-artifact@v3
+      with:
+        name: sum-csv
+        path: input/network/sum.csv
