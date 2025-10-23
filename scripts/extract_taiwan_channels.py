@@ -6,7 +6,7 @@ from opencc import OpenCC
 # 文件路径
 m3u_file = "output/working.m3u"
 find_file = "input/network/find.csv"
-output_file = "input/network/tanwan_sum.csv"
+output_file = "input/network/taiwan_sum.csv"  # 修改输出文件名
 
 # 简繁转换器
 cc = OpenCC('t2s')  # 繁体 -> 简体
