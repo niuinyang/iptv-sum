@@ -1,1 +1,2 @@
 https://epg.pw/test_channels_taiwan.m3u
+https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tw.m3u
