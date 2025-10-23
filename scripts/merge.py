@@ -1,11 +1,8 @@
 import os
 import re
-import time
 import requests
+import time
 
-# ==============================
-# 配置
-# ==============================
 SOURCES_FILE = "input/network/networksource.txt"
 OUTPUT_FILE = "output/total.m3u"
 os.makedirs("output", exist_ok=True)
@@ -14,9 +11,6 @@ HEADERS = {"User-Agent": "Mozilla/5.0"}
 RETRY_TIMES = 3
 TIMEOUT = 15
 
-# ==============================
-# 读取所有源
-# ==============================
 def fetch_sources(file_path):
     all_lines = []
     success, failed = 0, 0
@@ -44,7 +38,7 @@ def fetch_sources(file_path):
                 with open(url, encoding="utf-8", errors="ignore") as f_local:
                     text = f_local.read()
 
-            # 每个源文件只去掉一次 #EXTM3U 文件头
+            # 每个源只去掉一次 #EXTM3U
             lines = text.splitlines()
             filtered_lines = []
             removed_header = False
@@ -53,7 +47,7 @@ def fetch_sources(file_path):
                 if l_strip.startswith("#EXTM3U") and not removed_header:
                     removed_header = True
                     continue
-                if l_strip:  # 保留非空行
+                if l_strip:
                     filtered_lines.append(l_strip)
 
             all_lines.extend(filtered_lines)
@@ -64,9 +58,6 @@ def fetch_sources(file_path):
 
     return all_lines, success, failed
 
-# ==============================
-# 解析 EXTINF + URL 对
-# ==============================
 def parse_channels(lines):
     url_pattern = re.compile(r'^https?://')
     pairs = []
@@ -74,15 +65,13 @@ def parse_channels(lines):
     for i, line in enumerate(lines):
         if line.startswith("#EXTINF"):
             # 向下找第一个 URL
-            for j in range(i + 1, len(lines)):
-                if url_pattern.match(lines[j]):
-                    pairs.append((line, lines[j]))
+            for j in range(i+1, len(lines)):
+                next_line = lines[j].strip()
+                if url_pattern.match(next_line):
+                    pairs.append((line, next_line))
                     break
     return pairs
 
-# ==============================
-# 去重 EXTINF + URL
-# ==============================
 def deduplicate(pairs):
     seen = set()
     unique_pairs = []
@@ -93,15 +82,9 @@ def deduplicate(pairs):
             seen.add(key)
     return unique_pairs
 
-# ==============================
-# 自然排序频道名
-# ==============================
 def natural_sort_key(text):
     return [int(t) if t.isdigit() else t.lower() for t in re.split(r"([0-9]+)", text)]
 
-# ==============================
-# 写入 total.m3u
-# ==============================
 def write_m3u(pairs, output_file):
     pairs.sort(key=lambda x: natural_sort_key(x[0]))
     with open(output_file, "w", encoding="utf-8") as f:
@@ -109,9 +92,6 @@ def write_m3u(pairs, output_file):
         for title, url in pairs:
             f.write(f"{title}\n{url}\n")
 
-# ==============================
-# 主流程
-# ==============================
 if __name__ == "__main__":
     all_lines, success, failed = fetch_sources(SOURCES_FILE)
     pairs = parse_channels(all_lines)
