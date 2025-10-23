@@ -6,7 +6,7 @@ import os
 
 # 文件路径
 m3u_file = "output/working.m3u"
-find_file = "input/network/find.csv"
+find_file = "input/network/find_taiwan.csv"
 output_dir = "input/network"
 output_file = os.path.join(output_dir, "taiwan_sum.csv")
 
