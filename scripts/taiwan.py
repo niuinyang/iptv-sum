@@ -1,0 +1,51 @@
+import csv
+import re
+from opencc import OpenCC
+
+# 文件路径
+m3u_file = "output/working.m3u"
+find_file = "input/network/find.csv"
+output_file = "input/network/sum.csv"
+
+# 简繁转换器
+cc = OpenCC('t2s')  # 繁体 -> 简体
+
+# 读取要查找的电视台列表（第一列），保持顺序
+with open(find_file, "r", encoding="utf-8") as f:
+    reader = csv.reader(f)
+    search_names = [row[0].strip() for row in reader if row]
+
+# 读取 M3U 内容并匹配
+matches_dict = {name: [] for name in search_names}  # 按 find.csv 顺序存储结果
+
+with open(m3u_file, "r", encoding="utf-8") as f:
+    lines = f.readlines()
+
+i = 0
+while i < len(lines):
+    line = lines[i].strip()
+    if line.startswith("#EXTINF:"):
+        info_line = line
+        url_line = lines[i + 1].strip() if i + 1 < len(lines) else ""
+        # 提取 tvg-name 并转为简体
+        match_name = re.search(r'tvg-name="([^"]+)"', info_line)
+        tvg_name_original = match_name.group(1) if match_name else ""
+        tvg_name_simplified = cc.convert(tvg_name_original)
+
+        # 遍历搜索列表，看是否匹配（简体匹配）
+        for name in search_names:
+            if name in tvg_name_simplified:
+                matches_dict[name].append([tvg_name_original, "台湾", url_line])
+                break
+        i += 2
+    else:
+        i += 1
+
+# 按 find.csv 顺序写入 CSV
+with open(output_file, "w", newline="", encoding="utf-8-sig") as f:
+    writer = csv.writer(f)
+    writer.writerow(["tvg-name", "地区", "URL"])
+    for name in search_names:
+        writer.writerows(matches_dict[name])
+
+print(f"匹配完成，共找到 {sum(len(v) for v in matches_dict.values())} 个频道，已输出到 {output_file}")
