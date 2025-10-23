@@ -17,6 +17,7 @@ with open(find_file, "r", encoding="utf-8") as f:
 
 # 读取 M3U 内容并匹配
 matches_dict = {name: [] for name in search_names}  # 按 find.csv 顺序存储结果
+seen_urls = set()  # 去重 URL
 
 with open(m3u_file, "r", encoding="utf-8") as f:
     lines = f.readlines()
@@ -27,6 +28,9 @@ while i < len(lines):
     if line.startswith("#EXTINF:"):
         info_line = line
         url_line = lines[i + 1].strip() if i + 1 < len(lines) else ""
+        if url_line in seen_urls:
+            i += 2
+            continue
         # 提取 tvg-name 并转为简体
         match_name = re.search(r'tvg-name="([^"]+)"', info_line)
         tvg_name_original = match_name.group(1) if match_name else ""
@@ -36,6 +40,7 @@ while i < len(lines):
         for name in search_names:
             if name in tvg_name_simplified:
                 matches_dict[name].append([tvg_name_original, "台湾", url_line])
+                seen_urls.add(url_line)
                 break
         i += 2
     else:
