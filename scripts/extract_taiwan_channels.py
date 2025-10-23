@@ -11,14 +11,18 @@ output_file = "input/network/sum.csv"
 # 简繁转换器
 cc = OpenCC('t2s')  # 繁体 -> 简体
 
-# 用于标准化文本：去掉空格和标点
+# 标准化文本：繁转简 + 去掉空格和标点
 def normalize_text(text):
     if not text:
         return ""
-    text = cc.convert(text)  # 繁转简
+    text = cc.convert(text)  # 繁体 -> 简体
     text = unicodedata.normalize("NFKC", text)  # 标准化字符
-    text = re.sub(r'[\s\p{P}\p{S}]', '', text, flags=re.UNICODE)  # 移除空格和标点
-    return text.lower()  # 转小写
+    # 移除空格和标点符号
+    text = ''.join(
+        c for c in text
+        if not (c.isspace() or unicodedata.category(c).startswith(('P', 'S')))
+    )
+    return text.lower()
 
 # 读取要查找的电视台列表（第一列），保持顺序
 with open(find_file, "r", encoding="utf-8") as f:
