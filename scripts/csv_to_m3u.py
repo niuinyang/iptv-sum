@@ -4,7 +4,7 @@ import re
 from itertools import groupby
 
 # CSV 文件路径
-csv_file = "input/mysource/sum.csv"
+csv_file = "input/mysource/my_sum.csv"
 # 图标文件夹
 icon_dir = "png"
 default_icon = "png/default.png"
