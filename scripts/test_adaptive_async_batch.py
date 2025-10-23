@@ -2,21 +2,35 @@ import requests, os, time, json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from statistics import mean
 
+# ==============================
+# 配置区
+# ==============================
 input_file = "output/total.m3u"
 output_file = "output/working.m3u"
 progress_file = "output/progress.json"
 os.makedirs("output", exist_ok=True)
 
-# 初始参数
-TIMEOUT = 5
+TIMEOUT = 10
 BASE_THREADS = 50
 MAX_THREADS = 200
-BATCH_SIZE = 500     # 每批检测 500 条，动态调整
+BATCH_SIZE = 300
 
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                  "AppleWebKit/537.36 (KHTML, like Gecko) "
+                  "Chrome/120.0 Safari/537.36",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+}
+
+
+# ==============================
+# 检测函数
+# ==============================
 def quick_check(url):
-    """第一层：HEAD 检测"""
+    """第一层：HEAD 请求检测"""
     try:
-        r = requests.head(url, timeout=TIMEOUT, allow_redirects=True)
+        r = requests.head(url, headers=HEADERS, timeout=TIMEOUT, allow_redirects=True)
         if r.status_code < 400 and (
             "video" in r.headers.get("content-type", "").lower()
             or url.lower().endswith((".m3u8", ".ts"))
@@ -26,26 +40,32 @@ def quick_check(url):
         pass
     return False
 
+
 def deep_check(url):
     """第二层：下载前几 KB 验证是否为视频流"""
     try:
-        r = requests.get(url, stream=True, timeout=TIMEOUT)
-        chunk = next(r.iter_content(chunk_size=4096))
-        if any(sig in chunk for sig in [b"#EXTM3U", b"mpegts", b"ftyp", b"\x00\x00\x01\xb3"]):
+        r = requests.get(url, headers=HEADERS, stream=True, timeout=TIMEOUT)
+        chunk = next(r.iter_content(chunk_size=8192))
+        if any(sig in chunk for sig in [
+            b"#EXTM3U", b"mpegts", b"ftyp", b"\x00\x00\x01\xb3", b"HTTP Live Streaming"
+        ]):
             return True
     except Exception:
         pass
     return False
 
+
 def test_stream(url):
-    if not quick_check(url):
-        return False
-    return deep_check(url)
+    """综合检测：HEAD 失败则尝试 GET"""
+    return quick_check(url) or deep_check(url)
+
 
 def detect_optimal_threads():
-    """检测网络性能以动态确定线程数"""
+    """根据网络延迟动态调整线程数"""
     test_urls = [
-        "https://www.apple.com", "https://www.google.com", "https://www.microsoft.com"
+        "https://www.apple.com",
+        "https://www.google.com",
+        "https://www.microsoft.com",
     ]
     times = []
     for u in test_urls:
@@ -65,13 +85,13 @@ def detect_optimal_threads():
     else:
         return BASE_THREADS
 
-# --------------------------
+
+# ==============================
 # 主逻辑
-# --------------------------
+# ==============================
 lines = open(input_file, encoding="utf-8").read().splitlines()
 pairs = [(lines[i], lines[i+1]) for i in range(len(lines)-1) if lines[i].startswith("#EXTINF")]
 
-# 进度恢复
 done_index = 0
 if os.path.exists(progress_file):
     try:
@@ -105,9 +125,8 @@ for batch_start in range(done_index, total, BATCH_SIZE):
             except Exception as e:
                 print(f"❌ Error: {url} ({e})")
 
-    # 记录进度
     json.dump({"done": batch_start + BATCH_SIZE}, open(progress_file, "w", encoding="utf-8"))
-    print(f"🧮 已完成 {batch_start + BATCH_SIZE}/{total}")
+    print(f"🧮 已完成 {min(batch_start + BATCH_SIZE, total)}/{total}")
 
 with open(output_file, "w", encoding="utf-8") as f:
     f.write("\n".join(working))
