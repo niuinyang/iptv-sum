@@ -6,8 +6,8 @@ from collections import defaultdict
 # CSV 文件路径
 csv_files = [
     "input/mysource/my_sum.csv",
+    "input/network/international_sum.csv",  # ✅ 新增国际频道
     "input/network/taiwan_sum.csv"
-    "input/network/international_sum.csv"
 ]
 
 # 图标文件夹
@@ -34,16 +34,24 @@ sjmz_order = ["济南移动", "上海移动", "济南联通", "电信组播", "�
 # 读取 CSV
 channels = []
 for csv_file in csv_files:
+    if not os.path.exists(csv_file):
+        print(f"⚠️ 跳过不存在的文件: {csv_file}")
+        continue
     with open(csv_file, newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
-        next(reader)
+        next(reader, None)
         for row in reader:
             if len(row) < 3:
                 continue
             name = row[0].strip()
             group = row[1].strip() if row[1].strip() else "未分类"
+
+            # ✅ 自动识别分组归类
             if "taiwan" in csv_file.lower():
                 group = "台湾频道"
+            elif "international" in csv_file.lower():
+                group = "国际频道"
+
             url = row[2].strip()
             source = row[3].strip() if len(row) > 3 else ""
             channels.append({
@@ -64,24 +72,19 @@ for ch in channels:
         ch["icon"] = ""
 
 # 分组排序规则
-# 优先级从 0 开始，数字越小越靠前
 priority_groups = [
     "央视频道",
     "4K频道",
     "卫视频道",
-    "国际频道",
+    "国际频道",   # ✅ 新增国际频道在台湾前
     "台湾频道"
 ]
 
 # 其他分组按拼音排序，但排除数字频道和电台广播
 other_groups = sorted(set(ch["group"] for ch in channels if ch["group"] not in priority_groups + ["数字频道", "电台广播"]))
-# 构建 group_priority
 group_priority = {name: i + len(priority_groups) for i, name in enumerate(other_groups)}
-# 数字频道倒数第二
 group_priority["数字频道"] = len(priority_groups) + len(other_groups)
-# 电台广播最后
 group_priority["电台广播"] = len(priority_groups) + len(other_groups) + 1
-# 已有的固定顺序
 for i, g in enumerate(priority_groups):
     group_priority[g] = i
 
@@ -111,9 +114,7 @@ def generate_m3u(filename, source_priority, remove_source=None):
     final_list = []
     for group_name in sorted(grouped.keys(), key=lambda g: group_priority.get(g, 999)):
         group_items = grouped[group_name]
-        # 组内按频道名自然排序
         group_items.sort(key=lambda ch: natural_key(ch["name"]))
-        # 同名频道按 source_priority 排序
         name_dict = defaultdict(list)
         for ch in group_items:
             name_dict[ch["name"]].append(ch)
@@ -136,5 +137,6 @@ def generate_m3u(filename, source_priority, remove_source=None):
 
 # 生成 dxl.m3u（去掉济南移动）
 generate_m3u("dxl.m3u", dxl_order, remove_source="济南移动")
+
 # 生成 sjmz.m3u
 generate_m3u("sjmz.m3u", sjmz_order)
