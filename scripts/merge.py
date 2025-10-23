@@ -1,77 +1,122 @@
-import requests, os, time, re
+import os
+import re
+import time
+import requests
 
-# ------------------- 配置 -------------------
-sources_file = "input/network/networksource.txt"
-output_file = "output/total.m3u"
+# ==============================
+# 配置
+# ==============================
+SOURCES_FILE = "input/network/networksource.txt"
+OUTPUT_FILE = "output/total.m3u"
 os.makedirs("output", exist_ok=True)
 
-headers = {"User-Agent": "Mozilla/5.0"}
-all_lines = []
-success, failed = 0, 0
+HEADERS = {"User-Agent": "Mozilla/5.0"}
+RETRY_TIMES = 3
+TIMEOUT = 15
 
-# ------------------- 读取源列表 -------------------
-with open(sources_file, "r", encoding="utf-8") as f:
-    urls = [u.strip() for u in f if u.strip() and not u.strip().startswith("#")]
+# ==============================
+# 读取所有源
+# ==============================
+def fetch_sources(file_path):
+    all_lines = []
+    success, failed = 0, 0
 
-for url in urls:
-    print(f"📡 Fetching: {url}")
-    try:
-        if url.startswith("http"):
-            text = None
-            for attempt in range(3):
-                try:
-                    r = requests.get(url, headers=headers, timeout=15)
-                    r.encoding = r.apparent_encoding or "utf-8"
-                    text = r.text
+    with open(file_path, "r", encoding="utf-8") as f:
+        urls = [u.strip() for u in f if u.strip() and not u.strip().startswith("#")]
+
+    for url in urls:
+        print(f"📡 Fetching: {url}")
+        try:
+            if url.startswith("http"):
+                text = None
+                for attempt in range(RETRY_TIMES):
+                    try:
+                        r = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+                        r.encoding = r.apparent_encoding or "utf-8"
+                        text = r.text
+                        break
+                    except Exception as e:
+                        print(f"⚠️ 重试 {attempt+1}/{RETRY_TIMES} 失败: {e}")
+                        time.sleep(2)
+                if text is None:
+                    raise Exception("多次请求失败")
+            else:
+                with open(url, encoding="utf-8", errors="ignore") as f_local:
+                    text = f_local.read()
+
+            # 每个源文件只去掉一次 #EXTM3U 文件头
+            lines = text.splitlines()
+            filtered_lines = []
+            removed_header = False
+            for l in lines:
+                l_strip = l.strip()
+                if l_strip.startswith("#EXTM3U") and not removed_header:
+                    removed_header = True
+                    continue
+                if l_strip:  # 保留非空行
+                    filtered_lines.append(l_strip)
+
+            all_lines.extend(filtered_lines)
+            success += 1
+        except Exception as e:
+            failed += 1
+            print(f"❌ Failed: {url} ({e})")
+
+    return all_lines, success, failed
+
+# ==============================
+# 解析 EXTINF + URL 对
+# ==============================
+def parse_channels(lines):
+    url_pattern = re.compile(r'^https?://')
+    pairs = []
+
+    for i, line in enumerate(lines):
+        if line.startswith("#EXTINF"):
+            # 向下找第一个 URL
+            for j in range(i + 1, len(lines)):
+                if url_pattern.match(lines[j]):
+                    pairs.append((line, lines[j]))
                     break
-                except Exception as e:
-                    print(f"⚠️ 重试 {attempt+1}/3 失败: {e}")
-                    time.sleep(2)
-            if text is None:
-                raise Exception("3次重试失败")
-        else:
-            with open(url, encoding="utf-8", errors="ignore") as f2:
-                text = f2.read()
+    return pairs
 
-        # 保留所有行，去掉文件头 #EXTM3U
-        lines = [l.strip() for l in text.splitlines() if l.strip() and not l.strip().startswith("#EXTM3U")]
-        all_lines.extend(lines)
-        success += 1
-    except Exception as e:
-        failed += 1
-        print(f"❌ Failed: {url} ({e})")
+# ==============================
+# 去重 EXTINF + URL
+# ==============================
+def deduplicate(pairs):
+    seen = set()
+    unique_pairs = []
+    for title, url in pairs:
+        key = (title, url)
+        if key not in seen:
+            unique_pairs.append((title, url))
+            seen.add(key)
+    return unique_pairs
 
-# ------------------- 组合 EXTINF + URL 对 -------------------
-pairs = []
-url_pattern = re.compile(r'^https?://')
-for i, line in enumerate(all_lines):
-    if line.startswith("#EXTINF"):
-        # 向下找第一个 URL
-        for j in range(i+1, len(all_lines)):
-            if url_pattern.match(all_lines[j]):
-                pairs.append((line, all_lines[j]))
-                break
+# ==============================
+# 自然排序频道名
+# ==============================
+def natural_sort_key(text):
+    return [int(t) if t.isdigit() else t.lower() for t in re.split(r"([0-9]+)", text)]
 
-# ------------------- 去重 (完全重复的 EXTINF+URL) -------------------
-seen = set()
-unique_pairs = []
-for title, url in pairs:
-    key = (title, url)
-    if key not in seen:
-        unique_pairs.append((title, url))
-        seen.add(key)
+# ==============================
+# 写入 total.m3u
+# ==============================
+def write_m3u(pairs, output_file):
+    pairs.sort(key=lambda x: natural_sort_key(x[0]))
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write("#EXTM3U\n")
+        for title, url in pairs:
+            f.write(f"{title}\n{url}\n")
 
-# ------------------- 自然排序 -------------------
-def natural_key(text):
-    return [int(t) if t.isdigit() else t.lower() for t in re.split("([0-9]+)", text)]
+# ==============================
+# 主流程
+# ==============================
+if __name__ == "__main__":
+    all_lines, success, failed = fetch_sources(SOURCES_FILE)
+    pairs = parse_channels(all_lines)
+    unique_pairs = deduplicate(pairs)
+    write_m3u(unique_pairs, OUTPUT_FILE)
 
-unique_pairs.sort(key=lambda x: natural_key(x[0]))
-
-# ------------------- 写入 total.m3u -------------------
-with open(output_file, "w", encoding="utf-8") as f:
-    f.write("#EXTM3U\n")
-    for title, url in unique_pairs:
-        f.write(f"{title}\n{url}\n")
-
-print(f"\n✅ 合并完成：成功 {success} 源，失败 {failed} 源，"
-      f"去重后 {len(unique_pairs)} 条频道 → {output_file}")
+    print(f"\n✅ 合并完成：成功 {success} 源，失败 {failed} 源，"
+          f"去重后 {len(unique_pairs)} 条频道 → {OUTPUT_FILE}")
