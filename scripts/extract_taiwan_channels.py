@@ -6,7 +6,7 @@ from opencc import OpenCC
 # 文件路径
 m3u_file = "output/working.m3u"
 find_file = "input/network/find.csv"
-output_file = "input/network/sum.csv"
+output_file = "input/network/tanwan_sum.csv"
 
 # 简繁转换器
 cc = OpenCC('t2s')  # 繁体 -> 简体
@@ -15,9 +15,8 @@ cc = OpenCC('t2s')  # 繁体 -> 简体
 def normalize_text(text):
     if not text:
         return ""
-    text = cc.convert(text)  # 繁体 -> 简体
-    text = unicodedata.normalize("NFKC", text)  # 标准化字符
-    # 移除空格和标点符号
+    text = cc.convert(text)
+    text = unicodedata.normalize("NFKC", text)
     text = ''.join(
         c for c in text
         if not (c.isspace() or unicodedata.category(c).startswith(('P', 'S')))
@@ -56,7 +55,8 @@ while i < len(lines):
         # 遍历搜索列表，看是否匹配
         for idx, name_norm in enumerate(search_norm):
             if name_norm in tvg_norm:
-                matches_dict[search_names[idx]].append([tvg_name_original, "台湾", url_line])
+                # 第一列 find.csv 名称，第二列地区，第三列 URL，第四列原始 tvg-name
+                matches_dict[search_names[idx]].append([search_names[idx], "台湾", url_line, tvg_name_original])
                 seen_urls.add(url_line)
                 break
         i += 2
@@ -66,7 +66,7 @@ while i < len(lines):
 # 按 find.csv 顺序写入 CSV
 with open(output_file, "w", newline="", encoding="utf-8-sig") as f:
     writer = csv.writer(f)
-    writer.writerow(["tvg-name", "地区", "URL"])
+    writer.writerow(["tvg-name", "地区", "URL", "原始tvg-name"])
     for name in search_names:
         writer.writerows(matches_dict[name])
 
