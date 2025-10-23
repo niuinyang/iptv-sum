@@ -50,3 +50,4 @@ jobs:
           else
             git commit -m "Update taiwan_sum.csv [skip ci]"
             git push
+          fi
