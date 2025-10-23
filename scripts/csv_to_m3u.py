@@ -7,6 +7,7 @@ from collections import defaultdict
 csv_files = [
     "input/mysource/my_sum.csv",
     "input/network/taiwan_sum.csv"
+    "input/network/international_sum.csv"
 ]
 
 # 图标文件夹
