@@ -6,7 +6,7 @@ from collections import defaultdict
 # CSV 文件路径
 csv_files = [
     "input/mysource/my_sum.csv",
-    "input/network/taiwan_sum.csv"  # 新增台湾 CSV
+    "input/network/taiwan_sum.csv"
 ]
 
 # 图标文件夹
@@ -26,8 +26,6 @@ def natural_key(name):
     else:
         return (name.lower(), 0)
 
-cctv_order = ["CCTV-1", "CCTV-2", "CCTV-3", "CCTV-4", "CCTV-5", "CCTV-6", "CCTV-7", "CCTV-8", "CCTV-9", "CCTV-10"]
-
 # 地址源排序
 dxl_order = ["电信组播", "济南联通", "上海移动", "电信单播", "青岛联通"]
 sjmz_order = ["济南移动", "上海移动", "济南联通", "电信组播", "青岛联通", "电信单播"]
@@ -37,15 +35,14 @@ channels = []
 for csv_file in csv_files:
     with open(csv_file, newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
-        next(reader)  # 跳过表头
+        next(reader)
         for row in reader:
             if len(row) < 3:
                 continue
             name = row[0].strip()
             group = row[1].strip() if row[1].strip() else "未分类"
-            # 台湾 CSV 的分组统一为 "台湾"
             if "taiwan" in csv_file.lower():
-                group = "台湾"
+                group = "台湾频道"
             url = row[2].strip()
             source = row[3].strip() if len(row) > 3 else ""
             channels.append({
@@ -65,16 +62,31 @@ for ch in channels:
     else:
         ch["icon"] = ""
 
-# 分组排序：央视频道按 CCTV 自然顺序，其他按拼音，台湾放最后
-other_groups = sorted(set(ch["group"] for ch in channels if ch["group"] != "央视频道" and ch["group"] != "台湾"))
-group_priority = {name: i for i, name in enumerate(other_groups)}
-group_priority["台湾"] = len(other_groups)  # 台湾排最后
+# 分组排序规则
+# 优先级从 0 开始，数字越小越靠前
+priority_groups = [
+    "央视频道",
+    "4K频道",
+    "卫视频道",
+    "国际频道",
+    "台湾频道"
+]
 
+# 其他分组按拼音排序，但排除数字频道和电台广播
+other_groups = sorted(set(ch["group"] for ch in channels if ch["group"] not in priority_groups + ["数字频道", "电台广播"]))
+# 构建 group_priority
+group_priority = {name: i + len(priority_groups) for i, name in enumerate(other_groups)}
+# 数字频道倒数第二
+group_priority["数字频道"] = len(priority_groups) + len(other_groups)
+# 电台广播最后
+group_priority["电台广播"] = len(priority_groups) + len(other_groups) + 1
+# 已有的固定顺序
+for i, g in enumerate(priority_groups):
+    group_priority[g] = i
+
+# 分组排序 key
 def group_sort_key(ch):
-    if ch["group"] == "央视频道":
-        return (0, natural_key(ch["name"]))  # CCTV 自然顺序
-    else:
-        return (1, group_priority.get(ch["group"], len(group_priority)), ch["name"])
+    return (group_priority.get(ch["group"], 999), natural_key(ch["name"]))
 
 # 地址源排序
 def source_sort_key(ch, order):
@@ -85,23 +97,29 @@ def source_sort_key(ch, order):
 
 # 生成 M3U 文件
 def generate_m3u(filename, source_priority, remove_source=None):
-    filtered = channels.copy()
-    if remove_source:
-        filtered = [ch for ch in filtered if ch["source"] != remove_source]
+    filtered = [ch for ch in channels if ch["source"] != remove_source] if remove_source else channels.copy()
 
-    # 按分组 + 频道名自然排序
-    filtered.sort(key=lambda ch: (group_sort_key(ch), natural_key(ch["name"])))
+    # 分组排序 + 频道名自然排序
+    filtered.sort(key=group_sort_key)
 
-    # 每个频道内部按 source_priority 排序
-    name_dict = defaultdict(list)
+    # 分组内部按 source 排序
+    grouped = defaultdict(list)
     for ch in filtered:
-        name_dict[ch["name"]].append(ch)
+        grouped[ch["group"]].append(ch)
 
     final_list = []
-    for name in sorted(name_dict.keys(), key=natural_key):
-        items = name_dict[name]
-        items.sort(key=lambda ch: source_sort_key(ch, source_priority))
-        final_list.extend(items)
+    for group_name in sorted(grouped.keys(), key=lambda g: group_priority.get(g, 999)):
+        group_items = grouped[group_name]
+        # 组内按频道名自然排序
+        group_items.sort(key=lambda ch: natural_key(ch["name"]))
+        # 同名频道按 source_priority 排序
+        name_dict = defaultdict(list)
+        for ch in group_items:
+            name_dict[ch["name"]].append(ch)
+        for name in sorted(name_dict.keys(), key=natural_key):
+            items = name_dict[name]
+            items.sort(key=lambda ch: source_sort_key(ch, source_priority))
+            final_list.extend(items)
 
     # 写入 M3U
     m3u_path = os.path.join(output_dir, filename)
