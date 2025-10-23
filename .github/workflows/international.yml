@@ -3,10 +3,10 @@ name: Extract International Channels
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 4 1 * *'  # 每月1日凌晨4点（比台湾频道晚1小时）
+    - cron: '0 4 1 * *'  # 每月1日凌晨4点（台湾频道之后执行）
 
 permissions:
-  contents: write
+  contents: write  # 允许 workflow 写入仓库
 
 jobs:
   extract_channels:
@@ -23,18 +23,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Cache pip dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install opencc-python-reimplemented
 
       - name: Run extract script
         run: |
@@ -60,5 +52,5 @@ jobs:
             git commit -m "Update international_sum.csv ($(date -u '+%Y-%m-%d %H:%M:%S')) [skip ci]"
             git push
           else
-            echo "No changes to commit"
+            echo "✅ No changes to commit"
           fi
