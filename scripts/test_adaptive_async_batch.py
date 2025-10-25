@@ -13,7 +13,7 @@ progress_file = "output/progress.json"
 skipped_file = "output/skipped.log"
 os.makedirs("output", exist_ok=True)
 
-TIMEOUT = 10
+TIMEOUT = 15  # 增加超时，适合跨国流
 BASE_THREADS = 50
 MAX_THREADS = 200
 BATCH_SIZE = 300
@@ -31,13 +31,12 @@ HEADERS = {
 # 低分辨率和关键字过滤
 # ==============================
 LOW_RES_KEYWORDS = ["SD", "VGA", "480p", "576p"]
-BLOCK_KEYWORDS = ["espanol"]  # 不检测这些关键字
+BLOCK_KEYWORDS = ["espanol"]
 
 def is_high_res(title):
     return not any(re.search(rf'\b{kw}\b', title, re.IGNORECASE) for kw in LOW_RES_KEYWORDS)
 
 def is_allowed(title, url):
-    """是否允许检测：高清且不含黑名单关键字"""
     if not is_high_res(title):
         if DEBUG:
             with open(skipped_file, "a", encoding="utf-8") as f:
@@ -58,10 +57,7 @@ def is_allowed(title, url):
 def quick_check(url):
     try:
         r = requests.head(url, headers=HEADERS, timeout=TIMEOUT, allow_redirects=True)
-        if r.status_code < 400 and (
-            "video" in r.headers.get("content-type", "").lower()
-            or url.lower().endswith((".m3u8", ".ts"))
-        ):
+        if r.status_code < 400 and ("video" in r.headers.get("content-type", "").lower() or url.lower().endswith((".m3u8", ".ts"))):
             return True
     except:
         pass
@@ -70,16 +66,23 @@ def quick_check(url):
 def deep_check(url):
     try:
         r = requests.get(url, headers=HEADERS, stream=True, timeout=TIMEOUT)
-        for _ in range(5):
-            chunk = next(r.iter_content(chunk_size=8192), b'')
-            if any(sig in chunk for sig in [
-                b"#EXTM3U", b"mpegts", b"ftyp", b"\x00\x00\x01\xb3", b"HTTP Live Streaming"
-            ]):
+        # .m3u8 流直接检查前 1KB 文本
+        if url.lower().endswith(".m3u8"):
+            text = r.text[:1024]
+            if "#EXTM3U" in text:
                 return True
-            if not chunk:
-                break
-    except:
-        pass
+        else:
+            # 视频流抓取前 10 个块
+            for _ in range(10):
+                chunk = next(r.iter_content(chunk_size=8192), b'')
+                if any(sig in chunk for sig in [b"mpegts", b"ftyp", b"\x00\x00\x01\xb3", b"HTTP Live Streaming"]):
+                    return True
+                if not chunk:
+                    break
+    except Exception as e:
+        if DEBUG:
+            with open(skipped_file, "a", encoding="utf-8") as f:
+                f.write(f"DEEP_CHECK_EXCEPTION -> {url} ({e})\n")
     return False
 
 def test_stream(url):
@@ -165,10 +168,10 @@ for batch_start in range(done_index, total, BATCH_SIZE):
                     if DEBUG:
                         with open(skipped_file, "a", encoding="utf-8") as f:
                             f.write(f"FAILED_CHECK -> {title}\n{url}\n")
-            except:
+            except Exception as e:
                 if DEBUG:
                     with open(skipped_file, "a", encoding="utf-8") as f:
-                        f.write(f"EXCEPTION -> {title}\n{url}\n")
+                        f.write(f"EXCEPTION -> {title}\n{url} ({e})\n")
 
     all_working.extend(working_batch)
     json.dump({"done": min(batch_start + BATCH_SIZE, total)}, open(progress_file, "w", encoding="utf-8"))
