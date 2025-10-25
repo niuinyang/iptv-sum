@@ -10,12 +10,14 @@ import multiprocessing
 input_file = "output/total.m3u"
 output_file = "output/working.m3u"
 progress_file = "output/progress.json"
+skipped_file = "output/skipped.log"
 os.makedirs("output", exist_ok=True)
 
 TIMEOUT = 10
 BASE_THREADS = 50
 MAX_THREADS = 200
 BATCH_SIZE = 300
+DEBUG = True
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -32,14 +34,21 @@ LOW_RES_KEYWORDS = ["SD", "VGA", "480p", "576p"]
 BLOCK_KEYWORDS = ["espanol"]  # 不检测这些关键字
 
 def is_high_res(title):
-    return not any(kw.lower() in title.lower() for kw in LOW_RES_KEYWORDS)
+    return not any(re.search(rf'\b{kw}\b', title, re.IGNORECASE) for kw in LOW_RES_KEYWORDS)
 
 def is_allowed(title, url):
     """是否允许检测：高清且不含黑名单关键字"""
     if not is_high_res(title):
+        if DEBUG:
+            with open(skipped_file, "a", encoding="utf-8") as f:
+                f.write(f"LOW_RES -> {title}\n{url}\n")
         return False
     for kw in BLOCK_KEYWORDS:
-        if kw.lower() in title.lower() or kw.lower() in url.lower():
+        pattern = re.compile(rf'\b{kw}\b', re.IGNORECASE)
+        if pattern.search(title) or pattern.search(url):
+            if DEBUG:
+                with open(skipped_file, "a", encoding="utf-8") as f:
+                    f.write(f"BLOCK_KEYWORD -> {title}\n{url}\n")
             return False
     return True
 
@@ -61,7 +70,7 @@ def quick_check(url):
 def deep_check(url):
     try:
         r = requests.get(url, headers=HEADERS, stream=True, timeout=TIMEOUT)
-        for _ in range(3):
+        for _ in range(5):
             chunk = next(r.iter_content(chunk_size=8192), b'')
             if any(sig in chunk for sig in [
                 b"#EXTM3U", b"mpegts", b"ftyp", b"\x00\x00\x01\xb3", b"HTTP Live Streaming"
@@ -80,11 +89,7 @@ def test_stream(url):
     return ok, elapsed
 
 def detect_optimal_threads():
-    test_urls = [
-        "https://www.apple.com",
-        "https://www.google.com",
-        "https://www.microsoft.com",
-    ]
+    test_urls = ["https://www.apple.com", "https://www.google.com", "https://www.microsoft.com"]
     times = []
     for u in test_urls:
         t0 = time.time()
@@ -115,6 +120,9 @@ while i < len(lines):
         title, url = lines[i], lines[i+1]
         if is_allowed(title, url):
             pairs.append((title, url))
+        else:
+            if DEBUG:
+                print(f"跳过: {title}")
         i += 2
     else:
         i += 1
@@ -153,14 +161,17 @@ for batch_start in range(done_index, total, BATCH_SIZE):
                 ok, elapsed = future.result()
                 if ok:
                     working_batch.append((title, url, elapsed))
+                else:
+                    if DEBUG:
+                        with open(skipped_file, "a", encoding="utf-8") as f:
+                            f.write(f"FAILED_CHECK -> {title}\n{url}\n")
             except:
-                pass
+                if DEBUG:
+                    with open(skipped_file, "a", encoding="utf-8") as f:
+                        f.write(f"EXCEPTION -> {title}\n{url}\n")
 
     all_working.extend(working_batch)
-
-    # 更新进度文件
     json.dump({"done": min(batch_start + BATCH_SIZE, total)}, open(progress_file, "w", encoding="utf-8"))
-
     print(f"🧮 本批完成：{len(working_batch)}/{len(batch)} 可用流 | 已完成 {min(batch_start + BATCH_SIZE, total)}/{total}")
 
 # 删除进度文件
@@ -172,21 +183,19 @@ if os.path.exists(progress_file):
 # ==============================
 grouped = defaultdict(list)
 for title, url, elapsed in all_working:
-    # 尝试提取频道名
     m = re.search(r'[,](.+)$', title)
     channel_name = m.group(1).strip() if m else title
     grouped[channel_name].append((title, url, elapsed))
 
-# 组内按响应速度排序
 for name in grouped:
     grouped[name].sort(key=lambda x: x[2])
 
-# 写入输出文件
 with open(output_file, "w", encoding="utf-8") as f:
     f.write("#EXTM3U\n")
-    for name in sorted(grouped.keys()):  # 按频道名排序
+    for name in sorted(grouped.keys()):
         for title, url, _ in grouped[name]:
             f.write(f"{title}\n{url}\n")
 
 elapsed_total = round(time.time() - start_time, 2)
 print(f"✅ 检测完成，共 {len(all_working)} 条可用高清及以上流，用时 {elapsed_total} 秒")
+print(f"⚠️ 被过滤或检测失败的流已记录在 {skipped_file}")
