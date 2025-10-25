@@ -1339,10 +1339,10 @@ http://150.138.8.143/00/SNM/CHANNEL00000306/index.m3u8
 https://a1xs.vip/300016
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/abc-tv-sa-1.m3u8
+https://stream1.freetv.fun/abc-news-australia-2.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/abc-tv-nt-1.m3u8
+https://stream1.freetv.fun/abc-tv-wa-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://stream1.freetv.fun/abc-tv-nsw-1.m3u8
@@ -1351,10 +1351,13 @@ https://stream1.freetv.fun/abc-tv-nsw-1.m3u8
 https://stream1.freetv.fun/abc-tv-tas-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/tvs-talk-network-1.m3u8
+https://stream1.freetv.fun/abc-tv-sa-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/abc-tv-wa-1.m3u8
+https://stream1.freetv.fun/abc-tv-nt-1.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
+https://stream1.freetv.fun/tvs-talk-network-2.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://stream1.freetv.fun/tvs-flashback-network-2.m3u8
@@ -1363,31 +1366,22 @@ https://stream1.freetv.fun/tvs-flashback-network-2.m3u8
 https://stream1.freetv.fun/tvs-flashback-network-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/tvs-talk-network-2.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/abc-news-australia-2.m3u8
+https://stream1.freetv.fun/tvs-talk-network-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://fl30.moveonjoy.com/ABC_EAST/index.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://fl7.moveonjoy.com/FL_Tampa_ABC/index.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://stream1.freetv.fun/abc-news-7.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/miami-1.m3u8
+https://stream1.freetv.fun/abc-7-buffalo-ny-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://stream1.freetv.fun/abc-news-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://stream1.freetv.fun/abc-5.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/ch-ng-abc-news-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://stream1.freetv.fun/abc-3.m3u8
@@ -1399,19 +1393,19 @@ https://stream1.freetv.fun/news-24-1.m3u8
 https://stream1.freetv.fun/abc-news-2.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/news-24-2.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/abc-7-buffalo-ny-1.m3u8
+https://stream1.freetv.fun/miami-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://stream1.freetv.fun/abc-4.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/abc-1.ctv
+https://stream1.freetv.fun/ch-ng-abc-news-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/abc-news--wj-1.ctv
+https://stream1.freetv.fun/news-24-2.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
+https://stream1.freetv.fun/abc-1.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://sabconetanw.cdn.mangomolo.com/news/smil:news.stream.smil/chunklist_b250000_t64MjQwcA==.m3u8
@@ -1420,34 +1414,34 @@ https://sabconetanw.cdn.mangomolo.com/news/smil:news.stream.smil/chunklist_b2500
 https://jmp2.uk/plu-6508be683a0d700008c534e4.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://tvpass.org/live/abc-kabc-los-angeles-ca/hd
+https://jmp2.uk/rok-50b18dea9c5c51568c1343fcd3d88ec9.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://e3.thetvapp.to/hls/WABCDT1/tracks-v1a1/mono.m3u8?token=wNooSKmdhgefdhHzxLFeqQ&expires=1761267225&user_id=eWE3THZiemplVTF5RURUMWh1anNzU0FselRSUWFhQTNhRlcyR1BZRw==
+https://tvpass.org/live/WNET/sd
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://v13.thetvapp.to/hls/WABCDT1/tracks-v1a1/mono.m3u8?token=u9Cdw7f4jSrLbgaQCGhEHA&expires=1761267216&user_id=eWE3THZiemplVTF5RURUMWh1anNzU0FselRSUWFhQTNhRlcyR1BZRw==
+https://e2.thetvapp.to/hls/WABCDT1/tracks-v1a1/mono.m3u8?token=hTyaUUg3c10nfuFzR3jCpg&expires=1761349754&user_id=aFZtNTZvQXpmbzRuSmtFSnM1YUxWVE82ejJhUnZaa3dGY3JpaGI3Ug==
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://content.uplynk.com/channel/3324f2467c414329b3b0cc5cd987b6be.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://content-dtci.uplynk.com/channel/c03e1d48809d476eb0dfa839b6fb0ca4.m3u8?show_vtt=1&hlsver=3&rays=bcd&ad.vid=$program_id&ad=wpvi_live&ad.vast3=1&ad.description_url=https://abcnews.go.com&ad.networkID=21783347309&ad.adUnit=/WPVI/xumo/web/fast-channel&ad.ppid=8ff80486-8668-4f13-afc9-f0dc1bdfc1ac&ad.correlator=1760242541102&ad.scor=1760242541102&ad.cmsid=2494279&ad.npa=0&ad.tfcd=0&ad.pp=xumo-ctv&ad.rdid=8ff80486-8668-4f13-afc9-f0dc1bdfc1ac&ad.idtype=dpid&ad.is_lat=0&ad.us_privacy=&ad.cust_params=vdm=live&chan=abc&plt=ctv&refDomain=https://abcnews.go.com&vps=640x480&ppid=8ff80486-8668-4f13-afc9-f0dc1bdfc1ac&beacTyp=ssai&sp=vdms&ait=ssai&var=16x9
+https://content-dtci.uplynk.com/channel/896bfd551dfb44b1ab3cc3be9b92e285.m3u8?show_vtt=1&hlsver=3&rays=bcd&ad.vid=$program_id&ad=wabc_live&ad.vast3=1&ad.description_url=https://abcnews.go.com&ad.networkID=21783347309&ad.adUnit=/WABC/xumo/web/fast-channel&ad.ppid=4343e292-8e28-440f-8e4b-108f52e5bb10&ad.correlator=1760242541596&ad.scor=1760242541596&ad.cmsid=2494279&ad.npa=0&ad.tfcd=0&ad.pp=xumo-ctv&ad.rdid=4343e292-8e28-440f-8e4b-108f52e5bb10&ad.idtype=dpid&ad.is_lat=0&ad.us_privacy=&ad.cust_params=vdm=live&chan=abc&plt=ctv&refDomain=https://abcnews.go.com&vps=640x480&ppid=4343e292-8e28-440f-8e4b-108f52e5bb10&beacTyp=ssai&sp=vdms&ait=ssai&var=16x9
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://content-dtci.uplynk.com/channel/b657cac5158e405faad7c2cc27860ef1.m3u8?show_vtt=1&hlsver=3&rays=bcd&ad.vid=$program_id&ad=kabc_live&ad.vast3=1&ad.description_url=https://abcnews.go.com&ad.networkID=21783347309&ad.adUnit=/KABC/xumo/web/fast-channel&ad.ppid=eb7aa602-bae5-41fc-8cad-38f08b18a7d1&ad.correlator=1760242547971&ad.scor=1760242547971&ad.cmsid=2494279&ad.npa=0&ad.tfcd=0&ad.pp=xumo-ctv&ad.rdid=eb7aa602-bae5-41fc-8cad-38f08b18a7d1&ad.idtype=dpid&ad.is_lat=0&ad.us_privacy=&ad.cust_params=vdm=live&chan=abc&plt=ctv&refDomain=https://abcnews.go.com&vps=640x480&ppid=eb7aa602-bae5-41fc-8cad-38f08b18a7d1&beacTyp=ssai&sp=vdms&ait=ssai&var=16x9
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://content.uplynk.com/channel/3324f2467c414329b3b0cc5cd987b6be.m3u8?show_vtt=1&hlsver=3&rays=bcd&ad.vid=$program_id&ad=abcnews_live&ad.vast3=1&ad.description_url=https%3A%2F%2Fabcnews.go.com&ad.networkID=21783347309&ad.adUnit=/abc-news/xumo/web&ad.ppid=ad5b6aeb-c40a-4f89-a660-6037615644ef&ad.correlator=1760242532007&ad.scor=1760242532007&ad.cmsid=2494279&ad.npa=0&ad.tfcd=0&ad.pp=xumo-ctv&ad.rdid=ad5b6aeb-c40a-4f89-a660-6037615644ef&ad.idtype=dpid&ad.is_lat=0&ad.us_privacy=&ad.cust_params=vdm%3Dlive%26chan%3Dabcnews%26plt%3Dctv%26refDomain%3Dhttps%3A%2F%2Fabcnews.go.com%26vps%3D640x480%26ppid%3Dad5b6aeb-c40a-4f89-a660-6037615644ef%26beacTyp%3Dssai%26sp%3Dvdms%26ait%3Dssai%26var%3D16x9
+https://content-dtci.uplynk.com/channel/7c0eae0d267941d283a3ab14dd6fd399.m3u8?show_vtt=1&hlsver=3&rays=bcd&ad.vid=$program_id&ad=kgo_live&ad.vast3=1&ad.description_url=https%3A%2F%2Fabcnews.go.com&ad.networkID=21783347309&ad.adUnit=/KGO/xumo/web/fast-channel&ad.ppid=8a5edb51-9900-4955-b8bb-b6ca4b797bf0&ad.correlator=1760242543761&ad.scor=1760242543761&ad.cmsid=2494279&ad.npa=0&ad.tfcd=0&ad.pp=xumo-ctv&ad.rdid=8a5edb51-9900-4955-b8bb-b6ca4b797bf0&ad.idtype=dpid&ad.is_lat=0&ad.us_privacy=&ad.cust_params=vdm%3Dlive%26chan%3Dabc%26plt%3Dctv%26refDomain%3Dhttps%3A%2F%2Fabcnews.go.com%26vps%3D640x480%26ppid%3D8a5edb51-9900-4955-b8bb-b6ca4b797bf0%26beacTyp%3Dssai%26sp%3Dvdms%26ait%3Dssai%26var%3D16x9
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://content-dtci.uplynk.com/channel/553fe1231b83487383a725f2da8433f5.m3u8?show_vtt=1&hlsver=3&rays=bcd&ad.vid=$program_id&ad=wls_live&ad.vast3=1&ad.description_url=https://abcnews.go.com&ad.networkID=21783347309&ad.adUnit=/WLS/xumo/web/fast-channel&ad.ppid=61fb0d1c-3327-4f97-ac73-c99243a5476a&ad.correlator=1760242549532&ad.scor=1760242549532&ad.cmsid=2494279&ad.npa=0&ad.tfcd=0&ad.pp=xumo-ctv&ad.rdid=61fb0d1c-3327-4f97-ac73-c99243a5476a&ad.idtype=dpid&ad.is_lat=0&ad.us_privacy=&ad.cust_params=vdm=live&chan=abc&plt=ctv&refDomain=https://abcnews.go.com&vps=640x480&ppid=61fb0d1c-3327-4f97-ac73-c99243a5476a&beacTyp=ssai&sp=vdms&ait=ssai&var=16x9
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://content-dtci.uplynk.com/channel/896bfd551dfb44b1ab3cc3be9b92e285.m3u8?show_vtt=1&hlsver=3&rays=bcd&ad.vid=$program_id&ad=wabc_live&ad.vast3=1&ad.description_url=https://abcnews.go.com&ad.networkID=21783347309&ad.adUnit=/WABC/xumo/web/fast-channel&ad.ppid=4343e292-8e28-440f-8e4b-108f52e5bb10&ad.correlator=1760242541596&ad.scor=1760242541596&ad.cmsid=2494279&ad.npa=0&ad.tfcd=0&ad.pp=xumo-ctv&ad.rdid=4343e292-8e28-440f-8e4b-108f52e5bb10&ad.idtype=dpid&ad.is_lat=0&ad.us_privacy=&ad.cust_params=vdm=live&chan=abc&plt=ctv&refDomain=https://abcnews.go.com&vps=640x480&ppid=4343e292-8e28-440f-8e4b-108f52e5bb10&beacTyp=ssai&sp=vdms&ait=ssai&var=16x9
+https://content-dtci.uplynk.com/channel/c03e1d48809d476eb0dfa839b6fb0ca4.m3u8?show_vtt=1&hlsver=3&rays=bcd&ad.vid=$program_id&ad=wpvi_live&ad.vast3=1&ad.description_url=https://abcnews.go.com&ad.networkID=21783347309&ad.adUnit=/WPVI/xumo/web/fast-channel&ad.ppid=8ff80486-8668-4f13-afc9-f0dc1bdfc1ac&ad.correlator=1760242541102&ad.scor=1760242541102&ad.cmsid=2494279&ad.npa=0&ad.tfcd=0&ad.pp=xumo-ctv&ad.rdid=8ff80486-8668-4f13-afc9-f0dc1bdfc1ac&ad.idtype=dpid&ad.is_lat=0&ad.us_privacy=&ad.cust_params=vdm=live&chan=abc&plt=ctv&refDomain=https://abcnews.go.com&vps=640x480&ppid=8ff80486-8668-4f13-afc9-f0dc1bdfc1ac&beacTyp=ssai&sp=vdms&ait=ssai&var=16x9
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://content-dtci.uplynk.com/channel/7c0eae0d267941d283a3ab14dd6fd399.m3u8?show_vtt=1&hlsver=3&rays=bcd&ad.vid=$program_id&ad=kgo_live&ad.vast3=1&ad.description_url=https%3A%2F%2Fabcnews.go.com&ad.networkID=21783347309&ad.adUnit=/KGO/xumo/web/fast-channel&ad.ppid=8a5edb51-9900-4955-b8bb-b6ca4b797bf0&ad.correlator=1760242543761&ad.scor=1760242543761&ad.cmsid=2494279&ad.npa=0&ad.tfcd=0&ad.pp=xumo-ctv&ad.rdid=8a5edb51-9900-4955-b8bb-b6ca4b797bf0&ad.idtype=dpid&ad.is_lat=0&ad.us_privacy=&ad.cust_params=vdm%3Dlive%26chan%3Dabc%26plt%3Dctv%26refDomain%3Dhttps%3A%2F%2Fabcnews.go.com%26vps%3D640x480%26ppid%3D8a5edb51-9900-4955-b8bb-b6ca4b797bf0%26beacTyp%3Dssai%26sp%3Dvdms%26ait%3Dssai%26var%3D16x9
+https://content.uplynk.com/channel/3324f2467c414329b3b0cc5cd987b6be.m3u8?show_vtt=1&hlsver=3&rays=bcd&ad.vid=$program_id&ad=abcnews_live&ad.vast3=1&ad.description_url=https%3A%2F%2Fabcnews.go.com&ad.networkID=21783347309&ad.adUnit=/abc-news/xumo/web&ad.ppid=ad5b6aeb-c40a-4f89-a660-6037615644ef&ad.correlator=1760242532007&ad.scor=1760242532007&ad.cmsid=2494279&ad.npa=0&ad.tfcd=0&ad.pp=xumo-ctv&ad.rdid=ad5b6aeb-c40a-4f89-a660-6037615644ef&ad.idtype=dpid&ad.is_lat=0&ad.us_privacy=&ad.cust_params=vdm%3Dlive%26chan%3Dabcnews%26plt%3Dctv%26refDomain%3Dhttps%3A%2F%2Fabcnews.go.com%26vps%3D640x480%26ppid%3Dad5b6aeb-c40a-4f89-a660-6037615644ef%26beacTyp%3Dssai%26sp%3Dvdms%26ait%3Dssai%26var%3D16x9
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://content-dtci.uplynk.com/channel/640a5a594b434c2691e20580afda564f.m3u8?show_vtt=1&hlsver=3&rays=bcd&ad.vid=$program_id&ad=kfsn_live&ad.vast3=1&ad.description_url=https://abcnews.go.com&ad.networkID=21783347309&ad.adUnit=/KFSN/xumo/web/fast-channel&ad.ppid=bdb53a82-5290-4a84-83bb-9f0524349cca&ad.correlator=1760242549086&ad.scor=1760242549086&ad.cmsid=2494279&ad.npa=0&ad.tfcd=0&ad.pp=xumo-ctv&ad.rdid=bdb53a82-5290-4a84-83bb-9f0524349cca&ad.idtype=dpid&ad.is_lat=0&ad.us_privacy=&ad.cust_params=vdm=live&chan=abc&plt=ctv&refDomain=https://abcnews.go.com&vps=640x480&ppid=bdb53a82-5290-4a84-83bb-9f0524349cca&beacTyp=ssai&sp=vdms&ait=ssai&var=16x9
@@ -1459,55 +1453,61 @@ https://content-dtci.uplynk.com/channel/d479d3126f7f489bbcca7fbc17da47eb.m3u8?sh
 https://content-dtci.uplynk.com/channel/a260e6e674f3429f874819f0f232eb08.m3u8?show_vtt=1&hlsver=3&rays=bcd&ad.vid=$program_id&ad=wtvd_live&ad.vast3=1&ad.description_url=https://abcnews.go.com&ad.networkID=21783347309&ad.adUnit=/WTVD/xumo/web/fast-channel&ad.ppid=8ba27e84-9aa9-4f3d-9f3a-87dc45af5a7d&ad.correlator=1760242552349&ad.scor=1760242552349&ad.cmsid=2494279&ad.npa=0&ad.tfcd=0&ad.pp=xumo-ctv&ad.rdid=8ba27e84-9aa9-4f3d-9f3a-87dc45af5a7d&ad.idtype=dpid&ad.is_lat=0&ad.us_privacy=&ad.cust_params=vdm=live&chan=abc&plt=ctv&refDomain=https://abcnews.go.com&vps=640x480&ppid=8ba27e84-9aa9-4f3d-9f3a-87dc45af5a7d&beacTyp=ssai&sp=vdms&ait=ssai&var=16x9
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://a1xs.vip/1000001
+https://a1xs.vip/1000015
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://a1xs.vip/1000015
+https://a1xs.vip/1000001
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://stream1.freetv.fun/entertainment-hub-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc-america-4.m3u8
+https://stream1.freetv.fun/bbc-america-1.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://stream1.freetv.fun/bbc-1--s-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc-america-1.ctv
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc-earth-lifestyle--wj-2.ctv
+https://stream1.freetv.fun/bbc-america-4.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://stream1.freetv.fun/bbc-cbeebies--s-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/cbeebies--wj-1.ctv
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc-earth-us-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://stream1.freetv.fun/ch-ng-bbc-earth-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc-earth--s-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://stream1.freetv.fun/bbc-earth-14.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc-earth--wj-1.ctv
+https://stream1.freetv.fun/bbc-earth--s-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://fl7.moveonjoy.com/BBC_WORLD_NEWS/index.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://fl7.moveonjoy.com/BBC_AMERICA/index.m3u8
+https://stream1.freetv.fun/bbc-earth-us-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://stream1.freetv.fun/ch-ng-bbc-first-1.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
+https://stream1.freetv.fun/bbc-news-2.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
+https://stream1.freetv.fun/bbc-world-news-4.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
+https://stream1.freetv.fun/bbc-4.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
+https://stream1.freetv.fun/bbc--s-1.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
+https://stream1.freetv.fun/bbc-news-10.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
+https://stream1.freetv.fun/mbc-persia-2.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
+https://stream1.freetv.fun/bbc-persian-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://stream1.freetv.fun/bbc-persian-2.m3u8
@@ -1519,52 +1519,25 @@ https://stream1.freetv.fun/bbc-news-12.m3u8
 https://stream1.freetv.fun/bbc-world-news--s-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc-4.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/mbc-persia-2.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc-news-2.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc-news-10.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc--s-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc-persian-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc-world-news-4.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://stream1.freetv.fun/bbc-news-3.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://stream1.freetv.fun/bbc-news-1.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc-world-news--wj-1.ctv
+https://jmp2.uk/plex-647f8d22a2fc3fadb4721685-6308eda9ac9983739c8a29bb.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/bbc-world-news--wj-2.ctv
+https://jmp2.uk/plex-647f8d22a2fc3fadb4721685-630905af0417b7074a4ad95e.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
+https://jmp2.uk/plex-647f8d22a2fc3fadb4721685-65622ac05dbccec83a87b641.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://jmp2.uk/plex-647f8d22a2fc3fadb4721685-65622eddb7d737841f30a4fd.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://jmp2.uk/plex-647f8d22a2fc3fadb4721685-65622fb65dbccec83a87b643.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://jmp2.uk/plex-647f8d22a2fc3fadb4721685-630905af0417b7074a4ad95e.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://jmp2.uk/plex-647f8d22a2fc3fadb4721685-6308eda9ac9983739c8a29bb.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://jmp2.uk/plex-647f8d22a2fc3fadb4721685-65622ac05dbccec83a87b641.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://jmp2.uk/plex-647f8d22a2fc3fadb4721685-656229e4b7d737841f30a4fb.m3u8
@@ -1576,10 +1549,7 @@ https://jmp2.uk/plu-65d92a8c8b24c80008e285c0.m3u8
 https://jmp2.uk/plu-656535fc2c46f30008870fae.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://tvpass.org/live/BBCWorldNewsNorthAmerica/hd
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://v13.thetvapp.to/hls/BBCAmericaEast/tracks-v1a1/mono.m3u8?token=64I0Y0xk-BoQ9-kbvE-4IA&expires=1761265170&user_id=eWE3THZiemplVTF5RURUMWh1anNzU0FselRSUWFhQTNhRlcyR1BZRw==
+https://v8.thetvapp.to/hls/BBCWorldNewsNorthAmerica/tracks-v1a1/mono.m3u8?token=ojY1tP_XUWabwIvYYmLTTQ&expires=1761347736&user_id=aFZtNTZvQXpmbzRuSmtFSnM1YUxWVE82ejJhUnZaa3dGY3JpaGI3Ug==
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/nonuk/sbr_low/ak/bbc_world_service.m3u8
@@ -1594,28 +1564,28 @@ https://d3pxo1qcgzxtxs.cloudfront.net/10005/99951298/hls/playlist.m3u8?ads.xumo_
 https://dbrb49pjoymg4.cloudfront.net/10001/99951231/hls/playlist.m3u8?ads.xumo_channelId=99951231&ads._fw_ifa_type=&ads._fw_did=9779db2d-31a1-4957-9154-a6ea7bf22302&ads.amznappId=&ads.lat=&ads.lon=&ads.os=&ads.osv=&ads.asnw=&ads.caid=BBCEarth&ads.csid=xumo_web_BBCEarth_ssai&ads._fw_is_lat=0&ads._fw_us_privacy=&ads._fw_coppa=0&ads.genre=&ads._fw_content_category=&ads._fw_content_language=en&ads._fw_content_genre=&ads._fw_content_rating=&ads.xumo_contentId=3921&ads.xumo_contentName=BBCEarth&ads.xumo_providerId=3921&ads.xumo_providerName=BBCEarth&ads._fw_deviceMake=GitHubAction&ads._fw_device_model=PythonScript&ads.channelId=99951231&ads.xumo_platform=web&ads.site_id=&ads.appName=xumo&ads.appVersion=1.0.0&ads._fw_app_bundle=web.xumo.com&ads._fw_app_store_url=
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
+https://dbrb49pjoymg4.cloudfront.net/10001/99951177/hls/playlist.m3u8?ads.xumo_channelId=99951177&ads._fw_ifa_type=&ads._fw_did=bfd1bf5d-222f-4b53-9e4b-1583309a05d2&ads.amznappId=&ads.lat=&ads.lon=&ads.os=&ads.osv=&ads.asnw=&ads.caid=BBCFood&ads.csid=xumo_web_BBCFood_ssai&ads._fw_is_lat=0&ads._fw_us_privacy=&ads._fw_coppa=0&ads.genre=&ads._fw_content_category=&ads._fw_content_language=en&ads._fw_content_genre=&ads._fw_content_rating=&ads.xumo_contentId=3824&ads.xumo_contentName=BBCFood&ads.xumo_providerId=3824&ads.xumo_providerName=BBCFood&ads._fw_deviceMake=GitHubAction&ads._fw_device_model=PythonScript&ads.channelId=99951177&ads.xumo_platform=web&ads.site_id=&ads.appName=xumo&ads.appVersion=1.0.0&ads._fw_app_bundle=web.xumo.com&ads._fw_app_store_url=
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://dbrb49pjoymg4.cloudfront.net/10001/99951178/hls/playlist.m3u8?ads.xumo_channelId=99951178&ads._fw_ifa_type=&ads._fw_did=61d3d6f4-14bb-4d40-accb-100cb3c04034&ads.amznappId=&ads.lat=&ads.lon=&ads.os=&ads.osv=&ads.asnw=&ads.caid=BBCHomeandGarden&ads.csid=xumo_web_BBCHomeandGarden_ssai&ads._fw_is_lat=0&ads._fw_us_privacy=&ads._fw_coppa=0&ads.genre=&ads._fw_content_category=&ads._fw_content_language=en&ads._fw_content_genre=&ads._fw_content_rating=&ads.xumo_contentId=3826&ads.xumo_contentName=BBCHomeandGarden&ads.xumo_providerId=3826&ads.xumo_providerName=BBCHomeandGarden&ads._fw_deviceMake=GitHubAction&ads._fw_device_model=PythonScript&ads.channelId=99951178&ads.xumo_platform=web&ads.site_id=&ads.appName=xumo&ads.appVersion=1.0.0&ads._fw_app_bundle=web.xumo.com&ads._fw_app_store_url=
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://dbrb49pjoymg4.cloudfront.net/10001/99951177/hls/playlist.m3u8?ads.xumo_channelId=99951177&ads._fw_ifa_type=&ads._fw_did=bfd1bf5d-222f-4b53-9e4b-1583309a05d2&ads.amznappId=&ads.lat=&ads.lon=&ads.os=&ads.osv=&ads.asnw=&ads.caid=BBCFood&ads.csid=xumo_web_BBCFood_ssai&ads._fw_is_lat=0&ads._fw_us_privacy=&ads._fw_coppa=0&ads.genre=&ads._fw_content_category=&ads._fw_content_language=en&ads._fw_content_genre=&ads._fw_content_rating=&ads.xumo_contentId=3824&ads.xumo_contentName=BBCFood&ads.xumo_providerId=3824&ads.xumo_providerName=BBCFood&ads._fw_deviceMake=GitHubAction&ads._fw_device_model=PythonScript&ads.channelId=99951177&ads.xumo_platform=web&ads.site_id=&ads.appName=xumo&ads.appVersion=1.0.0&ads._fw_app_bundle=web.xumo.com&ads._fw_app_store_url=
+https://stream1.freetv.fun/05536622f0bceff281c00f0031d466e5e35492c82ef5ff6a6aeeef23eb6db442.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://stream1.freetv.fun/8ceea8c7e1961842e551fc90916350de2838ee500e19edf3fdbf2f2c0c3561bf.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/02205072306ac6c143d2707e909bda809deef2a1bda1923da9681ec5744f7081.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
 https://stream1.freetv.fun/c5d042d56862cb15b7c1d63632f4af1d1eef22b318719cc48d0190fa4225a6f0.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际频道",BBC
-https://stream1.freetv.fun/05536622f0bceff281c00f0031d466e5e35492c82ef5ff6a6aeeef23eb6db442.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://tv.a2news.com/live/smil:a2cnnweb.stream.smil/playlist.m3u8
+https://stream1.freetv.fun/02205072306ac6c143d2707e909bda809deef2a1bda1923da9681ec5744f7081.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://a1xs.vip/1000016
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://tv.a2news.com/live/smil:a2cnnweb.stream.smil/playlist.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://a1xs.vip/300007
@@ -1627,7 +1597,25 @@ http://live.cnnindonesia.com/livecnn/smil:cnntv.smil/playlist.m3u8
 https://turnerlive.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_3_1464000.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://fl7.moveonjoy.com/CNN_INTERNATIONAL/index.m3u8
+https://stream1.freetv.fun/cnn-2.ctv
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/tastemade-international-3.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/pro-sport-international-1.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/hallmark-en-espanol-1.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/csi-en-espanol-1.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/cna-international-2.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/cnn-fast-2.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/afv-en-espanol-1.m3u8
@@ -1636,37 +1624,16 @@ https://stream1.freetv.fun/afv-en-espanol-1.m3u8
 https://stream1.freetv.fun/cnn--s-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cna-international-2.m3u8
+https://stream1.freetv.fun/cnn-indonesia-5.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-indonesia-9.m3u8
+https://stream1.freetv.fun/cops-en-espanol-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-2.ctv
+https://stream1.freetv.fun/ch-ng-cnn-indonesia-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/tastemade-international-3.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-int-3.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-9.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-3.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/pro-sport-international-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-int-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/hallmark-en-espanol-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/racer-international-1.m3u8
+https://stream1.freetv.fun/cnn-indonesia-3.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/cnn-indonesia-10.m3u8
@@ -1675,67 +1642,70 @@ https://stream1.freetv.fun/cnn-indonesia-10.m3u8
 https://stream1.freetv.fun/cnn-en-espanol-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/hln-3.m3u8
+https://stream1.freetv.fun/ny-en-espanol-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/beyblade-en-espanol-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cops-en-espanol-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-indonesia-3.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-5.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cna-international-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/cnn-indonesia-6.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-int-4.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-fast-2.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnbc-indonesia-6.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://turnerlive.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_0_3564000.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/csi-en-espanol-1.m3u8
+https://stream1.freetv.fun/cnn-fast-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/beyblade-en-espanol-2.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/clan-internacional-1.m3u8
+https://stream1.freetv.fun/cna-international-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/ch-ng-cnn-indonesia-1.m3u8
+https://stream1.freetv.fun/cnbc-indonesia-6.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/cnn-5.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/clan-internacional-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/acnn-2.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/ny-en-espanol-1.m3u8
+https://stream1.freetv.fun/rt-en-espanol-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-indonesia-5.m3u8
+https://stream1.freetv.fun/racer-international-1.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/cnn-3.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/cnn-9.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/cnn-int-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/acnn-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-fast-1.m3u8
+https://stream1.freetv.fun/hln-3.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/rt-en-espanol-1.m3u8
+https://stream1.freetv.fun/cnn-indonesia-9.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/cnn-int-3.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/cnn-int-4.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://stream1.freetv.fun/cnn-4.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/cbc-news-international-1.ctv
@@ -1744,19 +1714,13 @@ https://stream1.freetv.fun/cbc-news-international-1.ctv
 https://stream1.freetv.fun/cnn-fast-3.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-4.ctv
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/cnnj-2.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn--wj-1.ctv
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-international--wj-1.ctv
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://jmp2.uk/plu-66c45c274f25dd00092739ee.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://jmp2.uk/plu-67d9b0ebc290c9499046e88f.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://jmp2.uk/plu-66c45afaa72e7b0008a2b153.m3u8
@@ -1765,13 +1729,16 @@ https://jmp2.uk/plu-66c45afaa72e7b0008a2b153.m3u8
 https://jmp2.uk/plu-66dff9d46ad04d0008fda4de.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://jmp2.uk/plu-67d9b0ebc290c9499046e88f.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://jmp2.uk/plu-66e0b4536ad04d0008fff4b2.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://jmp2.uk/plu-673248f9030a2c0008033af8.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://jmp2.uk/rok-a9aae4e62e6fd8e401033cd14ceeaaa2.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+https://v18.thetvapp.to/hls/CNN/tracks-v1a1/mono.m3u8?token=iqq7XrSa0vpZ4ytEZbAa_A&expires=1761347962&user_id=aFZtNTZvQXpmbzRuSmtFSnM1YUxWVE82ejJhUnZaa3dGY3JpaGI3Ug==
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://dbrb49pjoymg4.cloudfront.net/10001/99951387/hls/playlist.m3u8?ads.xumo_channelId=99951387&ads._fw_ifa_type=&ads._fw_did=e65cdaef-bffb-4c42-9ba3-9c06c5f341cb&ads.amznappId=&ads.lat=&ads.lon=&ads.os=&ads.osv=&ads.asnw=&ads.caid=WBDCNNOriginals&ads.csid=xumo_web_WBDCNNOriginals_ssai&ads._fw_is_lat=0&ads._fw_us_privacy=&ads._fw_coppa=0&ads.genre=&ads._fw_content_category=&ads._fw_content_language=en&ads._fw_content_genre=&ads._fw_content_rating=&ads.xumo_contentId=4194&ads.xumo_contentName=WBDCNNOriginals&ads.xumo_providerId=4194&ads.xumo_providerName=WBDCNNOriginals&ads._fw_deviceMake=GitHubAction&ads._fw_device_model=PythonScript&ads.channelId=99951387&ads.xumo_platform=web&ads.site_id=&ads.appName=xumo&ads.appVersion=1.0.0&ads._fw_app_bundle=web.xumo.com&ads._fw_app_store_url=
@@ -1803,12 +1770,6 @@ http://150.138.8.132/PLTV/88888888/224/3221227284/517077846.smil/index.m3u8?fmt=
 #EXTINF:-1 tvg-id="" tvg-name="阿里郎" tvg-logo="" group-title="国际频道",阿里郎
 http://150.138.8.132/PLTV/88888888/224/3221227430/517077912.smil/index.m3u8?fmt=ts2hls
 # 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="tvbs新闻" tvg-logo="" group-title="台湾频道",tvbs新闻
-https://stream1.freetv.fun/tvbsxin-wen---wj-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="tvbs新闻" tvg-logo="" group-title="台湾频道",tvbs新闻
-https://stream1.freetv.fun/7c9868676fdcdeecbe96168aeef916d3eb53ae9f24c997571e0330f41251928f.ctv
-# 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="tvbs综艺" tvg-logo="" group-title="台湾频道",tvbs综艺
 https://stream1.freetv.fun/tvbszong-yi---x-1.m3u8
 # 台湾源
@@ -1819,25 +1780,13 @@ https://stream1.freetv.fun/73f5ccd5924d0c9f3955a782fd4848863955264a34fc787e8db5e
 https://stream1.freetv.fun/san-li-tai-wan-4.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="三立台湾" tvg-logo="" group-title="台湾频道",三立台湾
-https://stream1.freetv.fun/san-li-tai-wan---wj-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="三立台湾" tvg-logo="" group-title="台湾频道",三立台湾
 https://stream1.freetv.fun/945b62a11c90469ac374aa5fad47364339e509f9d53b0768e2dc5535207edea6.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="三立台湾" tvg-logo="" group-title="台湾频道",三立台湾
-https://stream1.freetv.fun/bbdd2a3757307ef5abf23e47c2526c97f2d782d0437442f84c77022a946b87ab.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="三立台湾" tvg-logo="" group-title="台湾频道",三立台湾
 https://stream1.freetv.fun/san-li-tai-wan-1.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="三立台湾" tvg-logo="" group-title="台湾频道",三立台湾
 https://cdn.iptv8k.top/dl/jrys.php?id=269&time=20240926215313&ip=111.229.253.40
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="三立戏剧" tvg-logo="" group-title="台湾频道",三立戏剧
-https://stream1.freetv.fun/san-li-xi-ju---wj-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="三立戏剧" tvg-logo="" group-title="台湾频道",三立戏剧
-https://stream1.freetv.fun/1e22d0e8f27acd8c59336129afcdd8e6cf9b9026419baf87ead4ca2d1d2701ea.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="三立新闻" tvg-logo="" group-title="台湾频道",三立新闻
 https://stream1.freetv.fun/san-li-xin-wen---x-1.m3u8
@@ -1855,22 +1804,22 @@ https://stream1.freetv.fun/103cd30c02d26d164666911be0e4abda2a1cd5d8ef4c1592d45b2
 https://stream1.freetv.fun/san-li-xin-wen-3.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="三立新闻" tvg-logo="" group-title="台湾频道",三立新闻
-http://pullpackage.alivecdn.com/live/GDGMQBLKWMPhyKJYSPPR6dnb2lS3FvykpFuj8AZf19Mbfd2yjx.flv
+https://stream1.freetv.fun/san-li-xin-wen-4.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="三立新闻" tvg-logo="" group-title="台湾频道",三立新闻
-https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV32.m3u8
+http://pullpackage.alivecdn.com/live/GDGMQBLKWMPhyKJYSPPR6dnb2lS3FvykpFuj8AZf19Mbfd2yjx.flv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="三立新闻" tvg-logo="" group-title="台湾频道",三立新闻
 https://epg.pw/stream/6b49e3faa38adda85abab446f032dc1e686baa0760a9cfa66e2df8fd6fe3b445.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="三立新闻" tvg-logo="" group-title="台湾频道",三立新闻
-https://stream1.freetv.fun/san-li-xin-wen-4.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="三立新闻" tvg-logo="" group-title="台湾频道",三立新闻
-https://stream1.freetv.fun/san-li-xin-wen-6.ctv
+https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV32.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="三立新闻" tvg-logo="" group-title="台湾频道",三立新闻
 https://stream1.freetv.fun/san-li-xin-wen-5.ctv
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="三立新闻" tvg-logo="" group-title="台湾频道",三立新闻
+https://stream1.freetv.fun/san-li-xin-wen-6.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="三立新闻" tvg-logo="" group-title="台湾频道",三立新闻
 https://cdn.iptv8k.top/dl/jrys.php?id=273&time=20240926215313&ip=111.229.253.40
@@ -1881,17 +1830,8 @@ https://stream1.freetv.fun/san-li-zong-he---x-1.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="三立综合" tvg-logo="" group-title="台湾频道",三立综合
 https://stream1.freetv.fun/46bc6232fcf942e551a45f91f013aaec591d8d8fdf57ae18000afd509ff752cd.m3u8
 # 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森新闻" tvg-logo="" group-title="台湾频道",东森新闻
-https://stream1.freetv.fun/dong-sen-xin-wen---wj-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森新闻" tvg-logo="" group-title="台湾频道",东森新闻
-https://stream1.freetv.fun/7bc2897148d9c995d1edb091aeeb552aeef617f570036c1e2f1d630dbd2be053.ctv
-# 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森电影" tvg-logo="" group-title="台湾频道",东森电影
 https://stream1.freetv.fun/dong-sen-dian-ying-6.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森电影" tvg-logo="" group-title="台湾频道",东森电影
-https://stream1.freetv.fun/dong-sen-dian-ying---wj-1.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森电影" tvg-logo="" group-title="台湾频道",东森电影
 http://1b6467f415.iok.la:9931/tsfile/live/1043_1.m3u8
@@ -1900,19 +1840,13 @@ http://1b6467f415.iok.la:9931/tsfile/live/1043_1.m3u8
 https://stream1.freetv.fun/dong-sen-dian-ying-8.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森电影" tvg-logo="" group-title="台湾频道",东森电影
-https://stream1.freetv.fun/6b8a5c6e5a8e4e580cdf8d06b234dc16e55d77589ca82e15dfaf2afabaeafbbd.ctv
+https://smart.pendy.dpdns.org/Smart.php?id=ettvmovie
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森电影" tvg-logo="" group-title="台湾频道",东森电影
 https://cdn.iptv8k.top/dl/jrys.php?id=231&time=20240926215313&ip=111.229.253.40
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森电影" tvg-logo="" group-title="台湾频道",东森电影
-https://stream1.freetv.fun/7789bc5399cff126e6c3fd015671eaa0c82287d68c1897a472d28fcdc5722101.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森电影" tvg-logo="" group-title="台湾频道",东森电影
-https://smart.pendy.dpdns.org/Smart.php?id=ettvmovie
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森综合" tvg-logo="" group-title="台湾频道",东森综合
-https://stream1.freetv.fun/dong-sen-zong-he---wj-1.ctv
+https://stream1.freetv.fun/6b8a5c6e5a8e4e580cdf8d06b234dc16e55d77589ca82e15dfaf2afabaeafbbd.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森综合" tvg-logo="" group-title="台湾频道",东森综合
 https://stream1.freetv.fun/dong-sen-zong-he-4.ctv
@@ -1921,25 +1855,22 @@ https://stream1.freetv.fun/dong-sen-zong-he-4.ctv
 https://stream1.freetv.fun/dong-sen-zong-he-1.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森综合" tvg-logo="" group-title="台湾频道",东森综合
-https://stream1.freetv.fun/8140559a5d4385739699c12accb202af6011bbff486d4ceb42f8391a127ad212.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森综合" tvg-logo="" group-title="台湾频道",东森综合
 https://stream1.freetv.fun/a34f63cf23e4e386f7b9304a7bf75f568c4886d6ccaec81cee72fd1156ad2e00.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森综合" tvg-logo="" group-title="台湾频道",东森综合
-https://stream1.freetv.fun/f1ff47d8e20525c25c493fec45405a3f5acfa54ec96b3d05519b93e77b50ca73.ctv
+https://stream1.freetv.fun/8140559a5d4385739699c12accb202af6011bbff486d4ceb42f8391a127ad212.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森综合" tvg-logo="" group-title="台湾频道",东森综合
-https://cdn.iptv8k.top/dl/jrys.php?id=220&time=20240926215313&ip=111.229.253.40
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森综合" tvg-logo="" group-title="台湾频道",东森综合
-https://cdn.iptv8k.top/dl/jrys.php?id=221&amp;time=20240926215313&amp;ip=111.229.253.40
+https://smart.pendy.dpdns.org/Smart.php?id=ettvzhonghe
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森综合" tvg-logo="" group-title="台湾频道",东森综合
 https://cdn.iptv8k.top/dl/jrys.php?id=221&time=20240926215313&ip=111.229.253.40
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森综合" tvg-logo="" group-title="台湾频道",东森综合
-https://smart.pendy.dpdns.org/Smart.php?id=ettvzhonghe
+https://cdn.iptv8k.top/dl/jrys.php?id=221&amp;time=20240926215313&amp;ip=111.229.253.40
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="东森综合" tvg-logo="" group-title="台湾频道",东森综合
+https://cdn.iptv8k.top/dl/jrys.php?id=220&time=20240926215313&ip=111.229.253.40
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森美洲" tvg-logo="" group-title="台湾频道",东森美洲
 https://stream1.freetv.fun/dong-sen-mei-zhou-2-1.m3u8
@@ -1948,13 +1879,16 @@ https://stream1.freetv.fun/dong-sen-mei-zhou-2-1.m3u8
 https://stream1.freetv.fun/dong-sen-mei-zhou-3.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森美洲" tvg-logo="" group-title="台湾频道",东森美洲
-https://stream1.freetv.fun/eb4ded3c365bf7d42bebf4dbe94e8f4a601ccf18f345bdeb7968b0fb5541c803.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森美洲" tvg-logo="" group-title="台湾频道",东森美洲
 https://stream1.freetv.fun/58095733803c46eb57bb7d5401c87aa9ee2a605c57b9d8ced2c65d9b385610ed.m3u8
 # 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="东森美洲" tvg-logo="" group-title="台湾频道",东森美洲
+https://stream1.freetv.fun/eb4ded3c365bf7d42bebf4dbe94e8f4a601ccf18f345bdeb7968b0fb5541c803.m3u8
+# 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/dong-sen-chao-shi-9.m3u8
+https://stream1.freetv.fun/dong-sen-chao-shi-1.ctv
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
+https://stream1.freetv.fun/dong-sen-chao-shi-34-5-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
 https://stream1.freetv.fun/dong-sen-chao-shi-3.m3u8
@@ -1963,25 +1897,28 @@ https://stream1.freetv.fun/dong-sen-chao-shi-3.m3u8
 https://stream1.freetv.fun/dong-sen-chao-shi-8.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/dong-sen-chao-shi-34-5-1.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/dong-sen-chao-shi-1.ctv
+https://stream1.freetv.fun/dong-sen-chao-shi-9.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
 https://stream1.freetv.fun/dong-sen-chao-shi-11.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/1efcf802b922763bf4c9978675845050bb654636837f7b52293d56ebaf8a7681.m3u8
+https://stream1.freetv.fun/d8756df4416806c5ce981bdef2ac99098b8a3a99e05b32affdd6e324187cf1b4.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
 https://stream1.freetv.fun/4841f92caa221d466621b8d272963e3ccfca30c2b83fcc9ad4d53eff03aeef6b.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/d8756df4416806c5ce981bdef2ac99098b8a3a99e05b32affdd6e324187cf1b4.m3u8
+https://stream1.freetv.fun/bf0c93b73b47a18039f8e42d027ba66e63d7627ddfbfbd47a2ea77784413a4bc.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/bf0c93b73b47a18039f8e42d027ba66e63d7627ddfbfbd47a2ea77784413a4bc.m3u8
+https://stream1.freetv.fun/1efcf802b922763bf4c9978675845050bb654636837f7b52293d56ebaf8a7681.m3u8
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
+https://stream1.freetv.fun/097f4b1efd03e73ad0b608ac77d69e806859b1e01ee0ca49512f97e4a3580e0b.ctv
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
+https://stream1.freetv.fun/fb51c7d5bbccbee98c70c5887eeaeabfe219ed975176cf5a63122f969fad07ac.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
 http://38.64.72.148:80/hls/modn/list/2013/chunklist1.m3u8
@@ -1990,16 +1927,7 @@ http://38.64.72.148:80/hls/modn/list/2013/chunklist1.m3u8
 https://stream1.freetv.fun/dong-sen-chao-shi-4.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/097f4b1efd03e73ad0b608ac77d69e806859b1e01ee0ca49512f97e4a3580e0b.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
 https://stream1.freetv.fun/dong-sen-chao-shi-7.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/dong-sen-chao-shi-8.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/fb51c7d5bbccbee98c70c5887eeaeabfe219ed975176cf5a63122f969fad07ac.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
 https://cdn.iptv8k.top/dl/jrys.php?id=216&time=20240926215313&ip=111.229.253.40#rtmp://f13h.mine.nu/sat/tv331#rtmp://f13h.mine.nu/sat/tv331
@@ -2008,16 +1936,13 @@ https://cdn.iptv8k.top/dl/jrys.php?id=216&time=20240926215313&ip=111.229.253.40#
 https://cdn.iptv8k.top/dl/jrys.php?id=216&time=20240926215313&ip=111.229.253.40
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
+https://stream1.freetv.fun/dong-sen-chao-shi-8.ctv
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
 https://cdn.iptv8k.top/dl/jrys.php?id=217&time=20240926215313&ip=111.229.253.40
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
 https://stream1.freetv.fun/dong-sen-chao-shi-6.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="中天亚洲" tvg-logo="" group-title="台湾频道",中天亚洲
-https://stream1.freetv.fun/zhong-tian-ya-zhou---wj-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="中天亚洲" tvg-logo="" group-title="台湾频道",中天亚洲
-https://stream1.freetv.fun/1e9940f6dbd7ee21ca65e09bab9fa091b137d7b59ee5a72fb64da037b86b2b72.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="中天娱乐" tvg-logo="" group-title="台湾频道",中天娱乐
 https://stream1.freetv.fun/zhong-tian-yu-le-6.m3u8
@@ -2026,58 +1951,34 @@ https://stream1.freetv.fun/zhong-tian-yu-le-6.m3u8
 https://stream1.freetv.fun/zhong-tian-yu-le-5.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="中天娱乐" tvg-logo="" group-title="台湾频道",中天娱乐
-https://stream1.freetv.fun/zhong-tian-yu-le---wj-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="中天娱乐" tvg-logo="" group-title="台湾频道",中天娱乐
 https://stream1.freetv.fun/273feeba13fbb981cd84c91626576722b00e46b6aadf5c3fff46b3267dcd3131.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="中天娱乐" tvg-logo="" group-title="台湾频道",中天娱乐
 https://stream1.freetv.fun/2a811fc0305ed1797d97d3c437818d720bfea3827e77cdf4e503f49a47f1a78c.m3u8
 # 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="中天娱乐" tvg-logo="" group-title="台湾频道",中天娱乐
-https://stream1.freetv.fun/ab76b564b0a052939286b18fcc66920c40845157c9c41ba1c476197256982610.ctv
-# 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="中天新闻" tvg-logo="" group-title="台湾频道",中天新闻
 https://stream1.freetv.fun/zhong-tian-xin-wen-7.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="中天新闻" tvg-logo="" group-title="台湾频道",中天新闻
-https://stream1.freetv.fun/zhong-tian-xin-wen---wj-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="中天新闻" tvg-logo="" group-title="台湾频道",中天新闻
 https://stream1.freetv.fun/d5a6ec037d2c4635d144520d0ddf989faeb6a5f8d5d85e3c5a5c07d2ca2d79b3.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="中天新闻" tvg-logo="" group-title="台湾频道",中天新闻
-https://stream1.freetv.fun/ac38eafd97780b8d272d2943081d2627040f4cdd568fd5e0b1ba766b53154bcf.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="中天综合" tvg-logo="" group-title="台湾频道",中天综合
-https://stream1.freetv.fun/zhong-tian-zong-he---wj-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="中天综合" tvg-logo="" group-title="台湾频道",中天综合
-https://stream1.freetv.fun/bed7ba0995540f9a99e397a06028c45ee7d5d2897ddce9ccc014c31f6226dec2.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="中视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/中视新闻.png" group-title="台湾频道",中视新闻
-https://stream1.freetv.fun/zhong-shi-xin-wen---wj-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="中视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/中视新闻.png" group-title="台湾频道",中视新闻
-https://stream1.freetv.fun/6108c21b1897cae970fd4fc983754903aee393dfd7a5e9ef468f5664ba7a879b.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="台视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视新闻.png" group-title="台湾频道",台视新闻
-https://stream1.freetv.fun/tai-shi-xin-wen-3.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="台视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视新闻.png" group-title="台湾频道",台视新闻
-https://stream1.freetv.fun/tai-shi-xin-wen-12.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="台视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视新闻.png" group-title="台湾频道",台视新闻
-https://stream1.freetv.fun/tai-shi-xin-wen-17.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视新闻.png" group-title="台湾频道",台视新闻
 https://stream1.freetv.fun/tai-shi-xin-wen-19.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视新闻.png" group-title="台湾频道",台视新闻
-https://stream1.freetv.fun/tai-shi-xin-wen-4.m3u8
+https://stream1.freetv.fun/tai-shi-xin-wen-3.m3u8
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="台视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视新闻.png" group-title="台湾频道",台视新闻
+https://stream1.freetv.fun/tai-shi-xin-wen-17.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视新闻.png" group-title="台湾频道",台视新闻
 https://stream1.freetv.fun/tai-shi-xin-wen-21.m3u8
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="台视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视新闻.png" group-title="台湾频道",台视新闻
+https://stream1.freetv.fun/tai-shi-xin-wen-12.m3u8
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="台视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视新闻.png" group-title="台湾频道",台视新闻
+https://stream1.freetv.fun/tai-shi-xin-wen-4.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视新闻.png" group-title="台湾频道",台视新闻
 https://stream1.freetv.fun/41157664acf190bce85c72f310a742879b275e1912726bc43f323ff6ae321e09.m3u8
@@ -2092,22 +1993,10 @@ https://stream1.freetv.fun/6d45c852234adf9247cfc6eb9b1682de0defb8f84183c6dcf6a39
 https://stream1.freetv.fun/ffa3a8fc52b4834c300b3587a667310b5eb8a46d000498709791be4bd1799514.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视新闻.png" group-title="台湾频道",台视新闻
-https://stream1.freetv.fun/d96ca80f2e6d7eb1a1737aaf17284caded271210e4432dfb4378a9ab6d8ef7b2.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="台视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视新闻.png" group-title="台湾频道",台视新闻
 https://stream1.freetv.fun/9e87c84976d8ad7ce1dac1ba154da29c85371dffd4a6c00a3dfde2bf1fed5735.m3u8
 # 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="寰宇新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/寰宇新闻.png" group-title="台湾频道",寰宇新闻
-https://stream1.freetv.fun/huan-yu-xin-wen---wj-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="寰宇新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/寰宇新闻.png" group-title="台湾频道",寰宇新闻
-https://stream1.freetv.fun/fcbe5d8b5c742f809c35cf7245a3de8f2a6ce5131c4a99f0b523b56e50d0b9f2.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="寰宇财经" tvg-logo="" group-title="台湾频道",寰宇财经
-https://stream1.freetv.fun/huan-yu-cai-jing---wj-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="寰宇财经" tvg-logo="" group-title="台湾频道",寰宇财经
-https://stream1.freetv.fun/ec5de8eb87c41a9e29b3441a255a76b445413d688e0a9fa938b7b0d82ca8f108.ctv
+#EXTINF:-1 tvg-id="" tvg-name="台视新闻" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视新闻.png" group-title="台湾频道",台视新闻
+https://stream1.freetv.fun/d96ca80f2e6d7eb1a1737aaf17284caded271210e4432dfb4378a9ab6d8ef7b2.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="民视新闻" tvg-logo="" group-title="台湾频道",民视新闻
 https://stream1.freetv.fun/min-shi-xin-wen-16.m3u8
@@ -2131,13 +2020,7 @@ https://stream1.freetv.fun/a6dd48cff68c1da6ae33d7a2d962ab66d11a3791c0f133b0cd3bb
 https://stream1.freetv.fun/wei-lai-jing-cai-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="纬来日本" tvg-logo="" group-title="台湾频道",纬来日本
-https://stream1.freetv.fun/wei-lai-ri-ben---wj-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="纬来日本" tvg-logo="" group-title="台湾频道",纬来日本
 https://stream1.freetv.fun/409fbf8e0ec33500b4d76956cca00af9fddacac6dd2f8822f464b089fb583a6b.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="纬来日本" tvg-logo="" group-title="台湾频道",纬来日本
-https://stream1.freetv.fun/74f023c5d7b58366a2871b091d5edb605c2e5e3b00b11be7129efbd8b7489349.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="靖天资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/靖天资讯.png" group-title="台湾频道",靖天资讯
 https://stream1.freetv.fun/jing-tian-zi-xun-3.ctv
@@ -2152,13 +2035,13 @@ https://stream1.freetv.fun/jing-tian-zi-xun-4.ctv
 https://stream1.freetv.fun/f399d5ca932e97fc64175572c8c5f5c14d36761d3bceda596b03403c568f204b.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="靖天资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/靖天资讯.png" group-title="台湾频道",靖天资讯
-https://stream1.freetv.fun/11a3943dbff1e2a6523c63f599089034d67a0465e4b140f40be2e1449b85f304.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="靖天资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/靖天资讯.png" group-title="台湾频道",靖天资讯
 https://stream1.freetv.fun/4b55b732dee5834d18f04bf48b096395288eedad596c18997cdf1cc1296eb21c.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="靖天资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/靖天资讯.png" group-title="台湾频道",靖天资讯
-https://cdn.iptv8k.top/dl/jrys.php?id=315&time=20240926215313&ip=111.229.253.40
+https://stream1.freetv.fun/11a3943dbff1e2a6523c63f599089034d67a0465e4b140f40be2e1449b85f304.ctv
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="靖天资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/靖天资讯.png" group-title="台湾频道",靖天资讯
+http://breezy-audrie-zspace-7524863c.koyeb.app/vipsir?token=leifeng&id=4gtv-4gtv065
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="靖天资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/靖天资讯.png" group-title="台湾频道",靖天资讯
 http://pullpackage.alivecdn.com/live/jSi62v69ef4x6iYBScl4GTgr9WaWuRtR1v7DfyIDrCzlEjd4oO.flv
@@ -2167,13 +2050,7 @@ http://pullpackage.alivecdn.com/live/jSi62v69ef4x6iYBScl4GTgr9WaWuRtR1v7DfyIDrCz
 https://stream1.freetv.fun/jing-tian-zi-xun-2.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="靖天资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/靖天资讯.png" group-title="台湾频道",靖天资讯
-http://breezy-audrie-zspace-7524863c.koyeb.app/vipsir?token=leifeng&id=4gtv-4gtv065
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="非凡新闻" tvg-logo="" group-title="台湾频道",非凡新闻
-https://stream1.freetv.fun/fei-fan-xin-wen---wj-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="非凡新闻" tvg-logo="" group-title="台湾频道",非凡新闻
-https://stream1.freetv.fun/5d4cce45fd26dade946070e39ffb9d8da31bbf7a1d6ae77e2a0c442258f74060.ctv
+https://cdn.iptv8k.top/dl/jrys.php?id=315&time=20240926215313&ip=111.229.253.40
 # 济南移动
 #EXTINF:-1 tvg-id="" tvg-name="东方财经" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/东方财经.png" group-title="上海频道",东方财经
 http://[2409:8087:3c02:0021:0000:0001:0000:100a]:6410/shandong_cabletv.live.zte.com////CHANNEL00002025/index.m3u8?IASHttpSessionId=
