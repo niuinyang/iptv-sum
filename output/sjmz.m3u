@@ -1339,13 +1339,16 @@ http://150.138.8.143/00/SNM/CHANNEL00000306/index.m3u8
 https://stream1.freetv.fun/abc-7-buffalo-ny-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/abc-1.ctv
+https://proxyv2.utako.moe/ph.php?&isp=1&id=gx02
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://stream1.freetv.fun/abc-news-2.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://stream1.freetv.fun/miami-1.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
+http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/22990
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 https://stream1.freetv.fun/ch-ng-abc-news-1.m3u8
@@ -1363,10 +1366,10 @@ https://stream1.freetv.fun/c5d042d56862cb15b7c1d63632f4af1d1eef22b318719cc48d019
 https://stream1.freetv.fun/05536622f0bceff281c00f0031d466e5e35492c82ef5ff6a6aeeef23eb6db442.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CARTOONITO" tvg-logo="" group-title="国际频道",CARTOONITO
-https://stream1.freetv.fun/cartoonito-1.ctv
+http://148.113.160.48:14096
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cbc-news-international-1.ctv
+https://d2ny9lo79ujali.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-zq3oq5ub1pnio/cbc_news_international.m3u8?ads.device_did=%7bpsid%7d&ads.device_dnt=%7btargetopt%7d&ads.us_privacy=1yny&ads.app_domain=%7bapp_domain%7d&ads.app_name=%7bapp_name%7d&ads.ssai_vendor=ssslive&ads.afsdk_params=%7bafsdk_value%7d&ads.service_id=usbc4400003ou
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/clan-internacional-1.m3u8
@@ -1375,28 +1378,19 @@ https://stream1.freetv.fun/clan-internacional-1.m3u8
 https://stream1.freetv.fun/cna-international-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
+http://154.6.123.185:80/live/play/zedws09fzfzrbkf3szbsswnguxhirtl5vvdvd1vicfhzbfyxww5ksmrqstnvru5vvml0vfvxazjxvda9/10576
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/cnn-fast-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/cnn-fast-2.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-fast-3.ctv
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-int-4.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/cnn-int-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-int-3.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/cnn-5.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-4.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/racer-international-1.m3u8
@@ -1408,10 +1402,7 @@ https://stream1.freetv.fun/tastemade-international-3.m3u8
 https://stream1.freetv.fun/cnn-3.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn--s-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-2.ctv
+http://cord-cutter.net:8080/live/Ss5DKE/232455/47213.ts
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/hln-3.m3u8
@@ -1432,13 +1423,19 @@ https://stream1.freetv.fun/fox-news-channel-1.m3u8
 https://stream1.freetv.fun/fox-news-channel--s-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="FOX NEWS" tvg-logo="" group-title="国际频道",FOX NEWS
+http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/1818
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="FOX NEWS" tvg-logo="" group-title="国际频道",FOX NEWS
 https://stream1.freetv.fun/ch-ng-fox-news-channel-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="MSNBC" tvg-logo="" group-title="国际频道",MSNBC
 https://stream1.freetv.fun/msnbc-6.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="MSNBC" tvg-logo="" group-title="国际频道",MSNBC
-https://stream1.freetv.fun/msnbc-4.ctv
+http://cord-cutter.net:8080/live/Ss5DKE/232455/21376.ts
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="MSNBC" tvg-logo="" group-title="国际频道",MSNBC
+http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/21376
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="MSNBC" tvg-logo="" group-title="国际频道",MSNBC
 https://stream1.freetv.fun/msnbc-2.m3u8
@@ -1474,19 +1471,16 @@ https://stream1.freetv.fun/fc3593e86993caec0f83efa1d0be0c19a18e0fdfc86fe7b05b3e8
 https://stream1.freetv.fun/de787ec070cea0eb6d37c9fb2f10a4c85aab02cc5940e5561700335e32354ae8.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
-https://stream1.freetv.fun/8a14ca65c4227b72d51099268827833c19d6485ec45949f61cd7c20fb012f041.ctv
+https://proxyv2.utako.moe/ph.php?&isp=2&id=cs29
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
 https://stream1.freetv.fun/e3991dd17f7c761e368cf4d14dd6d08307f80f526be1a1b035ad4e9f51f460eb.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
-https://stream1.freetv.fun/f086d933d61166b176cb0a1f7f5253865c71a770a0d0e9c1e33dfde86f901aad.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
 https://stream1.freetv.fun/76f7e59ca47ced01049cb51983315c9f2bca9863d64bd10b65398674716495b5.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
-https://stream1.freetv.fun/d7403987e5d413fc16976800854998b4c678d3d769f960fc4c67dfdc9194490f.ctv
+https://dltiqboxjw21d.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-evri8jwgwmxus/index.m3u8?ads.device_did=%7bpsid%7d&ads.device_dnt=%7btargetopt%7d&ads.app_domain=%7bapp_domain%7d&ads.app_name=%7bapp_name%7d&ads.consent=%7btc_string%7d&ads.ssai_vendor=ssslive&ads.service_id=gbbc4300005al
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
 https://stream1.freetv.fun/52876d0cfa131060c3c6de1548fb2bd00f10294c49cd40d296b9c16c5573d847.m3u8
@@ -1510,16 +1504,10 @@ https://stream1.freetv.fun/e6f0655cf02462b453e15083cba0bc22f7c2ed427d0153b80c0de
 https://stream1.freetv.fun/c429f9a26d194c07f60f2cc2ce74303b08d301367ba100b87e006a06914a088e.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
-https://stream1.freetv.fun/fca0bd28ae8000f3bef263858ee50350cdcee11c4819c3ced4e0b2869ec9c770.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
 https://stream1.freetv.fun/2e3998897b810e6ca1f5863a1884046c2090d7cbbf82aa2ca4bab0368234c86f.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
 https://stream1.freetv.fun/6d00428f52796a0f9b72ee8e48abad447251132786a22f065272107316c68047.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
-https://stream1.freetv.fun/b950ffb52f577d524fa210d73ba73690ec20ccab3a7606b817348aa789b8b30f.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
 https://stream1.freetv.fun/fe5bbdfeb8ddfb65892da3e044ba08e8564030407782d9512e3f5cae69a8915f.m3u8
@@ -1531,13 +1519,13 @@ https://stream1.freetv.fun/73cedc47cd4a95212a744d043879483e9ed15c06e4bde6d583d54
 https://stream1.freetv.fun/f38c7fe8c8b185078657d1e99cb22a4b9b75c9128d1ecea9e1c440349a8f7b84.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
-https://stream1.freetv.fun/2dbc6f2d0770eac0a7e28bcc15aaa6163d7c6f33a760018f2fa1e819fc5f3832.ctv
+http://boots.cablesmith.org:80/7639334/index.m3u8?token=M0s2dWhwN0lyZGVjZnBheXI5eUVsWlRaMkoxOGxyS3hxN21XbHRpcHhxM0RxNEduaVp1UnBxU2VlWmF0ZnRlRGxaMm1zNStDbnJPQnJZMmVwNitpcUE9PQ==
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
 https://stream1.freetv.fun/d79f65418a5872af77395ca2c844336a9e43da202a39e86396f14a863b483613.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="CINEMAX" tvg-logo="" group-title="台湾频道",CINEMAX
-https://stream1.freetv.fun/cinemax-14.ctv
+http://148.113.160.49:14200
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="CINEMAX" tvg-logo="" group-title="台湾频道",CINEMAX
 https://stream1.freetv.fun/cinemax-moviemax-east--s-1.m3u8
@@ -1546,19 +1534,13 @@ https://stream1.freetv.fun/cinemax-moviemax-east--s-1.m3u8
 https://stream1.freetv.fun/cinemax--s-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="CINEMAX" tvg-logo="" group-title="台湾频道",CINEMAX
-https://stream1.freetv.fun/cinemax-3.ctv
+http://cord-cutter.net:8080/live/Ss5DKE/232455/13380.ts
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="CINEMAX" tvg-logo="" group-title="台湾频道",CINEMAX
-https://stream1.freetv.fun/cinemax-13.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
-https://stream1.freetv.fun/8cdbb8386603267a4bd09b57f2184c8cf65517be58ad0a2f38679f74ddb170a2.ctv
+http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/13380
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
 https://stream1.freetv.fun/86875051a3a97e2dddc3c0544864323aba824f654f05853c65dd986cd2a95a87.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
-https://stream1.freetv.fun/f8f3291157659f4b82903303107caf2a72c625f9bc33c8c0e144c44470933ab4.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
 https://stream1.freetv.fun/investigation-1.m3u8
@@ -1567,10 +1549,25 @@ https://stream1.freetv.fun/investigation-1.m3u8
 https://stream1.freetv.fun/ae1bcd61012a7cb1b781fb6af83dcacdc03f254790032b4374b976b61dd7ea4a.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
-https://stream1.freetv.fun/discovery-life-4.ctv
+http://85.117.231.28:80/live/play/uw05bgmyvm1tetlrtm1ncmvezgxsrgt3tjjwvvnqwmhuvxb5yvvkulzvmdjjvlj5vw5acfnewxjwvda9/13116
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
-https://stream1.freetv.fun/discovery-life-2.ctv
+http://148.113.160.48:14146
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
+http://cord-cutter.net:8080/live/Ss5DKE/232455/46212.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
+http://cord-cutter.net:8080/live/cQnq6G/652882/46212.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
+http://85.117.231.28:80/live/play/vedgr1r6ahdmmll6vvvoagftnvfjazq0ywtsngvxsnlzakjrt0rotmqyzg1uwej2tvdwm1r6tk1heja9/54249
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
+https://stream1.freetv.fun/f8f3291157659f4b82903303107caf2a72c625f9bc33c8c0e144c44470933ab4.m3u8
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
+http://85.117.231.28:80/live/play/wjfkrfpuqknovxhswm1ocvkywxhlblpqwkvgvk9xbhrjbfjptdfacvlyqllnemwwtwpock5eqxlprda9/13093
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
 https://stream1.freetv.fun/cbn-family-2.m3u8
@@ -1579,16 +1576,13 @@ https://stream1.freetv.fun/cbn-family-2.m3u8
 https://stream1.freetv.fun/hbo-1-2.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
-https://stream1.freetv.fun/hbo-1-5.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
 https://stream1.freetv.fun/hbo-east--s-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
-https://stream1.freetv.fun/hbo-east-2.ctv
+http://cord-cutter.net:8080/live/Ss5DKE/232455/46713.ts
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
-https://stream1.freetv.fun/hbo-east-3.ctv
+http://cord-cutter.net:8080/live/cQnq6G/652882/46713.ts
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
 https://stream1.freetv.fun/hbo-family-4.m3u8
@@ -1600,13 +1594,13 @@ https://stream1.freetv.fun/hbo-family--s-1.m3u8
 https://stream1.freetv.fun/hbo-famliy-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
-https://stream1.freetv.fun/hbo-signature-11.ctv
+http://cord-cutter.net:8080/live/Ss5DKE/232455/9266.ts
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
 https://stream1.freetv.fun/hbo-usa--s-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
-https://stream1.freetv.fun/hbo-zone-7.m3u8
+http://31.58.40.27:80/live/play/vm1aa1z6rmtlbghjtvzovfvusxpargx4vkvav1ptmu9na1ywvfhkdlvgulnkruzlym5aavl6qkhwvda9/11177
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
 https://stream1.freetv.fun/hbo-zone--s-1.m3u8
@@ -1618,7 +1612,16 @@ https://stream1.freetv.fun/hbo--s-1.m3u8
 https://stream1.freetv.fun/hbo-16.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
-https://stream1.freetv.fun/hbo-family-7.ctv
+http://31.58.40.27:80/live/play/u21vmwjroudtvvzjy25wswfxumtlbkpjvkc1u2jgrnljvtftwkdsuvfvndnzmvp1y2paywr6rlljeja9/11181
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
+http://cord-cutter.net:8080/live/Ss5DKE/232455/17772.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
+http://31.58.40.27:80/live/play/ujnkbljrag1jr1u0t0v0su9vouppsez1y1hkbwvgvnbabhbzvnpwmmrsrtvpvli0yji1q05wqjbrvda9/11178
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
+http://31.58.40.27:80/live/play/zev0nfeynhhnelzstja1nvreum5umjlgy2xsnvrrnwpnbxh2yzbadfrytmxxbxrsv1c0ee5gvxltvda9/11176
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
 https://stream1.freetv.fun/home-plus-1.m3u8
@@ -1630,25 +1633,13 @@ https://stream1.freetv.fun/c51b8f7c9dee5b5dfa9e03a30e2efbeef76ef187cd056f9e88e39
 https://stream1.freetv.fun/73f5ccd5924d0c9f3955a782fd4848863955264a34fc787e8db5e2af09862159.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="三立台湾" tvg-logo="" group-title="台湾频道",三立台湾
-https://stream1.freetv.fun/945b62a11c90469ac374aa5fad47364339e509f9d53b0768e2dc5535207edea6.ctv
+https://hls.iptv8k.top/hls/index.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="三立新闻" tvg-logo="" group-title="台湾频道",三立新闻
 https://stream1.freetv.fun/51b9ec245cd84f98d9851943814978048ff609bbbb171d5dbe9e63337d64aabd.m3u8
 # 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="三立新闻" tvg-logo="" group-title="台湾频道",三立新闻
-https://stream1.freetv.fun/103cd30c02d26d164666911be0e4abda2a1cd5d8ef4c1592d45b2427e75961dc.ctv
-# 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="三立综合" tvg-logo="" group-title="台湾频道",三立综合
 https://stream1.freetv.fun/46bc6232fcf942e551a45f91f013aaec591d8d8fdf57ae18000afd509ff752cd.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森电影" tvg-logo="" group-title="台湾频道",东森电影
-https://stream1.freetv.fun/6b8a5c6e5a8e4e580cdf8d06b234dc16e55d77589ca82e15dfaf2afabaeafbbd.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森综合" tvg-logo="" group-title="台湾频道",东森综合
-https://stream1.freetv.fun/a34f63cf23e4e386f7b9304a7bf75f568c4886d6ccaec81cee72fd1156ad2e00.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森综合" tvg-logo="" group-title="台湾频道",东森综合
-https://stream1.freetv.fun/8140559a5d4385739699c12accb202af6011bbff486d4ceb42f8391a127ad212.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森美洲" tvg-logo="" group-title="台湾频道",东森美洲
 https://stream1.freetv.fun/eb4ded3c365bf7d42bebf4dbe94e8f4a601ccf18f345bdeb7968b0fb5541c803.m3u8
@@ -1660,19 +1651,7 @@ https://stream1.freetv.fun/58095733803c46eb57bb7d5401c87aa9ee2a605c57b9d8ced2c65
 https://stream1.freetv.fun/4841f92caa221d466621b8d272963e3ccfca30c2b83fcc9ad4d53eff03aeef6b.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/d8756df4416806c5ce981bdef2ac99098b8a3a99e05b32affdd6e324187cf1b4.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/bf0c93b73b47a18039f8e42d027ba66e63d7627ddfbfbd47a2ea77784413a4bc.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
 https://stream1.freetv.fun/1efcf802b922763bf4c9978675845050bb654636837f7b52293d56ebaf8a7681.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/fb51c7d5bbccbee98c70c5887eeaeabfe219ed975176cf5a63122f969fad07ac.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/097f4b1efd03e73ad0b608ac77d69e806859b1e01ee0ca49512f97e4a3580e0b.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="中天娱乐" tvg-logo="" group-title="台湾频道",中天娱乐
 https://stream1.freetv.fun/2a811fc0305ed1797d97d3c437818d720bfea3827e77cdf4e503f49a47f1a78c.m3u8
@@ -1680,56 +1659,83 @@ https://stream1.freetv.fun/2a811fc0305ed1797d97d3c437818d720bfea3827e77cdf4e503f
 #EXTINF:-1 tvg-id="" tvg-name="中天新闻" tvg-logo="" group-title="台湾频道",中天新闻
 https://stream1.freetv.fun/d5a6ec037d2c4635d144520d0ddf989faeb6a5f8d5d85e3c5a5c07d2ca2d79b3.m3u8
 # 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="中天新闻" tvg-logo="" group-title="台湾频道",中天新闻
+http://108.181.21.33:32885
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="中视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/中视.png" group-title="台湾频道",中视
+http://123.51.136.80:8301/0.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="中视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/中视.png" group-title="台湾频道",中视
+http://123.51.136.80:8302/0.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="中视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/中视.png" group-title="台湾频道",中视
+http://123.51.136.80:8321/0.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="中视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/中视.png" group-title="台湾频道",中视
+http://123.51.136.80:8322/0.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="公视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/公视.png" group-title="台湾频道",公视
+http://123.51.136.80:8305/0.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="公视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/公视.png" group-title="台湾频道",公视
+http://123.51.136.80:8306/0.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="公视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/公视.png" group-title="台湾频道",公视
+http://123.51.136.80:8312/0.ts
+# 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="动物星球" tvg-logo="" group-title="台湾频道",动物星球
 https://stream1.freetv.fun/dong-wu-xing-qiu-4.m3u8
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="华视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/华视.png" group-title="台湾频道",华视
+http://123.51.136.80:8317/0.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="华视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/华视.png" group-title="台湾频道",华视
+http://123.51.136.80:8318/0.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="华视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/华视.png" group-title="台湾频道",华视
+http://123.51.136.80:8319/0.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="华视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/华视.png" group-title="台湾频道",华视
+http://125.227.210.55:8163/VideoInput/play.ts
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视.png" group-title="台湾频道",台视
 https://stream1.freetv.fun/ffa3a8fc52b4834c300b3587a667310b5eb8a46d000498709791be4bd1799514.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视.png" group-title="台湾频道",台视
-https://stream1.freetv.fun/d96ca80f2e6d7eb1a1737aaf17284caded271210e4432dfb4378a9ab6d8ef7b2.m3u8
+http://123.51.136.80:8313/0.ts
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视.png" group-title="台湾频道",台视
 https://stream1.freetv.fun/9e87c84976d8ad7ce1dac1ba154da29c85371dffd4a6c00a3dfde2bf1fed5735.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视.png" group-title="台湾频道",台视
-https://stream1.freetv.fun/6d45c852234adf9247cfc6eb9b1682de0defb8f84183c6dcf6a39bb24c07af32.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="台视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视.png" group-title="台湾频道",台视
 https://stream1.freetv.fun/303a4e4b8b9c669547f4860a119882a0a5636bb5390c74bcb2ab1ac3f8985fc7.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视.png" group-title="台湾频道",台视
-https://stream1.freetv.fun/41157664acf190bce85c72f310a742879b275e1912726bc43f323ff6ae321e09.m3u8
+http://123.51.136.80:8316/0.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="台视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视.png" group-title="台湾频道",台视
+http://123.51.136.80:8315/0.ts
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="国家地理" tvg-logo="" group-title="台湾频道",国家地理
 https://stream1.freetv.fun/guo-jia-di-li---x-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="民视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/民视.png" group-title="台湾频道",民视
+http://123.51.136.80:8308/0.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="民视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/民视.png" group-title="台湾频道",民视
+http://123.51.136.80:8311/0.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="民视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/民视.png" group-title="台湾频道",民视
 https://stream1.freetv.fun/6959fd8e6fea85a671683e657ea500e2e1043c9e3c552469d4a1bd3c528a0f5a.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="民视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/民视.png" group-title="台湾频道",民视
-https://stream1.freetv.fun/2f734c1fe46e256a27b2aef5e11b2c9e1b9098b1cc374e17e9329bb24ae5edf4.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="民视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/民视.png" group-title="台湾频道",民视
-https://stream1.freetv.fun/a6dd48cff68c1da6ae33d7a2d962ab66d11a3791c0f133b0cd3bbbf99ea8b3c8.m3u8
+http://123.51.136.80:8309/0.ts
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="纬来日本" tvg-logo="" group-title="台湾频道",纬来日本
 https://stream1.freetv.fun/409fbf8e0ec33500b4d76956cca00af9fddacac6dd2f8822f464b089fb583a6b.m3u8
 # 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="纬来育乐" tvg-logo="" group-title="台湾频道",纬来育乐
-https://stream1.freetv.fun/3abfaa9bfc01013d7459fb45d6a8d8dbdf1a788ee158c13c66e1d79d7e74fe96.ctv
-# 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="美亚电影" tvg-logo="" group-title="台湾频道",美亚电影
-https://stream1.freetv.fun/12e25aeffeee85d6fe045a3f3edb6f0cf25782b51d9d2708ea5d9c0fc9bdf0db.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="靖天资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/靖天资讯.png" group-title="台湾频道",靖天资讯
-https://stream1.freetv.fun/f399d5ca932e97fc64175572c8c5f5c14d36761d3bceda596b03403c568f204b.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="靖天资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/靖天资讯.png" group-title="台湾频道",靖天资讯
-https://stream1.freetv.fun/4b55b732dee5834d18f04bf48b096395288eedad596c18997cdf1cc1296eb21c.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="靖天资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/靖天资讯.png" group-title="台湾频道",靖天资讯
-https://stream1.freetv.fun/11a3943dbff1e2a6523c63f599089034d67a0465e4b140f40be2e1449b85f304.ctv
+https://smt.1678520.xyz/smt3.2.1.php?id=meiyamovie_twn
 # 济南移动
 #EXTINF:-1 tvg-id="" tvg-name="东方财经" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/东方财经.png" group-title="上海频道",东方财经
 http://[2409:8087:3c02:0021:0000:0001:0000:100a]:6410/shandong_cabletv.live.zte.com////CHANNEL00002025/index.m3u8?IASHttpSessionId=
