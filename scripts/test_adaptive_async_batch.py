@@ -1,36 +1,34 @@
 import os
-import re
-import json
+import csv
 import time
+import json
 import subprocess
 import requests
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from statistics import mean
 from collections import defaultdict
+from statistics import mean
 import multiprocessing
 
 # ==============================
 # 配置区
 # ==============================
-input_file = "output/total.m3u"
-output_file = "output/working.m3u"
-progress_file = "output/progress.json"
-skipped_file = "output/skipped.log"
-suspect_file = "output/suspect.log"
+CSV_FILE = "output/total.csv"        # 输入 CSV
+OUTPUT_FILE = "output/working.m3u"  # 可用流输出
+PROGRESS_FILE = "output/progress.json"
+SKIPPED_FILE = "output/skipped.log"
+SUSPECT_FILE = "output/suspect.log"
 os.makedirs("output", exist_ok=True)
 
 TIMEOUT = 15
 BASE_THREADS = 50
 MAX_THREADS = 200
-BATCH_SIZE = 300
+BATCH_SIZE = 200
 DEBUG = True
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
                   "Chrome/120.0 Safari/537.36",
-    "Accept": "*/*",
-    "Connection": "keep-alive",
 }
 
 LOW_RES_KEYWORDS = ["vga", "480p", "576p"]
@@ -41,11 +39,11 @@ WHITELIST_PATTERNS = [".ctv", ".sdserver", ".sdn.", ".sda.", ".sdstream", "sdhd"
 # 工具函数
 # ==============================
 def log_skip(reason, title, url):
-    with open(skipped_file, "a", encoding="utf-8") as f:
+    with open(SKIPPED_FILE, "a", encoding="utf-8") as f:
         f.write(f"{reason} -> {title}\n{url}\n")
 
 def log_suspect(reason, url):
-    with open(suspect_file, "a", encoding="utf-8") as f:
+    with open(SUSPECT_FILE, "a", encoding="utf-8") as f:
         f.write(f"{reason} -> {url}\n")
 
 def is_allowed(title, url):
@@ -54,18 +52,17 @@ def is_allowed(title, url):
     if any(w in text for w in WHITELIST_PATTERNS):
         return True
     # 跳过低清
-    if any(re.search(r'([_\-\s\.\(\[]'+kw+'[\s\)\]\._-])', text) for kw in LOW_RES_KEYWORDS):
+    if any(kw in text for kw in LOW_RES_KEYWORDS):
         log_skip("LOW_RES", title, url)
         return False
     # 屏蔽关键词
-    for kw in BLOCK_KEYWORDS:
-        if re.search(rf'\b{kw}\b', text):
-            log_skip("BLOCK_KEYWORD", title, url)
-            return False
+    if any(kw in text for kw in BLOCK_KEYWORDS):
+        log_skip("BLOCK_KEYWORD", title, url)
+        return False
     return True
 
 def quick_check(url):
-    """HEAD 快速检测，返回 ok, elapsed, final_url"""
+    """HEAD 快速检测"""
     start = time.time()
     try:
         r = requests.head(url, headers=HEADERS, timeout=TIMEOUT, allow_redirects=True)
@@ -78,11 +75,11 @@ def quick_check(url):
             "application/octet-stream"
         ])
         return ok, elapsed, r.url
-    except:
+    except Exception:
         return False, round(time.time() - start, 3), url
 
 def ffprobe_check(url):
-    """使用 ffprobe 检测视频流，返回 ok, elapsed, final_url"""
+    """ffprobe 检测视频流"""
     start = time.time()
     try:
         cmd = [
@@ -94,22 +91,28 @@ def ffprobe_check(url):
         proc = subprocess.run(cmd, capture_output=True, text=True, timeout=TIMEOUT)
         data = json.loads(proc.stdout or "{}")
         ok = "streams" in data and len(data["streams"]) > 0
-    except:
+    except Exception:
         ok = False
     elapsed = round(time.time() - start, 3)
     return ok, elapsed, url
 
-def test_stream(url):
+def test_stream(title, url):
     """
-    检测流可用性：
-    1. HEAD 请求快速判断
-    2. 若 HEAD 失败，则用 ffprobe 检测视频流
-    返回: ok, elapsed_time, final_url
+    检测流可用性
     """
-    ok, elapsed, final_url = quick_check(url)
-    if not ok:
-        ok, elapsed, final_url = ffprobe_check(url)
-    return ok, elapsed, final_url
+    url = url.strip()
+    # 白名单直接通过
+    if any(w in url.lower() for w in WHITELIST_PATTERNS):
+        return True, 0, url
+    try:
+        ok, elapsed, final_url = quick_check(url)
+        if not ok:
+            ok, elapsed, final_url = ffprobe_check(url)
+        return ok, elapsed, final_url
+    except Exception as e:
+        log_skip("EXCEPTION", title, url)
+        print(f"❌ EXCEPTION {title} -> {url} | {e}")
+        return False, 0, url
 
 def detect_optimal_threads():
     """动态线程数"""
@@ -141,42 +144,44 @@ def extract_name(title):
 # ==============================
 # 主逻辑
 # ==============================
-lines = open(input_file, encoding="utf-8").read().splitlines()
+# 1. 从 CSV 导入
 pairs = []
-i=0
-while i < len(lines):
-    if lines[i].startswith("#EXTINF") and i+1<len(lines):
-        title, url = lines[i], lines[i+1]
-        if is_allowed(title, url):
-            pairs.append((title, url))
-        else:
-            print(f"🚫 跳过: {title}")
-        i+=2
-    else:
-        i+=1
+with open(CSV_FILE, encoding="utf-8") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        title = row["title"].strip()
+        url = row["url"].strip()
+        pairs.append((title, url))
 
-# 恢复进度
+# 2. 过滤
+filtered_pairs = []
+for title, url in pairs:
+    if is_allowed(title, url):
+        filtered_pairs.append((title, url))
+    else:
+        print(f"🚫 跳过: {title}")
+
+total = len(filtered_pairs)
+threads = detect_optimal_threads()
+print(f"⚙️ 动态线程数：{threads}")
+print(f"🚀 开始检测 {total} 条流，每批 {BATCH_SIZE} 条")
+
+# 3. 批量检测
+all_working = []
+start_time = time.time()
 done_index = 0
-if os.path.exists(progress_file):
+if os.path.exists(PROGRESS_FILE):
     try:
-        done_index = json.load(open(progress_file,encoding="utf-8")).get("done",0)
+        done_index = json.load(open(PROGRESS_FILE,encoding="utf-8")).get("done",0)
         print(f"🔄 恢复进度，从第 {done_index} 条继续")
     except:
         pass
 
-total = len(pairs)
-threads = detect_optimal_threads()
-print(f"⚙️ 动态并发线程数：{threads}")
-print(f"🚀 开始检测 {total} 条流，每批 {BATCH_SIZE} 条")
-
-start_time = time.time()
-all_working = []
-
 for batch_start in range(done_index, total, BATCH_SIZE):
-    batch = pairs[batch_start:batch_start+BATCH_SIZE]
+    batch = filtered_pairs[batch_start:batch_start+BATCH_SIZE]
     working_batch = []
     with ThreadPoolExecutor(max_workers=threads) as executor:
-        futures = {executor.submit(test_stream,url):(title,url) for title,url in batch}
+        futures = {executor.submit(test_stream,title,url):(title,url) for title,url in batch}
         for future in as_completed(futures):
             title,url = futures[future]
             try:
@@ -186,24 +191,24 @@ for batch_start in range(done_index, total, BATCH_SIZE):
                     print(f"✅ {extract_name(title)} ({elapsed}s)")
                 else:
                     log_skip("FAILED_CHECK", title, url)
+                    print(f"❌ FAILED_CHECK {title} -> {url}")
             except Exception as e:
                 log_skip("EXCEPTION", title, url)
+                print(f"❌ EXCEPTION {title} -> {url} | {e}")
     all_working.extend(working_batch)
-    json.dump({"done":min(batch_start+BATCH_SIZE,total)}, open(progress_file,"w",encoding="utf-8"))
+    json.dump({"done":min(batch_start+BATCH_SIZE,total)}, open(PROGRESS_FILE,"w",encoding="utf-8"))
     print(f"🧮 本批完成：{len(working_batch)}/{len(batch)} 可用流 | 已完成 {min(batch_start+BATCH_SIZE,total)}/{total}")
 
-if os.path.exists(progress_file):
-    os.remove(progress_file)
+if os.path.exists(PROGRESS_FILE):
+    os.remove(PROGRESS_FILE)
 
-# ==============================
-# 分组、排序、去重
-# ==============================
+# 4. 分组、排序、去重
 grouped = defaultdict(list)
 for title,url,elapsed in all_working:
     name = extract_name(title).lower()
     grouped[name].append((title,url,elapsed))
 
-with open(output_file,"w",encoding="utf-8") as f:
+with open(OUTPUT_FILE,"w",encoding="utf-8") as f:
     f.write("#EXTM3U\n")
     for name in sorted(grouped.keys()):
         group_sorted = sorted(grouped[name], key=lambda x:x[2])
@@ -211,7 +216,7 @@ with open(output_file,"w",encoding="utf-8") as f:
             f.write(f"{title}\n{url}\n")
 
 elapsed_total = round(time.time()-start_time,2)
-print(f"\n✅ 检测完成，共 {len(all_working)} 条可用高清流，用时 {elapsed_total} 秒")
-print(f"📁 可用源: {output_file}")
-print(f"⚠️ 失败或过滤源: {skipped_file}")
-print(f"🕵️ 可疑误杀源: {suspect_file}")
+print(f"\n✅ 检测完成，共 {len(all_working)} 条可用流，用时 {elapsed_total} 秒")
+print(f"📁 可用源: {OUTPUT_FILE}")
+print(f"⚠️ 失败或过滤源: {SKIPPED_FILE}")
+print(f"🕵️ 可疑误杀源: {SUSPECT_FILE}")
