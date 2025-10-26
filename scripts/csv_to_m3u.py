@@ -3,11 +3,12 @@ import csv
 import re
 from collections import defaultdict
 
-# 输出目录
+# ==============================
+# 配置
+# ==============================
 output_dir = "output"
 os.makedirs(output_dir, exist_ok=True)
 
-# 图标目录
 icon_dir = "png"
 default_icon = os.path.join(icon_dir, "default.png")
 
@@ -16,11 +17,24 @@ sum_csv_dir = os.path.join("output", "sum_cvs")
 csv_files = [os.path.join(sum_csv_dir, f) for f in os.listdir(sum_csv_dir) 
              if f.endswith("_sum.csv")]
 
+# 添加自有源 CSV
+mysource_csv = os.path.join("input", "mysource", "my_sum.csv")
+if os.path.exists(mysource_csv):
+    csv_files.insert(0, mysource_csv)
+else:
+    print(f"⚠️ 自有源 CSV 不存在: {mysource_csv}")
+
 if not csv_files:
-    print(f"⚠️ 未找到 CSV 文件: {sum_csv_dir} 下的 *_sum.csv")
+    print(f"⚠️ 未找到 CSV 文件: {sum_csv_dir} 下的 *_sum.csv 或自有源 CSV")
     exit(1)
 
+print("🔹 将处理以下 CSV 文件:")
+for f in csv_files:
+    print(f"  - {f}")
+
+# ==============================
 # CCTV 频道自然排序
+# ==============================
 def natural_key(name):
     m = re.match(r"(CCTV-?)(\d+)", name, re.I)
     if m:
@@ -29,30 +43,37 @@ def natural_key(name):
     else:
         return (name.lower(), 0)
 
-# 地址源排序（示例）
+# 地址源排序示例
 dxl_order = ["电信组播", "济南联通", "上海移动", "电信单播", "青岛联通"]
 sjmz_order = ["济南移动", "上海移动", "济南联通", "电信组播", "青岛联通", "电信单播"]
 
+# ==============================
 # 读取 CSV
+# ==============================
 channels = []
+
 for csv_file in csv_files:
+    if not os.path.exists(csv_file):
+        print(f"⚠️ 跳过不存在的文件: {csv_file}")
+        continue
     with open(csv_file, newline="", encoding="utf-8-sig") as f:
         reader = csv.reader(f)
-        next(reader, None)
+        headers = next(reader, None)
         for row in reader:
             if len(row) < 3:
                 continue
             name = row[0].strip()
-            group = row[1].strip() if row[1].strip() else "未分类"
+            group = row[1].strip() if len(row) > 1 and row[1].strip() else "未分类"
 
             # 自动识别特定分组
-            if "taiwan" in csv_file.lower():
+            lower = os.path.basename(csv_file).lower()
+            if "taiwan" in lower:
                 group = "台湾频道"
-            elif "international" in csv_file.lower():
+            elif "international" in lower:
                 group = "国际频道"
-            elif "hk" in csv_file.lower():
+            elif "hk" in lower:
                 group = "香港频道"
-            elif "mo" in csv_file.lower():
+            elif "mo" in lower:
                 group = "澳门频道"
 
             url = row[2].strip()
@@ -64,7 +85,11 @@ for csv_file in csv_files:
                 "source": source
             })
 
+print(f"🔹 读取完 CSV，总频道数: {len(channels)}")
+
+# ==============================
 # 图标处理
+# ==============================
 for ch in channels:
     icon_path = os.path.join(icon_dir, f"{ch['name']}.png")
     if os.path.exists(icon_path):
@@ -74,7 +99,9 @@ for ch in channels:
     else:
         ch["icon"] = ""
 
-# 分组排序规则
+# ==============================
+# 分组排序
+# ==============================
 priority_groups = [
     "央视频道",
     "4K频道",
@@ -85,7 +112,6 @@ priority_groups = [
     "澳门频道"
 ]
 
-# 其他分组按拼音排序
 other_groups = sorted(set(ch["group"] for ch in channels if ch["group"] not in priority_groups + ["数字频道", "电台广播"]))
 group_priority = {name: i + len(priority_groups) for i, name in enumerate(other_groups)}
 group_priority["数字频道"] = len(priority_groups) + len(other_groups)
@@ -93,25 +119,26 @@ group_priority["电台广播"] = len(priority_groups) + len(other_groups) + 1
 for i, g in enumerate(priority_groups):
     group_priority[g] = i
 
-# 分组排序 key
 def group_sort_key(ch):
     return (group_priority.get(ch["group"], 999), natural_key(ch["name"]))
 
-# 地址源排序
 def source_sort_key(ch, order):
     try:
         return order.index(ch["source"])
     except ValueError:
         return len(order)
 
-# 生成 M3U 文件
+# ==============================
+# M3U 生成函数
+# ==============================
 def generate_m3u(filename, source_priority, remove_source=None):
-    filtered = [ch for ch in channels if ch["source"] != remove_source] if remove_source else channels.copy()
+    if not channels:
+        print(f"⚠️ channels 为空，无法生成 {filename}")
+        return
 
-    # 分组排序 + 频道名自然排序
+    filtered = [ch for ch in channels if ch["source"] != remove_source] if remove_source else channels.copy()
     filtered.sort(key=group_sort_key)
 
-    # 分组内部按 source 排序
     grouped = defaultdict(list)
     for ch in filtered:
         grouped[ch["group"]].append(ch)
@@ -128,7 +155,6 @@ def generate_m3u(filename, source_priority, remove_source=None):
             items.sort(key=lambda ch: source_sort_key(ch, source_priority))
             final_list.extend(items)
 
-    # 写入 M3U
     m3u_path = os.path.join(output_dir, filename)
     with open(m3u_path, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
@@ -140,11 +166,9 @@ def generate_m3u(filename, source_priority, remove_source=None):
 
     print(f"✅ 已生成 {filename}, 共 {len(final_list)} 条频道")
 
-# 生成 dxl.m3u（去掉济南移动）
+# ==============================
+# 生成 M3U 文件
+# ==============================
 generate_m3u("dxl.m3u", dxl_order, remove_source="济南移动")
-
-# 生成 sjmz.m3u
 generate_m3u("sjmz.m3u", sjmz_order)
-
-# 生成 total.m3u
 generate_m3u("total.m3u", dxl_order)
