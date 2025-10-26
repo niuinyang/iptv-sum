@@ -1,0 +1,32 @@
+name: Download TV Icons (Monthly)
+
+on:
+  schedule:
+    - cron: '0 19 1 * *'  # 每月1日凌晨3点 东八区
+  workflow_dispatch:
+
+permissions:
+  contents: write  # 允许 workflow 推送仓库内容
+
+jobs:
+  download_icons:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Download TV icons
+        run: |
+          set -e
+          for i in {1..3}; do
+            python scripts/download_tv_folder.py && break || echo "⚠️ Retry $i failed" && sleep 10
+          done
+
+      - name: Log completion
+        run: echo "✅ TV icons download job finished."
