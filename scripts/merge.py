@@ -1,13 +1,15 @@
 import os
 import re
+import csv
 import requests
 from collections import defaultdict
 
 # ==============================
 # 配置
 # ==============================
-SOURCES_FILE = "input/network/networksource.txt"
-OUTPUT_FILE = "output/total.m3u"
+SOURCES_FILE = "input/network/networksource.txt"  # 每行一个源地址（本地文件或 URL）
+OUTPUT_M3U = "output/total.m3u"
+OUTPUT_CSV = "output/total.csv"
 os.makedirs("output", exist_ok=True)
 
 HEADERS = {"User-Agent": "Mozilla/5.0"}
@@ -15,7 +17,7 @@ RETRY_TIMES = 3
 TIMEOUT = 15
 
 # ==============================
-# 读取所有源
+# 获取源文件内容
 # ==============================
 def fetch_sources(file_path):
     all_lines = []
@@ -43,7 +45,7 @@ def fetch_sources(file_path):
                 with open(url, encoding="utf-8", errors="ignore") as f_local:
                     text = f_local.read()
 
-            # 每个源文件只去掉一次 #EXTM3U
+            # 去掉 #EXTM3U
             lines = text.splitlines()
             filtered_lines = []
             removed_header = False
@@ -127,6 +129,16 @@ def write_m3u(pairs, output_file):
             f.write(f"{title}\n{url}\n")
 
 # ==============================
+# 写入 CSV
+# ==============================
+def write_csv(pairs, csv_file):
+    with open(csv_file, "w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["title", "url"])
+        for title, url in pairs:
+            writer.writerow([title, url])
+
+# ==============================
 # 主流程
 # ==============================
 if __name__ == "__main__":
@@ -134,7 +146,9 @@ if __name__ == "__main__":
     pairs = parse_channels(all_lines)
     unique_pairs = deduplicate(pairs)
     grouped_sorted_pairs = group_sort(unique_pairs)
-    write_m3u(grouped_sorted_pairs, OUTPUT_FILE)
+
+    write_m3u(grouped_sorted_pairs, OUTPUT_M3U)
+    write_csv(grouped_sorted_pairs, OUTPUT_CSV)
 
     print(f"\n✅ 合并完成：成功 {success} 源，失败 {failed} 源，"
-          f"去重后 {len(grouped_sorted_pairs)} 条频道 → {OUTPUT_FILE}")
+          f"去重后 {len(grouped_sorted_pairs)} 条频道 → {OUTPUT_M3U} / {OUTPUT_CSV}")
