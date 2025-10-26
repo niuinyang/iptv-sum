@@ -10,14 +10,23 @@ from statistics import mean
 import multiprocessing
 
 # ==============================
+# 文件夹结构
+# ==============================
+OUTPUT_DIR = "output"
+LOG_DIR = os.path.join(OUTPUT_DIR, "log")
+MIDDLE_DIR = os.path.join(OUTPUT_DIR, "middle")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(LOG_DIR, exist_ok=True)
+os.makedirs(MIDDLE_DIR, exist_ok=True)
+
+# ==============================
 # 配置区
 # ==============================
-CSV_FILE = "output/total.csv"        # 输入 CSV
-OUTPUT_FILE = "output/working.m3u"  # 可用流输出
-PROGRESS_FILE = "output/progress.json"
-SKIPPED_FILE = "output/skipped.log"
-SUSPECT_FILE = "output/suspect.log"
-os.makedirs("output", exist_ok=True)
+CSV_FILE = os.path.join(OUTPUT_DIR, "total.csv")        # 输入 CSV
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.m3u")  # 可用流输出
+PROGRESS_FILE = os.path.join(MIDDLE_DIR, "progress.json")
+SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
+SUSPECT_FILE = os.path.join(LOG_DIR, "suspect.log")
 
 TIMEOUT = 15
 BASE_THREADS = 50
@@ -109,7 +118,8 @@ def test_stream(title, url):
         return ok, elapsed, final_url
     except Exception as e:
         log_skip("EXCEPTION", title, url)
-        print(f"❌ EXCEPTION {title} -> {url} | {e}")
+        if DEBUG:
+            print(f"❌ EXCEPTION {title} -> {url} | {e}")
         return False, 0, url
 
 def detect_optimal_threads():
@@ -142,79 +152,81 @@ def extract_name(title):
 # ==============================
 # 主逻辑
 # ==============================
-# 1. 从 CSV 导入
-pairs = []
-with open(CSV_FILE, encoding="utf-8") as f:
-    reader = csv.DictReader(f)
-    for row in reader:
-        title = row["title"].strip()
-        url = row["url"].strip()
-        pairs.append((title, url))
+if __name__ == "__main__":
+    # 清空日志
+    for log_file in [SKIPPED_FILE, SUSPECT_FILE]:
+        if os.path.exists(log_file):
+            os.remove(log_file)
 
-# 2. 过滤
-filtered_pairs = []
-for title, url in pairs:
-    if is_allowed(title, url):
-        filtered_pairs.append((title, url))
-    else:
-        print(f"🚫 跳过: {title}")
+    # 1. 导入 CSV
+    pairs = []
+    with open(CSV_FILE, encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            title = row["title"].strip()
+            url = row["url"].strip()
+            pairs.append((title, url))
 
-total = len(filtered_pairs)
-threads = detect_optimal_threads()
-print(f"⚙️ 动态线程数：{threads}")
-print(f"🚀 开始检测 {total} 条流，每批 {BATCH_SIZE} 条")
+    # 2. 过滤
+    filtered_pairs = [(t,u) for t,u in pairs if is_allowed(t,u)]
+    print(f"🚫 跳过源: {len(pairs)-len(filtered_pairs)} 条")
 
-# 3. 批量检测
-all_working = []
-start_time = time.time()
-done_index = 0
-if os.path.exists(PROGRESS_FILE):
-    try:
-        done_index = json.load(open(PROGRESS_FILE,encoding="utf-8")).get("done",0)
-        print(f"🔄 恢复进度，从第 {done_index} 条继续")
-    except:
-        pass
+    total = len(filtered_pairs)
+    threads = detect_optimal_threads()
+    print(f"⚙️ 动态线程数：{threads}")
+    print(f"🚀 开始检测 {total} 条流，每批 {BATCH_SIZE} 条")
 
-for batch_start in range(done_index, total, BATCH_SIZE):
-    batch = filtered_pairs[batch_start:batch_start+BATCH_SIZE]
-    working_batch = []
-    with ThreadPoolExecutor(max_workers=threads) as executor:
-        futures = {executor.submit(test_stream,title,url):(title,url) for title,url in batch}
-        for future in as_completed(futures):
-            title,url = futures[future]
-            try:
-                ok, elapsed, final_url = future.result()
-                if ok:
-                    working_batch.append((title, final_url, elapsed))
-                    print(f"✅ {extract_name(title)} ({elapsed}s)")
-                else:
-                    log_skip("FAILED_CHECK", title, url)
-                    print(f"❌ FAILED_CHECK {title} -> {url}")
-            except Exception as e:
-                log_skip("EXCEPTION", title, url)
-                print(f"❌ EXCEPTION {title} -> {url} | {e}")
-    all_working.extend(working_batch)
-    json.dump({"done":min(batch_start+BATCH_SIZE,total)}, open(PROGRESS_FILE,"w",encoding="utf-8"))
-    print(f"🧮 本批完成：{len(working_batch)}/{len(batch)} 可用流 | 已完成 {min(batch_start+BATCH_SIZE,total)}/{total}")
+    # 3. 批量检测
+    all_working = []
+    start_time = time.time()
+    done_index = 0
 
-if os.path.exists(PROGRESS_FILE):
-    os.remove(PROGRESS_FILE)
+    if os.path.exists(PROGRESS_FILE):
+        try:
+            done_index = json.load(open(PROGRESS_FILE,encoding="utf-8")).get("done",0)
+            print(f"🔄 恢复进度，从第 {done_index} 条继续")
+        except:
+            pass
 
-# 4. 分组、排序（组内按耗时排序）
-grouped = defaultdict(list)
-for title,url,elapsed in all_working:
-    name = extract_name(title).lower()
-    grouped[name].append((title,url,elapsed))
+    for batch_start in range(done_index, total, BATCH_SIZE):
+        batch = filtered_pairs[batch_start:batch_start+BATCH_SIZE]
+        working_batch = []
+        with ThreadPoolExecutor(max_workers=threads) as executor:
+            futures = {executor.submit(test_stream,title,url):(title,url) for title,url in batch}
+            for future in as_completed(futures):
+                title,url = futures[future]
+                try:
+                    ok, elapsed, final_url = future.result()
+                    if ok:
+                        working_batch.append((title, final_url, elapsed))
+                        if DEBUG:
+                            print(f"✅ {extract_name(title)} ({elapsed}s)")
+                    else:
+                        log_skip("FAILED_CHECK", title, url)
+                except Exception as e:
+                    log_skip("EXCEPTION", title, url)
+        all_working.extend(working_batch)
+        json.dump({"done":min(batch_start+BATCH_SIZE,total)}, open(PROGRESS_FILE,"w",encoding="utf-8"))
+        print(f"🧮 本批完成：{len(working_batch)}/{len(batch)} 可用流 | 已完成 {min(batch_start+BATCH_SIZE,total)}/{total}")
 
-with open(OUTPUT_FILE,"w",encoding="utf-8") as f:
-    f.write("#EXTM3U\n")
-    for name in sorted(grouped.keys()):  # 保持分组字母顺序
-        group_sorted = sorted(grouped[name], key=lambda x: x[2])  # 组内按耗时排序
-        for title,url,_ in group_sorted:
-            f.write(f"{title}\n{url}\n")
+    if os.path.exists(PROGRESS_FILE):
+        os.remove(PROGRESS_FILE)
 
-elapsed_total = round(time.time()-start_time,2)
-print(f"\n✅ 检测完成，共 {len(all_working)} 条可用流，用时 {elapsed_total} 秒")
-print(f"📁 可用源: {OUTPUT_FILE}")
-print(f"⚠️ 失败或过滤源: {SKIPPED_FILE}")
-print(f"🕵️ 可疑误杀源: {SUSPECT_FILE}")
+    # 4. 分组、按耗时排序
+    grouped = defaultdict(list)
+    for title,url,elapsed in all_working:
+        name = extract_name(title).lower()
+        grouped[name].append((title,url,elapsed))
+
+    with open(OUTPUT_FILE,"w",encoding="utf-8") as f:
+        f.write("#EXTM3U\n")
+        for name in sorted(grouped.keys()):
+            group_sorted = sorted(grouped[name], key=lambda x: x[2])
+            for title,url,_ in group_sorted:
+                f.write(f"{title}\n{url}\n")
+
+    elapsed_total = round(time.time()-start_time,2)
+    print(f"\n✅ 检测完成，共 {len(all_working)} 条可用流，用时 {elapsed_total} 秒")
+    print(f"📁 可用源: {OUTPUT_FILE}")
+    print(f"⚠️ 失败或过滤源: {SKIPPED_FILE}")
+    print(f"🕵️ 可疑误杀源: {SUSPECT_FILE}")
