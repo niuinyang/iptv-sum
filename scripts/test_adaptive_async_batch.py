@@ -99,11 +99,9 @@ def ffprobe_check(url):
 def test_stream(title, url):
     """
     检测流可用性
+    白名单也做 HEAD/ffprobe
     """
     url = url.strip()
-    # 白名单直接通过
-    if any(w in url.lower() for w in WHITELIST_PATTERNS):
-        return True, 0, url
     try:
         ok, elapsed, final_url = quick_check(url)
         if not ok:
@@ -202,7 +200,7 @@ for batch_start in range(done_index, total, BATCH_SIZE):
 if os.path.exists(PROGRESS_FILE):
     os.remove(PROGRESS_FILE)
 
-# 4. 分组、排序、去重
+# 4. 分组、排序（组内按耗时排序）
 grouped = defaultdict(list)
 for title,url,elapsed in all_working:
     name = extract_name(title).lower()
@@ -210,8 +208,8 @@ for title,url,elapsed in all_working:
 
 with open(OUTPUT_FILE,"w",encoding="utf-8") as f:
     f.write("#EXTM3U\n")
-    for name in sorted(grouped.keys()):
-        group_sorted = sorted(grouped[name], key=lambda x:x[2])
+    for name in sorted(grouped.keys()):  # 保持分组字母顺序
+        group_sorted = sorted(grouped[name], key=lambda x: x[2])  # 组内按耗时排序
         for title,url,_ in group_sorted:
             f.write(f"{title}\n{url}\n")
 
