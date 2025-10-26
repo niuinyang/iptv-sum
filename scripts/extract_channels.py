@@ -13,10 +13,10 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # 地区与对应 find CSV 文件及来源标识（已更新路径）
 REGIONS = {
-    "国际": {"csv": "input/network/find/find_intl.csv", "source": "国际源"},
-    "台湾": {"csv": "input/network/find/find_tw.csv", "source": "台湾源"},
-    "香港": {"csv": "input/network/find/find_hk.csv", "source": "香港源"},
-    "澳门": {"csv": "input/network/find/find_mo.csv", "source": "澳门源"}
+    "国际": {"csv": "input/network/find/find_intl.csv", "source": "国际源", "out": "find_international_sum.csv"},
+    "台湾": {"csv": "input/network/find/find_tw.csv", "source": "台湾源", "out": "find_taiwan_sum.csv"},
+    "香港": {"csv": "input/network/find/find_hk.csv", "source": "香港源", "out": "find_hk_sum.csv"},
+    "澳门": {"csv": "input/network/find/find_mo.csv", "source": "澳门源", "out": "find_mo_sum.csv"}
 }
 
 # 简繁转换器
@@ -39,9 +39,7 @@ def normalize_text(text):
 # ==============================
 # 通用频道提取函数
 # ==============================
-def extract_channels(find_csv, region_name, source_label):
-    output_file = os.path.join(OUTPUT_DIR, f"{region_name}_sum.csv")
-
+def extract_channels(find_csv, region_name, source_label, output_file):
     # 读取搜索列表
     with open(find_csv, "r", encoding="utf-8") as f:
         reader = csv.reader(f)
@@ -87,14 +85,16 @@ def extract_channels(find_csv, region_name, source_label):
             i += 1
 
     # 写入 CSV
-    with open(output_file, "w", newline="", encoding="utf-8-sig") as f:
+    output_path = os.path.join(OUTPUT_DIR, output_file)
+    with open(output_path, "w", newline="", encoding="utf-8-sig") as f:
         writer = csv.writer(f)
         writer.writerow(["tvg-name", "地区", "URL", "来源", "原始tvg-name"])
         for name in search_names:
             writer.writerows(matches_dict[name])
 
     total_matches = sum(len(v) for v in matches_dict.values())
-    print(f"✅ {region_name} 匹配完成，共 {total_matches} 个频道，输出: {output_file}")
+    print(f"✅ {region_name} 匹配完成，共 {total_matches} 个频道，输出: {output_path}")
+
 
 # ==============================
 # 执行所有地区提取
@@ -103,7 +103,8 @@ if __name__ == "__main__":
     for region, cfg in REGIONS.items():
         csv_file = cfg["csv"]
         source_label = cfg["source"]
+        output_file = cfg["out"]
         if not os.path.exists(csv_file):
             print(f"⚠️ 找不到 {region} 的查找 CSV: {csv_file}, 已跳过")
             continue
-        extract_channels(csv_file, region, source_label)
+        extract_channels(csv_file, region, source_label, output_file)
