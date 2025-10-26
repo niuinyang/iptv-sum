@@ -1,39 +1,80 @@
 import requests
-import zipfile
-import io
 import os
+import json
 
-# GitHub 仓库信息
-repo_url = "https://github.com/fanmingming/live"
-folder_in_repo = "tv"  # 仓库里要下载的文件夹
-output_dir = "png"     # 本地保存的目录
+# ==============================
+# 配置区
+# ==============================
+REPO = "fanmingming/live"        # GitHub 仓库
+FOLDER_IN_REPO = "tv"            # 仓库内要下载的文件夹
+OUTPUT_DIR = "png"                # 本地保存目录
+BRANCH = "main"                   # 分支
+HEADERS = {"User-Agent": "Python"}
+HASH_FILE = os.path.join(OUTPUT_DIR, ".hashes.json")
+RETRY_TIMES = 3
 
-os.makedirs(output_dir, exist_ok=True)
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# 下载仓库 ZIP
-zip_url = repo_url + "/archive/refs/heads/main.zip"
-print(f"正在下载仓库 ZIP: {zip_url} ...")
-r = requests.get(zip_url)
-if r.status_code != 200:
-    print(f"下载失败，状态码: {r.status_code}")
-    exit(1)
+# ==============================
+# 读取本地 hash
+# ==============================
+if os.path.exists(HASH_FILE):
+    with open(HASH_FILE, "r") as f:
+        local_hashes = json.load(f)
+else:
+    local_hashes = {}
 
-# 打开 ZIP
-z = zipfile.ZipFile(io.BytesIO(r.content))
+updated_hashes = local_hashes.copy()
 
-# ZIP 内文件前缀
-zip_root = z.namelist()[0].split('/')[0]  # 仓库压缩包的根目录名
-prefix = f"{zip_root}/{folder_in_repo}/"
+# ==============================
+# 获取 GitHub 文件列表
+# ==============================
+api_url = f"https://api.github.com/repos/{REPO}/git/trees/{BRANCH}?recursive=1"
+print(f"📡 获取 GitHub 文件列表: {api_url}")
+r = requests.get(api_url, headers=HEADERS)
+r.raise_for_status()
+tree = r.json().get("tree", [])
 
-# 提取 tv 文件夹内容到 png
-print(f"正在解压 {folder_in_repo} 文件夹到 {output_dir} ...")
-for file in z.namelist():
-    if file.startswith(prefix) and not file.endswith("/"):
-        # 计算相对路径
-        rel_path = os.path.relpath(file, prefix)
-        out_path = os.path.join(output_dir, rel_path)
-        os.makedirs(os.path.dirname(out_path), exist_ok=True)
-        with open(out_path, "wb") as f:
-            f.write(z.read(file))
+# ==============================
+# 下载文件
+# ==============================
+for file in tree:
+    path, sha, type_ = file["path"], file["sha"], file["type"]
+    if type_ != "blob" or not path.startswith(FOLDER_IN_REPO + "/"):
+        continue
 
-print("✅ 下载完成！")
+    # 本地路径
+    rel_path = os.path.relpath(path, FOLDER_IN_REPO)
+    local_path = os.path.join(OUTPUT_DIR, rel_path)
+
+    # 文件已存在且 hash 相同，跳过
+    if local_hashes.get(path) == sha and os.path.exists(local_path):
+        print(f"✔ 已存在，跳过: {rel_path}")
+        continue
+
+    # 下载文件
+    raw_url = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/{path}"
+    success = False
+    for attempt in range(RETRY_TIMES):
+        try:
+            r_file = requests.get(raw_url, headers=HEADERS, timeout=15)
+            r_file.raise_for_status()
+            os.makedirs(os.path.dirname(local_path), exist_ok=True)
+            with open(local_path, "wb") as f:
+                f.write(r_file.content)
+            updated_hashes[path] = sha
+            print(f"⬇ 下载完成: {rel_path}")
+            success = True
+            break
+        except Exception as e:
+            print(f"⚠️ 下载失败 {attempt+1}/{RETRY_TIMES}: {rel_path} ({e})")
+    if not success:
+        print(f"❌ 下载失败，跳过: {rel_path}")
+
+# ==============================
+# 保存最新 hash
+# ==============================
+with open(HASH_FILE, "w") as f:
+    json.dump(updated_hashes, f, indent=2)
+
+print("✅ 增量下载完成！")
