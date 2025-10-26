@@ -8,15 +8,15 @@ import os
 # 配置区
 # ==============================
 M3U_FILE = "output/working.m3u"
-OUTPUT_DIR = "input/network"
+OUTPUT_DIR = os.path.join("output", "sum_cvs")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# 地区与对应 find CSV 文件及来源标识
+# 地区与对应 find CSV 文件及来源标识（已更新路径）
 REGIONS = {
-    "国际": {"csv": "input/network/find_international.csv", "source": "国际源"},
-    "台湾": {"csv": "input/network/find_taiwan.csv", "source": "台湾源"},
-    "香港": {"csv": "input/network/find_hk.csv", "source": "香港源"},
-    "澳门": {"csv": "input/network/find_mo.csv", "source": "澳门源"}
+    "国际": {"csv": "input/network/find/find_intl.csv", "source": "国际源"},
+    "台湾": {"csv": "input/network/find/find_tw.csv", "source": "台湾源"},
+    "香港": {"csv": "input/network/find/find_hk.csv", "source": "香港源"},
+    "澳门": {"csv": "input/network/find/find_mo.csv", "source": "澳门源"}
 }
 
 # 简繁转换器
@@ -63,7 +63,7 @@ def extract_channels(find_csv, region_name, source_label):
         if line.startswith("#EXTINF:"):
             info_line = line
             url_line = lines[i + 1].strip() if i + 1 < len(lines) else ""
-            if url_line in seen_urls:
+            if url_line in seen_urls or not url_line.startswith("http"):
                 i += 2
                 continue
 
@@ -95,7 +95,6 @@ def extract_channels(find_csv, region_name, source_label):
 
     total_matches = sum(len(v) for v in matches_dict.values())
     print(f"✅ {region_name} 匹配完成，共 {total_matches} 个频道，输出: {output_file}")
-
 
 # ==============================
 # 执行所有地区提取
