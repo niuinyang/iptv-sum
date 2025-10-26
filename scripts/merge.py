@@ -5,12 +5,20 @@ import requests
 from collections import defaultdict
 
 # ==============================
-# 配置
+# 配置路径
 # ==============================
 SOURCES_FILE = "input/network/networksource.txt"  # 每行一个源地址（本地文件或 URL）
-OUTPUT_M3U = "output/total.m3u"
-OUTPUT_CSV = "output/total.csv"
-os.makedirs("output", exist_ok=True)
+OUTPUT_DIR = "output"
+LOG_DIR = os.path.join(OUTPUT_DIR, "log")
+MIDDLE_DIR = os.path.join(OUTPUT_DIR, "middle")
+
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(LOG_DIR, exist_ok=True)
+os.makedirs(MIDDLE_DIR, exist_ok=True)
+
+OUTPUT_M3U = os.path.join(OUTPUT_DIR, "total.m3u")
+OUTPUT_CSV = os.path.join(OUTPUT_DIR, "total.csv")
+SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
 
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 RETRY_TIMES = 3
@@ -61,6 +69,8 @@ def fetch_sources(file_path):
             success += 1
         except Exception as e:
             failed += 1
+            with open(SKIPPED_FILE, "a", encoding="utf-8") as f_log:
+                f_log.write(f"❌ Failed: {url} ({e})\n")
             print(f"❌ Failed: {url} ({e})")
 
     return all_lines, success, failed
@@ -94,6 +104,12 @@ def deduplicate(pairs):
     return unique_pairs
 
 # ==============================
+# 自然排序
+# ==============================
+def natural_sort_key(text):
+    return [int(t) if t.isdigit() else t.lower() for t in re.split(r"([0-9]+)", text)]
+
+# ==============================
 # 分组排序
 # ==============================
 def group_sort(pairs):
@@ -112,12 +128,6 @@ def group_sort(pairs):
         group_items.sort(key=lambda x: natural_sort_key(x[0]))
         sorted_pairs.extend(group_items)
     return sorted_pairs
-
-# ==============================
-# 自然排序
-# ==============================
-def natural_sort_key(text):
-    return [int(t) if t.isdigit() else t.lower() for t in re.split(r"([0-9]+)", text)]
 
 # ==============================
 # 写入 total.m3u
@@ -142,9 +152,18 @@ def write_csv(pairs, csv_file):
 # 主流程
 # ==============================
 if __name__ == "__main__":
+    # 清空日志
+    if os.path.exists(SKIPPED_FILE):
+        os.remove(SKIPPED_FILE)
+
     all_lines, success, failed = fetch_sources(SOURCES_FILE)
-    pairs = parse_channels(all_lines)
-    unique_pairs = deduplicate(pairs)
+    parsed_pairs = parse_channels(all_lines)
+
+    # 写入中间 CSV/M3U 文件
+    write_csv(parsed_pairs, os.path.join(MIDDLE_DIR, "parsed.csv"))
+    write_m3u(parsed_pairs, os.path.join(MIDDLE_DIR, "parsed.m3u"))
+
+    unique_pairs = deduplicate(parsed_pairs)
     grouped_sorted_pairs = group_sort(unique_pairs)
 
     write_m3u(grouped_sorted_pairs, OUTPUT_M3U)
@@ -152,3 +171,5 @@ if __name__ == "__main__":
 
     print(f"\n✅ 合并完成：成功 {success} 源，失败 {failed} 源，"
           f"去重后 {len(grouped_sorted_pairs)} 条频道 → {OUTPUT_M3U} / {OUTPUT_CSV}")
+    print(f"📁 中间文件 → {MIDDLE_DIR}")
+    print(f"📁 日志文件 → {SKIPPED_FILE}")
