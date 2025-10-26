@@ -1348,9 +1348,6 @@ https://stream1.freetv.fun/abc-news--wj-1.m3u8
 https://stream1.freetv.fun/abc-news-2.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
-https://stream1.freetv.fun/miami-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
 http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/22990
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际频道",ABC
@@ -1389,6 +1386,9 @@ https://stream1.freetv.fun/cartoonito-5.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CARTOONITO" tvg-logo="" group-title="国际频道",CARTOONITO
 https://stream1.freetv.fun/cartoonito--m-3.ctv
 # 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CARTOONITO" tvg-logo="" group-title="国际频道",CARTOONITO
+https://stream1.freetv.fun/cartoonito--m-2.ctv
+# 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/cbc-news-international-1.ctv
 # 国际源
@@ -1411,13 +1411,13 @@ https://stream1.freetv.fun/cnn-fast-2.m3u8
 https://stream1.freetv.fun/cnn-fast-3.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-int-4.m3u8
+https://stream1.freetv.fun/cnn-int-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/cnn-int-3.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
-https://stream1.freetv.fun/cnn-int-1.m3u8
+https://stream1.freetv.fun/cnn-int-4.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际频道",CNN
 https://stream1.freetv.fun/cnn-5.m3u8
@@ -1509,56 +1509,8 @@ http://150.138.8.132/PLTV/88888888/224/3221227284/517077846.smil/index.m3u8?fmt=
 #EXTINF:-1 tvg-id="" tvg-name="阿里郎" tvg-logo="" group-title="国际频道",阿里郎
 http://150.138.8.132/PLTV/88888888/224/3221227430/517077912.smil/index.m3u8?fmt=ts2hls
 # 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/cctv-12she-hui-yu-fa-2.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/cctv-8dian-shi-ju-7.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/cctv-4-asia-1.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/cctv-5-ti-yu-sai-shi-3.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/cctv-5-ti-yu-sai-shi-7.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/cctv-5-ti-yu-sai-shi-8.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/cctv-5-ti-yu-sai-shi-5.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/cctv-5-ti-yu-sai-shi-6.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/cctv-5-ti-yu-sai-shi-9.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/cctv-5-ti-yu-sai-shi-4.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/cctv-5-ti-yu-sai-shi-10.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/cctv-5-ti-yu-sai-shi-1.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://proxyv2.utako.moe/ph.php?&isp=1&id=bs15
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/animax-2.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Animax" tvg-logo="" group-title="台湾频道",Animax
-https://stream1.freetv.fun/animax-7.ctv
-# 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="AXN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/AXN.png" group-title="台湾频道",AXN
 http://79.127.238.228:14563
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="AXN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/AXN.png" group-title="台湾频道",AXN
-https://stream1.freetv.fun/axn-8.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
 https://stream1.freetv.fun/bike-channel-1.m3u8
@@ -1573,10 +1525,10 @@ https://proxyv2.utako.moe/ph.php?&isp=2&id=cs29
 https://stream1.freetv.fun/go-tv-channel-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
-https://stream1.freetv.fun/kartoon-channel-3.m3u8
+https://stream1.freetv.fun/kartoon-channel-2.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
-https://stream1.freetv.fun/kartoon-channel-2.m3u8
+https://stream1.freetv.fun/kartoon-channel-3.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
 https://stream1.freetv.fun/lego-channel-1.ctv
@@ -1609,22 +1561,25 @@ https://stream1.freetv.fun/channel-11-2.m3u8
 https://stream1.freetv.fun/cool-channel-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
-https://v18.thetvapp.to/hls/FXMovieChannel/tracks-v1a1/mono.m3u8?token=lgoVDNi_hfjitkGZJkLx4w&expires=1761515679&user_id=NTIuMTkwLjE0MC45Nw==
+https://v8.thetvapp.to/hls/FXMovieChannel/tracks-v1a1/mono.m3u8?token=XQCUfvid8p_c-asA5cLbDw&expires=1761532175&user_id=NjguMTU0LjExNS4xNzY=
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
 https://stream1.freetv.fun/kqsl-channel-8-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
-https://stream1.freetv.fun/maya-channel-2.m3u8
+https://stream1.freetv.fun/maya-channel-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
-https://stream1.freetv.fun/maya-channel-1.m3u8
+https://stream1.freetv.fun/maya-channel-2.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
 https://stream1.freetv.fun/sakala-channel-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
 https://stream1.freetv.fun/tempe-channel-11-1.m3u8
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
+https://stream1.freetv.fun/tennis-channel-4.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Channel V" tvg-logo="" group-title="台湾频道",Channel V
 https://stream1.freetv.fun/xplore-channel-1.m3u8
@@ -1708,13 +1663,16 @@ https://stream1.freetv.fun/investigation-1.m3u8
 https://stream1.freetv.fun/asharq-discovery-4.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
-https://stream1.freetv.fun/discovery--m-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
 https://stream1.freetv.fun/discovery-family--m-1.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
+https://stream1.freetv.fun/discovery-family-channel-1.m3u8
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
 http://148.113.160.48:14146
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
+https://stream1.freetv.fun/discovery-life-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
 http://cord-cutter.net:8080/live/Ss5DKE/232455/46212.ts
@@ -1723,22 +1681,16 @@ http://cord-cutter.net:8080/live/Ss5DKE/232455/46212.ts
 http://cord-cutter.net:8080/live/cQnq6G/652882/46212.ts
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
-https://stream1.freetv.fun/discovery--s-1.m3u8
+https://stream1.freetv.fun/discovery-velocity--m-1.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
-https://stream1.freetv.fun/id--m-1.ctv
+https://stream1.freetv.fun/discovery--s-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
 https://stream1.freetv.fun/investigation-discovery--m-2.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
-https://stream1.freetv.fun/discovery--m-2.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
 https://stream1.freetv.fun/discovery-life--m-1.ctv
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
-https://stream1.freetv.fun/discovery-science--m-2.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="Discovery" tvg-logo="" group-title="台湾频道",Discovery
 https://stream1.freetv.fun/discovery-science--m-3.ctv
@@ -1786,10 +1738,10 @@ http://cord-cutter.net:8080/live/Ss5DKE/232455/9266.ts
 https://stream1.freetv.fun/hbo-usa--s-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
-https://stream1.freetv.fun/hbo-zone--s-1.m3u8
+https://stream1.freetv.fun/hbo-west--m-1.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
-https://stream1.freetv.fun/hbo--s-1.m3u8
+https://stream1.freetv.fun/hbo-zone--s-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
 https://stream1.freetv.fun/hbo-16.m3u8
@@ -1807,6 +1759,9 @@ https://stream1.freetv.fun/hbo-2-west--m-1.ctv
 https://stream1.freetv.fun/hbo-comedy--m-1.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
+https://stream1.freetv.fun/hbo-family-6.m3u8
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
 http://cord-cutter.net:8080/live/Ss5DKE/232455/17772.ts
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
@@ -1819,13 +1774,19 @@ https://stream1.freetv.fun/hbo-zone--m-1.ctv
 https://stream1.freetv.fun/home-plus-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
-http://cord-cutter.net:8080/live/Ss5DKE/232455/9264.ts
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
 http://cord-cutter.net:8080/live/Ss5DKE/232455/9816.ts
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
+http://cord-cutter.net:8080/live/Ss5DKE/232455/9264.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
 http://cord-cutter.net:8080/live/Ss5DKE/232455/17773.ts
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
+https://stream1.freetv.fun/hbo-family--m-2.ctv
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
+https://stream1.freetv.fun/hbo-family--m-1.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="HBO" tvg-logo="" group-title="台湾频道",HBO
 https://stream1.freetv.fun/hbo-zone-7.m3u8
@@ -1855,22 +1816,22 @@ https://stream1.freetv.fun/dong-sen-mei-zhou-2-1.m3u8
 https://stream1.freetv.fun/dong-sen-mei-zhou-3.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
-https://stream1.freetv.fun/dong-sen-chao-shi-3.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
 https://stream1.freetv.fun/dong-sen-chao-shi-8.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
 https://stream1.freetv.fun/dong-sen-chao-shi-9.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
+https://stream1.freetv.fun/dong-sen-chao-shi-3.m3u8
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="东森超视" tvg-logo="" group-title="台湾频道",东森超视
 https://stream1.freetv.fun/dong-sen-chao-shi-34-5-1.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="中天新闻" tvg-logo="" group-title="台湾频道",中天新闻
-https://stream1.freetv.fun/zhong-tian-xin-wen-7.m3u8
+http://108.181.21.33:45827
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="中天新闻" tvg-logo="" group-title="台湾频道",中天新闻
-http://108.181.21.33:45827
+https://stream1.freetv.fun/zhong-tian-xin-wen-7.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="中视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/中视.png" group-title="台湾频道",中视
 https://stream1.freetv.fun/zhong-shi-8.ctv
@@ -1921,13 +1882,13 @@ https://stream1.freetv.fun/tai-shi-5.ctv
 https://stream1.freetv.fun/tai-shi-xin-wen-21.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视.png" group-title="台湾频道",台视
-https://stream1.freetv.fun/tai-shi-xin-wen-3.m3u8
+https://stream1.freetv.fun/tai-shi-xin-wen-19.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视.png" group-title="台湾频道",台视
 https://stream1.freetv.fun/tai-shi-xin-wen-17.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视.png" group-title="台湾频道",台视
-https://stream1.freetv.fun/tai-shi-xin-wen-19.m3u8
+https://stream1.freetv.fun/tai-shi-xin-wen-3.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="台视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/台视.png" group-title="台湾频道",台视
 https://stream1.freetv.fun/tai-shi-xin-wen-2.ctv
@@ -1951,13 +1912,13 @@ https://stream1.freetv.fun/min-shi-1.ctv
 https://stream1.freetv.fun/min-shi-tai-wan-7.ctv
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="民视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/民视.png" group-title="台湾频道",民视
+https://stream1.freetv.fun/min-shi-xin-wen-13.m3u8
+# 台湾源
+#EXTINF:-1 tvg-id="" tvg-name="民视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/民视.png" group-title="台湾频道",民视
 https://stream1.freetv.fun/min-shi-xin-wen-12.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="民视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/民视.png" group-title="台湾频道",民视
 https://stream1.freetv.fun/min-shi-xin-wen-16.m3u8
-# 台湾源
-#EXTINF:-1 tvg-id="" tvg-name="民视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/民视.png" group-title="台湾频道",民视
-https://stream1.freetv.fun/min-shi-xin-wen-13.m3u8
 # 台湾源
 #EXTINF:-1 tvg-id="" tvg-name="民视" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/民视.png" group-title="台湾频道",民视
 https://stream1.freetv.fun/min-shi-xin-wen-4.ctv
@@ -1969,13 +1930,13 @@ https://stream1.freetv.fun/min-shi-di-yi-1.ctv
 https://stream1.freetv.fun/wei-lai-jing-cai-1.m3u8
 # 香港源
 #EXTINF:-1 tvg-id="" tvg-name="凤凰资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/凤凰资讯.png" group-title="香港频道",凤凰资讯
-http://108.181.20.181:39115
-# 香港源
-#EXTINF:-1 tvg-id="" tvg-name="凤凰资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/凤凰资讯.png" group-title="香港频道",凤凰资讯
-http://108.181.20.181:35639
+http://108.181.20.181:42753
 # 香港源
 #EXTINF:-1 tvg-id="" tvg-name="凤凰资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/凤凰资讯.png" group-title="香港频道",凤凰资讯
 https://smt.1678520.xyz/smt3.2.1.php?id=phoenixinfo_hd
+# 香港源
+#EXTINF:-1 tvg-id="" tvg-name="凤凰资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/凤凰资讯.png" group-title="香港频道",凤凰资讯
+http://108.181.20.181:33489
 # 香港源
 #EXTINF:-1 tvg-id="" tvg-name="凤凰资讯" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/凤凰资讯.png" group-title="香港频道",凤凰资讯
 http://www.kaniptv.cn/mk.php?ip=node-111-20-163-124.speedtest.cn:8001&id=live1200
@@ -1987,16 +1948,13 @@ https://stream1.freetv.fun/feng-huang-zi-xun-20.ctv
 https://stream1.freetv.fun/wu-xian-xin-wen-2.m3u8
 # 香港源
 #EXTINF:-1 tvg-id="" tvg-name="无线新闻" tvg-logo="" group-title="香港频道",无线新闻
-http://108.181.20.181:37117
-# 香港源
-#EXTINF:-1 tvg-id="" tvg-name="无线新闻" tvg-logo="" group-title="香港频道",无线新闻
-https://stream1.freetv.fun/zhen-zi-dan-dian-ying-2.ctv
-# 澳门源
-#EXTINF:-1 tvg-id="" tvg-name="澳视体育" tvg-logo="" group-title="澳门频道",澳视体育
-https://stream1.freetv.fun/ch-ng-ao-shi-ti-yu-1.m3u8
+http://108.181.20.181:41779
 # 澳门源
 #EXTINF:-1 tvg-id="" tvg-name="澳视体育" tvg-logo="" group-title="澳门频道",澳视体育
 https://stream1.freetv.fun/ch-ng-ao-shi-ti-yu-2.m3u8
+# 澳门源
+#EXTINF:-1 tvg-id="" tvg-name="澳视体育" tvg-logo="" group-title="澳门频道",澳视体育
+https://stream1.freetv.fun/ch-ng-ao-shi-ti-yu-1.m3u8
 # 澳门源
 #EXTINF:-1 tvg-id="" tvg-name="澳视体育" tvg-logo="" group-title="澳门频道",澳视体育
 https://stream1.freetv.fun/ao-shi-ti-yu-2.m3u8
