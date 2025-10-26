@@ -1,0 +1,54 @@
+name: Daily IPTV Update
+
+on:
+  schedule:
+    - cron: '0 20 * * *'  # 每天凌晨4点 东八区
+  workflow_dispatch:
+
+permissions:
+  contents: write  # 允许 workflow 推送仓库内容
+
+jobs:
+  daily_update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests opencc-python-reimplemented
+
+      - name: Merge IPTV sources
+        run: |
+          set -e
+          for i in {1..3}; do
+            python scripts/merge.py && break || echo "⚠️ Retry $i failed" && sleep 10
+          done
+
+      - name: Test IPTV streams
+        run: |
+          set -e
+          for i in {1..3}; do
+            python scripts/test_adaptive_async_batch.py && break || echo "⚠️ Retry $i failed" && sleep 10
+          done
+
+      - name: Extract region channels
+        run: |
+          set -e
+          for i in {1..3}; do
+            python scripts/extract_channels.py && break || echo "⚠️ Retry $i failed" && sleep 10
+          done
+
+      - name: Generate M3U files
+        run: |
+          set -e
+          for i in {1..3}; do
+            python scripts/csv_to_m3u.py && break || echo "⚠️ Retry $i failed" && sleep 10
+          done
+
+      - name: Log completion
+        run: echo "✅ Daily IPTV update job finished."
