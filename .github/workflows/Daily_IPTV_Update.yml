@@ -13,42 +13,57 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install requests opencc-python-reimplemented
+        run: |
+          pip install --upgrade pip
+          pip install requests opencc-python-reimplemented
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
       - name: Merge IPTV sources
         run: |
           set -e
           for i in {1..3}; do
-            python scripts/merge.py && break || echo "⚠️ Retry $i failed" && sleep 10
+            if python scripts/merge.py; then break; else echo "⚠️ Retry $i failed"; sleep 10; fi
           done
 
       - name: Test IPTV streams
         run: |
           set -e
           for i in {1..3}; do
-            python scripts/test_adaptive_async_batch.py && break || echo "⚠️ Retry $i failed" && sleep 10
+            if python scripts/test_adaptive_async_batch.py; then break; else echo "⚠️ Retry $i failed"; sleep 10; fi
           done
 
       - name: Extract region channels
         run: |
           set -e
           for i in {1..3}; do
-            python scripts/extract_channels.py && break || echo "⚠️ Retry $i failed" && sleep 10
+            if python scripts/extract_channels.py; then break; else echo "⚠️ Retry $i failed"; sleep 10; fi
           done
 
       - name: Generate M3U files
         run: |
           set -e
           for i in {1..3}; do
-            python scripts/csv_to_m3u.py && break || echo "⚠️ Retry $i failed" && sleep 10
+            if python scripts/csv_to_m3u.py; then break; else echo "⚠️ Retry $i failed"; sleep 10; fi
           done
+
+      - name: Commit and push updated M3U
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/*.m3u
+          git commit -m "每日更新 IPTV M3U 文件" || echo "No changes to commit"
+          git push
 
       - name: Log completion
         run: echo "✅ Daily IPTV update job finished."
