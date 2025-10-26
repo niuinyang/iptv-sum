@@ -65,41 +65,50 @@ def is_allowed(title, url):
     return True
 
 def quick_check(url):
-    """HEAD 快速检测"""
+    """HEAD 快速检测，返回 ok, elapsed, final_url"""
+    start = time.time()
     try:
         r = requests.head(url, headers=HEADERS, timeout=TIMEOUT, allow_redirects=True)
-        ctype = r.headers.get("content-type","").lower()
-        if r.status_code < 400 and any(v in ctype for v in ["video/","mpegurl","x-mpegurl","application/vnd.apple.mpegurl","application/x-mpegurl","application/octet-stream"]):
-            return True, r.url
+        elapsed = round(time.time() - start, 3)
+        ctype = r.headers.get("content-type", "").lower()
+        ok = r.status_code < 400 and any(v in ctype for v in [
+            "video/", "mpegurl", "x-mpegurl",
+            "application/vnd.apple.mpegurl",
+            "application/x-mpegurl",
+            "application/octet-stream"
+        ])
+        return ok, elapsed, r.url
     except:
-        pass
-    return False, url
+        return False, round(time.time() - start, 3), url
 
 def ffprobe_check(url):
-    """使用 ffprobe 检测视频流"""
+    """使用 ffprobe 检测视频流，返回 ok, elapsed, final_url"""
     start = time.time()
     try:
         cmd = [
-            "ffprobe","-v","error",
-            "-select_streams","v:0",
-            "-show_entries","stream=codec_name",
-            "-of","json", url
+            "ffprobe", "-v", "error",
+            "-select_streams", "v:0",
+            "-show_entries", "stream=codec_name",
+            "-of", "json", url
         ]
         proc = subprocess.run(cmd, capture_output=True, text=True, timeout=TIMEOUT)
         data = json.loads(proc.stdout or "{}")
-        ok = "streams" in data and len(data["streams"])>0
+        ok = "streams" in data and len(data["streams"]) > 0
     except:
         ok = False
-    elapsed = round(time.time()-start,3)
+    elapsed = round(time.time() - start, 3)
     return ok, elapsed, url
 
 def test_stream(url):
-    """检测流可用性"""
-    ok, final_url = quick_check(url)
+    """
+    检测流可用性：
+    1. HEAD 请求快速判断
+    2. 若 HEAD 失败，则用 ffprobe 检测视频流
+    返回: ok, elapsed_time, final_url
+    """
+    ok, elapsed, final_url = quick_check(url)
     if not ok:
         ok, elapsed, final_url = ffprobe_check(url)
-    else:
-        elapsed = round(TIMEOUT/2,3)  # 快速检查用默认耗时
     return ok, elapsed, final_url
 
 def detect_optimal_threads():
