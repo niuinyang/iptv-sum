@@ -1,10 +1,11 @@
 ﻿tvg-name,地区,URL,来源,原始tvg-name
-台视,台湾,https://stream1.freetv.fun/ffa3a8fc52b4834c300b3587a667310b5eb8a46d000498709791be4bd1799514.m3u8,台湾源,臺視新聞臺
+台视,台湾,https://stream1.freetv.fun/d96ca80f2e6d7eb1a1737aaf17284caded271210e4432dfb4378a9ab6d8ef7b2.m3u8,台湾源,臺視新聞臺
 台视,台湾,http://123.51.136.80:8313/0.ts,台湾源,台視HD
 台视,台湾,https://stream1.freetv.fun/9e87c84976d8ad7ce1dac1ba154da29c85371dffd4a6c00a3dfde2bf1fed5735.m3u8,台湾源,臺視新聞臺
-台视,台湾,https://stream1.freetv.fun/303a4e4b8b9c669547f4860a119882a0a5636bb5390c74bcb2ab1ac3f8985fc7.m3u8,台湾源,台視新聞FHD
+台视,台湾,https://stream1.freetv.fun/41157664acf190bce85c72f310a742879b275e1912726bc43f323ff6ae321e09.m3u8,台湾源,台視新聞FHD
 台视,台湾,http://123.51.136.80:8316/0.ts,台湾源,臺視綜合
 台视,台湾,http://123.51.136.80:8315/0.ts,台湾源,臺視財經臺
+台视,台湾,https://stream1.freetv.fun/303a4e4b8b9c669547f4860a119882a0a5636bb5390c74bcb2ab1ac3f8985fc7.m3u8,台湾源,台視HD
 中视,台湾,http://123.51.136.80:8301/0.ts,台湾源,中視
 中视,台湾,http://123.51.136.80:8302/0.ts,台湾源,中視新聞FHD
 中视,台湾,http://123.51.136.80:8321/0.ts,台湾源,中視經典
@@ -22,8 +23,7 @@
 民视,台湾,http://123.51.136.80:8309/0.ts,台湾源,民視第一台
 TVBS综艺,台湾,https://stream1.freetv.fun/73f5ccd5924d0c9f3955a782fd4848863955264a34fc787e8db5e2af09862159.m3u8,台湾源,TVBS綜藝
 中天新闻,台湾,https://stream1.freetv.fun/d5a6ec037d2c4635d144520d0ddf989faeb6a5f8d5d85e3c5a5c07d2ca2d79b3.m3u8,台湾源,中天新聞FHD
-中天新闻,台湾,http://108.181.21.33:32885,台湾源,中天新聞FHD
-中天娱乐,台湾,https://stream1.freetv.fun/2a811fc0305ed1797d97d3c437818d720bfea3827e77cdf4e503f49a47f1a78c.m3u8,台湾源,中天娛樂HD
+中天新闻,台湾,http://108.181.21.33:35077,台湾源,中天新聞FHD
 三立新闻,台湾,https://stream1.freetv.fun/51b9ec245cd84f98d9851943814978048ff609bbbb171d5dbe9e63337d64aabd.m3u8,台湾源,三立新聞
 三立综合,台湾,https://stream1.freetv.fun/46bc6232fcf942e551a45f91f013aaec591d8d8fdf57ae18000afd509ff752cd.m3u8,台湾源,三立綜合
 三立台湾,台湾,https://hls.iptv8k.top/hls/index.m3u8,台湾源,三立臺灣台
@@ -32,9 +32,9 @@ TVBS综艺,台湾,https://stream1.freetv.fun/73f5ccd5924d0c9f3955a782fd484886395
 东森美洲,台湾,https://stream1.freetv.fun/eb4ded3c365bf7d42bebf4dbe94e8f4a601ccf18f345bdeb7968b0fb5541c803.m3u8,台湾源,東森美洲
 东森美洲,台湾,https://stream1.freetv.fun/58095733803c46eb57bb7d5401c87aa9ee2a605c57b9d8ced2c65d9b385610ed.m3u8,台湾源,東森美洲
 纬来日本,台湾,https://stream1.freetv.fun/409fbf8e0ec33500b4d76956cca00af9fddacac6dd2f8822f464b089fb583a6b.m3u8,台湾源,緯來日本
-美亚电影,台湾,https://smt.1678520.xyz/smt3.2.1.php?id=meiyamovie_twn,台湾源,美亞電影台[TW]
 HBO,台湾,https://stream1.freetv.fun/cbn-family-2.m3u8,台湾源,HBO Family(USA)
 HBO,台湾,https://stream1.freetv.fun/hbo-1-2.m3u8,台湾源,HBO(TW)
+HBO,台湾,http://31.58.40.27:80/live/play/vjfwr1owstbsemxtturrefngaznuvlzwvfd0nlf6tjvvm2q1tldwvlveukvuazlwvlrob01qukjrvda9/11180,台湾源,HBO East
 HBO,台湾,https://stream1.freetv.fun/hbo-east--s-1.m3u8,台湾源,HBO East
 HBO,台湾,http://cord-cutter.net:8080/live/Ss5DKE/232455/46713.ts,台湾源,HBO East
 HBO,台湾,http://cord-cutter.net:8080/live/cQnq6G/652882/46713.ts,台湾源,HBO East
@@ -43,14 +43,16 @@ HBO,台湾,https://stream1.freetv.fun/hbo-family--s-1.m3u8,台湾源,HBO Family(
 HBO,台湾,https://stream1.freetv.fun/hbo-famliy-1.m3u8,台湾源,HBO Family(USA)
 HBO,台湾,http://cord-cutter.net:8080/live/Ss5DKE/232455/9266.ts,台湾源,HBO Signature(USA)
 HBO,台湾,https://stream1.freetv.fun/hbo-usa--s-1.m3u8,台湾源,HBO USA
-HBO,台湾,http://31.58.40.27:80/live/play/vm1aa1z6rmtlbghjtvzovfvusxpargx4vkvav1ptmu9na1ywvfhkdlvgulnkruzlym5aavl6qkhwvda9/11177,台湾源,HBO 2(WEST)
+HBO,台湾,http://31.58.40.27:80/live/play/vgtkvgfiulhzwgd5yjfjefdqafhumupyu1hzelzwrnhvmfjewm5rcmnhslzabhazyvuxmk0xzdrwvda9/11177,台湾源,HBO 2(WEST)
 HBO,台湾,https://stream1.freetv.fun/hbo-zone--s-1.m3u8,台湾源,HBO Zone
 HBO,台湾,https://stream1.freetv.fun/hbo--s-1.m3u8,台湾源,HBO(TW)
 HBO,台湾,https://stream1.freetv.fun/hbo-16.m3u8,台湾源,HBO(TW)
-HBO,台湾,http://31.58.40.27:80/live/play/u21vmwjroudtvvzjy25wswfxumtlbkpjvkc1u2jgrnljvtftwkdsuvfvndnzmvp1y2paywr6rlljeja9/11181,台湾源,HBO Comedy
+HBO,台湾,http://31.58.40.27:80/live/play/zvzkbfnfdfpva3rhzwxss1rtnunzbejvttbwvu1tmhziemn4zg5srwixrjnwrzf4t0rwd01vvjforda9/11182,台湾源,HBO East
+HBO,台湾,http://31.58.40.27:80/live/play/tdnct1zsafpimdvpzg1wrgrxzhjurgxyv2s1s1ltnvbosghit0d0r05rowpwbwcwzvrssldfddbkeja9/75375,台湾源,HBO 2(WEST)
+HBO,台湾,http://31.58.40.27:80/live/play/wm0wmu4woxzhvxhhtudgevzuzfrimwd2ytfgafrxtk1xru0wvkvrdk1srmlnemxlzgpgnfzgwklkeja9/11181,台湾源,HBO Comedy
 HBO,台湾,http://cord-cutter.net:8080/live/Ss5DKE/232455/17772.ts,台湾源,HBO Family(USA)
-HBO,台湾,http://31.58.40.27:80/live/play/ujnkbljrag1jr1u0t0v0su9vouppsez1y1hkbwvgvnbabhbzvnpwmmrsrtvpvli0yji1q05wqjbrvda9/11178,台湾源,HBO Signature(USA)
-HBO,台湾,http://31.58.40.27:80/live/play/zev0nfeynhhnelzstja1nvreum5umjlgy2xsnvrrnwpnbxh2yzbadfrytmxxbxrsv1c0ee5gvxltvda9/11176,台湾源,HBO Zone
+HBO,台湾,http://31.58.40.27:80/live/play/ym5ssvdwzephu3rpttfwvfjvntrxwg96v0hsyvzirnfpsejjtvdgdfndovpkazlyulvnmu5pdfluvda9/11178,台湾源,HBO Signature(USA)
+HBO,台湾,http://31.58.40.27:80/live/play/zgpsdgvpddnwrgwyvtbkvlvroulvaljnszbsbe1qzhdxrkztywl0dfdrunhjak50zfvkresyvllprda9/11176,台湾源,HBO Zone
 HBO,台湾,https://stream1.freetv.fun/home-plus-1.m3u8,台湾源,HBO PLUS
 CINEMAX,台湾,http://148.113.160.49:14200,台湾源,Cinemax(USA)
 CINEMAX,台湾,https://stream1.freetv.fun/cinemax-moviemax-east--s-1.m3u8,台湾源,Cinemax Moviemax East
@@ -62,7 +64,7 @@ Channel V,台湾,https://stream1.freetv.fun/fc3593e86993caec0f83efa1d0be0c19a18e
 Channel V,台湾,https://stream1.freetv.fun/de787ec070cea0eb6d37c9fb2f10a4c85aab02cc5940e5561700335e32354ae8.m3u8,台湾源,CHANNEL [V]
 Channel V,台湾,https://proxyv2.utako.moe/ph.php?&isp=2&id=cs29,台湾源,CHANNEL [V]
 Channel V,台湾,https://stream1.freetv.fun/e3991dd17f7c761e368cf4d14dd6d08307f80f526be1a1b035ad4e9f51f460eb.m3u8,台湾源,CHANNEL [V]
-Channel V,台湾,https://stream1.freetv.fun/76f7e59ca47ced01049cb51983315c9f2bca9863d64bd10b65398674716495b5.m3u8,台湾源,CHANNEL [V]
+Channel V,台湾,https://stream1.freetv.fun/f086d933d61166b176cb0a1f7f5253865c71a770a0d0e9c1e33dfde86f901aad.m3u8,台湾源,CHANNEL [V]
 Channel V,台湾,https://dltiqboxjw21d.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-evri8jwgwmxus/index.m3u8?ads.device_did=%7bpsid%7d&ads.device_dnt=%7btargetopt%7d&ads.app_domain=%7bapp_domain%7d&ads.app_name=%7bapp_name%7d&ads.consent=%7btc_string%7d&ads.ssai_vendor=ssslive&ads.service_id=gbbc4300005al,台湾源,CHANNEL [V]
 Channel V,台湾,https://stream1.freetv.fun/52876d0cfa131060c3c6de1548fb2bd00f10294c49cd40d296b9c16c5573d847.m3u8,台湾源,CHANNEL [V]
 Channel V,台湾,https://stream1.freetv.fun/d19dff704687dfb95552e5c005588e22a8cbf66b3b6773f5d55870da72587e57.m3u8,台湾源,CHANNEL [V]
@@ -72,21 +74,22 @@ Channel V,台湾,https://stream1.freetv.fun/eb02cd9063e5cc9195c0b30f915697bf6d09
 Channel V,台湾,https://stream1.freetv.fun/e6f0655cf02462b453e15083cba0bc22f7c2ed427d0153b80c0de57bc086a5f6.m3u8,台湾源,CHANNEL [V]
 Channel V,台湾,https://stream1.freetv.fun/c429f9a26d194c07f60f2cc2ce74303b08d301367ba100b87e006a06914a088e.m3u8,台湾源,CHANNEL [V]
 Channel V,台湾,https://stream1.freetv.fun/2e3998897b810e6ca1f5863a1884046c2090d7cbbf82aa2ca4bab0368234c86f.m3u8,台湾源,CHANNEL [V]
+Channel V,台湾,https://e4.thetvapp.to/hls/fallback/tracks-v1/mono.m3u8?token=GkLa9UFvEO_LARGgZBwaBA&expires=1761459878&user_id=NTIuMTU5LjI0NC42NQ==,台湾源,CHANNEL [V]
 Channel V,台湾,https://stream1.freetv.fun/6d00428f52796a0f9b72ee8e48abad447251132786a22f065272107316c68047.m3u8,台湾源,CHANNEL [V]
-Channel V,台湾,https://stream1.freetv.fun/fe5bbdfeb8ddfb65892da3e044ba08e8564030407782d9512e3f5cae69a8915f.m3u8,台湾源,CHANNEL [V]
+Channel V,台湾,https://stream1.freetv.fun/b950ffb52f577d524fa210d73ba73690ec20ccab3a7606b817348aa789b8b30f.m3u8,台湾源,CHANNEL [V]
 Channel V,台湾,https://stream1.freetv.fun/73cedc47cd4a95212a744d043879483e9ed15c06e4bde6d583d54b561fef3131.m3u8,台湾源,CHANNEL [V]
 Channel V,台湾,https://stream1.freetv.fun/f38c7fe8c8b185078657d1e99cb22a4b9b75c9128d1ecea9e1c440349a8f7b84.m3u8,台湾源,CHANNEL [V]
-Channel V,台湾,http://boots.cablesmith.org:80/7639334/index.m3u8?token=M0s2dWhwN0lyZGVjZnBheXI5eUVsWlRaMkoxOGxyS3hxN21XbHRpcHhxM0RxNEduaVp1UnBxU2VlWmF0ZnRlRGxaMm1zNStDbnJPQnJZMmVwNitpcUE9PQ==,台湾源,CHANNEL [V]
 Channel V,台湾,https://stream1.freetv.fun/d79f65418a5872af77395ca2c844336a9e43da202a39e86396f14a863b483613.m3u8,台湾源,CHANNEL [V]
 国家地理,台湾,https://stream1.freetv.fun/guo-jia-di-li---x-1.m3u8,台湾源,國家地理
+Discovery,台湾,http://154.6.123.185:80/live/play/wnpaafpqbhhuvghpy0rbnvztrmxwrljnvmxkdmvutnvam2r6uwxosgjrdenhazqytmtkrfzgqmfieja9/10548,台湾源,Discovery HD
 Discovery,台湾,https://stream1.freetv.fun/86875051a3a97e2dddc3c0544864323aba824f654f05853c65dd986cd2a95a87.m3u8,台湾源,Discovery(TW)
 Discovery,台湾,https://stream1.freetv.fun/investigation-1.m3u8,台湾源,Investigation Discovery
 Discovery,台湾,https://stream1.freetv.fun/ae1bcd61012a7cb1b781fb6af83dcacdc03f254790032b4374b976b61dd7ea4a.m3u8,台湾源,Discovery(TW)
-Discovery,台湾,http://85.117.231.28:80/live/play/uw05bgmyvm1tetlrtm1ncmvezgxsrgt3tjjwvvnqwmhuvxb5yvvkulzvmdjjvlj5vw5acfnewxjwvda9/13116,台湾源,Discovery Family
+Discovery,台湾,http://149.57.5.156:80/live/play/ymk5nvpuzenzbgx3ym5wvu1uslnlazlvvkv4rk9vnxbwbeywum5wtvlrwnzabtfqzwtvnvryum9zeja9/303711,台湾源,Discovery HD
 Discovery,台湾,http://148.113.160.48:14146,台湾源,Discovery(TW)
 Discovery,台湾,http://cord-cutter.net:8080/live/Ss5DKE/232455/46212.ts,台湾源,Discovery LIFE
 Discovery,台湾,http://cord-cutter.net:8080/live/cQnq6G/652882/46212.ts,台湾源,Discovery LIFE
-Discovery,台湾,http://85.117.231.28:80/live/play/vedgr1r6ahdmmll6vvvoagftnvfjazq0ywtsngvxsnlzakjrt0rotmqyzg1uwej2tvdwm1r6tk1heja9/54249,台湾源,Discovery Velocity
 Discovery,台湾,https://stream1.freetv.fun/f8f3291157659f4b82903303107caf2a72c625f9bc33c8c0e144c44470933ab4.m3u8,台湾源,Discovery(TW)
-Discovery,台湾,http://85.117.231.28:80/live/play/wjfkrfpuqknovxhswm1ocvkywxhlblpqwkvgvk9xbhrjbfjptdfacvlyqllnemwwtwpock5eqxlprda9/13093,台湾源,Investigation Discovery
+Discovery,台湾,http://154.6.123.185:80/live/play/yudwnfixsmfobxb0zdjad1luwnnua0pwv1u1clnhvmfimkznyvdvee1gwxdvm05mv0rsuk5tzfrwvda9/309471,台湾源,Investigation Discovery
+Discovery,台湾,http://85.117.231.28:80/live/play/umpkt0syaexhbxbauvzawwnizfnva2xztkrkd2jgvlhjwezlyjbkcvdszhrjrxh3vhpaulnuwnvaeja9/13093,台湾源,Investigation Discovery
 动物星球,台湾,https://stream1.freetv.fun/dong-wu-xing-qiu-4.m3u8,台湾源,動物星球
