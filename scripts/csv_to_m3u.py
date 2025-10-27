@@ -97,19 +97,34 @@ for group, file in manual_sources.items():
     manual_channels.extend(read_csv(file, group_override=group, source_label="首选源"))
 
 # ==============================
+# 仅保留：固定源中的四个分组频道
+# ==============================
+allowed_groups = ["台湾频道", "香港频道", "澳门频道", "国际频道"]
+
+# 收集固定源频道名列表（仅四个分组）
+manual_names = {ch["name"] for ch in manual_channels if ch["group"] in allowed_groups}
+
+filtered_channels = []
+for ch in channels:
+    # 如果是四个分组，必须在固定源中才保留
+    if ch["group"] in allowed_groups and ch["name"] not in manual_names:
+        continue
+    filtered_channels.append(ch)
+
+# ==============================
 # 合并并去重（首选源优先）
 # ==============================
 seen_urls = set()
 final_channels = []
 
-# 先加首选源
+# 先放入固定源
 for ch in manual_channels:
     if ch["url"] not in seen_urls:
         seen_urls.add(ch["url"])
         final_channels.append(ch)
 
-# 再加其他源
-for ch in channels:
+# 再放入其它
+for ch in filtered_channels:
     if ch["url"] not in seen_urls:
         seen_urls.add(ch["url"])
         final_channels.append(ch)
@@ -172,7 +187,7 @@ def generate_m3u(filename, source_priority, remove_source=None):
             name_dict[ch["name"]].append(ch)
         for name in sorted(name_dict.keys(), key=natural_key):
             items = name_dict[name]
-            # “首选源”永远排在最前
+            # 固定源在最前
             items.sort(key=lambda ch: (0 if ch["source"] == "首选源" else source_sort_key(ch, source_priority)))
             final_list.extend(items)
 
