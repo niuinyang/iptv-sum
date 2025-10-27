@@ -1438,13 +1438,19 @@ http://150.138.8.143/00/SNM/CHANNEL00000332/index.m3u8
 https://stream1.freetv.fun/abc-7-buffalo-ny-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际",ABC
-https://stream1.freetv.fun/abc-news-2.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际",ABC
 https://stream1.freetv.fun/abc-news--wj-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际",ABC
-http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/22990
+https://stream1.freetv.fun/abc-1.ctv
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际",ABC
+https://stream1.freetv.fun/abc-news-2.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际",ABC
+https://stream1.freetv.fun/miami-1.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际",ABC
+https://stream1.freetv.fun/usa-abc-1.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="ABC" tvg-logo="" group-title="国际",ABC
 https://stream1.freetv.fun/ch-ng-abc-news-1.m3u8
@@ -1462,43 +1468,31 @@ https://stream1.freetv.fun/tvs-flashback-network-2.m3u8
 https://stream1.freetv.fun/tvs-talk-network-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际",BBC
-https://stream1.freetv.fun/bbc-earth-14.m3u8
+https://stream1.freetv.fun/8ceea8c7e1961842e551fc90916350de2838ee500e19edf3fdbf2f2c0c3561bf.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际",BBC
-https://stream1.freetv.fun/bbc-earth--wj-2.m3u8
+https://stream1.freetv.fun/02205072306ac6c143d2707e909bda809deef2a1bda1923da9681ec5744f7081.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际",BBC
-https://stream1.freetv.fun/bbc-earth--wj-1.m3u8
+https://stream1.freetv.fun/c5d042d56862cb15b7c1d63632f4af1d1eef22b318719cc48d0190fa4225a6f0.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际",BBC
-https://stream1.freetv.fun/bbc-earth-us-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际",BBC
-https://stream1.freetv.fun/bbc-lifestyle--wj-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际",BBC
-https://stream1.freetv.fun/ch-ng-bbc-earth-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际",BBC
-https://stream1.freetv.fun/bbc-earth--s-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="BBC" tvg-logo="" group-title="国际",BBC
-https://stream1.freetv.fun/bbc-lifestyle--s-1.m3u8
+https://stream1.freetv.fun/05536622f0bceff281c00f0031d466e5e35492c82ef5ff6a6aeeef23eb6db442.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CARTOONITO" tvg-logo="" group-title="国际",CARTOONITO
-http://148.113.160.48:14096
+https://stream1.freetv.fun/cartoonito-1.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CARTOONITO" tvg-logo="" group-title="国际",CARTOONITO
 https://stream1.freetv.fun/cartoonito-5.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CARTOONITO" tvg-logo="" group-title="国际",CARTOONITO
+https://stream1.freetv.fun/cartoonito--m-3.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CARTOONITO" tvg-logo="" group-title="国际",CARTOONITO
 https://stream1.freetv.fun/cartoonito--m-2.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CARTOONITO" tvg-logo="" group-title="国际",CARTOONITO
 https://stream1.freetv.fun/cartoonito--m-1.ctv
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CARTOONITO" tvg-logo="" group-title="国际",CARTOONITO
-https://stream1.freetv.fun/cartoonito--m-3.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
 https://stream1.freetv.fun/cbc-news-international-1.ctv
@@ -1513,22 +1507,13 @@ https://stream1.freetv.fun/cna-international-1.m3u8
 https://stream1.freetv.fun/cnn--m-1.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
-https://stream1.freetv.fun/cnn--wj-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
-http://cord-cutter.net:8080/live/cQnq6G/652882/57398.ts
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
 https://stream1.freetv.fun/cnn-fast-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
-https://stream1.freetv.fun/cnn-fast-2.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
 https://stream1.freetv.fun/cnn-fast-3.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
-https://stream1.freetv.fun/cnn-int-3.m3u8
+https://stream1.freetv.fun/cnn-fast-2.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
 https://stream1.freetv.fun/cnn-int-4.m3u8
@@ -1537,10 +1522,13 @@ https://stream1.freetv.fun/cnn-int-4.m3u8
 https://stream1.freetv.fun/cnn-int-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
-https://stream1.freetv.fun/cnn-5.m3u8
+https://stream1.freetv.fun/cnn-int-3.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
 https://stream1.freetv.fun/cnn-4.ctv
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
+https://stream1.freetv.fun/cnn-5.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
 https://stream1.freetv.fun/racer-international-1.m3u8
@@ -1552,10 +1540,7 @@ https://stream1.freetv.fun/tastemade-international-3.m3u8
 https://stream1.freetv.fun/cnn-3.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
-http://cord-cutter.net:8080/live/Ss5DKE/232455/47213.ts
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
-http://cord-cutter.net:8080/live/cQnq6G/652882/47213.ts
+https://stream1.freetv.fun/cnn-2.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="CNN" tvg-logo="https://raw.githubusercontent.com/niuinyang/iptv-sum/main/png/CNN.png" group-title="国际",CNN
 https://stream1.freetv.fun/hln-3.m3u8
@@ -1567,40 +1552,37 @@ https://stream1.freetv.fun/pro-sport-international-1.m3u8
 https://stream1.freetv.fun/cna-international-2.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="FOX NEWS" tvg-logo="" group-title="国际",FOX NEWS
-https://stream1.freetv.fun/fox-now-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="FOX NEWS" tvg-logo="" group-title="国际",FOX NEWS
-https://stream1.freetv.fun/fox-news-channel-1.m3u8
+https://stream1.freetv.fun/fox-news--wj-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="FOX NEWS" tvg-logo="" group-title="国际",FOX NEWS
 https://stream1.freetv.fun/fox-news-channel-3.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="FOX NEWS" tvg-logo="" group-title="国际",FOX NEWS
-http://1tv41.icu:8080/8MeZqM/335595/1818
+https://stream1.freetv.fun/fox-now-1.m3u8
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="FOX NEWS" tvg-logo="" group-title="国际",FOX NEWS
+https://stream1.freetv.fun/fox-news-channel-5.ctv
+# 国际源
+#EXTINF:-1 tvg-id="" tvg-name="FOX NEWS" tvg-logo="" group-title="国际",FOX NEWS
+https://stream1.freetv.fun/fox-news-channel-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="FOX NEWS" tvg-logo="" group-title="国际",FOX NEWS
 https://stream1.freetv.fun/fox-news-channel--s-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="FOX NEWS" tvg-logo="" group-title="国际",FOX NEWS
-http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/1818
+https://stream1.freetv.fun/us-fox-news-1.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="FOX NEWS" tvg-logo="" group-title="国际",FOX NEWS
 https://stream1.freetv.fun/ch-ng-fox-news-channel-1.m3u8
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="FOX NEWS" tvg-logo="" group-title="国际",FOX NEWS
-https://stream1.freetv.fun/fox-news--wj-1.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="MSNBC" tvg-logo="" group-title="国际",MSNBC
 https://stream1.freetv.fun/msnbc-6.m3u8
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="MSNBC" tvg-logo="" group-title="国际",MSNBC
-http://cord-cutter.net:8080/live/Ss5DKE/232455/21376.ts
+https://stream1.freetv.fun/msnbc-4.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="MSNBC" tvg-logo="" group-title="国际",MSNBC
-http://cord-cutter.net:8080/live/cQnq6G/652882/21376.ts
-# 国际源
-#EXTINF:-1 tvg-id="" tvg-name="MSNBC" tvg-logo="" group-title="国际",MSNBC
-http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/21376
+https://stream1.freetv.fun/us-msnbc-1.ctv
 # 国际源
 #EXTINF:-1 tvg-id="" tvg-name="MSNBC" tvg-logo="" group-title="国际",MSNBC
 https://stream1.freetv.fun/msnbc-2.m3u8
