@@ -12,9 +12,13 @@ os.makedirs(output_dir, exist_ok=True)
 icon_dir = "png"
 default_icon = os.path.join(icon_dir, "default.png")
 
-# 自动扫描 sum_cvs CSV 文件
+# 自动扫描 sum_csv CSV 文件
 sum_csv_dir = os.path.join("output", "sum_cvs")
-csv_files = [os.path.join(sum_csv_dir, f) for f in os.listdir(sum_csv_dir) if f.endswith("_sum.csv")]
+csv_files = [
+    os.path.join(sum_csv_dir, f) 
+    for f in os.listdir(sum_csv_dir) 
+    if f.endswith("_sum.csv") and not any(x in f.lower() for x in ["taiwan", "hk", "mo", "intl"])
+]
 
 # 自有源 CSV
 mysource_csv = os.path.join("input", "mysource", "my_sum.csv")
@@ -22,17 +26,6 @@ if os.path.exists(mysource_csv):
     csv_files.insert(0, mysource_csv)
 else:
     print(f"⚠️ 自有源 CSV 不存在: {mysource_csv}")
-
-# 手动固定源（台湾/香港/澳门/国际）
-manual_sources = {
-    "台湾频道": "input/network/network_tw_manual.csv",
-    "香港频道": "input/network/network_hk_manual.csv",
-    "澳门频道": "input/network/network_mo_manual.csv",
-    "国际频道": "input/network/network_intl_manual.csv"
-}
-
-# 限制分组列表
-restricted_groups = set(manual_sources.keys())
 
 # ==============================
 # CCTV 自然排序
@@ -76,34 +69,12 @@ def read_csv(file_path, group_override=None, source_label=None):
     return results
 
 # ==============================
-# 加载频道
+# 加载频道（去掉台湾/香港/澳门/国际手动 CSV）
 # ==============================
 channels = []
 
-# 普通 CSV：非限制分组
 for csv_file in csv_files:
-    lower = os.path.basename(csv_file).lower()
-    group_override = None
-    # 判断是否属于限制分组 CSV
-    if "taiwan" in lower:
-        group_override = "台湾频道"
-    elif "hk" in lower:
-        group_override = "香港频道"
-    elif "mo" in lower:
-        group_override = "澳门频道"
-    elif "intl" in lower:
-        group_override = "国际频道"
-
-    # 如果是限制分组 CSV，跳过，统一用手动固定源
-    if group_override in restricted_groups:
-        continue
-
-    channels.extend(read_csv(csv_file, group_override=group_override))
-
-# 手动固定源（台湾/香港/澳门/国际）
-manual_channels = []
-for group, file in manual_sources.items():
-    manual_channels.extend(read_csv(file, group_override=group, source_label="首选源"))
+    channels.extend(read_csv(csv_file))
 
 # ==============================
 # 合并并去重
@@ -111,19 +82,12 @@ for group, file in manual_sources.items():
 seen_urls = set()
 final_channels = []
 
-# 固定源先加入（首选源优先）
-for ch in manual_channels:
-    if ch["url"] not in seen_urls:
-        seen_urls.add(ch["url"])
-        final_channels.append(ch)
-
-# 加入其他普通源（非限制分组）
 for ch in channels:
     if ch["url"] not in seen_urls:
         seen_urls.add(ch["url"])
         final_channels.append(ch)
 
-print(f"✅ 共加载频道 {len(final_channels)} 条（含首选源）")
+print(f"✅ 共加载频道 {len(final_channels)} 条（已排除台湾/香港/澳门/国际）")
 
 # ==============================
 # 图标处理
@@ -181,8 +145,7 @@ def generate_m3u(filename, source_priority, remove_source=None):
             name_dict[ch["name"]].append(ch)
         for name in sorted(name_dict.keys(), key=natural_key):
             items = name_dict[name]
-            # 首选源永远排前
-            items.sort(key=lambda ch: (0 if ch["source"] == "首选源" else source_sort_key(ch, source_priority)))
+            items.sort(key=lambda ch: source_sort_key(ch, source_priority))
             final_list.extend(items)
 
     m3u_path = os.path.join(output_dir, filename)
