@@ -32,7 +32,7 @@ jobs:
 
       # 4️⃣ 执行 CSV → M3U 脚本
       - name: Run CSV to M3U script
-        run: python scripts/csv_to_m3u.py
+        run: python scripts/csv_to_m3u_int.py
 
       # 5️⃣ 上传生成的 M3U 文件到仓库
       - name: Commit generated M3U files
