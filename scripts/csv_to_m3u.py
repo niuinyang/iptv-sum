@@ -12,16 +12,17 @@ os.makedirs(output_dir, exist_ok=True)
 icon_dir = "png"
 default_icon = os.path.join(icon_dir, "default.png")
 
-# 仅处理自有源 CSV
+# 只使用自有源 CSV
 mysource_csv = os.path.join("input", "mysource", "my_sum.csv")
 if not os.path.exists(mysource_csv):
-    raise FileNotFoundError(f"❌ 未找到自有源 CSV: {mysource_csv}")
+    raise FileNotFoundError(f"❌ 自有源 CSV 不存在: {mysource_csv}")
+
+csv_files = [mysource_csv]
 
 # ==============================
 # CCTV 自然排序
 # ==============================
 def natural_key(name):
-    """用于自然排序，如 CCTV-1, CCTV-10 排序正确"""
     m = re.match(r"(CCTV-?)(\d+)", name, re.I)
     if m:
         prefix, num = m.groups()
@@ -29,14 +30,13 @@ def natural_key(name):
     else:
         return (name.lower(), 0)
 
-# 源优先级
 dxl_order = ["电信组播", "济南联通", "上海移动", "电信单播", "青岛联通"]
 sjmz_order = ["济南移动", "上海移动", "济南联通", "电信组播", "青岛联通", "电信单播"]
 
 # ==============================
 # CSV 读取函数
 # ==============================
-def read_csv(file_path):
+def read_csv(file_path, group_override=None, source_label=None):
     results = []
     with open(file_path, newline="", encoding="utf-8-sig") as f:
         reader = csv.reader(f)
@@ -45,9 +45,9 @@ def read_csv(file_path):
             if len(row) < 3:
                 continue
             name = row[0].strip()
-            group = row[1].strip() if len(row) > 1 and row[1].strip() else "未分类"
+            group = group_override or (row[1].strip() if len(row) > 1 and row[1].strip() else "未分类")
             url = row[2].strip()
-            source = row[3].strip() if len(row) > 3 else ""
+            source = source_label or (row[3].strip() if len(row) > 3 else "")
             results.append({
                 "name": name,
                 "group": group,
@@ -57,22 +57,26 @@ def read_csv(file_path):
     return results
 
 # ==============================
-# 加载频道
+# 加载自有源频道
 # ==============================
-channels = read_csv(mysource_csv)
+channels = []
+for csv_file in csv_files:
+    channels.extend(read_csv(csv_file))
+
 print(f"✅ 已加载自有源频道 {len(channels)} 条")
 
 # ==============================
-# 去重
+# 合并并去重
 # ==============================
 seen_urls = set()
 final_channels = []
+
 for ch in channels:
     if ch["url"] not in seen_urls:
         seen_urls.add(ch["url"])
         final_channels.append(ch)
 
-print(f"✅ 去重后剩余 {len(final_channels)} 条")
+print(f"✅ 去重后频道总数 {len(final_channels)} 条")
 
 # ==============================
 # 图标处理
@@ -87,12 +91,14 @@ for ch in final_channels:
         ch["icon"] = ""
 
 # ==============================
-# 分组排序规则
+# 分组排序
 # ==============================
-priority_groups = ["央视频道", "4K频道", "卫视频道"]
-other_groups = sorted(
-    set(ch["group"] for ch in final_channels if ch["group"] not in priority_groups + ["数字频道", "电台广播"])
-)
+priority_groups = [
+    "央视频道", "4K频道", "卫视频道"
+]
+
+# 其他分组按拼音排序
+other_groups = sorted(set(ch["group"] for ch in final_channels if ch["group"] not in priority_groups + ["数字频道", "电台广播"]))
 group_priority = {name: i + len(priority_groups) for i, name in enumerate(other_groups)}
 group_priority["数字频道"] = len(priority_groups) + len(other_groups)
 group_priority["电台广播"] = len(priority_groups) + len(other_groups) + 1
@@ -138,7 +144,7 @@ def generate_m3u(filename, source_priority):
             extinf = f'#EXTINF:-1 tvg-id="" tvg-name="{ch["name"]}" tvg-logo="{ch["icon"]}" group-title="{ch["group"]}",{ch["name"]}'
             if ch["source"]:
                 extinf = f"# {ch['source']}\n" + extinf
-            f.write(f"{extinf}\n{ch["url"]}\n")
+            f.write(f"{extinf}\n{ch['url']}\n")
 
     print(f"✅ 已生成 {filename}, 共 {len(final_list)} 条频道")
 
