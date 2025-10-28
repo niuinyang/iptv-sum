@@ -2001,10 +2001,58 @@ http://150.138.8.143/00/SNM/CHANNEL00003001/index.m3u8
 http://192.168.31.2:4022/rtp/239.21.2.36:5002
 #EXTINF:-1 tvg-name="山东综合广播" tvg-logo="png/default.png" group-title="电台广播",山东综合广播
 http://150.138.8.143/00/SNM/CHANNEL00004008/index.m3u8
-#EXTINF:-1 tvg-name="﻿tvg-name" tvg-logo="png/default.png" group-title="地区",﻿tvg-name
-URL
-#EXTINF:-1 tvg-name="﻿tvg-name" tvg-logo="png/default.png" group-title="地区",﻿tvg-name
-URL
+#EXTINF:-1 tvg-name="澳视澳门" tvg-logo="png/澳视澳门.png" group-title="澳门",澳视澳门
+https://stream1.freetv.fun/ao-shi-ao-men-6.m3u8
+#EXTINF:-1 tvg-name="澳门macau" tvg-logo="png/default.png" group-title="澳门",澳门macau
+https://stream1.freetv.fun/ao-men-macau-1.m3u8
+#EXTINF:-1 tvg-name="澳门莲花" tvg-logo="png/澳门莲花.png" group-title="澳门",澳门莲花
+https://stream1.freetv.fun/ao-men-lian-hua-3.m3u8
+#EXTINF:-1 tvg-name="澳门资讯" tvg-logo="png/default.png" group-title="澳门",澳门资讯
+https://stream1.freetv.fun/ao-men-zi-xun-2.m3u8
+#EXTINF:-1 tvg-name="discovery kids" tvg-logo="png/default.png" group-title="香港",discovery kids
+https://stream1.freetv.fun/discovery-kids-5.m3u8
+#EXTINF:-1 tvg-name="kix" tvg-logo="png/default.png" group-title="香港",kix
+https://stream1.freetv.fun/kix-7.ctv
+#EXTINF:-1 tvg-name="now新闻" tvg-logo="png/default.png" group-title="香港",now新闻
+https://stream1.freetv.fun/nowxin-wen-4.m3u8
+#EXTINF:-1 tvg-name="now财经" tvg-logo="png/default.png" group-title="香港",now财经
+https://stream1.freetv.fun/nowcai-jing-2.m3u8
+#EXTINF:-1 tvg-name="rthk31" tvg-logo="png/default.png" group-title="香港",rthk31
+https://stream1.freetv.fun/rthk31--wj-1.m3u8
+#EXTINF:-1 tvg-name="rthk32" tvg-logo="png/default.png" group-title="香港",rthk32
+https://stream1.freetv.fun/rthk32--wj-1.m3u8
+#EXTINF:-1 tvg-name="tvb+" tvg-logo="png/default.png" group-title="香港",tvb+
+https://stream1.freetv.fun/tvb-plus-6.ctv
+#EXTINF:-1 tvg-name="tvbs亚洲" tvg-logo="png/default.png" group-title="香港",tvbs亚洲
+https://stream1.freetv.fun/tvbsya-zhou-11.m3u8
+#EXTINF:-1 tvg-name="tvbs娱乐" tvg-logo="png/default.png" group-title="香港",tvbs娱乐
+https://stream1.freetv.fun/tvbyu-le-xin-wen-6.ctv
+#EXTINF:-1 tvg-name="viutv" tvg-logo="png/viutv.png" group-title="香港",viutv
+https://stream1.freetv.fun/viutv-1.ctv
+#EXTINF:-1 tvg-name="viutvsix" tvg-logo="png/default.png" group-title="香港",viutvsix
+https://stream1.freetv.fun/viutvsix-3.ctv
+#EXTINF:-1 tvg-name="凤凰中文" tvg-logo="png/凤凰中文.png" group-title="香港",凤凰中文
+https://stream1.freetv.fun/feng-huang-zhong-wen-4.ctv
+#EXTINF:-1 tvg-name="凤凰资讯" tvg-logo="png/凤凰资讯.png" group-title="香港",凤凰资讯
+https://stream1.freetv.fun/feng-huang-zi-xun-23.ctv
+#EXTINF:-1 tvg-name="凤凰香港" tvg-logo="png/default.png" group-title="香港",凤凰香港
+https://stream1.freetv.fun/feng-huang-xiang-gang---wj-1.m3u8
+#EXTINF:-1 tvg-name="无线新闻" tvg-logo="png/default.png" group-title="香港",无线新闻
+https://stream1.freetv.fun/wu-xian-xin-wen-2.m3u8
+#EXTINF:-1 tvg-name="明珠" tvg-logo="png/default.png" group-title="香港",明珠
+https://stream1.freetv.fun/ming-zhu-8.ctv
+#EXTINF:-1 tvg-name="星空卫视" tvg-logo="png/星空卫视.png" group-title="香港",星空卫视
+https://stream1.freetv.fun/xing-kong-wei-shi-13.m3u8
+#EXTINF:-1 tvg-name="有线综合" tvg-logo="png/default.png" group-title="香港",有线综合
+https://stream1.freetv.fun/you-xian-zong-he-1.ctv
+#EXTINF:-1 tvg-name="美亚c+" tvg-logo="png/default.png" group-title="香港",美亚c+
+https://stream1.freetv.fun/mei-ya-c-plus-1.m3u8
+#EXTINF:-1 tvg-name="美亚c+7" tvg-logo="png/default.png" group-title="香港",美亚c+7
+https://stream1.freetv.fun/plus-7-1.ctv
+#EXTINF:-1 tvg-name="翡翠台" tvg-logo="png/翡翠台.png" group-title="香港",翡翠台
+https://stream1.freetv.fun/tvbfei-cui-3.ctv
+#EXTINF:-1 tvg-name="香港卫视" tvg-logo="png/香港卫视.png" group-title="香港",香港卫视
+https://stream1.freetv.fun/xiang-gang-wei-shi-7.m3u8
 #EXTINF:-1 tvg-name="ABC" tvg-logo="png/default.png" group-title="国际",ABC
 https://stream1.freetv.fun/abc-7-buffalo-ny-1.m3u8
 #EXTINF:-1 tvg-name="ABC" tvg-logo="png/default.png" group-title="国际",ABC
@@ -2099,6 +2147,8 @@ https://stream1.freetv.fun/fox-news-channel--s-1.m3u8
 https://stream1.freetv.fun/us-fox-news-1.ctv
 #EXTINF:-1 tvg-name="FOX NEWS" tvg-logo="png/default.png" group-title="国际",FOX NEWS
 https://stream1.freetv.fun/ch-ng-fox-news-channel-1.m3u8
+#EXTINF:-1 tvg-name="fox news channel" tvg-logo="png/default.png" group-title="国际",fox news channel
+https://stream1.freetv.fun/fox-news--wj-1.m3u8
 #EXTINF:-1 tvg-name="MSNBC" tvg-logo="png/default.png" group-title="国际",MSNBC
 https://stream1.freetv.fun/msnbc-6.m3u8
 #EXTINF:-1 tvg-name="MSNBC" tvg-logo="png/default.png" group-title="国际",MSNBC
@@ -2301,6 +2351,8 @@ https://stream1.freetv.fun/hbo-family--m-1.ctv
 https://stream1.freetv.fun/hbo-zone-7.m3u8
 #EXTINF:-1 tvg-name="HBO" tvg-logo="png/default.png" group-title="台湾",HBO
 https://stream1.freetv.fun/hbo-zone-3.ctv
+#EXTINF:-1 tvg-name="MOMO综合" tvg-logo="png/default.png" group-title="台湾",MOMO综合
+https://stream1.freetv.fun/unife-tv-1.m3u8
 #EXTINF:-1 tvg-name="MoMo综合" tvg-logo="png/default.png" group-title="台湾",MoMo综合
 https://stream1.freetv.fun/c51b8f7c9dee5b5dfa9e03a30e2efbeef76ef187cd056f9e88e39533c6ee94be.m3u8
 #EXTINF:-1 tvg-name="TVBS综艺" tvg-logo="png/default.png" group-title="台湾",TVBS综艺
@@ -2320,9 +2372,15 @@ https://stream1.freetv.fun/a34f63cf23e4e386f7b9304a7bf75f568c4886d6ccaec81cee72f
 #EXTINF:-1 tvg-name="东森综合" tvg-logo="png/default.png" group-title="台湾",东森综合
 https://stream1.freetv.fun/8140559a5d4385739699c12accb202af6011bbff486d4ceb42f8391a127ad212.ctv
 #EXTINF:-1 tvg-name="东森美洲" tvg-logo="png/default.png" group-title="台湾",东森美洲
+https://stream1.freetv.fun/dong-sen-mei-zhou-2-1.m3u8
+#EXTINF:-1 tvg-name="东森美洲" tvg-logo="png/default.png" group-title="台湾",东森美洲
 https://stream1.freetv.fun/eb4ded3c365bf7d42bebf4dbe94e8f4a601ccf18f345bdeb7968b0fb5541c803.m3u8
 #EXTINF:-1 tvg-name="东森美洲" tvg-logo="png/default.png" group-title="台湾",东森美洲
 https://stream1.freetv.fun/58095733803c46eb57bb7d5401c87aa9ee2a605c57b9d8ced2c65d9b385610ed.m3u8
+#EXTINF:-1 tvg-name="东森美洲HD" tvg-logo="png/default.png" group-title="台湾",东森美洲HD
+https://stream1.freetv.fun/dong-sen-mei-zhou-2-1.m3u8
+#EXTINF:-1 tvg-name="东森超视" tvg-logo="png/default.png" group-title="台湾",东森超视
+https://stream1.freetv.fun/dong-sen-chao-shi-8.m3u8
 #EXTINF:-1 tvg-name="东森超视" tvg-logo="png/default.png" group-title="台湾",东森超视
 https://stream1.freetv.fun/d8756df4416806c5ce981bdef2ac99098b8a3a99e05b32affdd6e324187cf1b4.m3u8
 #EXTINF:-1 tvg-name="东森超视" tvg-logo="png/default.png" group-title="台湾",东森超视
@@ -2340,6 +2398,8 @@ https://stream1.freetv.fun/d5a6ec037d2c4635d144520d0ddf989faeb6a5f8d5d85e3c5a5c0
 #EXTINF:-1 tvg-name="中天新闻" tvg-logo="png/default.png" group-title="台湾",中天新闻
 https://stream1.freetv.fun/d0dc419e572496e04901fdd844b4f116a46a43cf2651e93153312310bd703995.ctv
 #EXTINF:-1 tvg-name="中视" tvg-logo="png/中视.png" group-title="台湾",中视
+https://stream1.freetv.fun/zhong-shi-8.ctv
+#EXTINF:-1 tvg-name="中视" tvg-logo="png/中视.png" group-title="台湾",中视
 https://stream1.freetv.fun/b9b0628b2474fa439dc957ecb7ae8723067c0aea44c287ada1a509143571d9dd.ctv
 #EXTINF:-1 tvg-name="中视" tvg-logo="png/中视.png" group-title="台湾",中视
 https://stream1.freetv.fun/5f3d68b2efc102fc2339fa5b60d4b2abde1aa0bb446fb9fabe6cf9a7ab38198f.ctv
@@ -2347,6 +2407,10 @@ https://stream1.freetv.fun/5f3d68b2efc102fc2339fa5b60d4b2abde1aa0bb446fb9fabe6cf
 https://stream1.freetv.fun/f011a428fab735796e6c5c5f2df0c46acd2524969a4d24dbb32a6fbb38ea95b5.ctv
 #EXTINF:-1 tvg-name="中视" tvg-logo="png/中视.png" group-title="台湾",中视
 https://stream1.freetv.fun/25f7d7adcc920307fa5302b8bf84a0706eee1bcb3544de0fc46c7822763716db.ctv
+#EXTINF:-1 tvg-name="中视新闻" tvg-logo="png/中视新闻.png" group-title="台湾",中视新闻
+https://stream1.freetv.fun/zhong-shi-xin-wen-9.ctv
+#EXTINF:-1 tvg-name="公视" tvg-logo="png/公视.png" group-title="台湾",公视
+https://stream1.freetv.fun/gong-shi-2.ctv
 #EXTINF:-1 tvg-name="公视" tvg-logo="png/公视.png" group-title="台湾",公视
 https://stream1.freetv.fun/cbd5b3ed1c9bb24dc392181ade6213dcdbb374e660bd68a5f105a80bfd93e4b7.ctv
 #EXTINF:-1 tvg-name="公视" tvg-logo="png/公视.png" group-title="台湾",公视
@@ -2356,6 +2420,8 @@ https://stream1.freetv.fun/152f2ea489414f740b0d22561e4174565fcfeedc84bda5d3c382c
 #EXTINF:-1 tvg-name="动物星球" tvg-logo="png/default.png" group-title="台湾",动物星球
 https://stream1.freetv.fun/dong-wu-xing-qiu-4.m3u8
 #EXTINF:-1 tvg-name="华视" tvg-logo="png/华视.png" group-title="台湾",华视
+https://stream1.freetv.fun/hua-shi-7.ctv
+#EXTINF:-1 tvg-name="华视" tvg-logo="png/华视.png" group-title="台湾",华视
 https://stream1.freetv.fun/eccf32739b25830eae943450b2e0cd8790e575a94f2edee661670cbceaa71f49.ctv
 #EXTINF:-1 tvg-name="华视" tvg-logo="png/华视.png" group-title="台湾",华视
 https://stream1.freetv.fun/f7d8e1fcfd7eb512251b6da18e67187760ac602c400781e48ce3976e1dbd62c1.ctv
@@ -2363,6 +2429,12 @@ https://stream1.freetv.fun/f7d8e1fcfd7eb512251b6da18e67187760ac602c400781e48ce39
 https://stream1.freetv.fun/d5dff92c6ff7920d3aa0807d26bcd3f7b17f1b4f6b4df10b03f22d070398f3e9.ctv
 #EXTINF:-1 tvg-name="华视" tvg-logo="png/华视.png" group-title="台湾",华视
 https://stream1.freetv.fun/637ceff2dfb72b24ad6929da061ccf235af38b9469ba999c577b1c3d1ee25740.ctv
+#EXTINF:-1 tvg-name="华视教育" tvg-logo="png/default.png" group-title="台湾",华视教育
+https://stream1.freetv.fun/hua-shi-jiao-yu-ti-yu-wen-hua-1.ctv
+#EXTINF:-1 tvg-name="华视新闻" tvg-logo="png/华视新闻.png" group-title="台湾",华视新闻
+https://stream1.freetv.fun/hua-shi-xin-wen-2.ctv
+#EXTINF:-1 tvg-name="台视" tvg-logo="png/台视.png" group-title="台湾",台视
+https://stream1.freetv.fun/tai-shi-5.m3u8
 #EXTINF:-1 tvg-name="台视" tvg-logo="png/台视.png" group-title="台湾",台视
 https://stream1.freetv.fun/d96ca80f2e6d7eb1a1737aaf17284caded271210e4432dfb4378a9ab6d8ef7b2.m3u8
 #EXTINF:-1 tvg-name="台视" tvg-logo="png/台视.png" group-title="台湾",台视
@@ -2383,10 +2455,20 @@ https://stream1.freetv.fun/303a4e4b8b9c669547f4860a119882a0a5636bb5390c74bcb2ab1
 https://stream1.freetv.fun/ade964bb3257fe87dfd674a4d637fec20f26cf49bf91e7a4bb8459c711283d4d.ctv
 #EXTINF:-1 tvg-name="台视" tvg-logo="png/台视.png" group-title="台湾",台视
 https://stream1.freetv.fun/e2331640734e3da0f0ea18e4021f6d8ce8247924af42ed34d282c4aa1c0e1dbd.ctv
+#EXTINF:-1 tvg-name="台视新闻" tvg-logo="png/台视新闻.png" group-title="台湾",台视新闻
+https://stream1.freetv.fun/tai-shi-xin-wen-17.m3u8
+#EXTINF:-1 tvg-name="台视财经" tvg-logo="png/台视财经.png" group-title="台湾",台视财经
+https://stream1.freetv.fun/tai-shi-cai-jing-4.ctv
 #EXTINF:-1 tvg-name="国家地理" tvg-logo="png/default.png" group-title="台湾",国家地理
 https://stream1.freetv.fun/guo-jia-di-li---x-1.m3u8
 #EXTINF:-1 tvg-name="国家地理" tvg-logo="png/default.png" group-title="台湾",国家地理
 https://stream1.freetv.fun/guo-jia-di-li-2.m3u8
+#EXTINF:-1 tvg-name="大立电视台" tvg-logo="png/default.png" group-title="台湾",大立电视台
+http://www.dalitv.com.tw:4568/live/dali/index.m3u8
+#EXTINF:-1 tvg-name="小公视" tvg-logo="png/default.png" group-title="台湾",小公视
+https://stream1.freetv.fun/xiao-gong-shi-1.ctv
+#EXTINF:-1 tvg-name="民视" tvg-logo="png/民视.png" group-title="台湾",民视
+https://stream1.freetv.fun/min-shi-1.ctv
 #EXTINF:-1 tvg-name="民视" tvg-logo="png/民视.png" group-title="台湾",民视
 https://stream1.freetv.fun/60a9f375b5ab425ec19fa7c0ed5d870d05bbbb21e04b95b696734bfb1243e083.ctv
 #EXTINF:-1 tvg-name="民视" tvg-logo="png/民视.png" group-title="台湾",民视
@@ -2401,6 +2483,12 @@ https://stream1.freetv.fun/2f734c1fe46e256a27b2aef5e11b2c9e1b9098b1cc374e17e9329
 https://stream1.freetv.fun/a6dd48cff68c1da6ae33d7a2d962ab66d11a3791c0f133b0cd3bbbf99ea8b3c8.m3u8
 #EXTINF:-1 tvg-name="民视" tvg-logo="png/民视.png" group-title="台湾",民视
 https://stream1.freetv.fun/0f18627e89ae503346d5ef2a1c1be4add53806bc482d62386196a162de41bab0.ctv
+#EXTINF:-1 tvg-name="民视台湾" tvg-logo="png/default.png" group-title="台湾",民视台湾
+https://stream1.freetv.fun/min-shi-tai-wan-7.ctv
+#EXTINF:-1 tvg-name="民视新闻" tvg-logo="png/default.png" group-title="台湾",民视新闻
+https://stream1.freetv.fun/min-shi-xin-wen-4.m3u8
+#EXTINF:-1 tvg-name="民视第一台" tvg-logo="png/民视第一台.png" group-title="台湾",民视第一台
+https://stream1.freetv.fun/min-shi-di-yi-1.ctv
 #EXTINF:-1 tvg-name="纬来日本" tvg-logo="png/default.png" group-title="台湾",纬来日本
 https://stream1.freetv.fun/409fbf8e0ec33500b4d76956cca00af9fddacac6dd2f8822f464b089fb583a6b.m3u8
 #EXTINF:-1 tvg-name="纬来育乐" tvg-logo="png/default.png" group-title="台湾",纬来育乐
@@ -2413,3 +2501,7 @@ https://stream1.freetv.fun/4b55b732dee5834d18f04bf48b096395288eedad596c18997cdf1
 https://stream1.freetv.fun/f399d5ca932e97fc64175572c8c5f5c14d36761d3bceda596b03403c568f204b.ctv
 #EXTINF:-1 tvg-name="靖天资讯" tvg-logo="png/靖天资讯.png" group-title="台湾",靖天资讯
 https://stream1.freetv.fun/11a3943dbff1e2a6523c63f599089034d67a0465e4b140f40be2e1449b85f304.ctv
+#EXTINF:-1 tvg-name="﻿tvg-name" tvg-logo="png/default.png" group-title="地区",﻿tvg-name
+URL
+#EXTINF:-1 tvg-name="﻿tvg-name" tvg-logo="png/default.png" group-title="地区",﻿tvg-name
+URL
