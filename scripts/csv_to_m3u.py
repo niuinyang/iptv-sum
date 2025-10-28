@@ -28,7 +28,7 @@ sjmz_priority = ["济南移动", "上海移动", "济南联通", "电信组播",
 # ==============================
 # 读取 CSV
 # ==============================
-def read_csv_files(paths):
+def read_csv_files(paths, manual_group_map=None):
     channels = []
     for path in paths:
         if not os.path.exists(path):
@@ -37,7 +37,7 @@ def read_csv_files(paths):
         if os.path.isdir(path):
             for file in os.listdir(path):
                 if file.endswith(".csv"):
-                    channels += read_csv_files([os.path.join(path, file)])
+                    channels += read_csv_files([os.path.join(path, file)], manual_group_map)
         else:
             with open(path, encoding="utf-8") as f:
                 sample = f.read(1024)
@@ -45,10 +45,16 @@ def read_csv_files(paths):
                 delimiter = "\t" if "\t" in sample else ","
                 reader = csv.reader(f, delimiter=delimiter)
                 count = 0
+                filename = os.path.basename(path).lower()
                 for row in reader:
-                    if len(row) < 4:
+                    if len(row) >= 4:
+                        name, group, url, source = row[:4]
+                    elif len(row) == 2 and manual_group_map:
+                        name, url = row
+                        group = manual_group_map.get(filename, "未分类")
+                        source = "手动"
+                    else:
                         continue
-                    name, group, url, source = row[:4]
                     channels.append({
                         "name": name.strip(),
                         "group": group.strip(),
@@ -63,7 +69,6 @@ def read_csv_files(paths):
 # 排序规则
 # ==============================
 def natural_key(name):
-    """CCTV排序"""
     m = re.match(r"CCTV(\d+)", name.upper())
     if m:
         return (0, int(m.group(1)))
@@ -72,7 +77,7 @@ def natural_key(name):
 def group_key(group):
     if group in group_order:
         return group_order.index(group)
-    return len(group_order)  # 未定义分组排最后
+    return len(group_order)
 
 def source_priority(source, order):
     try:
@@ -87,17 +92,11 @@ def write_m3u(channels_dict, output_file, source_order=None, exclude_source=None
     total = 0
     with open(output_file, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
-
-        # 按分组排序
         for group, name_dict in sorted(channels_dict.items(), key=lambda x: group_key(x[0])):
-            # 分组内按频道名排序
             for name, sources in sorted(name_dict.items(), key=lambda x: natural_key(x[0])):
-                # 排除指定源
                 filtered_sources = [s for s in sources if s["source"] != exclude_source] if exclude_source else sources
-                # 源排序
                 if source_order:
                     filtered_sources.sort(key=lambda s: source_priority(s["source"], source_order))
-
                 for s in filtered_sources:
                     logo_path = os.path.join(icon_dir, f"{name}.png")
                     logo = logo_path if os.path.exists(logo_path) else default_icon
@@ -110,19 +109,33 @@ def write_m3u(channels_dict, output_file, source_order=None, exclude_source=None
 # 主程序
 # ==============================
 def main():
+    # 手动 CSV 分组映射
+    manual_group_map = {
+        "network_hk_manual.csv": "香港频道",
+        "network_mo_manual.csv": "澳门频道",
+        "network_tw_manual.csv": "台湾频道",
+        "netwotk_intl_manual.csv": "国际频道"
+    }
+
     # 固定源
-    fixed_channels = read_csv_files(fixed_csv + [fixed_folder])
+    fixed_channels = read_csv_files(fixed_csv + [fixed_folder], manual_group_map)
+
+    # 建立固定源频道名集合（正则匹配用）
+    fixed_names = [re.escape(ch["name"]) for ch in fixed_channels]
+    fixed_pattern = re.compile("|".join(fixed_names), re.I)
+
     # 补充源
     extra_channels = read_csv_files([extra_folder])
 
-    if not fixed_channels:
-        print("⚠️ 没有读取到任何固定源频道，请检查路径和 CSV 格式")
-    if not extra_channels:
-        print("⚠️ 没有读取到任何补充源频道")
+    # 补充源只保留固定源已有的频道
+    extra_filtered = [ch for ch in extra_channels if fixed_pattern.search(ch["name"])]
 
-    # 合并逻辑：补充源追加到已有频道后
     combined = defaultdict(lambda: defaultdict(list))
-    for ch in fixed_channels + extra_channels:
+    # 先加入固定源
+    for ch in fixed_channels:
+        combined[ch["group"]][ch["name"]].append(ch)
+    # 再加入补充源
+    for ch in extra_filtered:
         combined[ch["group"]][ch["name"]].append(ch)
 
     # 生成 M3U
