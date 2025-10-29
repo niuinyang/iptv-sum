@@ -116,9 +116,18 @@ def write_m3u(channels_dict, output_file, source_order=None, exclude_sources=Non
         for group, name_dict in sorted(channels_dict.items(), key=lambda x: group_key(x[0])):
             for name, sources in sorted(name_dict.items(), key=lambda x: natural_key(x[0])):
                 filtered_sources = [s for s in sources if s["source"] not in exclude_sources]
-                if source_order:
-                    filtered_sources.sort(key=lambda s: source_priority(s["source"], source_order))
+
+                # 去重 URL
+                seen_urls = set()
+                unique_sources = []
                 for s in filtered_sources:
+                    if s["url"] not in seen_urls:
+                        unique_sources.append(s)
+                        seen_urls.add(s["url"])
+
+                if source_order:
+                    unique_sources.sort(key=lambda s: source_priority(s["source"], source_order))
+                for s in unique_sources:
                     logo_path = os.path.join(icon_dir, f"{name}.png")
                     logo = logo_path if os.path.exists(logo_path) else default_icon
                     extinf = f'#EXTINF:-1 tvg-name="{name}" tvg-logo="{logo}" group-title="{s["group"]}",{name}'
