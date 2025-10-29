@@ -49,9 +49,6 @@ LOW_RES_KEYWORDS = ["vga", "480p", "576p"]
 BLOCK_KEYWORDS = ["espanol"]
 WHITELIST_PATTERNS = [".ctv", ".sdserver", ".sdn.", ".sda.", ".sdstream", "sdhd", "hdsd"]
 
-# dxl 排除源
-DXL_EXCLUDE_SOURCES = ["济南移动", "上海移动"]
-
 # ==============================
 # 工具函数
 # ==============================
@@ -63,7 +60,7 @@ def log_suspect(reason, url):
     with open(SUSPECT_FILE, "a", encoding="utf-8") as f:
         f.write(f"{reason} -> {url}\n")
 
-def is_allowed(title, url, source=None, dxl_mode=False):
+def is_allowed(title, url):
     text = f"{title} {url}".lower()
     if any(w in text for w in WHITELIST_PATTERNS):
         return True
@@ -72,9 +69,6 @@ def is_allowed(title, url, source=None, dxl_mode=False):
         return False
     if any(kw in text for kw in BLOCK_KEYWORDS):
         log_skip("BLOCK_KEYWORD", title, url)
-        return False
-    if dxl_mode and source in DXL_EXCLUDE_SOURCES:
-        log_skip("DXL_EXCLUDE", title, url)
         return False
     return True
 
@@ -122,7 +116,7 @@ def detect_static_video(url):
     tmp_file1 = os.path.join(TMP_FRAMES, "frame1.jpg")
     tmp_file2 = os.path.join(TMP_FRAMES, "frame2.jpg")
     try:
-        # 延迟截第10秒和11秒帧
+        # 截取第10秒和11秒的帧
         subprocess.run([
             "ffmpeg", "-y", "-i", url, "-vf", "select='eq(n,250)'", "-vframes", "1", tmp_file1
         ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=30)
@@ -141,10 +135,10 @@ def detect_static_video(url):
                 os.remove(f)
     return False
 
-def test_stream(title, url, source=None, dxl_mode=False):
+def test_stream(title, url):
     url = url.strip()
     try:
-        if not is_allowed(title, url, source, dxl_mode):
+        if not is_allowed(title, url):
             return False, 0, url
         ok, elapsed, final_url = quick_check(url)
         if not ok:
@@ -176,6 +170,8 @@ def write_m3u(working_list, output_file):
 # 主逻辑
 # ==============================
 if __name__ == "__main__":
+    start_time = time.time()
+
     for log_file in [SKIPPED_FILE, SUSPECT_FILE]:
         if os.path.exists(log_file):
             os.remove(log_file)
@@ -202,7 +198,7 @@ if __name__ == "__main__":
     for batch_start in range(0, total, BATCH_SIZE):
         batch = pairs[batch_start:batch_start+BATCH_SIZE]
         with ThreadPoolExecutor(max_workers=threads) as executor:
-            futures = {executor.submit(test_stream, title, url, source, dxl_mode=False):(title,url) for title,url,source in batch}
+            futures = {executor.submit(test_stream, title, url):(title,url) for title,url,_ in batch}
             for future in as_completed(futures):
                 title, url = futures[future]
                 ok, elapsed, final_url = future.result()
