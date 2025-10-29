@@ -1,4 +1,3 @@
-
 import os
 import csv
 import time
@@ -11,10 +10,9 @@ from statistics import mean
 import multiprocessing
 
 # ==============================
-# 文件夹结构（绝对路径）
+# 文件夹结构
 # ==============================
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))  # 当前脚本目录
-OUTPUT_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "output"))
+OUTPUT_DIR = "output"
 LOG_DIR = os.path.join(OUTPUT_DIR, "log")
 MIDDLE_DIR = os.path.join(OUTPUT_DIR, "middle")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -25,7 +23,7 @@ os.makedirs(MIDDLE_DIR, exist_ok=True)
 # 配置区
 # ==============================
 CSV_FILE = os.path.join(OUTPUT_DIR, "merge_total.csv")  # 输入 CSV
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.m3u")   # 可用流输出
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.m3u")
 PROGRESS_FILE = os.path.join(MIDDLE_DIR, "progress.json")
 SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
 SUSPECT_FILE = os.path.join(LOG_DIR, "suspect.log")
@@ -209,21 +207,29 @@ if __name__ == "__main__":
     if os.path.exists(PROGRESS_FILE):
         os.remove(PROGRESS_FILE)
 
-    # 分组、排序并写入 M3U
-    grouped = defaultdict(list)
-    for title,url,elapsed in all_working:
-        name = extract_name(title).lower()
-        grouped[name].append((title,url,elapsed))
+    # 分组、排序并写入 M3U，确保写入
+    if all_working:
+        grouped = defaultdict(list)
+        for title,url,elapsed in all_working:
+            name = extract_name(title).lower()
+            grouped[name].append((title,url,elapsed))
 
-    with open(OUTPUT_FILE,"w",encoding="utf-8") as f:
-        f.write("#EXTM3U\n")
-        for name in sorted(grouped.keys()):
-            group_sorted = sorted(grouped[name], key=lambda x: x[2])
-            for title,url,_ in group_sorted:
-                f.write(f"{title}\n{url}\n")
+        # 强制删除旧文件
+        if os.path.exists(OUTPUT_FILE):
+            os.remove(OUTPUT_FILE)
+
+        with open(OUTPUT_FILE,"w",encoding="utf-8") as f:
+            f.write("#EXTM3U\n")
+            for name in sorted(grouped.keys()):
+                group_sorted = sorted(grouped[name], key=lambda x: x[2])
+                for title,url,_ in group_sorted:
+                    # 添加EXTINF标签
+                    f.write(f"#EXTINF:-1,{title}\n{url}\n")
+        print(f"📁 写入完成: {OUTPUT_FILE}")
+    else:
+        print("⚠️ 没有可用流，working.m3u 未更新")
 
     elapsed_total = round(time.time()-start_time,2)
     print(f"\n✅ 检测完成，共 {len(all_working)} 条可用流，用时 {elapsed_total} 秒")
-    print(f"📁 可用源: {OUTPUT_FILE}")
     print(f"⚠️ 失败或过滤源: {SKIPPED_FILE}")
     print(f"🕵️ 可疑误杀源: {SUSPECT_FILE}")
