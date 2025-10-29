@@ -88,30 +88,34 @@ def source_priority(source, order):
 # ==============================
 # M3U 生成函数
 # ==============================
-def write_m3u(channels_dict, output_file, source_order=None, exclude_sources=None):
-    exclude_sources = exclude_sources or []
+def write_m3u(channels_dict, output_file, source_order=None, exclude_source=None):
     total = 0
+    excluded_count = 0
     with open(output_file, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         for group, name_dict in sorted(channels_dict.items(), key=lambda x: group_key(x[0])):
             for name, sources in sorted(name_dict.items(), key=lambda x: natural_key(x[0])):
-                # 排除源
-                filtered_sources = [s for s in sources if s["source"] not in exclude_sources]
+                filtered_sources = [s for s in sources if s["source"] != exclude_source] if exclude_source else sources
                 if source_order:
                     filtered_sources.sort(key=lambda s: source_priority(s["source"], source_order))
                 for s in filtered_sources:
                     logo_path = os.path.join(icon_dir, f"{name}.png")
                     logo = logo_path if os.path.exists(logo_path) else default_icon
                     extinf = f'#EXTINF:-1 tvg-name="{name}" tvg-logo="{logo}" group-title="{s["group"]}",{name}'
-                    f.write(f"{extinf}\n{s["url"]}\n")
-                    total += 1
-    print(f"✅ 已生成 {output_file}，共 {total} 条频道")
+                    url = s["url"]
+                    f.write(f"{extinf}\n{url}\n")
+                if exclude_source:
+                    excluded_count += sum(1 for s in sources if s["source"] == exclude_source)
+                total += len(filtered_sources)
+    if exclude_source:
+        print(f"✅ 已生成 {output_file}，共 {total} 条频道 (排除 {excluded_count} 条 {exclude_source})")
+    else:
+        print(f"✅ 已生成 {output_file}，共 {total} 条频道")
 
 # ==============================
 # 主程序
 # ==============================
 def main():
-    # 手动 CSV 分组映射
     manual_group_map = {
         "network_hk_manual.csv": "香港频道",
         "network_mo_manual.csv": "澳门频道",
@@ -129,18 +133,20 @@ def main():
     # 读取补充源
     extra_channels = read_csv_files([extra_folder])
 
-    # 仅保留固定源已有的频道
+    # 补充源只保留固定源已有的频道
     extra_filtered = [ch for ch in extra_channels if fixed_pattern.search(ch["name"])]
 
     combined = defaultdict(lambda: defaultdict(list))
+    # 先加入固定源
     for ch in fixed_channels:
         combined[ch["group"]][ch["name"]].append(ch)
+    # 再加入补充源
     for ch in extra_filtered:
         combined[ch["group"]][ch["name"]].append(ch)
 
     # 生成 M3U
     write_m3u(combined, os.path.join(output_dir, "total.m3u"))
-    write_m3u(combined, os.path.join(output_dir, "dxl.m3u"), source_order=dxl_priority, exclude_sources=["济南移动","山东移动"])
+    write_m3u(combined, os.path.join(output_dir, "dxl.m3u"), source_order=dxl_priority, exclude_source="山东移动")
     write_m3u(combined, os.path.join(output_dir, "sjmz.m3u"), source_order=sjmz_priority)
 
     print("✅ 所有 M3U 文件生成完成！")
