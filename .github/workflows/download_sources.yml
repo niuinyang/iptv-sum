@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write  # 必须有写权限才能提交
 
 jobs:
   download_sources:
@@ -31,3 +31,11 @@ jobs:
       - name: Download sources (parallel + browser UA)
         run: |
           python scripts/download_sources.py
+
+      - name: Commit downloaded sources
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/ input/network/manual
+          git commit -m "Update downloaded network sources [skip ci]" || echo "No changes to commit"
+          git push
