@@ -70,8 +70,6 @@ https://stream1.freetv.fun/abc-news-7.m3u8
 #EXTINF:-1 tvg-name="ABC NEWS",ABC NEWS
 https://stream1.freetv.fun/ch-ng-abc-news-1.m3u8
 #EXTINF:-1 tvg-name="ABC NEWS",ABC NEWS
-https://stream1.freetv.fun/abc-news--wj-1.m3u8
-#EXTINF:-1 tvg-name="ABC NEWS",ABC NEWS
 https://stream1.freetv.fun/abc-news-2.m3u8
 #EXTINF:-1 tvg-name="ABC News Live",ABC News Live
 https://stream1.freetv.fun/abc-news-live-5-4.m3u8
@@ -105,6 +103,8 @@ https://stream1.freetv.fun/tvs-flashback-network-2.m3u8
 https://stream1.freetv.fun/tvs-talk-network-1.m3u8
 #EXTINF:-1 tvg-name="AKC TV",AKC TV
 https://stream1.freetv.fun/akc-tv-2.m3u8
+#EXTINF:-1 tvg-name="AMC",AMC
+https://stream1.freetv.fun/amc-1.m3u8
 #EXTINF:-1 tvg-name="AMC",AMC
 https://stream1.freetv.fun/us-amc-1.ctv
 #EXTINF:-1 tvg-name="AMC",AMC
@@ -143,10 +143,6 @@ https://stream1.freetv.fun/animal-planet--m-2.ctv
 https://stream1.freetv.fun/animal-planet--m-3.ctv
 #EXTINF:-1 tvg-name="Animal Planet",Animal Planet
 https://stream1.freetv.fun/animal-planet-20.ctv
-#EXTINF:-1 tvg-name="Animal Planet",Animal Planet
-https://stream1.freetv.fun/animal-planet--wj-1.m3u8
-#EXTINF:-1 tvg-name="Animal Planet",Animal Planet
-https://stream1.freetv.fun/animal-planet--wj-2.m3u8
 #EXTINF:-1 tvg-name="Animal Planet",Animal Planet
 https://stream1.freetv.fun/animal-planet-16.ctv
 #EXTINF:-1 tvg-name="Animal Planet",Animal Planet
@@ -325,8 +321,6 @@ https://stream1.freetv.fun/manatee-schools-television-mstv-1.m3u8
 https://stream1.freetv.fun/ptl-television-network-3.m3u8
 #EXTINF:-1 tvg-name="CBN",CBN
 https://stream1.freetv.fun/tln-media-chicago-1.m3u8
-#EXTINF:-1 tvg-name="CBS",CBS
-https://stream1.freetv.fun/cbs--wj-1.m3u8
 #EXTINF:-1 tvg-name="CBS Drama",CBS Drama
 https://stream1.freetv.fun/cps-drama-1.ctv
 #EXTINF:-1 tvg-name="CBS NETWORK",CBS NETWORK
@@ -382,13 +376,11 @@ https://stream1.freetv.fun/cbs-news-24-7-2.m3u8
 #EXTINF:-1 tvg-name="CBS News",CBS News
 https://stream1.freetv.fun/cbs-news-detroit-2.m3u8
 #EXTINF:-1 tvg-name="CBS News",CBS News
-https://stream1.freetv.fun/cbs-news--wj-2.m3u8
-#EXTINF:-1 tvg-name="CBS News",CBS News
-https://stream1.freetv.fun/cbs-news--wj-1.m3u8
-#EXTINF:-1 tvg-name="CBS News",CBS News
 https://stream1.freetv.fun/cbs-news-miami-2.m3u8
 #EXTINF:-1 tvg-name="CBS News",CBS News
 https://stream1.freetv.fun/cbs-news-minnesota-1.m3u8
+#EXTINF:-1 tvg-name="CBS Reality",CBS Reality
+https://stream1.freetv.fun/cbs-reality--s-1.m3u8
 #EXTINF:-1 tvg-name="CBS Sports Network",CBS Sports Network
 https://stream1.freetv.fun/cbs-sports-network-1.ctv
 #EXTINF:-1 tvg-name="CBS Sports Network",CBS Sports Network
@@ -416,10 +408,6 @@ https://stream1.freetv.fun/cnbc-4.ctv
 #EXTINF:-1 tvg-name="CNBC(USA)",CNBC(USA)
 https://stream1.freetv.fun/cnbc-5.ctv
 #EXTINF:-1 tvg-name="CNBC(USA)",CNBC(USA)
-https://stream1.freetv.fun/cnbc--wj-2.m3u8
-#EXTINF:-1 tvg-name="CNBC(USA)",CNBC(USA)
-https://stream1.freetv.fun/cnbc--wj-1.m3u8
-#EXTINF:-1 tvg-name="CNBC(USA)",CNBC(USA)
 https://stream1.freetv.fun/cnbc-12.ctv
 #EXTINF:-1 tvg-name="CNN Fast",CNN Fast
 https://stream1.freetv.fun/cnn-fast-1.m3u8
@@ -432,8 +420,6 @@ https://stream1.freetv.fun/cnn-10.ctv
 #EXTINF:-1 tvg-name="CNN HD",CNN HD
 https://stream1.freetv.fun/cnn-1.ctv
 #EXTINF:-1 tvg-name="CNN HD",CNN HD
-https://stream1.freetv.fun/cnn--wj-1.m3u8
-#EXTINF:-1 tvg-name="CNN HD",CNN HD
 https://stream1.freetv.fun/cnn-11.ctv
 #EXTINF:-1 tvg-name="CNN HD",CNN HD
 https://stream1.freetv.fun/cnn-3.m3u8
@@ -443,6 +429,8 @@ https://stream1.freetv.fun/cnn-int-4.m3u8
 https://stream1.freetv.fun/cnn-5.m3u8
 #EXTINF:-1 tvg-name="CNN HD",CNN HD
 https://stream1.freetv.fun/cnn-9.m3u8
+#EXTINF:-1 tvg-name="CNN HD",CNN HD
+https://stream1.freetv.fun/cnn--s-1.m3u8
 #EXTINF:-1 tvg-name="CNN HD",CNN HD
 https://stream1.freetv.fun/cnn-4.ctv
 #EXTINF:-1 tvg-name="CNN HD",CNN HD
@@ -548,10 +536,6 @@ https://stream1.freetv.fun/cinemax-moviemax-east--s-1.m3u8
 #EXTINF:-1 tvg-name="Cinemax(USA)",Cinemax(USA)
 https://stream1.freetv.fun/cinemax-2.ctv
 #EXTINF:-1 tvg-name="Cinemax(USA)",Cinemax(USA)
-https://stream1.freetv.fun/cinemax--wj-2.m3u8
-#EXTINF:-1 tvg-name="Cinemax(USA)",Cinemax(USA)
-https://stream1.freetv.fun/cinemax--wj-1.m3u8
-#EXTINF:-1 tvg-name="Cinemax(USA)",Cinemax(USA)
 https://stream1.freetv.fun/cinemax-8.ctv
 #EXTINF:-1 tvg-name="Cinemax(USA)",Cinemax(USA)
 https://stream1.freetv.fun/cinemax-14.ctv
@@ -602,11 +586,11 @@ https://stream1.freetv.fun/us-court-tv-1.ctv
 #EXTINF:-1 tvg-name="Crime Investigation",Crime Investigation
 https://stream1.freetv.fun/crime-plus-investigation-1.m3u8
 #EXTINF:-1 tvg-name="Crime Investigation",Crime Investigation
+https://stream1.freetv.fun/crime-investigation--s-1.m3u8
+#EXTINF:-1 tvg-name="Crime Investigation",Crime Investigation
 https://stream1.freetv.fun/ch-ng-crime-plus-investigation-1.m3u8
 #EXTINF:-1 tvg-name="Crime Investigation",Crime Investigation
 https://stream1.freetv.fun/crime-plus-investigation-3.ctv
-#EXTINF:-1 tvg-name="Crime Investigation",Crime Investigation
-https://stream1.freetv.fun/cizui-an-zhen-qi---wj-1.m3u8
 #EXTINF:-1 tvg-name="Crime Investigation",Crime Investigation
 https://stream1.freetv.fun/crime-plus-investigation-2.m3u8
 #EXTINF:-1 tvg-name="DISCOVERY SCIENCE ",DISCOVERY SCIENCE 
@@ -752,8 +736,6 @@ https://stream1.freetv.fun/fox-11-los-angeles-ca-1.m3u8
 #EXTINF:-1 tvg-name="FOX Los Angeles",FOX Los Angeles
 https://stream1.freetv.fun/abc-7-los-angeles-ca-1.m3u8
 #EXTINF:-1 tvg-name="FOX NEWS NOW",FOX NEWS NOW
-https://stream1.freetv.fun/fox-news--wj-1.m3u8
-#EXTINF:-1 tvg-name="FOX NEWS NOW",FOX NEWS NOW
 https://stream1.freetv.fun/fox-now-1.m3u8
 #EXTINF:-1 tvg-name="FOX SPORTS HD",FOX SPORTS HD
 https://stream1.freetv.fun/fox-sports-7.m3u8
@@ -810,6 +792,8 @@ https://stream1.freetv.fun/fox-news-11.m3u8
 #EXTINF:-1 tvg-name="Fox News",Fox News
 https://stream1.freetv.fun/us-fox-news-1.ctv
 #EXTINF:-1 tvg-name="Fox News Channel",Fox News Channel
+https://stream1.freetv.fun/fox-news-channel--s-1.m3u8
+#EXTINF:-1 tvg-name="Fox News Channel",Fox News Channel
 https://stream1.freetv.fun/fox-news-channel-1.m3u8
 #EXTINF:-1 tvg-name="Fox News Channel",Fox News Channel
 https://stream1.freetv.fun/fox-news-channel-3.m3u8
@@ -831,6 +815,8 @@ https://stream1.freetv.fun/fox-weather-3.m3u8
 https://stream1.freetv.fun/fox-weather-4.m3u8
 #EXTINF:-1 tvg-name="Freeform",Freeform
 https://stream1.freetv.fun/freeform-2.ctv
+#EXTINF:-1 tvg-name="GINX",GINX
+https://stream1.freetv.fun/ginxtv-1.ctv
 #EXTINF:-1 tvg-name="GOLF",GOLF
 https://stream1.freetv.fun/golf-channel-1.ctv
 #EXTINF:-1 tvg-name="Golf Channel",Golf Channel
@@ -866,8 +852,6 @@ https://stream1.freetv.fun/hbo-family--m-2.ctv
 #EXTINF:-1 tvg-name="HBO Family(USA)",HBO Family(USA)
 https://stream1.freetv.fun/hbo-family-8.ctv
 #EXTINF:-1 tvg-name="HBO Family(USA)",HBO Family(USA)
-https://stream1.freetv.fun/hbo-family--wj-2.m3u8
-#EXTINF:-1 tvg-name="HBO Family(USA)",HBO Family(USA)
 https://stream1.freetv.fun/hbo-family-6.m3u8
 #EXTINF:-1 tvg-name="HBO Family(USA)",HBO Family(USA)
 https://stream1.freetv.fun/hbo-family-7.ctv
@@ -877,14 +861,10 @@ https://stream1.freetv.fun/hbo-famliy-1.m3u8
 https://stream1.freetv.fun/cbn-family-2.m3u8
 #EXTINF:-1 tvg-name="HBO PLUS",HBO PLUS
 https://stream1.freetv.fun/home-plus-1.m3u8
-#EXTINF:-1 tvg-name="HBO Signature HD",HBO Signature HD
-https://stream1.freetv.fun/hboyuan-chuang-ju-xian---wj-1.m3u8
 #EXTINF:-1 tvg-name="HBO Signature(USA)",HBO Signature(USA)
 https://stream1.freetv.fun/hbo-signature--m-1.ctv
 #EXTINF:-1 tvg-name="HBO Signature(USA)",HBO Signature(USA)
 https://stream1.freetv.fun/hbo-signature-19.ctv
-#EXTINF:-1 tvg-name="HBO Signature(USA)",HBO Signature(USA)
-https://stream1.freetv.fun/hbo-signature--wj-1.m3u8
 #EXTINF:-1 tvg-name="HBO Signature(USA)",HBO Signature(USA)
 https://stream1.freetv.fun/hbo-signature-11.ctv
 #EXTINF:-1 tvg-name="HBO USA",HBO USA
@@ -909,8 +889,6 @@ https://stream1.freetv.fun/hbo-zone-3.ctv
 https://stream1.freetv.fun/hbo-1-2.m3u8
 #EXTINF:-1 tvg-name="HBO(TW)",HBO(TW)
 https://stream1.freetv.fun/hbo-8.ctv
-#EXTINF:-1 tvg-name="HBO(TW)",HBO(TW)
-https://stream1.freetv.fun/hbo--wj-2.m3u8
 #EXTINF:-1 tvg-name="HBO(TW)",HBO(TW)
 https://stream1.freetv.fun/hbo-1-5.ctv
 #EXTINF:-1 tvg-name="HBO(TW)",HBO(TW)
@@ -984,6 +962,8 @@ https://stream1.freetv.fun/history-tv18-1.m3u8
 #EXTINF:-1 tvg-name="History(USA)",History(USA)
 https://stream1.freetv.fun/history-tv18-2.m3u8
 #EXTINF:-1 tvg-name="History(USA)",History(USA)
+https://stream1.freetv.fun/history--m-3.ctv
+#EXTINF:-1 tvg-name="History(USA)",History(USA)
 https://stream1.freetv.fun/us-history-1.ctv
 #EXTINF:-1 tvg-name="History(USA)",History(USA)
 https://stream1.freetv.fun/history--m-2.ctv
@@ -995,8 +975,6 @@ https://stream1.freetv.fun/history-7.ctv
 https://stream1.freetv.fun/pbs-history-1.m3u8
 #EXTINF:-1 tvg-name="History(USA)",History(USA)
 https://stream1.freetv.fun/history-16.ctv
-#EXTINF:-1 tvg-name="History(USA)",History(USA)
-https://stream1.freetv.fun/history--wj-1.m3u8
 #EXTINF:-1 tvg-name="History(USA)",History(USA)
 https://stream1.freetv.fun/true-history-1.m3u8
 #EXTINF:-1 tvg-name="History2(USA)",History2(USA)
@@ -1216,13 +1194,13 @@ https://stream1.freetv.fun/newsmax-2-2.m3u8
 #EXTINF:-1 tvg-name="Nick HD",Nick HD
 https://stream1.freetv.fun/nick-jr-12.m3u8
 #EXTINF:-1 tvg-name="Nick HD",Nick HD
+https://stream1.freetv.fun/nick--s-2.m3u8
+#EXTINF:-1 tvg-name="Nick HD",Nick HD
 https://stream1.freetv.fun/nick--m-1.ctv
 #EXTINF:-1 tvg-name="Nick HD",Nick HD
 https://stream1.freetv.fun/nick-jr-1.m3u8
 #EXTINF:-1 tvg-name="Nick HD",Nick HD
 https://stream1.freetv.fun/teen-nick-1.m3u8
-#EXTINF:-1 tvg-name="Nick Jr.",Nick Jr.
-https://stream1.freetv.fun/nick-jr--wj-1.m3u8
 #EXTINF:-1 tvg-name="NickMusic",NickMusic
 https://stream1.freetv.fun/nick-music-1.m3u8
 #EXTINF:-1 tvg-name="OWN",OWN
@@ -1331,8 +1309,6 @@ https://stream1.freetv.fun/showtime-1.ctv
 https://stream1.freetv.fun/showtime-13.ctv
 #EXTINF:-1 tvg-name="Showtime",Showtime
 https://stream1.freetv.fun/showtime-next-2.ctv
-#EXTINF:-1 tvg-name="Showtime",Showtime
-https://stream1.freetv.fun/showtime--s-1.m3u8
 #EXTINF:-1 tvg-name="Showtime",Showtime
 https://stream1.freetv.fun/showtime-west-2.m3u8
 #EXTINF:-1 tvg-name="Showtime",Showtime
@@ -1463,6 +1439,8 @@ https://stream1.freetv.fun/travel-xp-7.m3u8
 https://stream1.freetv.fun/travel-plus-1.m3u8
 #EXTINF:-1 tvg-name="TRAVEL",TRAVEL
 https://stream1.freetv.fun/4k-travel-1.m3u8
+#EXTINF:-1 tvg-name="TRAVEL",TRAVEL
+https://stream1.freetv.fun/bbc-travel-2.m3u8
 #EXTINF:-1 tvg-name="TRAVEL",TRAVEL
 https://stream1.freetv.fun/travel-xp--y-1.m3u8
 #EXTINF:-1 tvg-name="TRAVEL",TRAVEL
@@ -1712,11 +1690,9 @@ https://stream1.freetv.fun/hype-visual-radio-1.m3u8
 #EXTINF:-1 tvg-name="WNBC TV",WNBC TV
 https://stream1.freetv.fun/wbc-tv-1.m3u8
 #EXTINF:-1 tvg-name="Warner TV(USA)",Warner TV(USA)
-https://stream1.freetv.fun/warner-tv--wj-1.m3u8
-#EXTINF:-1 tvg-name="Warner TV(USA)",Warner TV(USA)
-https://stream1.freetv.fun/warner-tv--wj-2.m3u8
-#EXTINF:-1 tvg-name="Warner TV(USA)",Warner TV(USA)
 https://stream1.freetv.fun/warner-tv-4.m3u8
+#EXTINF:-1 tvg-name="We TV",We TV
+https://stream1.freetv.fun/we-tv-3.m3u8
 #EXTINF:-1 tvg-name="WeatherNation TV",WeatherNation TV
 https://stream1.freetv.fun/weathernation-4.m3u8
 #EXTINF:-1 tvg-name="WeatherNation TV",WeatherNation TV
@@ -1766,6 +1742,8 @@ https://stream1.freetv.fun/world-poker-tour-3.m3u8
 #EXTINF:-1 tvg-name="World Poker Tour",World Poker Tour
 https://stream1.freetv.fun/world-poker-1.ctv
 #EXTINF:-1 tvg-name="World Poker Tour",World Poker Tour
+https://stream1.freetv.fun/world-poker-tour--y-1.m3u8
+#EXTINF:-1 tvg-name="World Poker Tour",World Poker Tour
 https://stream1.freetv.fun/world-poker-tour-8.ctv
 #EXTINF:-1 tvg-name="X-Desire",X-Desire
 https://stream1.freetv.fun/desire-1.m3u8
@@ -1781,14 +1759,6 @@ https://stream1.freetv.fun/awe-1.m3u8
 https://stream1.freetv.fun/awe-3.m3u8
 #EXTINF:-1 tvg-name="動物星球",動物星球
 https://stream1.freetv.fun/dong-wu-xing-qiu-4.m3u8
-#EXTINF:-1 tvg-name="動物星球",動物星球
-https://stream1.freetv.fun/dong-wu-xing-qiu---wj-1.m3u8
-#EXTINF:-1 tvg-name="動物星球",動物星球
-https://stream1.freetv.fun/dong-wu-xing-qiu---wj-2.m3u8
-#EXTINF:-1 tvg-name="動物星球",動物星球
-https://stream1.freetv.fun/dong-wu-xing-qiu---wj-4.m3u8
-#EXTINF:-1 tvg-name="動物星球",動物星球
-https://stream1.freetv.fun/dong-wu-xing-qiu---wj-3.m3u8
 #EXTINF:-1 tvg-name="國家地理",國家地理
 https://stream1.freetv.fun/guo-jia-di-li-2.m3u8
 #EXTINF:-1 tvg-name="ATV A1臺",ATV A1臺
