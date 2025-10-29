@@ -1,0 +1,29 @@
+name: Generate M3U
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install requests opencc-python-reimplemented
+      - name: Generate final M3U files
+        run: python scripts/csv_to_m3u.py
+      - name: Upload updated M3U to repo
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/*.m3u output/sum_cvs/*.csv
+          git commit -m "🤖 Auto update IPTV M3U on $(date '+%Y-%m-%d') || true"
+          git push
