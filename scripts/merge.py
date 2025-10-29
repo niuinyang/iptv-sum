@@ -16,7 +16,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(LOG_DIR, exist_ok=True)
 os.makedirs(MIDDLE_DIR, exist_ok=True)
 
-OUTPUT_M3U = os.path.join(OUTPUT_DIR, "total.m3u")
+OUTPUT_M3U = os.path.join(OUTPUT_DIR, "merge_total.m3u")
 OUTPUT_CSV = os.path.join(OUTPUT_DIR, "total.csv")
 SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
 
@@ -25,7 +25,7 @@ RETRY_TIMES = 3
 TIMEOUT = 15
 
 # ==============================
-# 获取源文件内容
+# 获取源文件内容（增强版）
 # ==============================
 def fetch_sources(file_path):
     all_lines = []
@@ -42,19 +42,44 @@ def fetch_sources(file_path):
                 for attempt in range(RETRY_TIMES):
                     try:
                         r = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
-                        r.encoding = r.apparent_encoding or "utf-8"
-                        text = r.text
+                        r.raise_for_status()
+                        # 尝试多种编码
+                        for enc in [r.encoding, r.apparent_encoding, "utf-8", "utf-8-sig", "latin1"]:
+                            try:
+                                text = r.content.decode(enc)
+                                break
+                            except:
+                                continue
+                        if text is None:
+                            raise Exception("无法解码内容")
+
+                        # 简单过滤 HTML 页面
+                        if "<html" in text.lower() and "<body" in text.lower():
+                            raise Exception("内容疑似 HTML 页面，非 M3U")
+
                         break
                     except Exception as e:
                         print(f"⚠️ Retry {attempt+1}/{RETRY_TIMES} failed: {e}")
                 if text is None:
                     raise Exception("Failed after retries")
             else:
-                with open(url, encoding="utf-8", errors="ignore") as f_local:
-                    text = f_local.read()
+                # 本地文件尝试多种编码
+                text = None
+                for enc in ["utf-8", "utf-8-sig", "latin1"]:
+                    try:
+                        with open(url, encoding=enc, errors="ignore") as f_local:
+                            text = f_local.read()
+                        break
+                    except Exception as e:
+                        continue
+                if text is None:
+                    raise Exception("无法读取本地文件")
+
+            # 拆行
+            lines = text.splitlines()
+            print(f"源 {url} 共 {len(lines)} 行，前 5 行预览: {lines[:5]}")
 
             # 去掉 #EXTM3U
-            lines = text.splitlines()
             filtered_lines = []
             removed_header = False
             for l in lines:
@@ -65,6 +90,7 @@ def fetch_sources(file_path):
                 if l_strip:
                     filtered_lines.append(l_strip)
 
+            print(f"过滤后 {len(filtered_lines)} 行")
             all_lines.extend(filtered_lines)
             success += 1
         except Exception as e:
@@ -157,6 +183,8 @@ if __name__ == "__main__":
         os.remove(SKIPPED_FILE)
 
     all_lines, success, failed = fetch_sources(SOURCES_FILE)
+    if not all_lines:
+        print("⚠️ 没有抓取到任何内容，请检查 networksource.txt 或网络连接")
     parsed_pairs = parse_channels(all_lines)
 
     # 写入中间 CSV/M3U 文件
