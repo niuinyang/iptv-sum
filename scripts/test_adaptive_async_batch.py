@@ -1,3 +1,4 @@
+
 import os
 import csv
 import time
@@ -10,9 +11,10 @@ from statistics import mean
 import multiprocessing
 
 # ==============================
-# 文件夹结构
+# 文件夹结构（绝对路径）
 # ==============================
-OUTPUT_DIR = "output"
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))  # 当前脚本目录
+OUTPUT_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "output"))
 LOG_DIR = os.path.join(OUTPUT_DIR, "log")
 MIDDLE_DIR = os.path.join(OUTPUT_DIR, "middle")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -22,8 +24,8 @@ os.makedirs(MIDDLE_DIR, exist_ok=True)
 # ==============================
 # 配置区
 # ==============================
-CSV_FILE = os.path.join(OUTPUT_DIR, "merge_total.csv")  # 修改输入为 merge_total.csv
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.m3u")
+CSV_FILE = os.path.join(OUTPUT_DIR, "merge_total.csv")  # 输入 CSV
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.m3u")   # 可用流输出
 PROGRESS_FILE = os.path.join(MIDDLE_DIR, "progress.json")
 SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
 SUSPECT_FILE = os.path.join(LOG_DIR, "suspect.log")
@@ -135,27 +137,26 @@ def detect_optimal_threads():
         return BASE_THREADS
 
 def extract_name(title):
-    if "," in title:
-        return title.split(",")[-1].strip()
-    return title.strip()
+    return title.split(",")[-1].strip() if "," in title else title.strip()
 
 # ==============================
 # 主逻辑
 # ==============================
 if __name__ == "__main__":
+    # 清空日志
     for log_file in [SKIPPED_FILE, SUSPECT_FILE]:
         if os.path.exists(log_file):
             os.remove(log_file)
 
-    # 自动识别列名
+    # 导入 CSV，自动识别列名
     pairs = []
     with open(CSV_FILE, encoding="utf-8") as f:
         reader = csv.DictReader(f)
         fieldnames = reader.fieldnames
         if not fieldnames:
-            raise ValueError("CSV 文件没有标题行")
-        title_col = next((c for c in fieldnames if c.lower() in ["tvg-name","title"]), None)
-        url_col = next((c for c in fieldnames if c.lower() in ["url","link"]), None)
+            raise ValueError("CSV 文件为空或缺少列名")
+        title_col = next((c for c in fieldnames if "name" in c.lower() or "title" in c.lower()), None)
+        url_col = next((c for c in fieldnames if "url" in c.lower()), None)
         if not title_col or not url_col:
             raise ValueError("CSV 文件缺少标题或 URL 列")
         for row in reader:
@@ -163,6 +164,7 @@ if __name__ == "__main__":
             url = row[url_col].strip()
             pairs.append((title, url))
 
+    # 过滤
     filtered_pairs = [(t,u) for t,u in pairs if is_allowed(t,u)]
     print(f"🚫 跳过源: {len(pairs)-len(filtered_pairs)} 条")
 
@@ -171,6 +173,7 @@ if __name__ == "__main__":
     print(f"⚙️ 动态线程数：{threads}")
     print(f"🚀 开始检测 {total} 条流，每批 {BATCH_SIZE} 条")
 
+    # 批量检测
     all_working = []
     start_time = time.time()
     done_index = 0
@@ -206,6 +209,7 @@ if __name__ == "__main__":
     if os.path.exists(PROGRESS_FILE):
         os.remove(PROGRESS_FILE)
 
+    # 分组、排序并写入 M3U
     grouped = defaultdict(list)
     for title,url,elapsed in all_working:
         name = extract_name(title).lower()
@@ -216,10 +220,10 @@ if __name__ == "__main__":
         for name in sorted(grouped.keys()):
             group_sorted = sorted(grouped[name], key=lambda x: x[2])
             for title,url,_ in group_sorted:
-                f.write(f"#EXTINF:-1,{title}\n{url}\n")
+                f.write(f"{title}\n{url}\n")
 
     elapsed_total = round(time.time()-start_time,2)
     print(f"\n✅ 检测完成，共 {len(all_working)} 条可用流，用时 {elapsed_total} 秒")
-    print(f"📁 可用源: {os.path.abspath(OUTPUT_FILE)} ({os.path.getsize(OUTPUT_FILE)} 字节)")
+    print(f"📁 可用源: {OUTPUT_FILE}")
     print(f"⚠️ 失败或过滤源: {SKIPPED_FILE}")
     print(f"🕵️ 可疑误杀源: {SUSPECT_FILE}")
