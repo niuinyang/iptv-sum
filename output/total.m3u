@@ -2081,6 +2081,8 @@ https://stream1.freetv.fun/tai-shi-5.m3u8
 https://stream1.freetv.fun/tai-shi-xin-wen-17.m3u8
 #EXTINF:-1 tvg-name="台视财经" tvg-logo="png/台视财经.png" group-title="台湾",台视财经
 https://stream1.freetv.fun/tai-shi-cai-jing-4.ctv
+#EXTINF:-1 tvg-name="国家地理" tvg-logo="png/default.png" group-title="台湾",国家地理
+https://stream1.freetv.fun/guo-jia-di-li-2.m3u8
 #EXTINF:-1 tvg-name="大立电视台" tvg-logo="png/default.png" group-title="台湾",大立电视台
 http://www.dalitv.com.tw:4568/live/dali/index.m3u8
 #EXTINF:-1 tvg-name="小公视" tvg-logo="png/default.png" group-title="台湾",小公视
