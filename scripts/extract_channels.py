@@ -8,8 +8,8 @@ import difflib
 # ==============================
 # 配置区
 # ==============================
-M3U_FILE = "output/working.m3u"
-FIND_DIR = "input/network/find"
+M3U_FILE = "output/working.m3u"          # 输入 M3U
+FIND_DIR = "input/network/find"          # 搜索 CSV 目录
 OUTPUT_DIR = os.path.join("output", "sum_cvs")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -63,13 +63,18 @@ def extract_channels(find_csv_path, region_name, output_file):
         if line.startswith("#EXTINF:"):
             info_line = line
             url_line = lines[i + 1].strip() if i + 1 < len(lines) else ""
-            if url_line in seen_urls or not url_line.startswith("http"):
+            if not url_line.startswith("http") or url_line in seen_urls:
                 i += 2
                 continue
 
-            # 提取 tvg-name
+            # 尝试提取 tvg-name
             match_name = re.search(r'tvg-name="([^"]+)"', info_line)
-            tvg_name_original = match_name.group(1) if match_name else ""
+            tvg_name_original = match_name.group(1).strip() if match_name else ""
+
+            # 如果没有 tvg-name，取逗号后内容
+            if not tvg_name_original and "," in info_line:
+                tvg_name_original = info_line.split(",")[-1].strip()
+
             tvg_norm = normalize_text(tvg_name_original)
 
             for idx, name_norm in enumerate(search_norm):
@@ -79,7 +84,7 @@ def extract_channels(find_csv_path, region_name, output_file):
                 if name_norm in tvg_norm:
                     matched = True
 
-                # 2️⃣ 正则匹配（防止特殊字符）
+                # 2️⃣ 正则匹配
                 if not matched:
                     pattern = re.escape(name_norm)
                     if re.search(pattern, tvg_norm):
@@ -116,6 +121,7 @@ def extract_channels(find_csv_path, region_name, output_file):
     total_matches = sum(len(v) for v in matches_dict.values())
     print(f"✅ {region_name} 匹配完成，共 {total_matches} 个频道，输出: {output_path}")
 
+
 # ==============================
 # 遍历文件夹并执行提取
 # ==============================
@@ -123,7 +129,7 @@ if __name__ == "__main__":
     for file in os.listdir(FIND_DIR):
         if file.endswith(".csv"):
             key = file.replace("find_", "").replace(".csv", "")
-            region_name = REGION_MAP.get(key, key)  # 默认用 key，如果没有映射就用文件名
+            region_name = REGION_MAP.get(key, key)
             output_file = f"find_{key}_sum.csv"
             csv_path = os.path.join(FIND_DIR, file)
             extract_channels(csv_path, region_name, output_file)
