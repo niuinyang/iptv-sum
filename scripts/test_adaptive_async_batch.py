@@ -8,9 +8,6 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from collections import defaultdict
 from statistics import mean
 import multiprocessing
-from PIL import Image
-import hashlib
-import shutil
 
 # ==============================
 # 文件夹结构
@@ -18,16 +15,14 @@ import shutil
 OUTPUT_DIR = "output"
 LOG_DIR = os.path.join(OUTPUT_DIR, "log")
 MIDDLE_DIR = os.path.join(OUTPUT_DIR, "middle")
-TMP_FRAMES = os.path.join(MIDDLE_DIR, "frames")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(LOG_DIR, exist_ok=True)
 os.makedirs(MIDDLE_DIR, exist_ok=True)
-os.makedirs(TMP_FRAMES, exist_ok=True)
 
 # ==============================
 # 配置区
 # ==============================
-CSV_FILE = os.path.join(OUTPUT_DIR, "merge_total.csv")
+CSV_FILE = os.path.join(OUTPUT_DIR, "merge_total.csv")  # 输入 CSV
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.m3u")
 PROGRESS_FILE = os.path.join(MIDDLE_DIR, "progress.json")
 SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
@@ -105,47 +100,12 @@ def ffprobe_check(url):
     elapsed = round(time.time() - start, 3)
     return ok, elapsed, url
 
-def hash_frame(image_path):
-    try:
-        with Image.open(image_path) as im:
-            return hashlib.md5(im.tobytes()).hexdigest()
-    except:
-        return None
-
-def detect_static_video(url):
-    tmp_file1 = os.path.join(TMP_FRAMES, "frame1.jpg")
-    tmp_file2 = os.path.join(TMP_FRAMES, "frame2.jpg")
-    try:
-        # 截取第10秒和11秒的帧
-        subprocess.run([
-            "ffmpeg", "-y", "-i", url, "-vf", "select='eq(n,250)'", "-vframes", "1", tmp_file1
-        ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=30)
-        subprocess.run([
-            "ffmpeg", "-y", "-i", url, "-vf", "select='eq(n,275)'", "-vframes", "1", tmp_file2
-        ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=30)
-        h1 = hash_frame(tmp_file1)
-        h2 = hash_frame(tmp_file2)
-        if h1 and h2 and h1 == h2:
-            return True
-    except:
-        return False
-    finally:
-        for f in [tmp_file1, tmp_file2]:
-            if os.path.exists(f):
-                os.remove(f)
-    return False
-
 def test_stream(title, url):
     url = url.strip()
     try:
-        if not is_allowed(title, url):
-            return False, 0, url
         ok, elapsed, final_url = quick_check(url)
         if not ok:
             ok, elapsed, final_url = ffprobe_check(url)
-        if ok and detect_static_video(final_url):
-            log_skip("STATIC_VIDEO", title, final_url)
-            ok = False
         return ok, elapsed, final_url
     except Exception as e:
         log_skip("EXCEPTION", title, url)
@@ -154,59 +114,122 @@ def test_stream(title, url):
         return False, 0, url
 
 def detect_optimal_threads():
+    test_urls = ["https://www.apple.com","https://www.google.com","https://www.microsoft.com"]
+    times = []
+    for u in test_urls:
+        t0 = time.time()
+        try:
+            requests.head(u, timeout=TIMEOUT)
+        except:
+            pass
+        times.append(time.time()-t0)
+    avg = mean(times)
     cpu_threads = multiprocessing.cpu_count()*5
-    return min(MAX_THREADS, cpu_threads)
+    if avg<0.5:
+        return min(MAX_THREADS, cpu_threads)
+    elif avg<1:
+        return min(150, cpu_threads)
+    elif avg<2:
+        return min(100, cpu_threads)
+    else:
+        return BASE_THREADS
 
 def extract_name(title):
     return title.split(",")[-1].strip() if "," in title else title.strip()
-
-def write_m3u(working_list, output_file):
-    with open(output_file, "w", encoding="utf-8") as f:
-        f.write("#EXTM3U\n")
-        for title, url, elapsed in working_list:
-            f.write(f'#EXTINF:-1 tvg-name="{title}" group-title="测试",{title}\n{url}\n')
 
 # ==============================
 # 主逻辑
 # ==============================
 if __name__ == "__main__":
-    start_time = time.time()
-
+    # 清空日志
     for log_file in [SKIPPED_FILE, SUSPECT_FILE]:
         if os.path.exists(log_file):
             os.remove(log_file)
 
-    # 读取 CSV
+    # 导入 CSV，自动识别列名
     pairs = []
     with open(CSV_FILE, encoding="utf-8") as f:
         reader = csv.DictReader(f)
         fieldnames = reader.fieldnames
+        if not fieldnames:
+            raise ValueError("CSV 文件为空或缺少列名")
         title_col = next((c for c in fieldnames if "name" in c.lower() or "title" in c.lower()), None)
         url_col = next((c for c in fieldnames if "url" in c.lower()), None)
-        source_col = next((c for c in fieldnames if "source" in c.lower()), None)
+        if not title_col or not url_col:
+            raise ValueError("CSV 文件缺少标题或 URL 列")
         for row in reader:
             title = row[title_col].strip()
             url = row[url_col].strip()
-            source = row[source_col].strip() if source_col else None
-            pairs.append((title, url, source))
+            pairs.append((title, url))
 
-    total = len(pairs)
+    # 过滤
+    filtered_pairs = [(t,u) for t,u in pairs if is_allowed(t,u)]
+    print(f"🚫 跳过源: {len(pairs)-len(filtered_pairs)} 条")
+
+    total = len(filtered_pairs)
     threads = detect_optimal_threads()
     print(f"⚙️ 动态线程数：{threads}")
+    print(f"🚀 开始检测 {total} 条流，每批 {BATCH_SIZE} 条")
+
+    # 批量检测
     all_working = []
+    start_time = time.time()
+    done_index = 0
 
-    for batch_start in range(0, total, BATCH_SIZE):
-        batch = pairs[batch_start:batch_start+BATCH_SIZE]
+    if os.path.exists(PROGRESS_FILE):
+        try:
+            done_index = json.load(open(PROGRESS_FILE,encoding="utf-8")).get("done",0)
+            print(f"🔄 恢复进度，从第 {done_index} 条继续")
+        except:
+            pass
+
+    for batch_start in range(done_index, total, BATCH_SIZE):
+        batch = filtered_pairs[batch_start:batch_start+BATCH_SIZE]
+        working_batch = []
         with ThreadPoolExecutor(max_workers=threads) as executor:
-            futures = {executor.submit(test_stream, title, url):(title,url) for title,url,_ in batch}
+            futures = {executor.submit(test_stream,title,url):(title,url) for title,url in batch}
             for future in as_completed(futures):
-                title, url = futures[future]
-                ok, elapsed, final_url = future.result()
-                if ok:
-                    all_working.append((title, final_url, elapsed))
-                    if DEBUG:
-                        print(f"✅ {extract_name(title)} ({elapsed}s)")
+                title,url = futures[future]
+                try:
+                    ok, elapsed, final_url = future.result()
+                    if ok:
+                        working_batch.append((title, final_url, elapsed))
+                        if DEBUG:
+                            print(f"✅ {extract_name(title)} ({elapsed}s)")
+                    else:
+                        log_skip("FAILED_CHECK", title, url)
+                except Exception as e:
+                    log_skip("EXCEPTION", title, url)
+        all_working.extend(working_batch)
+        json.dump({"done":min(batch_start+BATCH_SIZE,total)}, open(PROGRESS_FILE,"w",encoding="utf-8"))
+        print(f"🧮 本批完成：{len(working_batch)}/{len(batch)} 可用流 | 已完成 {min(batch_start+BATCH_SIZE,total)}/{total}")
 
-    # 写入 M3U
-    write_m3u(all_working, OUTPUT_FILE)
-    print(f"✅ 检测完成，共 {len(all_working)} 条可用流，用时 {round(time.time()-start_time,1)} 秒")
+    if os.path.exists(PROGRESS_FILE):
+        os.remove(PROGRESS_FILE)
+
+    # 分组、排序并写入 M3U，确保写入
+    if all_working:
+        grouped = defaultdict(list)
+        for title,url,elapsed in all_working:
+            name = extract_name(title).lower()
+            grouped[name].append((title,url,elapsed))
+
+        # 强制删除旧文件
+        if os.path.exists(OUTPUT_FILE):
+            os.remove(OUTPUT_FILE)
+
+        with open(OUTPUT_FILE,"w",encoding="utf-8") as f:
+            f.write("#EXTM3U\n")
+            for name in sorted(grouped.keys()):
+                group_sorted = sorted(grouped[name], key=lambda x: x[2])
+                for title,url,_ in group_sorted:
+                    # 添加EXTINF标签
+                    f.write(f"#EXTINF:-1,{title}\n{url}\n")
+        print(f"📁 写入完成: {OUTPUT_FILE}")
+    else:
+        print("⚠️ 没有可用流，working.m3u 未更新")
+
+    elapsed_total = round(time.time()-start_time,2)
+    print(f"\n✅ 检测完成，共 {len(all_working)} 条可用流，用时 {elapsed_total} 秒")
+    print(f"⚠️ 失败或过滤源: {SKIPPED_FILE}")
+    print(f"🕵️ 可疑误杀源: {SUSPECT_FILE}")
