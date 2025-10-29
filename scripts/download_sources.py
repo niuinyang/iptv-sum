@@ -3,7 +3,9 @@ import os
 import time
 from pathlib import Path
 
+# ==============================
 # 下载源列表
+# ==============================
 URLS = {
     "taiwan": "https://freetv.fun/test_channels_taiwan_new.m3u",
     "united_states": "https://freetv.fun/test_channels_united_states_new.m3u",
@@ -12,10 +14,15 @@ URLS = {
     "singapore": "https://freetv.fun/test_channels_singapore_new.m3u",
 }
 
-# 本地保存路径
-SAVE_DIR = Path("input/sources")
+# ==============================
+# 文件保存路径（已修改）
+# ==============================
+SAVE_DIR = Path("input/network/network_sources")
 SAVE_DIR.mkdir(parents=True, exist_ok=True)
 
+# ==============================
+# 模拟浏览器请求头
+# ==============================
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -23,6 +30,9 @@ HEADERS = {
     "Connection": "keep-alive",
 }
 
+# ==============================
+# 下载函数
+# ==============================
 def download_with_retry(name, url, retries=3):
     file_path = SAVE_DIR / f"{name}.m3u"
     for attempt in range(1, retries + 1):
@@ -47,8 +57,11 @@ def download_with_retry(name, url, retries=3):
     return False
 
 
+# ==============================
+# 主程序
+# ==============================
 if __name__ == "__main__":
-    print("🚀 开始下载 M3U 源...")
+    print("🚀 开始下载 M3U 网络源...")
     for name, url in URLS.items():
         download_with_retry(name, url)
     print("\n✅ 所有源下载完成！")
