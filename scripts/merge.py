@@ -16,7 +16,8 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(LOG_DIR, exist_ok=True)
 os.makedirs(MIDDLE_DIR, exist_ok=True)
 
-OUTPUT_M3U = os.path.join(OUTPUT_DIR, "total.m3u")
+# 修改 total.m3u 为 merge_total.m3u
+OUTPUT_M3U = os.path.join(OUTPUT_DIR, "merge_total.m3u")
 OUTPUT_CSV = os.path.join(OUTPUT_DIR, "total.csv")
 SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
 
@@ -130,7 +131,7 @@ def group_sort(pairs):
     return sorted_pairs
 
 # ==============================
-# 写入 total.m3u
+# 写入 M3U
 # ==============================
 def write_m3u(pairs, output_file):
     with open(output_file, "w", encoding="utf-8") as f:
@@ -166,6 +167,7 @@ if __name__ == "__main__":
     unique_pairs = deduplicate(parsed_pairs)
     grouped_sorted_pairs = group_sort(unique_pairs)
 
+    # 改名 total.m3u 为 merge_total.m3u
     write_m3u(grouped_sorted_pairs, OUTPUT_M3U)
     write_csv(grouped_sorted_pairs, OUTPUT_CSV)
 
