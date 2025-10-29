@@ -3,6 +3,7 @@ import re
 import csv
 import requests
 from collections import defaultdict
+import time
 
 # ==============================
 # 配置路径
@@ -20,13 +21,20 @@ OUTPUT_M3U = os.path.join(OUTPUT_DIR, "merge_total.m3u")
 OUTPUT_CSV = os.path.join(OUTPUT_DIR, "total.csv")
 SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
 
+# ==============================
+# HTTP 请求配置
+# ==============================
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
-                  "Chrome/120.0 Safari/537.36"
+                  "Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5",
+    "Connection": "keep-alive",
 }
-RETRY_TIMES = 3
-TIMEOUT = 15
+RETRY_TIMES = 5
+TIMEOUT = 20
+WAIT_BETWEEN_RETRIES = 3  # 秒
 
 # ==============================
 # 获取源文件内容
@@ -34,6 +42,10 @@ TIMEOUT = 15
 def fetch_sources(file_path):
     all_lines = []
     success, failed = 0, 0
+
+    if not os.path.exists(file_path):
+        print(f"⚠️ 源列表文件不存在: {file_path}")
+        return all_lines, success, failed
 
     with open(file_path, "r", encoding="utf-8") as f:
         urls = [u.strip() for u in f if u.strip() and not u.startswith("#")]
@@ -47,10 +59,14 @@ def fetch_sources(file_path):
                     try:
                         r = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
                         r.encoding = r.apparent_encoding or "utf-8"
+                        # 检查内容长度，防止空文件或 HTML 错误页
+                        if len(r.text) < 50 or "<html" in r.text.lower():
+                            raise Exception("内容异常")
                         text = r.text
                         break
                     except Exception as e:
                         print(f"⚠️ Retry {attempt+1}/{RETRY_TIMES} failed: {e}")
+                        time.sleep(WAIT_BETWEEN_RETRIES)
                 if text is None:
                     raise Exception("Failed after retries")
             else:
@@ -63,7 +79,7 @@ def fetch_sources(file_path):
             removed_header = False
             for l in lines:
                 l_strip = l.strip()
-                if l_strip.lower().startswith("#extm3u") and not removed_header:
+                if l_strip.startswith("#EXTM3U") and not removed_header:
                     removed_header = True
                     continue
                 if l_strip:
@@ -84,21 +100,14 @@ def fetch_sources(file_path):
 # ==============================
 def parse_channels(lines):
     pairs = []
-    i = 0
-    while i < len(lines):
-        line = lines[i].strip()
-        if line.lower().startswith("#extinf"):
-            # 找下一个 http(s) URL
-            url_line = ""
+    for i, line in enumerate(lines):
+        if line.startswith("#EXTINF"):
+            # 向下找第一个 URL
             for j in range(i+1, len(lines)):
-                candidate = lines[j].strip()
-                if candidate.lower().startswith("http"):
-                    url_line = candidate
-                    i = j
+                url_line = lines[j].strip()
+                if url_line.startswith("http"):
+                    pairs.append((line, url_line))
                     break
-            if url_line:
-                pairs.append((line, url_line))
-        i += 1
     return pairs
 
 # ==============================
@@ -124,8 +133,9 @@ def natural_sort_key(text):
 # 分组排序
 # ==============================
 def group_sort(pairs):
+    from collections import defaultdict
     group_dict = defaultdict(list)
-    group_pattern = re.compile(r'group-title="([^"]*)"', re.IGNORECASE)
+    group_pattern = re.compile(r'group-title="([^"]*)"')
 
     for title, url in pairs:
         match = group_pattern.search(title)
