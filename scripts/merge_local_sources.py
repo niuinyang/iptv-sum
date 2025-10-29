@@ -1,95 +1,102 @@
 import os
 import csv
 import re
+from collections import defaultdict
 
 # ==============================
-# 配置区
+# 绝对路径配置
 # ==============================
-INPUT_DIR = "input/network/network_sources"
-OUTPUT_M3U = "output/merge_total.m3u"
-OUTPUT_CSV = "output/merge_total.csv"
-MIDDLE_DIR = "output/middle"
-LOG_DIR = "output/log"
-os.makedirs("output", exist_ok=True)
-os.makedirs(MIDDLE_DIR, exist_ok=True)
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SOURCE_DIR = os.path.join(ROOT_DIR, "input/network/network_sources")
+OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
+LOG_DIR = os.path.join(OUTPUT_DIR, "log")
+
+MERGE_M3U = os.path.join(OUTPUT_DIR, "merge_total.m3u")
+MERGE_CSV = os.path.join(OUTPUT_DIR, "merge_total.csv")
+SKIP_LOG = os.path.join(LOG_DIR, "skipped.log")
+
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(LOG_DIR, exist_ok=True)
 
 # ==============================
-# 合并函数
+# 功能函数
 # ==============================
-def merge_m3u_files(input_dir):
-    urls_seen = set()
-    merged_channels = []
 
-    skipped_log = []
+def normalize_channel_name(name: str) -> str:
+    """标准化频道名"""
+    name = re.sub(r'\s*\(.*?\)|\[.*?\]', '', name)
+    name = re.sub(r'[^0-9A-Za-z\u4e00-\u9fa5]+', '', name)
+    return name.strip().lower()
 
-    for filename in os.listdir(input_dir):
-        if not filename.endswith(".m3u"):
+def parse_m3u(file_path):
+    """解析 M3U 文件为频道列表"""
+    channels = []
+    try:
+        with open(file_path, encoding="utf-8", errors="ignore") as f:
+            lines = f.readlines()
+        for i in range(len(lines)):
+            if lines[i].startswith("#EXTINF:"):
+                info = lines[i].strip()
+                url = lines[i + 1].strip() if i + 1 < len(lines) else ""
+                name_match = re.search(r',(.+)$', info)
+                name = name_match.group(1).strip() if name_match else "未知频道"
+                channels.append((name, url))
+    except Exception as e:
+        print(f"❌ 解析失败: {file_path} ({e})")
+    return channels
+
+# ==============================
+# 主逻辑
+# ==============================
+
+def main():
+    all_channels = defaultdict(set)
+    skipped = []
+
+    print(f"📂 正在读取文件夹: {SOURCE_DIR}")
+
+    for file in os.listdir(SOURCE_DIR):
+        if not file.endswith(".m3u"):
             continue
-        path = os.path.join(input_dir, filename)
-        with open(path, "r", encoding="utf-8") as f:
-            lines = [line.strip() for line in f if line.strip()]
+        path = os.path.join(SOURCE_DIR, file)
+        channels = parse_m3u(path)
+        print(f"📡 已加载 {file}: {len(channels)} 条频道")
+        for name, url in channels:
+            norm_name = normalize_channel_name(name)
+            if not url.startswith("http"):
+                skipped.append((name, url))
+                continue
+            all_channels[norm_name].add((name, url))
 
-        i = 0
-        while i < len(lines):
-            line = lines[i]
-            if line.startswith("#EXTINF:"):
-                info_line = line
-                url_line = lines[i + 1] if i + 1 < len(lines) else ""
-                if not url_line.startswith("http"):
-                    skipped_log.append(f"⚠️ 无效 URL: {url_line} (文件: {filename})")
-                    i += 2
-                    continue
-                if url_line in urls_seen:
-                    i += 2
-                    continue
+    merged_channels = []
+    for ch_name, items in all_channels.items():
+        # 取第一个非空源
+        for name, url in items:
+            merged_channels.append((name, url))
+            break
 
-                # 提取 tvg-name
-                match_name = re.search(r'tvg-name="([^"]+)"', info_line)
-                tvg_name = match_name.group(1) if match_name else ""
-
-                merged_channels.append({
-                    "tvg-name": tvg_name,
-                    "info": info_line,
-                    "url": url_line
-                })
-                urls_seen.add(url_line)
-                i += 2
-            else:
-                i += 1
-
-    return merged_channels, skipped_log
-
-
-# ==============================
-# 写入 M3U & CSV
-# ==============================
-def write_outputs(channels, m3u_path, csv_path, skipped_log):
-    with open(m3u_path, "w", encoding="utf-8") as f:
+    # 输出 M3U
+    with open(MERGE_M3U, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
-        for ch in channels:
-            f.write(f"{ch['info']}\n{ch['url']}\n")
+        for name, url in merged_channels:
+            f.write(f"#EXTINF:-1,{name}\n{url}\n")
 
-    with open(csv_path, "w", newline="", encoding="utf-8-sig") as f:
+    # 输出 CSV
+    with open(MERGE_CSV, "w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["tvg-name", "URL"])
-        for ch in channels:
-            writer.writerow([ch["tvg-name"], ch["url"]])
+        writer.writerow(["name", "url"])
+        for name, url in merged_channels:
+            writer.writerow([name, url])
 
-    # 保存跳过日志
-    log_file = os.path.join(LOG_DIR, "skipped.log")
-    with open(log_file, "w", encoding="utf-8") as f:
-        for line in skipped_log:
-            f.write(line + "\n")
+    # 跳过日志
+    with open(SKIP_LOG, "w", encoding="utf-8") as f:
+        for name, url in skipped:
+            f.write(f"{name} | {url}\n")
 
+    print(f"\n✅ 合并完成：共 {len(merged_channels)} 条频道")
+    print(f"📁 输出 M3U: {MERGE_M3U}")
+    print(f"📁 输出 CSV: {MERGE_CSV}")
+    print(f"📁 跳过日志: {SKIP_LOG}")
 
-# ==============================
-# 主程序
-# ==============================
 if __name__ == "__main__":
-    merged_channels, skipped_log = merge_m3u_files(INPUT_DIR)
-    write_outputs(merged_channels, OUTPUT_M3U, OUTPUT_CSV, skipped_log)
-    print(f"✅ 合并完成：共 {len(merged_channels)} 条频道")
-    print(f"📁 输出 M3U: {OUTPUT_M3U}")
-    print(f"📁 输出 CSV: {OUTPUT_CSV}")
-    print(f"📁 跳过日志: {os.path.join(LOG_DIR, 'skipped.log')}")
+    main()
