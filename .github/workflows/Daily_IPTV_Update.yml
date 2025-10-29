@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install aiohttp requests opencc-python-reimplemented
+          pip install requests opencc-python-reimplemented aiohttp Pillow opencv-python-headless
 
       # 1️⃣ 下载网络源
       - name: Download network sources
