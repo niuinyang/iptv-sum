@@ -1,7 +1,7 @@
 name: Test IPTV Streams
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # 仅手动触发
 
 permissions:
   contents: write
@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      # 缓存 pip 依赖
       - name: Cache pip
         uses: actions/cache@v3
         with:
@@ -20,16 +21,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
+      # 安装 Python
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
+      # 安装依赖
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install requests opencc-python-reimplemented
+          pip install requests opencc-python-reimplemented aiohttp
 
+      # 运行 IPTV 流检测并生成 working.m3u
       - name: Test streams and generate working.m3u
         run: |
           python scripts/test_adaptive_async_batch.py
