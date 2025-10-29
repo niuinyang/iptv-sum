@@ -22,7 +22,7 @@ os.makedirs(MIDDLE_DIR, exist_ok=True)
 # ==============================
 # 配置区
 # ==============================
-CSV_FILE = os.path.join(OUTPUT_DIR, "merge_total.csv")        # 输入 CSV
+CSV_FILE = os.path.join(OUTPUT_DIR, "merge_total.csv")  # 输入 CSV
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.m3u")  # 可用流输出
 PROGRESS_FILE = os.path.join(MIDDLE_DIR, "progress.json")
 SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
@@ -57,21 +57,17 @@ def log_suspect(reason, url):
 
 def is_allowed(title, url):
     text = f"{title} {url}".lower()
-    # 白名单防误杀
     if any(w in text for w in WHITELIST_PATTERNS):
         return True
-    # 跳过低清
     if any(kw in text for kw in LOW_RES_KEYWORDS):
         log_skip("LOW_RES", title, url)
         return False
-    # 屏蔽关键词
     if any(kw in text for kw in BLOCK_KEYWORDS):
         log_skip("BLOCK_KEYWORD", title, url)
         return False
     return True
 
 def quick_check(url):
-    """HEAD 快速检测"""
     start = time.time()
     try:
         r = requests.head(url, headers=HEADERS, timeout=TIMEOUT, allow_redirects=True)
@@ -88,7 +84,6 @@ def quick_check(url):
         return False, round(time.time() - start, 3), url
 
 def ffprobe_check(url):
-    """ffprobe 检测视频流"""
     start = time.time()
     try:
         cmd = [
@@ -106,7 +101,6 @@ def ffprobe_check(url):
     return ok, elapsed, url
 
 def test_stream(title, url):
-    """检测流可用性"""
     url = url.strip()
     try:
         ok, elapsed, final_url = quick_check(url)
@@ -120,7 +114,6 @@ def test_stream(title, url):
         return False, 0, url
 
 def detect_optimal_threads():
-    """动态线程数"""
     test_urls = ["https://www.apple.com","https://www.google.com","https://www.microsoft.com"]
     times = []
     for u in test_urls:
@@ -155,29 +148,19 @@ if __name__ == "__main__":
         if os.path.exists(log_file):
             os.remove(log_file)
 
-    # 1. 导入 CSV（自动识别列名）
+    # 1. 导入 CSV
     pairs = []
     with open(CSV_FILE, encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        headers_lower = [h.strip().lower() for h in reader.fieldnames]
-
-        # 自动匹配列名
-        name_candidates = ["tvg-name", "name", "title"]
-        url_candidates = ["url", "link", "stream"]
-
-        title_key = next((h for h in headers_lower if h in name_candidates), None)
-        url_key = next((h for h in headers_lower if h in url_candidates), None)
-
-        if not title_key or not url_key:
-            raise ValueError(f"无法识别 CSV 列名，现有列: {reader.fieldnames}")
-
-        # 获取原始列名
-        title_key_orig = reader.fieldnames[headers_lower.index(title_key)]
-        url_key_orig = reader.fieldnames[headers_lower.index(url_key)]
-
+        # 自动识别列名
+        fieldnames = [name.lower() for name in reader.fieldnames]
+        title_field = next((n for n in reader.fieldnames if n.lower() in ["title","tvg-name"]), None)
+        url_field = next((n for n in reader.fieldnames if n.lower() in ["url","link"]), None)
+        if not title_field or not url_field:
+            raise ValueError("CSV 文件缺少标题或 URL 列")
         for row in reader:
-            title = row[title_key_orig].strip()
-            url = row[url_key_orig].strip()
+            title = row[title_field].strip()
+            url = row[url_field].strip()
             pairs.append((title, url))
 
     # 2. 过滤
@@ -225,7 +208,7 @@ if __name__ == "__main__":
     if os.path.exists(PROGRESS_FILE):
         os.remove(PROGRESS_FILE)
 
-    # 4. 分组、按耗时排序
+    # 4. 分组、按耗时排序并写入 M3U
     grouped = defaultdict(list)
     for title,url,elapsed in all_working:
         name = extract_name(title).lower()
@@ -233,4 +216,12 @@ if __name__ == "__main__":
 
     with open(OUTPUT_FILE,"w",encoding="utf-8") as f:
         f.write("#EXTM3U\n")
-        for
+        for name in sorted(grouped.keys()):
+            group_sorted = sorted(grouped[name], key=lambda x: x[2])
+            for title,url,_ in group_sorted:
+                f.write(f"#EXTINF:-1,{title}\n{url}\n")
+
+    elapsed_total = round(time.time()-start_time,2)
+    print(f"\n✅ 检测完成，共 {len(all_working)} 条可用流，用时 {elapsed_total} 秒")
+    print(f"📁 可用源: {OUTPUT_FILE}")
+    print
