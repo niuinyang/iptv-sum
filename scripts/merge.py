@@ -2,7 +2,6 @@ import os
 import re
 import csv
 import requests
-import time
 from collections import defaultdict
 
 # ==============================
@@ -21,21 +20,13 @@ OUTPUT_M3U = os.path.join(OUTPUT_DIR, "merge_total.m3u")
 OUTPUT_CSV = os.path.join(OUTPUT_DIR, "total.csv")
 SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
 
-# ==============================
-# 请求配置
-# ==============================
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
-                  "Chrome/120.0 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.5",
-    "Referer": "https://freetv.fun/",
-    "Connection": "keep-alive"
+                  "Chrome/120.0 Safari/537.36"
 }
-RETRY_TIMES = 5
-TIMEOUT = 20
-RETRY_DELAY = 5  # 秒
+RETRY_TIMES = 3
+TIMEOUT = 15
 
 # ==============================
 # 获取源文件内容
@@ -59,8 +50,7 @@ def fetch_sources(file_path):
                         text = r.text
                         break
                     except Exception as e:
-                        print(f"⚠️ Retry {attempt + 1}/{RETRY_TIMES} failed: {e}")
-                        time.sleep(RETRY_DELAY)
+                        print(f"⚠️ Retry {attempt+1}/{RETRY_TIMES} failed: {e}")
                 if text is None:
                     raise Exception("Failed after retries")
             else:
@@ -73,7 +63,7 @@ def fetch_sources(file_path):
             removed_header = False
             for l in lines:
                 l_strip = l.strip()
-                if l_strip.startswith("#EXTM3U") and not removed_header:
+                if l_strip.lower().startswith("#extm3u") and not removed_header:
                     removed_header = True
                     continue
                 if l_strip:
@@ -94,14 +84,21 @@ def fetch_sources(file_path):
 # ==============================
 def parse_channels(lines):
     pairs = []
-    for i, line in enumerate(lines):
-        if line.startswith("#EXTINF"):
-            # 向下找第一个 URL
-            for j in range(i + 1, len(lines)):
-                url_line = lines[j].strip()
-                if url_line.startswith("http"):
-                    pairs.append((line, url_line))
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        if line.lower().startswith("#extinf"):
+            # 找下一个 http(s) URL
+            url_line = ""
+            for j in range(i+1, len(lines)):
+                candidate = lines[j].strip()
+                if candidate.lower().startswith("http"):
+                    url_line = candidate
+                    i = j
                     break
+            if url_line:
+                pairs.append((line, url_line))
+        i += 1
     return pairs
 
 # ==============================
@@ -128,7 +125,7 @@ def natural_sort_key(text):
 # ==============================
 def group_sort(pairs):
     group_dict = defaultdict(list)
-    group_pattern = re.compile(r'group-title="([^"]*)"')
+    group_pattern = re.compile(r'group-title="([^"]*)"', re.IGNORECASE)
 
     for title, url in pairs:
         match = group_pattern.search(title)
