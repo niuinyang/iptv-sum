@@ -1,99 +1,105 @@
 import os
 import csv
-import requests
-from pathlib import Path
+import re
+from datetime import datetime
 
 # ==============================
-# 路径配置（已更新）
+# 配置区
 # ==============================
-INPUT_DIR = Path("input/network/network_sources")
-OUTPUT_DIR = Path("output")
-LOG_DIR = OUTPUT_DIR / "log"
-MIDDLE_DIR = OUTPUT_DIR / "middle"
+SOURCE_DIR = "input/network/network_sources"   # 已下载的 m3u 源目录
+OUTPUT_DIR = "output"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-for p in [OUTPUT_DIR, LOG_DIR, MIDDLE_DIR]:
-    p.mkdir(parents=True, exist_ok=True)
-
-MERGE_M3U = OUTPUT_DIR / "merge_total.m3u"
-MERGE_CSV = OUTPUT_DIR / "total.csv"
+MERGED_M3U = os.path.join(OUTPUT_DIR, "merge_total.m3u")
+MERGED_CSV = os.path.join(OUTPUT_DIR, "merge_total.csv")
 
 # ==============================
-# 模拟浏览器请求头
+# 工具函数
 # ==============================
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Encoding": "gzip, deflate, br",
-    "Connection": "keep-alive",
-}
 
-# ==============================
-# 函数：加载 M3U 文件（本地）
-# ==============================
-def load_local_m3u(path: Path):
-    try:
-        text = path.read_text(encoding="utf-8").strip()
-        if not text.startswith("#EXTM3U"):
-            raise ValueError("不是合法的 M3U 文件")
-        return text.splitlines()
-    except Exception as e:
-        print(f"⚠️ 读取 {path.name} 失败: {e}")
-        return []
+def normalize_name(name: str) -> str:
+    """去除特殊字符并标准化频道名"""
+    name = re.sub(r"\s*\[.*?\]|\(.*?\)|（.*?）", "", name)  # 去括号
+    name = re.sub(r"[\s_]+", "", name)  # 去空格和下划线
+    return name.strip().lower()
 
-# ==============================
-# 主函数：合并所有源
-# ==============================
-def merge_sources():
-    merged_entries = []
-    seen_urls = set()
-    total_sources = 0
-    failed_sources = 0
 
-    for file in INPUT_DIR.glob("*.m3u"):
-        print(f"📡 读取源文件: {file.name}")
-        lines = load_local_m3u(file)
+def parse_m3u(file_path: str):
+    """解析 M3U 文件为 (频道名, URL, LOGO, 分组)"""
+    entries = []
+    if not os.path.exists(file_path):
+        return entries
 
-        if not lines:
-            print(f"⚠️ 源文件为空或无效: {file.name}")
-            failed_sources += 1
-            continue
+    with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+        lines = f.readlines()
 
-        total_sources += 1
-        current_info = None
+    name, logo, group, url = None, None, None, None
+    for line in lines:
+        line = line.strip()
+        if line.startswith("#EXTINF"):
+            name_match = re.search(r'tvg-name="([^"]+)"', line)
+            logo_match = re.search(r'tvg-logo="([^"]+)"', line)
+            group_match = re.search(r'group-title="([^"]+)"', line)
+            name_inline = re.split(",", line)[-1].strip() if "," in line else None
 
-        for line in lines:
-            line = line.strip()
-            if line.startswith("#EXTINF:"):
-                current_info = line
-            elif line.startswith("http"):
-                url = line
-                if url not in seen_urls:
-                    merged_entries.append((current_info, url))
-                    seen_urls.add(url)
-
-    # 输出结果
-    if not merged_entries:
-        print("⚠️ 没有合并到任何频道！")
-    else:
-        with open(MERGE_M3U, "w", encoding="utf-8") as f:
-            f.write("#EXTM3U\n")
-            for info, url in merged_entries:
-                f.write(f"{info}\n{url}\n")
-
-        with open(MERGE_CSV, "w", newline="", encoding="utf-8-sig") as f:
-            writer = csv.writer(f)
-            writer.writerow(["#EXTINF", "URL"])
-            for info, url in merged_entries:
-                writer.writerow([info, url])
-
-        print(f"✅ 合并完成：成功 {total_sources} 源，失败 {failed_sources} 源，"
-              f"去重后 {len(merged_entries)} 条频道 → {MERGE_M3U} / {MERGE_CSV}")
-        print(f"📁 中间文件 → {MIDDLE_DIR}")
-        print(f"📁 日志文件 → {LOG_DIR}/skipped.log")
+            name = (name_match.group(1) if name_match else name_inline) or "未知频道"
+            logo = logo_match.group(1) if logo_match else ""
+            group = group_match.group(1) if group_match else ""
+        elif line and not line.startswith("#"):
+            url = line
+            entries.append((name, url, logo, group))
+            name, logo, group, url = None, None, None, None
+    return entries
 
 
 # ==============================
-# 主程序入口
+# 主逻辑
 # ==============================
+
+def merge_all_sources():
+    all_entries = []
+    seen = set()
+
+    if not os.path.exists(SOURCE_DIR):
+        print(f"❌ 未找到目录：{SOURCE_DIR}")
+        return
+
+    files = [f for f in os.listdir(SOURCE_DIR) if f.endswith(".m3u")]
+    if not files:
+        print(f"❌ {SOURCE_DIR} 中没有找到任何 .m3u 文件")
+        return
+
+    print(f"📂 检测到 {len(files)} 个 M3U 文件，开始合并…")
+
+    for file in files:
+        path = os.path.join(SOURCE_DIR, file)
+        entries = parse_m3u(path)
+        print(f"✅ 解析 {file}：{len(entries)} 条记录")
+
+        for name, url, logo, group in entries:
+            key = normalize_name(name) + "|" + url
+            if key not in seen:
+                seen.add(key)
+                all_entries.append((name, url, logo, group, file))
+
+    print(f"📊 合并后共 {len(all_entries)} 条唯一频道记录")
+
+    # 写入 M3U
+    with open(MERGED_M3U, "w", encoding="utf-8") as m3u:
+        m3u.write("#EXTM3U\n")
+        for name, url, logo, group, src in all_entries:
+            m3u.write(f'#EXTINF:-1 tvg-name="{name}" tvg-logo="{logo}" group-title="{group}",{name}\n{url}\n')
+    print(f"💾 已生成合并 M3U：{MERGED_M3U}")
+
+    # 写入 CSV
+    with open(MERGED_CSV, "w", newline="", encoding="utf-8") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["频道名", "播放地址", "LOGO", "分组", "来源文件"])
+        writer.writerows(all_entries)
+    print(f"💾 已生成合并 CSV：{MERGED_CSV}")
+
+    print(f"🏁 合并完成，共 {len(all_entries)} 条记录。时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
+
 if __name__ == "__main__":
-    merge_sources()
+    merge_all_sources()
