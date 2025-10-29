@@ -3,6 +3,7 @@ import re
 import unicodedata
 from opencc import OpenCC
 import os
+import difflib
 
 # ==============================
 # 配置区
@@ -70,7 +71,20 @@ def extract_channels(find_csv, region_name, source_label, output_file):
             tvg_norm = normalize_text(tvg_name_original)
 
             for idx, name_norm in enumerate(search_norm):
-                if name_norm in tvg_norm:
+                # 1. 完全包含
+                matched = name_norm in tvg_norm
+                # 2. 正则匹配（防止特殊字符）
+                if not matched:
+                    pattern = re.escape(name_norm)
+                    if re.search(pattern, tvg_norm):
+                        matched = True
+                # 3. 模糊匹配（相似度 > 80%）
+                if not matched:
+                    ratio = difflib.SequenceMatcher(None, name_norm, tvg_norm).ratio()
+                    if ratio > 0.8:
+                        matched = True
+
+                if matched:
                     matches_dict[search_names[idx]].append([
                         search_names[idx],
                         region_name,
