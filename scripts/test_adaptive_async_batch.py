@@ -22,8 +22,8 @@ os.makedirs(MIDDLE_DIR, exist_ok=True)
 # ==============================
 # 配置区
 # ==============================
-CSV_FILE = os.path.join(OUTPUT_DIR, "merge_total.csv")        # 输入 CSV，改为 merge 后的文件
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.m3u")        # 可用流输出
+CSV_FILE = os.path.join(OUTPUT_DIR, "merge_total.csv")  # 输入 CSV
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.m3u")  # 可用流输出
 PROGRESS_FILE = os.path.join(MIDDLE_DIR, "progress.json")
 SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
 SUSPECT_FILE = os.path.join(LOG_DIR, "suspect.log")
@@ -163,8 +163,8 @@ if __name__ == "__main__":
     with open(CSV_FILE, encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            title = row["title"].strip()
-            url = row["url"].strip()
+            title = row["tvg-name"].strip()  # 修改列名
+            url = row["URL"].strip()         # 修改列名
             pairs.append((title, url))
 
     # 2. 过滤
