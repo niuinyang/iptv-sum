@@ -1,0 +1,43 @@
+#EXTM3U x-tvg-url="https://epg.pw/xmltv/epg_lite.xml"
+#EXTINF:-1 tvg-name="澳視澳門" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2016/07/19/large/20160719142956282911_66.png" group-title="綜合",[BD]ช่อง 澳视澳门
+https://stream1.freetv.fun/ch-ng-ao-shi-ao-men-2.m3u8
+#EXTINF:-1 tvg-name="澳視澳門" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2016/07/19/large/20160719142956282911_66.png" group-title="綜合",[BD]澳视澳门[geo-blocked]
+https://stream1.freetv.fun/ao-shi-ao-men-6.m3u8
+#EXTINF:-1 tvg-name="澳視澳門" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2016/07/19/large/20160719142956282911_66.png" group-title="綜合",[BD]澳视澳门
+https://stream1.freetv.fun/ao-shi-ao-men-7.m3u8
+#EXTINF:-1 tvg-name="澳視澳門" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2016/07/19/large/20160719142956282911_66.png" group-title="綜合",[BD]ช่อง 澳视澳门
+https://stream1.freetv.fun/ch-ng-ao-shi-ao-men-1.m3u8
+#EXTINF:-1 tvg-name="澳視澳門" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2016/07/19/large/20160719142956282911_66.png" group-title="綜合",[BD]澳視澳門
+https://stream1.freetv.fun/ao-shi-ao-men-1.m3u8
+#EXTINF:-1 tvg-name="澳視綜藝" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2022/05/21/large/20220521133414352048_88.jpg" group-title="綜藝",[BD]澳門綜藝
+https://stream1.freetv.fun/ao-men-zong-yi-1.m3u8
+#EXTINF:-1 tvg-name="澳視綜藝" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2022/05/21/large/20220521133414352048_88.jpg" group-title="綜藝",[BD]澳视综艺
+https://stream1.freetv.fun/ao-shi-zong-yi-2.m3u8
+#EXTINF:-1 tvg-name="澳視葡文" tvg-id="" tvg-country="澳門" tvg-language="葡萄牙" tvg-logo="https://epg.pw/media/images/channel/2022/05/19/large/20220519235326309197_26.jpg" group-title="綜藝",[BD]澳视葡文
+https://stream1.freetv.fun/ao-shi-pu-wen-3.m3u8
+#EXTINF:-1 tvg-name="澳視葡文" tvg-id="" tvg-country="澳門" tvg-language="葡萄牙" tvg-logo="https://epg.pw/media/images/channel/2022/05/19/large/20220519235326309197_26.jpg" group-title="綜藝",[BD]澳視葡文
+https://stream1.freetv.fun/ao-shi-pu-wen-1.m3u8
+#EXTINF:-1 tvg-name="澳視葡文" tvg-id="" tvg-country="澳門" tvg-language="葡萄牙" tvg-logo="https://epg.pw/media/images/channel/2022/05/19/large/20220519235326309197_26.jpg" group-title="綜藝",[BD]ช่อง 澳视葡文
+https://stream1.freetv.fun/ch-ng-ao-shi-pu-wen-1.m3u8
+#EXTINF:-1 tvg-name="澳視資訊" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2025/01/26/large/20250126043923468573_57.png" group-title="新聞",[BD]澳视资讯
+https://stream1.freetv.fun/ao-shi-zi-xun-1.m3u8
+#EXTINF:-1 tvg-name="澳視資訊" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2025/01/26/large/20250126043923468573_57.png" group-title="新聞",[BD]ช่อง 澳视资讯
+https://stream1.freetv.fun/ch-ng-ao-shi-zi-xun-1.m3u8
+#EXTINF:-1 tvg-name="澳視體育" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2016/07/19/large/20160719143523253830_24.png" group-title="運動",[BD]ช่อง 澳視體育
+https://stream1.freetv.fun/ch-ng-ao-shi-ti-yu-1.m3u8
+#EXTINF:-1 tvg-name="澳視體育" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2016/07/19/large/20160719143523253830_24.png" group-title="運動",[BD]澳视体育[geo-blocked]
+https://stream1.freetv.fun/ao-shi-ti-yu-2.m3u8
+#EXTINF:-1 tvg-name="澳視體育" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2016/07/19/large/20160719143523253830_24.png" group-title="運動",[BD]澳門體育
+https://stream1.freetv.fun/ao-men-ti-yu-1.m3u8
+#EXTINF:-1 tvg-name="澳視體育" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2016/07/19/large/20160719143523253830_24.png" group-title="運動",[BD]ช่อง 澳視體育
+https://stream1.freetv.fun/ch-ng-ao-shi-ti-yu-2.m3u8
+#EXTINF:-1 tvg-name="澳門MACAU" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2022/05/21/large/20220521144701785913_98.jpeg" group-title="綜藝",[BD]澳门macau
+https://stream1.freetv.fun/ao-men-macau-1.m3u8
+#EXTINF:-1 tvg-name="澳門MACAU" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2022/05/21/large/20220521144701785913_98.jpeg" group-title="綜藝",[BD]澳門MACAU
+https://stream1.freetv.fun/ao-men-macau-2.m3u8
+#EXTINF:-1 tvg-name="澳門蓮花" tvg-id="" tvg-country="澳門" tvg-language="英文" tvg-logo="https://epg.pw/media/img/logo/2013/10/30/2608cd4edd95a446eb0477f7ee3a95aa.jpg" group-title="綜合",[BD]澳门莲花
+https://stream1.freetv.fun/ao-men-lian-hua-3.m3u8
+#EXTINF:-1 tvg-name="澳門蓮花" tvg-id="" tvg-country="澳門" tvg-language="英文" tvg-logo="https://epg.pw/media/img/logo/2013/10/30/2608cd4edd95a446eb0477f7ee3a95aa.jpg" group-title="綜合",[SD]澳门莲花
+https://stream1.freetv.fun/ao-men-lian-hua-1.m3u8
+#EXTINF:-1 tvg-name="澳門資訊" tvg-id="" tvg-country="澳門" tvg-language="粵語" tvg-logo="https://epg.pw/media/images/channel/2016/07/19/large/20160719143215919020_21.jpg" group-title="新聞",[BD]澳門資訊
+https://stream1.freetv.fun/ao-men-zi-xun-2.m3u8
