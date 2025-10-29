@@ -1,30 +1,37 @@
 ﻿tvg-name,地区,URL,来源,原始tvg-name
-ABC,国际,https://proxyv2.utako.moe/ph.php?&isp=1&id=gx02,国际源,ABC 7 NY
-ABC,国际,https://stream1.freetv.fun/abc-7-buffalo-ny-1.m3u8,国际源,ABC 7 NY
-ABC,国际,https://stream1.freetv.fun/abc-news-2.m3u8,国际源,ABC NEWS
-ABC,国际,http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/22990,国际源,ABC News USA
-ABC,国际,https://stream1.freetv.fun/ch-ng-abc-news-1.m3u8,国际源,ABC NEWS
-ABC,国际,https://stream1.freetv.fun/abc-news-1.m3u8,国际源,ABC NEWS
-ABC,国际,https://stream1.freetv.fun/abc-news-7.m3u8,国际源,ABC NEWS
-ABC,国际,https://stream1.freetv.fun/tvs-flashback-network-2.m3u8,国际源,ABC TV Network
-ABC,国际,https://stream1.freetv.fun/tvs-talk-network-1.m3u8,国际源,ABC TV Network
-CNN,国际,https://stream1.freetv.fun/clan-internacional-1.m3u8,国际源,CNN International
-CNN,国际,https://stream1.freetv.fun/cna-international-1.m3u8,国际源,CNN International
-CNN,国际,http://cord-cutter.net:8080/live/cQnq6G/652882/57398.ts,国际源,CNN HD
-CNN,国际,https://stream1.freetv.fun/cnn-fast-1.m3u8,国际源,CNN Fast
-CNN,国际,https://stream1.freetv.fun/cnn-fast-2.m3u8,国际源,CNN Fast
-CNN,国际,https://stream1.freetv.fun/cnn-int-1.m3u8,国际源,CNN HD
-CNN,国际,https://stream1.freetv.fun/cnn-int-4.m3u8,国际源,CNN HD
-CNN,国际,https://stream1.freetv.fun/cnn-int-3.m3u8,国际源,CNN HD
-CNN,国际,https://stream1.freetv.fun/cnn-5.m3u8,国际源,CNN HD
-CNN,国际,https://stream1.freetv.fun/racer-international-1.m3u8,国际源,CNN International
-CNN,国际,https://stream1.freetv.fun/tastemade-international-3.m3u8,国际源,CNN International
-CNN,国际,https://stream1.freetv.fun/cnn-3.m3u8,国际源,CNN HD
-CNN,国际,http://cord-cutter.net:8080/live/Ss5DKE/232455/47213.ts,国际源,CNN HD
-CNN,国际,http://cord-cutter.net:8080/live/cQnq6G/652882/47213.ts,国际源,CNN HD
-CNN,国际,https://stream1.freetv.fun/hln-3.m3u8,国际源,CNN HLN
-CNN,国际,https://stream1.freetv.fun/pro-sport-international-1.m3u8,国际源,CNN International
-CNN,国际,https://stream1.freetv.fun/cna-international-2.m3u8,国际源,CNN International
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-1-4.m3u8,国际源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-10-1.m3u8,国际源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-2-3.m3u8,国际源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-3-1.m3u8,国际源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-4-1.m3u8,国际源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-5-4.m3u8,国际源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-6-1.m3u8,国际源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-7-1.m3u8,国际源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-8-3.m3u8,国际源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-9-1.m3u8,国际源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-2.m3u8,国际源,ABC NEWS
+ABC news,国际,https://stream1.freetv.fun/nbc-news-2.m3u8,国际源,NBC NEWS
+ABC news,国际,http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/22990,国际源,ABC News USA
+ABC news,国际,https://stream1.freetv.fun/ch-ng-abc-news-1.m3u8,国际源,ABC NEWS
+ABC news,国际,https://stream1.freetv.fun/abc-news-1.m3u8,国际源,ABC NEWS
+ABC news,国际,https://stream1.freetv.fun/abc-news-7.m3u8,国际源,ABC NEWS
+CNN international,国际,https://stream1.freetv.fun/clan-internacional-1.m3u8,国际源,CNN International
+CNN international,国际,https://stream1.freetv.fun/cna-international-1.m3u8,国际源,CNN International
+CNN international,国际,https://stream1.freetv.fun/racer-international-1.m3u8,国际源,CNN International
+CNN international,国际,https://stream1.freetv.fun/tastemade-international-3.m3u8,国际源,CNN International
+CNN international,国际,https://stream1.freetv.fun/pro-sport-international-1.m3u8,国际源,CNN International
+CNN international,国际,https://stream1.freetv.fun/cna-international-2.m3u8,国际源,CNN International
+cnn hd,国际,http://cord-cutter.net:8080/live/cQnq6G/652882/57398.ts,国际源,CNN HD
+cnn hd,国际,https://stream1.freetv.fun/cnn-int-3.m3u8,国际源,CNN HD
+cnn hd,国际,https://stream1.freetv.fun/cnn-int-1.m3u8,国际源,CNN HD
+cnn hd,国际,https://stream1.freetv.fun/cnn-int-4.m3u8,国际源,CNN HD
+cnn hd,国际,https://stream1.freetv.fun/cnn-5.m3u8,国际源,CNN HD
+cnn hd,国际,https://stream1.freetv.fun/cnn-3.m3u8,国际源,CNN HD
+cnn hd,国际,http://cord-cutter.net:8080/live/Ss5DKE/232455/47213.ts,国际源,CNN HD
+cnn hd,国际,http://cord-cutter.net:8080/live/cQnq6G/652882/47213.ts,国际源,CNN HD
+cnn hd,国际,https://stream1.freetv.fun/cnt-1.m3u8,国际源,CN HD
+cnn fast,国际,https://stream1.freetv.fun/cnn-fast-1.m3u8,国际源,CNN Fast
+cnn fast,国际,https://stream1.freetv.fun/cnn-fast-2.m3u8,国际源,CNN Fast
 MSNBC,国际,https://stream1.freetv.fun/msnbc-6.m3u8,国际源,MSNBC
 MSNBC,国际,http://cord-cutter.net:8080/live/Ss5DKE/232455/21376.ts,国际源,MSNBC
 MSNBC,国际,http://cord-cutter.net:8080/live/cQnq6G/652882/21376.ts,国际源,MSNBC
@@ -32,11 +39,10 @@ MSNBC,国际,http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/21376,国�
 MSNBC,国际,https://stream1.freetv.fun/msnbc-2.m3u8,国际源,MSNBC
 MSNBC,国际,https://stream1.freetv.fun/msnbc-5.m3u8,国际源,MSNBC
 FOX NEWS,国际,https://stream1.freetv.fun/fox-now-1.m3u8,国际源,FOX NEWS NOW
-FOX NEWS,国际,https://stream1.freetv.fun/fox-news-channel-3.m3u8,国际源,Fox News Channel
 FOX NEWS,国际,https://stream1.freetv.fun/fox-news-channel-1.m3u8,国际源,Fox News Channel
+FOX NEWS,国际,https://stream1.freetv.fun/fox-news-channel-3.m3u8,国际源,Fox News Channel
 FOX NEWS,国际,http://1tv41.icu:8080/8MeZqM/335595/1818,国际源,Fox News Channel
 FOX NEWS,国际,https://stream1.freetv.fun/fox-news-channel--s-1.m3u8,国际源,Fox News Channel
 FOX NEWS,国际,http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/1818,国际源,Fox News
 FOX NEWS,国际,https://stream1.freetv.fun/ch-ng-fox-news-channel-1.m3u8,国际源,Fox News Channel
 CARTOONITO,国际,http://148.113.160.48:14096,国际源,Cartoonito TV
-CARTOONITO,国际,https://stream1.freetv.fun/cartoonito-5.m3u8,国际源,Cartoonito TV
