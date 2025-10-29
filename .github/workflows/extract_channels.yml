@@ -1,4 +1,4 @@
-name: Extract Channels
+name: Extract Regional Channels
 
 on:
   workflow_dispatch:
@@ -7,14 +7,29 @@ permissions:
   contents: write
 
 jobs:
-  extract:
+  extract_channels:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v5
+
+      - name: Cache pip
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
       - name: Install dependencies
-        run: pip install requests opencc-python-reimplemented
+        run: |
+          pip install --upgrade pip
+          pip install requests opencc-python-reimplemented
+
       - name: Extract regional channels
-        run: python scripts/extract_channels.py
+        run: |
+          python scripts/extract_channels.py
