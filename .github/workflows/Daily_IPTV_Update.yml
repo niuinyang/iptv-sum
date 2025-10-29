@@ -57,12 +57,19 @@ jobs:
             if python scripts/csv_to_m3u.py; then break; else echo "⚠️ Retry $i failed"; sleep 10; fi
           done
 
-      - name: Commit and push updated M3U
+      - name: Commit and push updated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # 允许提交 M3U 和 CSV
           git add output/*.m3u
-          git commit -m "每日更新 IPTV M3U 文件" || echo "No changes to commit"
+          git add output/sum_cvs/*.csv || true
+          
+          # 若 .gitignore 屏蔽了 CSV，可强制添加
+          git add -f output/sum_cvs/*.csv || true
+          
+          git commit -m "每日更新 IPTV 文件（含 CSV 和 M3U）" || echo "No changes to commit"
           git push
 
       - name: Log completion
