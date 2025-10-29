@@ -4,7 +4,7 @@ import re
 from collections import defaultdict
 
 # ==============================
-# 文件夹和图标配置
+# 配置
 # ==============================
 icon_dir = "png"
 default_icon = os.path.join(icon_dir, "default.png")
@@ -22,8 +22,16 @@ group_order = [
 ]
 
 # 源优先级
-dxl_priority = ["电信组播", "济南联通", "上海移动", "电信单播", "青岛联通"]
+dxl_priority = ["电信组播", "上海移动", "电信单播", "青岛联通"]
 sjmz_priority = ["济南移动", "上海移动", "济南联通", "电信组播", "青岛联通", "电信单播"]
+
+# 分组映射
+GROUP_MAP = {
+    "台湾": "台湾频道",
+    "香港": "香港频道",
+    "澳门": "澳门频道",
+    "国际": "国际频道"
+}
 
 # ==============================
 # 读取 CSV
@@ -94,9 +102,7 @@ def write_m3u(channels_dict, output_file, source_order=None, exclude_source=None
         f.write("#EXTM3U\n")
         for group, name_dict in sorted(channels_dict.items(), key=lambda x: group_key(x[0])):
             for name, sources in sorted(name_dict.items(), key=lambda x: natural_key(x[0])):
-                # 排除指定源
                 filtered_sources = [s for s in sources if s["source"] != exclude_source] if exclude_source else sources
-                # 按优先级排序
                 if source_order:
                     filtered_sources.sort(key=lambda s: source_priority(s["source"], source_order))
                 for s in filtered_sources:
@@ -122,26 +128,33 @@ def main():
     # 固定源
     fixed_channels = read_csv_files(fixed_csv + [fixed_folder], manual_group_map)
 
+    # 统一分组名
+    for ch in fixed_channels:
+        ch["group"] = GROUP_MAP.get(ch["group"], ch["group"])
+
     # 建立固定源频道名集合（正则匹配用）
     fixed_names = [re.escape(ch["name"]) for ch in fixed_channels]
     fixed_pattern = re.compile("|".join(fixed_names), re.I)
 
     # 补充源
     extra_channels = read_csv_files([extra_folder])
+    # 补充源只保留固定源已有的频道
     extra_filtered = [ch for ch in extra_channels if fixed_pattern.search(ch["name"])]
 
-    # 合并所有
+    # 统一分组名
+    for ch in extra_filtered:
+        ch["group"] = GROUP_MAP.get(ch["group"], ch["group"])
+
+    # 合并
     combined = defaultdict(lambda: defaultdict(list))
     for ch in fixed_channels:
         combined[ch["group"]][ch["name"]].append(ch)
     for ch in extra_filtered:
         combined[ch["group"]][ch["name"]].append(ch)
 
-    # 生成 total.m3u（保留全部源）
+    # 生成 M3U
     write_m3u(combined, os.path.join(output_dir, "total.m3u"))
-    # 生成 dxl.m3u（排除济南移动）
     write_m3u(combined, os.path.join(output_dir, "dxl.m3u"), source_order=dxl_priority, exclude_source="济南移动")
-    # 生成 sjmz.m3u（保留所有源，按 sjmz_priority 排序）
     write_m3u(combined, os.path.join(output_dir, "sjmz.m3u"), source_order=sjmz_priority)
 
     print("✅ 所有 M3U 文件生成完成！")
