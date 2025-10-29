@@ -15,13 +15,11 @@ fixed_csv = ["input/mysource/my_sum.csv"]
 fixed_folder = "input/network/manual"
 extra_folder = "output/sum_cvs"
 
-# 分组优先级
 group_order = [
     "央视频道", "卫视频道", "台湾频道", "香港频道",
     "澳门频道", "国际频道", "地方频道", "数字频道"
 ]
 
-# 源优先级
 dxl_priority = ["电信组播", "上海移动", "电信单播", "青岛联通"]
 sjmz_priority = ["济南移动", "上海移动", "济南联通", "电信组播", "青岛联通", "电信单播"]
 
@@ -30,7 +28,11 @@ GROUP_MAP = {
     "台湾": "台湾频道",
     "香港": "香港频道",
     "澳门": "澳门频道",
-    "国际": "国际频道"
+    "国际": "国际频道",
+    "台湾频道": "台湾频道",
+    "香港频道": "香港频道",
+    "澳门频道": "澳门频道",
+    "国际频道": "国际频道"
 }
 
 # ==============================
@@ -63,9 +65,12 @@ def read_csv_files(paths, manual_group_map=None):
                         source = "手动"
                     else:
                         continue
+
+                    # 统一分组
+                    group_mapped = GROUP_MAP.get(group, group)
                     channels.append({
                         "name": name.strip(),
-                        "group": group.strip(),
+                        "group": group_mapped.strip(),
                         "url": url.strip(),
                         "source": source.strip()
                     })
@@ -94,7 +99,7 @@ def source_priority(source, order):
         return len(order)
 
 # ==============================
-# M3U 生成函数
+# M3U 生成
 # ==============================
 def write_m3u(channels_dict, output_file, source_order=None, exclude_source=None):
     total = 0
@@ -117,7 +122,7 @@ def write_m3u(channels_dict, output_file, source_order=None, exclude_source=None
 # 主程序
 # ==============================
 def main():
-    # 手动 CSV 分组映射
+    # 手动 CSV 分组映射为严格分组名
     manual_group_map = {
         "network_hk_manual.csv": "香港频道",
         "network_mo_manual.csv": "澳门频道",
@@ -125,31 +130,18 @@ def main():
         "netwotk_intl_manual.csv": "国际频道"
     }
 
-    # 固定源
+    # 读取固定源
     fixed_channels = read_csv_files(fixed_csv + [fixed_folder], manual_group_map)
-
-    # 统一分组名
-    for ch in fixed_channels:
-        ch["group"] = GROUP_MAP.get(ch["group"], ch["group"])
-
-    # 建立固定源频道名集合（正则匹配用）
+    # 读取补充源
+    extra_channels = read_csv_files([extra_folder])
+    # 补充源只保留固定源已有频道
     fixed_names = [re.escape(ch["name"]) for ch in fixed_channels]
     fixed_pattern = re.compile("|".join(fixed_names), re.I)
-
-    # 补充源
-    extra_channels = read_csv_files([extra_folder])
-    # 补充源只保留固定源已有的频道
     extra_filtered = [ch for ch in extra_channels if fixed_pattern.search(ch["name"])]
 
-    # 统一分组名
-    for ch in extra_filtered:
-        ch["group"] = GROUP_MAP.get(ch["group"], ch["group"])
-
-    # 合并
+    # 合并所有
     combined = defaultdict(lambda: defaultdict(list))
-    for ch in fixed_channels:
-        combined[ch["group"]][ch["name"]].append(ch)
-    for ch in extra_filtered:
+    for ch in fixed_channels + extra_filtered:
         combined[ch["group"]][ch["name"]].append(ch)
 
     # 生成 M3U
