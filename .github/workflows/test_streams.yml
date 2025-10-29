@@ -1,0 +1,22 @@
+name: Test Streams
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install requests opencc-python-reimplemented
+      - name: Test streams
+        run: python scripts/test_adaptive_async_batch.py
