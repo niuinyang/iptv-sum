@@ -1,0 +1,21 @@
+name: Merge Local Sources
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  merge_sources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Merge downloaded M3U
+        run: |
+          python scripts/merge_local_sources.py
