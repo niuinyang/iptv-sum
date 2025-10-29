@@ -21,15 +21,21 @@ OUTPUT_M3U = os.path.join(OUTPUT_DIR, "merge_total.m3u")
 OUTPUT_CSV = os.path.join(OUTPUT_DIR, "total.csv")
 SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
 
+# ==============================
+# 请求配置
+# ==============================
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
                   "Chrome/120.0 Safari/537.36",
-    "Referer": "https://freetv.fun/"
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5",
+    "Referer": "https://freetv.fun/",
+    "Connection": "keep-alive"
 }
-
-RETRY_TIMES = 3
+RETRY_TIMES = 5
 TIMEOUT = 20
+RETRY_DELAY = 5  # 秒
 
 # ==============================
 # 获取源文件内容
@@ -43,39 +49,43 @@ def fetch_sources(file_path):
 
     for url in urls:
         print(f"📡 Fetching: {url}")
-        text = None
-        for attempt in range(RETRY_TIMES):
-            try:
-                r = requests.get(url, headers=HEADERS, timeout=TIMEOUT, allow_redirects=True)
-                r.encoding = r.apparent_encoding or "utf-8"
-                if r.status_code >= 400:
-                    raise Exception(f"HTTP {r.status_code}")
-                text = r.text
-                break
-            except Exception as e:
-                print(f"⚠️ Retry {attempt+1}/{RETRY_TIMES} failed: {e}")
-                time.sleep(2)  # 重试前延时
-        if text is None:
+        try:
+            if url.startswith("http"):
+                text = None
+                for attempt in range(RETRY_TIMES):
+                    try:
+                        r = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+                        r.encoding = r.apparent_encoding or "utf-8"
+                        text = r.text
+                        break
+                    except Exception as e:
+                        print(f"⚠️ Retry {attempt + 1}/{RETRY_TIMES} failed: {e}")
+                        time.sleep(RETRY_DELAY)
+                if text is None:
+                    raise Exception("Failed after retries")
+            else:
+                with open(url, encoding="utf-8", errors="ignore") as f_local:
+                    text = f_local.read()
+
+            # 去掉 #EXTM3U
+            lines = text.splitlines()
+            filtered_lines = []
+            removed_header = False
+            for l in lines:
+                l_strip = l.strip()
+                if l_strip.startswith("#EXTM3U") and not removed_header:
+                    removed_header = True
+                    continue
+                if l_strip:
+                    filtered_lines.append(l_strip)
+
+            all_lines.extend(filtered_lines)
+            success += 1
+        except Exception as e:
             failed += 1
             with open(SKIPPED_FILE, "a", encoding="utf-8") as f_log:
-                f_log.write(f"❌ Failed: {url} (after retries)\n")
-            print(f"❌ Failed: {url} (after retries)")
-            continue
-
-        # 去掉 #EXTM3U
-        lines = text.splitlines()
-        filtered_lines = []
-        removed_header = False
-        for l in lines:
-            l_strip = l.strip()
-            if l_strip.startswith("#EXTM3U") and not removed_header:
-                removed_header = True
-                continue
-            if l_strip:
-                filtered_lines.append(l_strip)
-
-        all_lines.extend(filtered_lines)
-        success += 1
+                f_log.write(f"❌ Failed: {url} ({e})\n")
+            print(f"❌ Failed: {url} ({e})")
 
     return all_lines, success, failed
 
@@ -87,7 +97,7 @@ def parse_channels(lines):
     for i, line in enumerate(lines):
         if line.startswith("#EXTINF"):
             # 向下找第一个 URL
-            for j in range(i+1, len(lines)):
+            for j in range(i + 1, len(lines)):
                 url_line = lines[j].strip()
                 if url_line.startswith("http"):
                     pairs.append((line, url_line))
