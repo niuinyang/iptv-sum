@@ -8,6 +8,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from collections import defaultdict
 from statistics import mean
 import multiprocessing
+import glob
 
 # ==============================
 # 文件夹结构
@@ -15,9 +16,11 @@ import multiprocessing
 OUTPUT_DIR = "output"
 LOG_DIR = os.path.join(OUTPUT_DIR, "log")
 MIDDLE_DIR = os.path.join(OUTPUT_DIR, "middle")
+TMP_FRAMES = os.path.join(OUTPUT_DIR, "tmp_frames")  # 临时抓帧目录
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(LOG_DIR, exist_ok=True)
 os.makedirs(MIDDLE_DIR, exist_ok=True)
+os.makedirs(TMP_FRAMES, exist_ok=True)
 
 # ==============================
 # 配置区
@@ -67,6 +70,9 @@ def is_allowed(title, url):
         return False
     return True
 
+# ==============================
+# 视频检测函数
+# ==============================
 def quick_check(url):
     start = time.time()
     try:
@@ -100,6 +106,31 @@ def ffprobe_check(url):
     elapsed = round(time.time() - start, 3)
     return ok, elapsed, url
 
+def grab_frames(url, n=3, interval=1):
+    # 清理旧帧，避免 TMP_FRAMES 堆积
+    old_files = glob.glob(os.path.join(TMP_FRAMES, "*.jpg"))
+    for f in old_files:
+        try:
+            os.remove(f)
+        except:
+            pass
+
+    frames = []
+    for i in range(n):
+        frame_file = os.path.join(TMP_FRAMES, f"{i}_{abs(hash(url))}.jpg")
+        cmd = [
+            "ffmpeg", "-y", "-i", url,
+            "-vf", f"select=gte(n\,{i*interval})",
+            "-frames:v", "1", "-q:v", "2", frame_file
+        ]
+        try:
+            subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=10)
+            if os.path.exists(frame_file):
+                frames.append(frame_file)
+        except subprocess.TimeoutExpired:
+            continue
+    return frames
+
 def test_stream(title, url):
     url = url.strip()
     try:
@@ -113,6 +144,9 @@ def test_stream(title, url):
             print(f"❌ EXCEPTION {title} -> {url} | {e}")
         return False, 0, url
 
+# ==============================
+# 线程数检测
+# ==============================
 def detect_optimal_threads():
     test_urls = ["https://www.apple.com","https://www.google.com","https://www.microsoft.com"]
     times = []
@@ -146,7 +180,7 @@ if __name__ == "__main__":
         if os.path.exists(log_file):
             os.remove(log_file)
 
-    # 导入 CSV，自动识别列名
+    # 1. 导入 CSV，自动识别列名
     pairs = []
     with open(CSV_FILE, encoding="utf-8") as f:
         reader = csv.DictReader(f)
@@ -162,7 +196,7 @@ if __name__ == "__main__":
             url = row[url_col].strip()
             pairs.append((title, url))
 
-    # 过滤
+    # 2. 过滤
     filtered_pairs = [(t,u) for t,u in pairs if is_allowed(t,u)]
     print(f"🚫 跳过源: {len(pairs)-len(filtered_pairs)} 条")
 
@@ -171,7 +205,7 @@ if __name__ == "__main__":
     print(f"⚙️ 动态线程数：{threads}")
     print(f"🚀 开始检测 {total} 条流，每批 {BATCH_SIZE} 条")
 
-    # 批量检测
+    # 3. 批量检测
     all_working = []
     start_time = time.time()
     done_index = 0
@@ -200,6 +234,15 @@ if __name__ == "__main__":
                         log_skip("FAILED_CHECK", title, url)
                 except Exception as e:
                     log_skip("EXCEPTION", title, url)
+
+        # 批量完成后清理 TMP_FRAMES
+        old_frames = glob.glob(os.path.join(TMP_FRAMES, "*.jpg"))
+        for f in old_frames:
+            try:
+                os.remove(f)
+            except:
+                pass
+
         all_working.extend(working_batch)
         json.dump({"done":min(batch_start+BATCH_SIZE,total)}, open(PROGRESS_FILE,"w",encoding="utf-8"))
         print(f"🧮 本批完成：{len(working_batch)}/{len(batch)} 可用流 | 已完成 {min(batch_start+BATCH_SIZE,total)}/{total}")
@@ -207,29 +250,21 @@ if __name__ == "__main__":
     if os.path.exists(PROGRESS_FILE):
         os.remove(PROGRESS_FILE)
 
-    # 分组、排序并写入 M3U，确保写入
-    if all_working:
-        grouped = defaultdict(list)
-        for title,url,elapsed in all_working:
-            name = extract_name(title).lower()
-            grouped[name].append((title,url,elapsed))
+    # 4. 分组、按耗时排序并写入 M3U
+    grouped = defaultdict(list)
+    for title,url,elapsed in all_working:
+        name = extract_name(title).lower()
+        grouped[name].append((title,url,elapsed))
 
-        # 强制删除旧文件
-        if os.path.exists(OUTPUT_FILE):
-            os.remove(OUTPUT_FILE)
-
-        with open(OUTPUT_FILE,"w",encoding="utf-8") as f:
-            f.write("#EXTM3U\n")
-            for name in sorted(grouped.keys()):
-                group_sorted = sorted(grouped[name], key=lambda x: x[2])
-                for title,url,_ in group_sorted:
-                    # 添加EXTINF标签
-                    f.write(f"#EXTINF:-1,{title}\n{url}\n")
-        print(f"📁 写入完成: {OUTPUT_FILE}")
-    else:
-        print("⚠️ 没有可用流，working.m3u 未更新")
+    with open(OUTPUT_FILE,"w",encoding="utf-8") as f:
+        f.write("#EXTM3U\n")
+        for name in sorted(grouped.keys()):
+            group_sorted = sorted(grouped[name], key=lambda x: x[2])
+            for title,url,_ in group_sorted:
+                f.write(f"{title}\n{url}\n")
 
     elapsed_total = round(time.time()-start_time,2)
     print(f"\n✅ 检测完成，共 {len(all_working)} 条可用流，用时 {elapsed_total} 秒")
+    print(f"📁 可用源: {OUTPUT_FILE}")
     print(f"⚠️ 失败或过滤源: {SKIPPED_FILE}")
     print(f"🕵️ 可疑误杀源: {SUSPECT_FILE}")
