@@ -2,75 +2,46 @@ name: Daily IPTV Update
 
 on:
   schedule:
-    - cron: '0 20 * * *'  # 每天凌晨4点 东八区
+    - cron: '0 3 * * *'  # 每天凌晨3点（东八区）
   workflow_dispatch:
 
 permissions:
   contents: write  # 允许 workflow 推送仓库内容
 
 jobs:
-  daily_update:
+  update_m3u:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
           pip install requests opencc-python-reimplemented
 
-      - name: Install ffmpeg
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
-
-      - name: Merge IPTV sources
+      - name: Merge sources
         run: |
-          set -e
-          for i in {1..3}; do
-            if python scripts/merge.py; then break; else echo "⚠️ Retry $i failed"; sleep 10; fi
-          done
-
-      - name: Test IPTV streams
-        run: |
-          set -e
-          for i in {1..3}; do
-            if python scripts/test_adaptive_async_batch.py; then break; else echo "⚠️ Retry $i failed"; sleep 10; fi
-          done
-
-      - name: Extract region channels
-        run: |
-          set -e
-          for i in {1..3}; do
-            if python scripts/extract_channels.py; then break; else echo "⚠️ Retry $i failed"; sleep 10; fi
-          done
-
-      - name: Generate M3U files
-        run: |
-          set -e
-          for i in {1..3}; do
-            if python scripts/csv_to_m3u.py; then break; else echo "⚠️ Retry $i failed"; sleep 10; fi
-          done
-
-      - name: Commit and push updated files
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          python scripts/merge.py
           
-          # 允许提交 M3U 和 CSV
-          git add output/*.m3u
-          git add output/sum_cvs/*.csv || true
+      - name: Test streams and generate working.m3u
+        run: |
+          python scripts/test_adaptive_async_batch.py
           
-          # 若 .gitignore 屏蔽了 CSV，可强制添加
-          git add -f output/sum_cvs/*.csv || true
+      - name: Extract regional channels
+        run: |
+          python scripts/extract_channels.py
           
-          git commit -m "每日更新 IPTV 文件（含 CSV 和 M3U）" || echo "No changes to commit"
+      - name: Generate final M3U files
+        run: |
+          python scripts/csv_to_m3u.py
+          
+      - name: Upload updated M3U to repo
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/*.m3u output/sum_cvs/*.csv
+          git commit -m "🤖 Auto update IPTV M3U on $(date '+%Y-%m-%d') || true"
           git push
-
-      - name: Log completion
-        run: echo "✅ Daily IPTV update job finished."
