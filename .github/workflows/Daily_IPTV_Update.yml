@@ -1,15 +1,15 @@
-name: Daily IPTV Update
+name: Daily IPTV Workflow
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # 每天凌晨3点（东八区）
+    - cron: '0 4 * * *'  # 每天凌晨4点执行
   workflow_dispatch:
 
 permissions:
-  contents: write  # 允许 workflow 推送仓库内容
+  contents: write
 
 jobs:
-  update_m3u:
+  daily_ip_tv:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,30 +18,48 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Cache pip
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: pip-
+
       - name: Install dependencies
         run: |
-          pip install requests opencc-python-reimplemented
+          pip install --upgrade pip
+          pip install aiohttp requests opencc-python-reimplemented
 
-      - name: Merge sources
+      # 1️⃣ 下载网络源
+      - name: Download network sources
         run: |
-          python scripts/merge.py
-          
-      - name: Test streams and generate working.m3u
+          python scripts/download_sources.py
+
+      # 2️⃣ 合并本地源
+      - name: Merge local sources
+        run: |
+          python scripts/merge_local_sources.py
+
+      # 3️⃣ 测试 IPTV 流并生成 working.m3u
+      - name: Test IPTV streams
         run: |
           python scripts/test_adaptive_async_batch.py
-          
+
+      # 4️⃣ 提取频道
       - name: Extract regional channels
         run: |
           python scripts/extract_channels.py
-          
-      - name: Generate final M3U files
+
+      # 5️⃣ 生成 M3U 文件
+      - name: Generate M3U files
         run: |
           python scripts/csv_to_m3u.py
-          
-      - name: Upload updated M3U to repo
+
+      # 6️⃣ 提交生成文件
+      - name: Commit all outputs
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add output/*.m3u output/sum_cvs/*.csv
-          git commit -m "🤖 Auto update IPTV M3U on $(date '+%Y-%m-%d') || true"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/ input/network/manual
+          git commit -m "Daily update IPTV sources and M3U [skip ci]" || echo "No changes to commit"
           git push
