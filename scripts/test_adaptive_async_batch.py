@@ -23,7 +23,7 @@ os.makedirs(MIDDLE_DIR, exist_ok=True)
 # 配置区
 # ==============================
 CSV_FILE = os.path.join(OUTPUT_DIR, "merge_total.csv")  # 输入 CSV
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.m3u")  # 可用流输出
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.m3u")
 PROGRESS_FILE = os.path.join(MIDDLE_DIR, "progress.json")
 SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
 SUSPECT_FILE = os.path.join(LOG_DIR, "suspect.log")
@@ -135,9 +135,7 @@ def detect_optimal_threads():
         return BASE_THREADS
 
 def extract_name(title):
-    if "," in title:
-        return title.split(",")[-1].strip()
-    return title.strip()
+    return title.split(",")[-1].strip() if "," in title else title.strip()
 
 # ==============================
 # 主逻辑
@@ -148,19 +146,20 @@ if __name__ == "__main__":
         if os.path.exists(log_file):
             os.remove(log_file)
 
-    # 1. 导入 CSV
+    # 1. 导入 CSV，自动识别列名
     pairs = []
     with open(CSV_FILE, encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        # 自动识别列名
-        fieldnames = [name.lower() for name in reader.fieldnames]
-        title_field = next((n for n in reader.fieldnames if n.lower() in ["title","tvg-name"]), None)
-        url_field = next((n for n in reader.fieldnames if n.lower() in ["url","link"]), None)
-        if not title_field or not url_field:
+        fieldnames = reader.fieldnames
+        if not fieldnames:
+            raise ValueError("CSV 文件为空或缺少列名")
+        title_col = next((c for c in fieldnames if "name" in c.lower() or "title" in c.lower()), None)
+        url_col = next((c for c in fieldnames if "url" in c.lower()), None)
+        if not title_col or not url_col:
             raise ValueError("CSV 文件缺少标题或 URL 列")
         for row in reader:
-            title = row[title_field].strip()
-            url = row[url_field].strip()
+            title = row[title_col].strip()
+            url = row[url_col].strip()
             pairs.append((title, url))
 
     # 2. 过滤
@@ -219,9 +218,10 @@ if __name__ == "__main__":
         for name in sorted(grouped.keys()):
             group_sorted = sorted(grouped[name], key=lambda x: x[2])
             for title,url,_ in group_sorted:
-                f.write(f"#EXTINF:-1,{title}\n{url}\n")
+                f.write(f"{title}\n{url}\n")
 
     elapsed_total = round(time.time()-start_time,2)
     print(f"\n✅ 检测完成，共 {len(all_working)} 条可用流，用时 {elapsed_total} 秒")
     print(f"📁 可用源: {OUTPUT_FILE}")
-    print
+    print(f"⚠️ 失败或过滤源: {SKIPPED_FILE}")
+    print(f"🕵️ 可疑误杀源: {SUSPECT_FILE}")
