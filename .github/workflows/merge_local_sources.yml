@@ -1,21 +1,40 @@
-name: Merge Local Sources
+name: Merge Local IPTV Sources
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # 手动触发
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  merge_sources:
+  merge_local:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Merge downloaded M3U
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Merge local M3U sources
+        working-directory: ${{ github.workspace }}
         run: |
           python scripts/merge_local_sources.py
+
+      - name: Check output files
+        run: |
+          ls -lh output/
+          echo "✅ 检查完成 — 输出目录内容如上"
+
+      - name: Commit merged output
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/*.m3u output/*.csv || true
+          git commit -m "🤖 Auto merge local sources $(date '+%Y-%m-%d %H:%M:%S')" || true
+          git push || true
