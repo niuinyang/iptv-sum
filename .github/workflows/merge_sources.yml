@@ -1,22 +1,36 @@
-name: Merge Sources
+name: Merge IPTV Sources
 
 on:
-  schedule:
-    - cron: '0 2 * * *'  # 每天凌晨2点
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  merge:
+  merge_sources:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v5
+
+      # 缓存 pip 依赖
+      - name: Cache pip
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
       - name: Install dependencies
-        run: pip install requests opencc-python-reimplemented
+        run: |
+          pip install --upgrade pip
+          pip install requests opencc-python-reimplemented
+
       - name: Merge sources
-        run: python scripts/merge.py
+        run: |
+          python scripts/merge.py --threads 20 --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
