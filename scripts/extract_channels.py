@@ -15,22 +15,22 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 # 各地区对应查找文件、输出文件与来源标识
 REGIONS = {
     "国际": {
-        "find": "input/network/find_international.csv",
+        "find": "input/network/find/find_international.csv",
         "out": "find_international_sum.csv",
         "source": "国际源",
     },
     "台湾": {
-        "find": "input/network/find_taiwan.csv",
+        "find": "input/network/find/find_taiwan.csv",
         "out": "find_taiwan_sum.csv",
         "source": "台湾源",
     },
     "香港": {
-        "find": "input/network/find_hk.csv",
+        "find": "input/network/find/find_hk.csv",
         "out": "find_hk_sum.csv",
         "source": "香港源",
     },
     "澳门": {
-        "find": "input/network/find_mo.csv",
+        "find": "input/network/find/find_mo.csv",
         "out": "find_mo_sum.csv",
         "source": "澳门源",
     },
