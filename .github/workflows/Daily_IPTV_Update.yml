@@ -2,7 +2,7 @@ name: Daily IPTV Workflow
 
 on:
   schedule:
-    - cron: '0 4 * * *'  # 每天凌晨4点执行
+    - cron: '0 20 * * *'  # 每天凌晨4点执行
   workflow_dispatch:
 
 permissions:
