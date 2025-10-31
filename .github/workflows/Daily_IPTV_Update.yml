@@ -60,6 +60,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/ input/network/manual
+          git add output/ input/network/manual input/network/network_sources
           git commit -m "Daily update IPTV sources and M3U [skip ci]" || echo "No changes to commit"
           git push
