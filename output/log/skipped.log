@@ -37,11 +37,11 @@ https://stream1.freetv.fun/france-24-espanol-2.m3u8
 BLOCK_KEYWORD -> CNN en Español
 https://stream1.freetv.fun/afv-en-espanol-1.m3u8
 FAILED_CHECK -> 115新天地民俗臺
+https://stream1.freetv.fun/bzhan-wang-zhe-rong-yao-1.ctv
+FAILED_CHECK -> 115新天地民俗臺
 https://stream1.freetv.fun/3030xiang-sheng-xiao-pin-1.ctv
 FAILED_CHECK -> 115新天地民俗臺
 https://stream1.freetv.fun/3shuo-dian-ying-1.ctv
-FAILED_CHECK -> 115新天地民俗臺
-https://stream1.freetv.fun/bzhan-wang-zhe-rong-yao-1.ctv
 FAILED_CHECK -> 115新天地民俗臺
 https://stream1.freetv.fun/77shuo-dian-ying-1.ctv
 FAILED_CHECK -> &FlixHD
@@ -51,25 +51,25 @@ https://stream1.freetv.fun/cnn-portugal-8.ctv
 FAILED_CHECK -> AXN HD
 https://stream1.freetv.fun/axn-9.ctv
 FAILED_CHECK -> Animal Planet
-https://stream1.freetv.fun/animal-planet--m-1.ctv
+https://stream1.freetv.fun/animal-planet--m-3.ctv
 FAILED_CHECK -> Animal Planet
-https://stream1.freetv.fun/animal-planet-uhd--m-1.ctv
+https://stream1.freetv.fun/animal-planet--m-1.ctv
 FAILED_CHECK -> Animal Planet
 https://stream1.freetv.fun/animal-planet--m-2.ctv
 FAILED_CHECK -> Animax(HK)
 https://stream1.freetv.fun/animax-7.ctv
 FAILED_CHECK -> Animal Planet
-https://stream1.freetv.fun/animal-planet--m-3.ctv
+https://stream1.freetv.fun/animal-planet-uhd--m-1.ctv
 FAILED_CHECK -> BBC 4 Kids
 https://stream1.freetv.fun/cbbc-bbc-4-uhd--m-1.ctv
 FAILED_CHECK -> Astro Sports UHD
 https://stream1.freetv.fun/astro-sports-uhd--p-1.ctv
 FAILED_CHECK -> BBC CBeebies
+https://stream1.freetv.fun/cbeebies-uhd--m-1.ctv
+FAILED_CHECK -> BBC CBeebies
 https://stream1.freetv.fun/bbc-4-cbeebies--m-1.ctv
 FAILED_CHECK -> BBC CBeebies
 https://stream1.freetv.fun/cbeebies-uhd--m-2.ctv
-FAILED_CHECK -> BBC CBeebies
-https://stream1.freetv.fun/cbeebies-uhd--m-1.ctv
 FAILED_CHECK -> BBC News HD
 https://stream1.freetv.fun/bbc-news-6.ctv
 FAILED_CHECK -> BBC News
@@ -80,12 +80,14 @@ FAILED_CHECK -> Bloomberg 4K
 https://stream1.freetv.fun/bloomberg-news--m-1.ctv
 FAILED_CHECK -> BBS TV
 https://stream1.freetv.fun/bbs-1.ctv
-FAILED_CHECK -> Bollywood HD
-https://stream1.freetv.fun/zee-bollywood-1.ctv
+FAILED_CHECK -> Arena Sport 4 Hrvatska
+https://stream1.freetv.fun/arena-sport-4-1.ctv
 FAILED_CHECK -> Boomerang
 https://stream1.freetv.fun/boomerang--m-2.ctv
 FAILED_CHECK -> Boomerang
 https://stream1.freetv.fun/boomerang--m-1.ctv
+FAILED_CHECK -> Bollywood HD
+https://stream1.freetv.fun/zee-bollywood-1.ctv
 FAILED_CHECK -> Boomerang
 https://stream1.freetv.fun/boomerang-1--m-1.ctv
 FAILED_CHECK -> CBBC
@@ -94,144 +96,96 @@ FAILED_CHECK -> BÀ RỊA - VŨNG TÀU TV
 https://stream1.freetv.fun/ba-ria---vung-tau-hom-nay-1.ctv
 FAILED_CHECK -> CBBC
 https://stream1.freetv.fun/cbbc-uhd--m-1.ctv
-FAILED_CHECK -> CCTV 8K
-https://stream1.freetv.fun/cctv-08-3.ctv
-FAILED_CHECK -> CCTV1(RTHK33)
-https://stream1.freetv.fun/cctv-01-2.ctv
-FAILED_CHECK -> CCTV1(RTHK33)
-https://stream1.freetv.fun/cctv1zong-he-3.ctv
-FAILED_CHECK -> CCTV1(RTHK33)
-https://stream1.freetv.fun/cctv1-zong-he-17.ctv
-FAILED_CHECK -> CCTV10
-https://stream1.freetv.fun/cctv10-ke-jiao-16.ctv
-FAILED_CHECK -> CCTV11
-https://stream1.freetv.fun/cctv11-xi-qu-13.ctv
-FAILED_CHECK -> CCTV11
-https://stream1.freetv.fun/cctv11-xi-qu-6.ctv
-FAILED_CHECK -> CCTV12
-https://stream1.freetv.fun/cctv12-she-hui-yu-fa-5.ctv
-FAILED_CHECK -> CCTV13
-https://stream1.freetv.fun/cctv13-xin-wen-1.ctv
-FAILED_CHECK -> CCTV13
-https://stream1.freetv.fun/cctv-13-15.ctv
-FAILED_CHECK -> CCTV14
-https://stream1.freetv.fun/cctv14-shao-er-9.ctv
-FAILED_CHECK -> CCTV17
-https://stream1.freetv.fun/cctv-17nong-ye-1.ctv
 FAILED_CHECK -> CCTV2
 https://stream1.freetv.fun/cctv2-53.ctv
-FAILED_CHECK -> CCTV2
-https://stream1.freetv.fun/cctv2-cai-jing-5.ctv
-FAILED_CHECK -> CCTV3
-https://stream1.freetv.fun/cctv3-zong-yi-5.ctv
-FAILED_CHECK -> CCTV3
-https://stream1.freetv.fun/cctv-03-2.ctv
 FAILED_CHECK -> CCTV4
 https://stream1.freetv.fun/cctv4-47.ctv
-FAILED_CHECK -> CCTV4 FHD
-https://stream1.freetv.fun/cctv-04-5.ctv
-FAILED_CHECK -> CCTV4 FHD
-https://stream1.freetv.fun/cctv4-guo-ji-3.ctv
-FAILED_CHECK -> CCTV5(h265)
-https://stream1.freetv.fun/cctv-05-2.ctv
-FAILED_CHECK -> CCTV5+
-https://stream1.freetv.fun/cctv5-plus-54.ctv
 FAILED_CHECK -> CCTV6
 https://stream1.freetv.fun/cctv6-54.ctv
-FAILED_CHECK -> CCTV6
-https://stream1.freetv.fun/cctv6-dian-ying-5.ctv
-FAILED_CHECK -> CCTV6
-https://stream1.freetv.fun/cctv-06-1.ctv
-FAILED_CHECK -> CCTV7
-https://stream1.freetv.fun/cctv7-guo-fang-jun-shi-2.ctv
-FAILED_CHECK -> CCTV7
-https://stream1.freetv.fun/cctv-07-2.ctv
-FAILED_CHECK -> CCTV8
-https://stream1.freetv.fun/cctv8-dian-shi-ju-8.ctv
-FAILED_CHECK -> CCTV9
-https://stream1.freetv.fun/cctv9-ji-lu-13.ctv
-FAILED_CHECK -> CCTV9
-https://stream1.freetv.fun/cctv-09-2.ctv
-FAILED_CHECK -> CHC家庭影院
-https://stream1.freetv.fun/chcjia-ting-ying-yuan-21.ctv
-FAILED_CHECK -> CHC家庭影院
-https://stream1.freetv.fun/chcjia-ting-ying-yuan-15.ctv
-FAILED_CHECK -> CHC家庭影院
-https://stream1.freetv.fun/chcjia-ting-ying-yuan-22.ctv
-FAILED_CHECK -> CHC家庭影院
-https://stream1.freetv.fun/chcjia-ting-ying-yuan-6.ctv
-FAILED_CHECK -> CHC家庭影院
-https://stream1.freetv.fun/chcjia-ting-ying-yuan-17.ctv
-FAILED_CHECK -> CHC家庭影院
-https://stream1.freetv.fun/chcjia-ting-ying-yuan-9.ctv
-FAILED_CHECK -> CHC家庭影院
-https://stream1.freetv.fun/chcjia-ting-ying-yuan-3.ctv
-FAILED_CHECK -> CHC家庭影院
-https://stream1.freetv.fun/chcjia-ting-ying-yuan-4.ctv
+FAILED_CHECK -> CCTV5+
+https://stream1.freetv.fun/cctv5-plus-54.ctv
+FAILED_CHECK -> CHANNEL [V]
+https://stream1.freetv.fun/tennis-channel-4.ctv
 FAILED_CHECK -> CHC家庭影院
 https://stream1.freetv.fun/chcjia-ting-ying-yuan-11.ctv
 FAILED_CHECK -> CHC家庭影院
-https://stream1.freetv.fun/chcjia-ting-ying-yuan-5.ctv
+https://stream1.freetv.fun/chcjia-ting-ying-yuan-17.ctv
+FAILED_CHECK -> CHC家庭影院
+https://stream1.freetv.fun/chcjia-ting-ying-yuan-15.ctv
+FAILED_CHECK -> CHC家庭影院
+https://stream1.freetv.fun/chcjia-ting-ying-yuan-9.ctv
 FAILED_CHECK -> CHC家庭影院
 https://stream1.freetv.fun/chcjia-ting-ying-yuan-18.ctv
+FAILED_CHECK -> CHC家庭影院
+https://stream1.freetv.fun/chcjia-ting-ying-yuan-6.ctv
+FAILED_CHECK -> CHC家庭影院
+https://stream1.freetv.fun/chcjia-ting-ying-yuan-22.ctv
+FAILED_CHECK -> CHC家庭影院
+https://stream1.freetv.fun/chcjia-ting-ying-yuan-4.ctv
+FAILED_CHECK -> CHC家庭影院
+https://stream1.freetv.fun/chcjia-ting-ying-yuan-21.ctv
+FAILED_CHECK -> CHC家庭影院
+https://stream1.freetv.fun/chcjia-ting-ying-yuan-3.ctv
+FAILED_CHECK -> CHC家庭影院
+https://stream1.freetv.fun/chcjia-ting-ying-yuan-5.ctv
 FAILED_CHECK -> CNN HD
 https://stream1.freetv.fun/cnn--m-1.ctv
 FAILED_CHECK -> CNN HD
 https://stream1.freetv.fun/cnn-11.ctv
 FAILED_CHECK -> Cartoon Network
-https://stream1.freetv.fun/cartoon-netwrk--m-1.ctv
+https://stream1.freetv.fun/cartoon-network-uhd--m-1.ctv
+FAILED_CHECK -> Cartoon Network
+https://stream1.freetv.fun/cartoon-network-1--m-1.ctv
 FAILED_CHECK -> Cartoon Network
 https://stream1.freetv.fun/cartoon-network--m-2.ctv
 FAILED_CHECK -> Cartoon Network
 https://stream1.freetv.fun/cartoon-network--m-1.ctv
 FAILED_CHECK -> Cartoon Network
-https://stream1.freetv.fun/cartoon-network-uhd--m-1.ctv
-FAILED_CHECK -> Cartoon Network
-https://stream1.freetv.fun/cartoon-network-1--m-1.ctv
+https://stream1.freetv.fun/cartoon-netwrk--m-1.ctv
+FAILED_CHECK -> Cartoonito TV
+https://stream1.freetv.fun/cartoonito--m-3.ctv
 FAILED_CHECK -> Cartoonito TV
 https://stream1.freetv.fun/cartoonito--m-2.ctv
 FAILED_CHECK -> Colors HD
-https://stream1.freetv.fun/colors-tamil-1.ctv
-FAILED_CHECK -> Colors HD
 https://stream1.freetv.fun/colors-bangla-1.ctv
-FAILED_CHECK -> Colors HD
-https://stream1.freetv.fun/colors-super-1.ctv
 FAILED_CHECK -> Cinemax(USA)
 https://stream1.freetv.fun/cinemax-8.ctv
+FAILED_CHECK -> Colors HD
+https://stream1.freetv.fun/colors-tamil-1.ctv
+FAILED_CHECK -> Colors HD
+https://stream1.freetv.fun/colors-super-1.ctv
 FAILED_CHECK -> Cartoonito TV
 https://stream1.freetv.fun/cartoonito--m-1.ctv
-FAILED_CHECK -> Cartoonito TV
-https://stream1.freetv.fun/cartoonito--m-3.ctv
-FAILED_CHECK -> Comedy Central (NL)
-https://stream1.freetv.fun/comedy-central--m-2.ctv
-FAILED_CHECK -> Comedy Central (NL)
-https://stream1.freetv.fun/comedy-central--m-1.ctv
 FAILED_CHECK -> Comedy Central Extra UK
 https://stream1.freetv.fun/comedy-xtra--m-1.ctv
-FAILED_CHECK -> DISCOVERY SCIENCE
-https://stream1.freetv.fun/discovery-science--m-2.ctv
+FAILED_CHECK -> Comedy Central (NL)
+https://stream1.freetv.fun/comedy-central--m-1.ctv
+FAILED_CHECK -> Comedy Central (NL)
+https://stream1.freetv.fun/comedy-central--m-2.ctv
 FAILED_CHECK -> DISCOVERY SCIENCE
 https://stream1.freetv.fun/discovery-science--m-3.ctv
+FAILED_CHECK -> DISCOVERY SCIENCE
+https://stream1.freetv.fun/discovery-science--m-2.ctv
 FAILED_CHECK -> DISCOVERY SCIENCE
 https://stream1.freetv.fun/discovery-science--m-1.ctv
 FAILED_CHECK -> DIY Network
 https://stream1.freetv.fun/diy-network--m-1.ctv
 FAILED_CHECK -> DMAX
 https://stream1.freetv.fun/dmax--m-1.ctv
-FAILED_CHECK -> Discovery Family
-https://stream1.freetv.fun/discovery-family--m-1.ctv
-FAILED_CHECK -> Discovery Channel  (UK)
-https://stream1.freetv.fun/discovery-channel--m-1.ctv
 FAILED_CHECK -> Discovery Channel  (UK)
 https://stream1.freetv.fun/discovery-channel--m-2.ctv
+FAILED_CHECK -> Discovery Channel  (UK)
+https://stream1.freetv.fun/discovery-channel--m-1.ctv
+FAILED_CHECK -> Discovery Family
+https://stream1.freetv.fun/discovery-family--m-1.ctv
 FAILED_CHECK -> Discovery HD
 https://stream1.freetv.fun/discovery--m-1.ctv
 FAILED_CHECK -> Discovery HD
 https://stream1.freetv.fun/discovery--m-2.ctv
 FAILED_CHECK -> Discovery HD
-https://stream1.freetv.fun/discovery--m-3.ctv
-FAILED_CHECK -> Discovery HD
 https://stream1.freetv.fun/discovery-uhd--m-1.ctv
+FAILED_CHECK -> Discovery HD
+https://stream1.freetv.fun/discovery--m-3.ctv
 FAILED_CHECK -> Discovery History UK
 https://stream1.freetv.fun/discovery-history--m-1.ctv
 FAILED_CHECK -> Discovery LIFE
@@ -239,27 +193,23 @@ https://stream1.freetv.fun/discovery-life--m-1.ctv
 FAILED_CHECK -> Discovery Shed UK
 https://stream1.freetv.fun/discovery-shed--m-1.ctv
 FAILED_CHECK -> Discovery Turbo UK
-https://stream1.freetv.fun/discovery-turbo--m-1.ctv
-FAILED_CHECK -> EBS E
-https://stream1.freetv.fun/ebse-2.ctv
-FAILED_CHECK -> Discovery Turbo UK
 https://stream1.freetv.fun/discovery-turbo--m-2.ctv
-FAILED_CHECK -> EBS1
-https://stream1.freetv.fun/ebs1-1.ctv
-FAILED_CHECK -> EBS E
-https://stream1.freetv.fun/ebse-1.ctv
-FAILED_CHECK -> EBS1
-https://stream1.freetv.fun/ebs1-4.ctv
-FAILED_CHECK -> Discovery Velocity
-https://stream1.freetv.fun/discovery-velocity--m-1.ctv
 FAILED_CHECK -> EBS1
 https://stream1.freetv.fun/ebs1-2.ctv
 FAILED_CHECK -> EBS1
+https://stream1.freetv.fun/ebs1-4.ctv
+FAILED_CHECK -> EBS E
+https://stream1.freetv.fun/ebse-1.ctv
+FAILED_CHECK -> EBS E
+https://stream1.freetv.fun/ebse-2.ctv
+FAILED_CHECK -> EBS1
+https://stream1.freetv.fun/ebs1-1.ctv
+FAILED_CHECK -> EBS1
 https://stream1.freetv.fun/ebs1-3.ctv
 FAILED_CHECK -> EBS2
-https://stream1.freetv.fun/ebs2-1.ctv
-FAILED_CHECK -> EBS2
 https://stream1.freetv.fun/ebs2-2.ctv
+FAILED_CHECK -> EBS2
+https://stream1.freetv.fun/ebs2-1.ctv
 FAILED_CHECK -> Euronews English
 https://stream1.freetv.fun/euronews--m-1.ctv
 FAILED_CHECK -> First Music Channel HD
@@ -272,16 +222,16 @@ FAILED_CHECK -> GEMINI MOVIE
 https://stream1.freetv.fun/gemini-movies-1.ctv
 FAILED_CHECK -> HBO 2(WEST)
 https://stream1.freetv.fun/hbo-2-west--m-1.ctv
-FAILED_CHECK -> HBO 2(WEST)
-https://stream1.freetv.fun/hbo-west--m-1.ctv
-FAILED_CHECK -> HBO East
-https://stream1.freetv.fun/hbo-2-east--m-1.ctv
-FAILED_CHECK -> HBO East
-https://stream1.freetv.fun/hbo-east--m-1.ctv
 FAILED_CHECK -> HBO Comedy
 https://stream1.freetv.fun/hbo-comedy--m-1.ctv
+FAILED_CHECK -> HBO 2(WEST)
+https://stream1.freetv.fun/hbo-west--m-1.ctv
 FAILED_CHECK -> HBO Family(USA)
 https://stream1.freetv.fun/hbo-family--m-1.ctv
+FAILED_CHECK -> HBO East
+https://stream1.freetv.fun/hbo-east--m-1.ctv
+FAILED_CHECK -> HBO East
+https://stream1.freetv.fun/hbo-2-east--m-1.ctv
 FAILED_CHECK -> HBO Family(USA)
 https://stream1.freetv.fun/hbo-family--m-2.ctv
 FAILED_CHECK -> HTV3
@@ -290,14 +240,14 @@ FAILED_CHECK -> HBO Signature(USA)
 https://stream1.freetv.fun/hbo-signature--m-1.ctv
 FAILED_CHECK -> HBO Zone
 https://stream1.freetv.fun/hbo-zone--m-1.ctv
-FAILED_CHECK -> Hungama TV
-https://stream1.freetv.fun/hungama-tv-1.ctv
-FAILED_CHECK -> HGTV
-https://stream1.freetv.fun/hgtv--m-3.ctv
 FAILED_CHECK -> HGTV
 https://stream1.freetv.fun/hgtv--m-1.ctv
 FAILED_CHECK -> HGTV
+https://stream1.freetv.fun/hgtv--m-3.ctv
+FAILED_CHECK -> HGTV
 https://stream1.freetv.fun/hgtv--m-2.ctv
+FAILED_CHECK -> Hungama TV
+https://stream1.freetv.fun/hungama-tv-1.ctv
 FAILED_CHECK -> History 2 HD
 https://stream1.freetv.fun/history-2--m-1.ctv
 FAILED_CHECK -> History(USA)
@@ -305,27 +255,27 @@ https://stream1.freetv.fun/history-uhd--m-1.ctv
 FAILED_CHECK -> History(USA)
 https://stream1.freetv.fun/history-uhd--m-2.ctv
 FAILED_CHECK -> History(USA)
-https://stream1.freetv.fun/history--m-2.ctv
-FAILED_CHECK -> History(USA)
 https://stream1.freetv.fun/history--m-1.ctv
-FAILED_CHECK -> JAYA TV
-https://stream1.freetv.fun/jaya-tv-1.ctv
+FAILED_CHECK -> History(USA)
+https://stream1.freetv.fun/history--m-2.ctv
+FAILED_CHECK -> Investigation Discovery
+https://stream1.freetv.fun/investigation-discovery--m-3.ctv
+FAILED_CHECK -> Investigation Discovery
+https://stream1.freetv.fun/id--m-1.ctv
 FAILED_CHECK -> JAYA TV
 https://stream1.freetv.fun/jaya-tv-3.ctv
+FAILED_CHECK -> JAYA TV
+https://stream1.freetv.fun/jaya-tv-1.ctv
+FAILED_CHECK -> Investigation Discovery
+https://stream1.freetv.fun/investigation-discovery--m-2.ctv
 FAILED_CHECK -> K Plus
 https://stream1.freetv.fun/raj-digital-plus-1.ctv
+FAILED_CHECK -> Investigation Discovery
+https://stream1.freetv.fun/investigation-discovery--m-1.ctv
 FAILED_CHECK -> KTV
 https://stream1.freetv.fun/ktv-2.ctv
 FAILED_CHECK -> Kochu Tv
 https://stream1.freetv.fun/kochu-tv-1.ctv
-FAILED_CHECK -> Investigation Discovery
-https://stream1.freetv.fun/investigation-discovery--m-3.ctv
-FAILED_CHECK -> Investigation Discovery
-https://stream1.freetv.fun/investigation-discovery--m-1.ctv
-FAILED_CHECK -> Investigation Discovery
-https://stream1.freetv.fun/investigation-discovery--m-2.ctv
-FAILED_CHECK -> Investigation Discovery
-https://stream1.freetv.fun/id--m-1.ctv
 FAILED_CHECK -> Lifetime
 https://stream1.freetv.fun/lifetime--m-1.ctv
 FAILED_CHECK -> Love Nature
@@ -334,52 +284,52 @@ FAILED_CHECK -> MOVIE MOVIE
 https://stream1.freetv.fun/xuan-yi-movie-1.ctv
 FAILED_CHECK -> MOVIES NOW
 https://stream1.freetv.fun/movies-now-1.ctv
-FAILED_CHECK -> MOVIE MOVIE
-https://stream1.freetv.fun/xuan-yi-movie-3.ctv
 FAILED_CHECK -> MTV Live HD
 https://stream1.freetv.fun/mtv-live-uhd--m-1.ctv
+FAILED_CHECK -> MOVIE MOVIE
+https://stream1.freetv.fun/xuan-yi-movie-3.ctv
 FAILED_CHECK -> NAT GEO WILD
 https://stream1.freetv.fun/national-geographic-wild--m-1.ctv
-FAILED_CHECK -> NFL REDZONE
-https://stream1.freetv.fun/nfl-redzone-1.ctv
+FAILED_CHECK -> NAT GEO(USA)
+https://stream1.freetv.fun/nat-geo-uhd--m-2.ctv
 FAILED_CHECK -> NAT GEO(USA)
 https://stream1.freetv.fun/nat-geo--m-1.ctv
 FAILED_CHECK -> NAT GEO(USA)
-https://stream1.freetv.fun/nat-geo-uhd--m-1.ctv
-FAILED_CHECK -> NAT GEO(USA)
 https://stream1.freetv.fun/nat-geo--m-2.ctv
+FAILED_CHECK -> NFL REDZONE
+https://stream1.freetv.fun/nfl-redzone-1.ctv
 FAILED_CHECK -> NAT GEO(USA)
-https://stream1.freetv.fun/nat-geo-uhd--m-2.ctv
+https://stream1.freetv.fun/nat-geo-uhd--m-1.ctv
 FAILED_CHECK -> NAT WILD HD
 https://stream1.freetv.fun/nat-geo-wild--m-1.ctv
 FAILED_CHECK -> NAT WILD HD
 https://stream1.freetv.fun/nat-geo-wild--m-2.ctv
 FAILED_CHECK -> NAT WILD HD
 https://stream1.freetv.fun/nat-geo-wild-uhd--m-1.ctv
-FAILED_CHECK -> National TV
-https://stream1.freetv.fun/traditional-tv-1.ctv
+FAILED_CHECK -> National Geographic
+https://stream1.freetv.fun/national-geographic--m-1.ctv
 FAILED_CHECK -> National Geographic
 https://stream1.freetv.fun/national-geographic-east-3.ctv
+FAILED_CHECK -> National TV
+https://stream1.freetv.fun/traditional-tv-1.ctv
 FAILED_CHECK -> National Geographic
 https://stream1.freetv.fun/national-geographic-wild-east-3.ctv
 FAILED_CHECK -> National Geographic
 https://stream1.freetv.fun/national-geographic-wild-east-2.ctv
 FAILED_CHECK -> National Geographic
 https://stream1.freetv.fun/national-geographic-east-1.ctv
-FAILED_CHECK -> National Geographic
-https://stream1.freetv.fun/national-geographic--m-1.ctv
 FAILED_CHECK -> Nick HD
 https://stream1.freetv.fun/nick--m-1.ctv
 FAILED_CHECK -> Nickelodeon  (UK)
 https://stream1.freetv.fun/nickelodeon--m-2.ctv
-FAILED_CHECK -> Nickelodeon  (UK)
-https://stream1.freetv.fun/nickelodeon--m-1.ctv
-FAILED_CHECK -> Nicktoons CIS
-https://stream1.freetv.fun/nicktoons--m-1.ctv
 FAILED_CHECK -> Nicktoons CIS
 https://stream1.freetv.fun/nicktoons--m-2.ctv
 FAILED_CHECK -> Nicktoons CIS
 https://stream1.freetv.fun/nicktoons--m-3.ctv
+FAILED_CHECK -> Nickelodeon  (UK)
+https://stream1.freetv.fun/nickelodeon--m-1.ctv
+FAILED_CHECK -> Nicktoons CIS
+https://stream1.freetv.fun/nicktoons--m-1.ctv
 FAILED_CHECK -> Outdoor Channel HD
 https://stream1.freetv.fun/outdoor-channel--m-1.ctv
 FAILED_CHECK -> PARAMOUNT
@@ -391,23 +341,17 @@ https://stream1.freetv.fun/pop--m-1.ctv
 FAILED_CHECK -> RTP Internacional
 https://stream1.freetv.fun/tvi-internacional-6.ctv
 FAILED_CHECK -> Really UK
-https://stream1.freetv.fun/really--m-1.ctv
-FAILED_CHECK -> Really UK
 https://stream1.freetv.fun/really--m-2.ctv
-FAILED_CHECK -> RTHK31
-https://stream1.freetv.fun/rthk-31-1.ctv
-FAILED_CHECK -> RTHK32
-https://stream1.freetv.fun/rthk-32-2.ctv
-FAILED_CHECK -> RTHK32
-https://stream1.freetv.fun/rthk-32-1.ctv
-FAILED_CHECK -> RTHK32
-https://stream1.freetv.fun/rthk-32-3.ctv
+FAILED_CHECK -> Really UK
+https://stream1.freetv.fun/really--m-1.ctv
+FAILED_CHECK -> SKY Cinema Thriller
+https://stream1.freetv.fun/sky-cinema-thriller--m-1.ctv
 FAILED_CHECK -> SKY Cinema Thriller
 https://stream1.freetv.fun/sky-cinema-thriller--m-2.ctv
 FAILED_CHECK -> SONY
-https://stream1.freetv.fun/sony-max-2-1.ctv
-FAILED_CHECK -> SONY
 https://stream1.freetv.fun/sony-pix-1.ctv
+FAILED_CHECK -> SONY
+https://stream1.freetv.fun/sony-max-2-1.ctv
 FAILED_CHECK -> SKY NEWS
 https://stream1.freetv.fun/sky-news--m-1.ctv
 FAILED_CHECK -> SONY TEN 1
@@ -416,18 +360,16 @@ FAILED_CHECK -> STAR MOVIES HD
 https://stream1.freetv.fun/star-movies-3.ctv
 FAILED_CHECK -> STAR MOVIES HD
 https://stream1.freetv.fun/star-maa-movies-1.ctv
-FAILED_CHECK -> SKY NEWS
-https://stream1.freetv.fun/sky-news--m-2.ctv
 FAILED_CHECK -> STAR PRAVAH
 https://stream1.freetv.fun/star-pravah-1.ctv
 FAILED_CHECK -> STAR SPORTS 4
 https://stream1.freetv.fun/star-sports-3-1.ctv
-FAILED_CHECK -> SKY Cinema Thriller
-https://stream1.freetv.fun/sky-cinema-thriller--m-1.ctv
-FAILED_CHECK -> SKY Cinema Select
-https://stream1.freetv.fun/sky-cinema-select--m-1.ctv
+FAILED_CHECK -> SKY NEWS
+https://stream1.freetv.fun/sky-news--m-2.ctv
 FAILED_CHECK -> SKY Cinema Select
 https://stream1.freetv.fun/sky-cinema-select--m-2.ctv
+FAILED_CHECK -> SKY Cinema Select
+https://stream1.freetv.fun/sky-cinema-select--m-1.ctv
 FAILED_CHECK -> SKY Sports MIX
 https://stream1.freetv.fun/sky-mix--m-2.ctv
 FAILED_CHECK -> SKY Sports MIX
@@ -438,24 +380,24 @@ FAILED_CHECK -> Sky Cinema Action
 https://stream1.freetv.fun/sky-cinema-action--m-4.ctv
 FAILED_CHECK -> Sky Cinema Action
 https://stream1.freetv.fun/sky-cinema-action--m-1.ctv
-FAILED_CHECK -> Sky Cinema Action
-https://stream1.freetv.fun/sky-cinema-action--m-3.ctv
 FAILED_CHECK -> Sky Cinema Family
 https://stream1.freetv.fun/sky-cinema-family--m-1.ctv
-FAILED_CHECK -> Sky Cinema Family
-https://stream1.freetv.fun/sky-cinema-family--m-2.ctv
-FAILED_CHECK -> Sky Cinema Comedy
-https://stream1.freetv.fun/sky-cinema-comedy--m-1.ctv
-FAILED_CHECK -> Sky Cinema Max Italia
-https://stream1.freetv.fun/sky-max--m-1.ctv
+FAILED_CHECK -> Sky Cinema Action
+https://stream1.freetv.fun/sky-cinema-action--m-3.ctv
 FAILED_CHECK -> Sky Cinema Action
 https://stream1.freetv.fun/sky-cinema-action--m-2.ctv
+FAILED_CHECK -> Sky Cinema Comedy
+https://stream1.freetv.fun/sky-cinema-comedy--m-1.ctv
+FAILED_CHECK -> Sky Cinema Family
+https://stream1.freetv.fun/sky-cinema-family--m-2.ctv
+FAILED_CHECK -> Sky Cinema Max Italia
+https://stream1.freetv.fun/sky-max--m-1.ctv
 FAILED_CHECK -> Sky Drama   (DE)
 https://stream1.freetv.fun/sky-cinema-drama--m-1.ctv
 FAILED_CHECK -> Sky Hits
-https://stream1.freetv.fun/sky-cinema-hits--m-2.ctv
-FAILED_CHECK -> Sky Hits
 https://stream1.freetv.fun/sky-cinema-hits--m-1.ctv
+FAILED_CHECK -> Sky Hits
+https://stream1.freetv.fun/sky-cinema-hits--m-2.ctv
 FAILED_CHECK -> Sky Movies Drama & Romance  (UK)
 https://stream1.freetv.fun/sky-cinema-drama-romantic--m-1.ctv
 FAILED_CHECK -> Sky Movies HD Modern Greats UK
@@ -469,31 +411,31 @@ https://stream1.freetv.fun/sky-cinema-greats--m-1.ctv
 FAILED_CHECK -> Sky Movies Premiere HD UK
 https://stream1.freetv.fun/sky-cinema-premier--m-2.ctv
 FAILED_CHECK -> Sky Movies Premiere HD UK
-https://stream1.freetv.fun/sky-cinema-premier--m-1.ctv
-FAILED_CHECK -> Sky Movies Premiere HD UK
 https://stream1.freetv.fun/sky-movies-premier--m-1.ctv
-FAILED_CHECK -> Sky Movies Scifi HD (UK)
-https://stream1.freetv.fun/sky-cinema-scifi-horror--m-1.ctv
+FAILED_CHECK -> Sky Movies Premiere HD UK
+https://stream1.freetv.fun/sky-cinema-premier--m-1.ctv
 FAILED_CHECK -> Sky Movies Scifi HD (UK)
 https://stream1.freetv.fun/sky-movies-scifi-horror--m-1.ctv
+FAILED_CHECK -> Sky Movies Scifi HD (UK)
+https://stream1.freetv.fun/sky-cinema-scifi-horror--m-1.ctv
 FAILED_CHECK -> Sky Movies Thriller HD  (UK)
 https://stream1.freetv.fun/sky-movies-thriller--m-1.ctv
+FAILED_CHECK -> Sky Nature
+https://stream1.freetv.fun/sky-nature-uhd--m-1.ctv
 FAILED_CHECK -> Sony Ten 2
 https://stream1.freetv.fun/sony-sports-ten-2-1.ctv
 FAILED_CHECK -> Sony Ten 3
 https://stream1.freetv.fun/sony-sports-ten-3-1.ctv
-FAILED_CHECK -> Sky Nature
-https://stream1.freetv.fun/sky-nature-uhd--m-1.ctv
 FAILED_CHECK -> Star Gold   (IN )
 https://stream1.freetv.fun/star-maa-gold-1.ctv
+FAILED_CHECK -> Star 2
+https://stream1.freetv.fun/star-sports-2-1.ctv
 FAILED_CHECK -> Star HD
 https://stream1.freetv.fun/star-maa-1.ctv
 FAILED_CHECK -> Star Jalsha
 https://stream1.freetv.fun/star-jalsha-1.ctv
 FAILED_CHECK -> Star Movies TW
 https://stream1.freetv.fun/star-movies-select-1.ctv
-FAILED_CHECK -> Star 2
-https://stream1.freetv.fun/star-sports-2-1.ctv
 FAILED_CHECK -> Star Sport 1 USA
 https://stream1.freetv.fun/star-sports-1-tamil-1.ctv
 FAILED_CHECK -> Star Vijay
@@ -502,30 +444,26 @@ FAILED_CHECK -> Star Vijay
 https://stream1.freetv.fun/vijay-takkar-1.ctv
 FAILED_CHECK -> Sun Music
 https://stream1.freetv.fun/sun-music-2.ctv
-FAILED_CHECK -> TCCTV-2
-https://stream1.freetv.fun/cctv-02-3.ctv
-FAILED_CHECK -> TNT Sports 1 FHD
-https://stream1.freetv.fun/tnt-sport-1-2.ctv
-FAILED_CHECK -> TNT Sports 4
-https://stream1.freetv.fun/tnt-sport-4-2.ctv
-FAILED_CHECK -> TLC
-https://stream1.freetv.fun/tlc--m-2.ctv
-FAILED_CHECK -> TLC
-https://stream1.freetv.fun/tlc--m-4.ctv
 FAILED_CHECK -> TLC
 https://stream1.freetv.fun/tlc--m-5.ctv
 FAILED_CHECK -> TLC
 https://stream1.freetv.fun/tlc--m-1.ctv
+FAILED_CHECK -> TNT Sports 4
+https://stream1.freetv.fun/tnt-sport-4-2.ctv
+FAILED_CHECK -> TNT Sports 1 FHD
+https://stream1.freetv.fun/tnt-sport-1-2.ctv
+FAILED_CHECK -> TLC
+https://stream1.freetv.fun/tlc--m-4.ctv
 FAILED_CHECK -> TLC
 https://stream1.freetv.fun/tlc--m-3.ctv
+FAILED_CHECK -> TLC
+https://stream1.freetv.fun/tlc--m-2.ctv
 FAILED_CHECK -> TRAVEL
 https://stream1.freetv.fun/travel-ch--m-1.ctv
 FAILED_CHECK -> TVB Plus
 https://stream1.freetv.fun/tvbplus-2.ctv
 FAILED_CHECK -> TV1
 https://stream1.freetv.fun/btv1-1.ctv
-FAILED_CHECK -> TVB Plus
-https://stream1.freetv.fun/tvbplus-3.ctv
 FAILED_CHECK -> TVi(MAS)
 https://stream1.freetv.fun/tvi-4.ctv
 FAILED_CHECK -> Thanh Hóa TV
@@ -540,18 +478,14 @@ FAILED_CHECK -> life
 https://stream1.freetv.fun/sun-life-1.ctv
 FAILED_CHECK -> news HD
 https://stream1.freetv.fun/sun-news-2.ctv
-FAILED_CHECK -> ViuTV HD
-https://stream1.freetv.fun/viutv-11.ctv
-FAILED_CHECK -> ViuTV HD
-https://stream1.freetv.fun/viu6tv-1.ctv
 FAILED_CHECK -> 上海新聞綜合
 https://stream1.freetv.fun/shang-hai-xin-wen-zong-he-9.ctv
 FAILED_CHECK -> 上海新聞綜合
 https://stream1.freetv.fun/shang-hai-xin-wen-zong-he-8.ctv
 FAILED_CHECK -> 上海都市
-https://stream1.freetv.fun/shang-hai-du-shi-10.ctv
-FAILED_CHECK -> 上海都市
 https://stream1.freetv.fun/shang-hai-du-shi-7.ctv
+FAILED_CHECK -> 上海都市
+https://stream1.freetv.fun/shang-hai-du-shi-10.ctv
 FAILED_CHECK -> 中視
 https://stream1.freetv.fun/zhong-shi-8.ctv
 FAILED_CHECK -> 五星體育
@@ -560,38 +494,34 @@ FAILED_CHECK -> 五星體育
 https://stream1.freetv.fun/wu-xing-ti-yu-11.ctv
 FAILED_CHECK -> 佛山公共
 https://stream1.freetv.fun/fo-shan-gong-gong-27.ctv
+FAILED_CHECK -> 佛山公共
+https://stream1.freetv.fun/fo-shan-gong-gong-15.ctv
 FAILED_CHECK -> 佛山綜合
-https://stream1.freetv.fun/fo-shan-zong-he-23.ctv
+https://stream1.freetv.fun/fo-shan-zong-he-3.ctv
 FAILED_CHECK -> 佛山綜合
 https://stream1.freetv.fun/fo-shan-zong-he-13.ctv
 FAILED_CHECK -> 佛山公共
 https://stream1.freetv.fun/fo-shan-gong-gong-21.ctv
 FAILED_CHECK -> 佛山綜合
-https://stream1.freetv.fun/fo-shan-zong-he-3.ctv
-FAILED_CHECK -> 佛山公共
-https://stream1.freetv.fun/fo-shan-gong-gong-15.ctv
-FAILED_CHECK -> 南京教科
-https://stream1.freetv.fun/nan-jing-jiao-ke-5.ctv
+https://stream1.freetv.fun/fo-shan-zong-he-23.ctv
 FAILED_CHECK -> 南京新聞綜合
 https://stream1.freetv.fun/nan-jing-xin-wen-zong-he-6.ctv
-FAILED_CHECK -> 北京衛視
-https://stream1.freetv.fun/bei-jing-wei-shi-28.ctv
+FAILED_CHECK -> 南京教科
+https://stream1.freetv.fun/nan-jing-jiao-ke-5.ctv
 FAILED_CHECK -> 南寧新聞綜合
 https://stream1.freetv.fun/nan-tong-xin-wen-zong-he-4.ctv
 FAILED_CHECK -> 南平新聞綜合
 https://stream1.freetv.fun/ping-liang-xin-wen-zong-he-3.ctv
-FAILED_CHECK -> 吉林衛視
-https://stream1.freetv.fun/ji-lin-wei-shi-gao-qing-5.ctv
 FAILED_CHECK -> 中視菁采臺
 https://stream1.freetv.fun/zhong-shi-jing-cai-3.ctv
 FAILED_CHECK -> 公視HD
 https://stream1.freetv.fun/xiao-gong-shi-1.ctv
 FAILED_CHECK -> 公視臺語臺
 https://stream1.freetv.fun/gong-shi-tai-yu-2.ctv
-FAILED_CHECK -> 台視HD
-https://stream1.freetv.fun/tai-shi-5.ctv
 FAILED_CHECK -> 原住民電視
 https://stream1.freetv.fun/yuan-zhu-min-wei-shi-1.ctv
+FAILED_CHECK -> 台視HD
+https://stream1.freetv.fun/tai-shi-5.ctv
 FAILED_CHECK -> 台視新聞FHD
 https://stream1.freetv.fun/tai-shi-xin-wen-2.ctv
 FAILED_CHECK -> 哆啦A夢專輯
@@ -599,201 +529,159 @@ https://stream1.freetv.fun/chi-la-ameng-2.ctv
 FAILED_CHECK -> 哆啦A夢專輯
 https://stream1.freetv.fun/chi-la-ameng-3.ctv
 FAILED_CHECK -> 嘉佳卡通
+https://stream1.freetv.fun/jia-jia-qia-tong-27.ctv
+FAILED_CHECK -> 嘉佳卡通
 https://stream1.freetv.fun/jia-jia-qia-tong-25.ctv
 FAILED_CHECK -> 嘉佳卡通
-https://stream1.freetv.fun/jia-jia-qia-tong-27.ctv
+https://stream1.freetv.fun/jia-jia-qia-tong-23.ctv
 FAILED_CHECK -> 大灣區衛視
 https://stream1.freetv.fun/da-wan-qu-wei-shi-21.ctv
-FAILED_CHECK -> 四川衛視
-https://stream1.freetv.fun/si-chuan-wei-shi-13.ctv
-FAILED_CHECK -> 天津衛視
-https://stream1.freetv.fun/tian-jin-wei-shi-gao-qing-6.ctv
-FAILED_CHECK -> 嘉佳卡通
-https://stream1.freetv.fun/jia-jia-qia-tong-23.ctv
-FAILED_CHECK -> 安徽衛視
-https://stream1.freetv.fun/an-hui-wei-shi-gao-qing-5.ctv
 FAILED_CHECK -> 安陽新聞綜合
 https://stream1.freetv.fun/huai-an-xin-wen-zong-he-2.ctv
 FAILED_CHECK -> 安徽衛視
 https://stream1.freetv.fun/an-hui-wei-shi-56.ctv
-FAILED_CHECK -> 安徽衛視
-https://stream1.freetv.fun/an-hui-wei-shi-53.ctv
-FAILED_CHECK -> 山東影視
-https://stream1.freetv.fun/shan-dong-ying-shi-gao-qing-1.ctv
-FAILED_CHECK -> 山東綜藝
-https://stream1.freetv.fun/shan-dong-zong-yi-gao-qing-1.ctv
 FAILED_CHECK -> 山東衛視
 https://stream1.freetv.fun/shan-dong-wei-shi-45.ctv
-FAILED_CHECK -> 山東衛視
-https://stream1.freetv.fun/shan-dong-wei-shi-18.ctv
 FAILED_CHECK -> 嘉佳卡通
 https://stream1.freetv.fun/jia-jia-qia-tong-10.ctv
 FAILED_CHECK -> 嶺南戲曲
-https://stream1.freetv.fun/ling-nan-xi-qu-8.ctv
-FAILED_CHECK -> 嶺南戲曲
 https://stream1.freetv.fun/ling-nan-xi-qu-14.ctv
+FAILED_CHECK -> 嶺南戲曲
+https://stream1.freetv.fun/ling-nan-xi-qu-8.ctv
 FAILED_CHECK -> 山西衛視
 https://stream1.freetv.fun/shan-xi-wei-shi-74.ctv
 FAILED_CHECK -> 嶺南戲曲
-https://stream1.freetv.fun/ling-nan-xi-qu-12.ctv
-FAILED_CHECK -> 廣州新聞
-https://stream1.freetv.fun/yan-zhou-xin-wen-4.ctv
+https://stream1.freetv.fun/ling-nan-xi-qu-3.ctv
 FAILED_CHECK -> 廣州新聞
 https://stream1.freetv.fun/yan-zhou-xin-wen-3.ctv
-FAILED_CHECK -> 廣州法治
-https://stream1.freetv.fun/yan-zhou-fa-zhi-14.ctv
+FAILED_CHECK -> 廣州新聞
+https://stream1.freetv.fun/yan-zhou-xin-wen-4.ctv
 FAILED_CHECK -> 嶺南戲曲
-https://stream1.freetv.fun/ling-nan-xi-qu-3.ctv
-FAILED_CHECK -> 廣州競賽
-https://stream1.freetv.fun/yan-zhou-jing-sai-1.ctv
-FAILED_CHECK -> 廣州競賽
-https://stream1.freetv.fun/yan-zhou-jing-sai-11.ctv
+https://stream1.freetv.fun/ling-nan-xi-qu-12.ctv
+FAILED_CHECK -> 廣州法治
+https://stream1.freetv.fun/yan-zhou-fa-zhi-13.ctv
 FAILED_CHECK -> 廣州新聞
 https://stream1.freetv.fun/yan-zhou-xin-wen-15.ctv
 FAILED_CHECK -> 廣州競賽
+https://stream1.freetv.fun/yan-zhou-jing-sai-12.ctv
+FAILED_CHECK -> 廣州競賽
+https://stream1.freetv.fun/yan-zhou-jing-sai-11.ctv
+FAILED_CHECK -> 廣州競賽
 https://stream1.freetv.fun/yan-zhou-jing-sai-6.ctv
+FAILED_CHECK -> 廣州綜合頻道
+https://stream1.freetv.fun/yan-zhou-zong-he-12.ctv
+FAILED_CHECK -> 廣州競賽
+https://stream1.freetv.fun/yan-zhou-jing-sai-1.ctv
+FAILED_CHECK -> 廣州法治
+https://stream1.freetv.fun/yan-zhou-fa-zhi-14.ctv
 FAILED_CHECK -> 廣州綜合頻道
 https://stream1.freetv.fun/yan-zhou-zong-he-23.ctv
 FAILED_CHECK -> 廣東少兒
 https://stream1.freetv.fun/yan-dong-shao-er-8.ctv
 FAILED_CHECK -> 廣東影視
 https://stream1.freetv.fun/yan-dong-ying-shi-17.ctv
-FAILED_CHECK -> 廣州法治
-https://stream1.freetv.fun/yan-zhou-fa-zhi-13.ctv
-FAILED_CHECK -> 廣州綜合頻道
-https://stream1.freetv.fun/yan-zhou-zong-he-12.ctv
-FAILED_CHECK -> 廣東新聞
-https://stream1.freetv.fun/yan-dong-xin-wen-22.ctv
-FAILED_CHECK -> 廣東新聞
-https://stream1.freetv.fun/yan-dong-xin-wen-7.ctv
-FAILED_CHECK -> 廣州競賽
-https://stream1.freetv.fun/yan-zhou-jing-sai-12.ctv
-FAILED_CHECK -> 廣東新聞
-https://stream1.freetv.fun/yan-dong-xin-wen-24.ctv
 FAILED_CHECK -> 廣東影視
 https://stream1.freetv.fun/yan-dong-ying-shi-3.ctv
+FAILED_CHECK -> 廣東新聞
+https://stream1.freetv.fun/yan-dong-xin-wen-22.ctv
 FAILED_CHECK -> 廣東民生
 https://stream1.freetv.fun/yan-dong-min-sheng-30.ctv
+FAILED_CHECK -> 廣東新聞
+https://stream1.freetv.fun/yan-dong-xin-wen-24.ctv
 FAILED_CHECK -> 廣東民生
-https://stream1.freetv.fun/yan-dong-min-sheng-27.ctv
+https://stream1.freetv.fun/yan-dong-min-sheng-25.ctv
 FAILED_CHECK -> 廣東民生
 https://stream1.freetv.fun/yan-dong-min-sheng-19.ctv
 FAILED_CHECK -> 廣東珠江
 https://stream1.freetv.fun/yan-dong-zhu-jiang-9.ctv
 FAILED_CHECK -> 廣東珠江HD
 https://stream1.freetv.fun/yan-dong-zhu-jiang-23.ctv
-FAILED_CHECK -> 廣東經濟科教
-https://stream1.freetv.fun/yan-dong-jing-ji-ke-jiao-1.ctv
+FAILED_CHECK -> 廣東民生
+https://stream1.freetv.fun/yan-dong-min-sheng-27.ctv
+FAILED_CHECK -> 廣東新聞
+https://stream1.freetv.fun/yan-dong-xin-wen-7.ctv
 FAILED_CHECK -> 廣東珠江HD
 https://stream1.freetv.fun/yan-dong-zhu-jiang-32.ctv
-FAILED_CHECK -> 廣東民生
-https://stream1.freetv.fun/yan-dong-min-sheng-25.ctv
-FAILED_CHECK -> 廣東經濟科教
-https://stream1.freetv.fun/yan-dong-jing-ji-ke-jiao-12.ctv
-FAILED_CHECK -> 廣東經濟科教
-https://stream1.freetv.fun/yan-dong-jing-ji-ke-jiao-2.ctv
 FAILED_CHECK -> 廣東綜藝4K
 https://stream1.freetv.fun/yan-dong-zong-yi-2.ctv
-FAILED_CHECK -> 廣東經濟
-https://stream1.freetv.fun/yan-dong-jing-ji-1.ctv
-FAILED_CHECK -> 廣東綜藝4K
-https://stream1.freetv.fun/yan-dong-zong-yi-11.ctv
-FAILED_CHECK -> 廣東珠江HD
-https://stream1.freetv.fun/yan-dong-zhu-jiang-20.ctv
+FAILED_CHECK -> 廣東經濟科教
+https://stream1.freetv.fun/yan-dong-jing-ji-ke-jiao-2.ctv
 FAILED_CHECK -> 廣東衛視
 https://stream1.freetv.fun/yan-dong-wei-shi-67.ctv
-FAILED_CHECK -> 廣東少兒
-https://stream1.freetv.fun/yan-dong-shao-er-17.ctv
-FAILED_CHECK -> 廣東衛視
-https://stream1.freetv.fun/yan-dong-wei-shi-47.ctv
+FAILED_CHECK -> 廣東珠江HD
+https://stream1.freetv.fun/yan-dong-zhu-jiang-20.ctv
 FAILED_CHECK -> 廣東體育
 https://stream1.freetv.fun/yan-dong-ti-yu-37.ctv
-FAILED_CHECK -> 廣東體育
-https://stream1.freetv.fun/yan-dong-ti-yu-36.ctv
-FAILED_CHECK -> 廣東衛視
-https://stream1.freetv.fun/yan-dong-wei-shi-gao-qing-5.ctv
-FAILED_CHECK -> 廣東體育
-https://stream1.freetv.fun/yan-dong-ti-yu-29.ctv
-FAILED_CHECK -> 廣東體育HD
-https://stream1.freetv.fun/yan-dong-ti-yu-20.ctv
 FAILED_CHECK -> 廣東體育HD
 https://stream1.freetv.fun/yan-dong-ti-yu-39.ctv
+FAILED_CHECK -> 廣東綜藝4K
+https://stream1.freetv.fun/yan-dong-zong-yi-11.ctv
+FAILED_CHECK -> 廣東衛視
+https://stream1.freetv.fun/yan-dong-wei-shi-47.ctv
+FAILED_CHECK -> 廣東體育HD
+https://stream1.freetv.fun/yan-dong-ti-yu-20.ctv
+FAILED_CHECK -> 廣東體育
+https://stream1.freetv.fun/yan-dong-ti-yu-29.ctv
+FAILED_CHECK -> 廣東體育
+https://stream1.freetv.fun/yan-dong-ti-yu-36.ctv
+FAILED_CHECK -> 廣東經濟科教
+https://stream1.freetv.fun/yan-dong-jing-ji-ke-jiao-12.ctv
 FAILED_CHECK -> 廣州競賽
 https://stream1.freetv.fun/yan-zhou-jing-sai-37.ctv
-FAILED_CHECK -> 廣州法治
-https://stream1.freetv.fun/yan-zhou-fa-zhi-17.ctv
+FAILED_CHECK -> 廣東少兒
+https://stream1.freetv.fun/yan-dong-shao-er-17.ctv
 FAILED_CHECK -> 廣東衛視
 https://stream1.freetv.fun/yan-dong-wei-shi-62.ctv
 FAILED_CHECK -> 廣東體育
 https://stream1.freetv.fun/yan-dong-ti-yu-32.ctv
-FAILED_CHECK -> 廣州新聞
-https://stream1.freetv.fun/yan-zhou-xin-wen-18.ctv
 FAILED_CHECK -> 新疆衛視
 https://stream1.freetv.fun/xin-jiang-wei-shi-29.ctv
 FAILED_CHECK -> 明珠臺(備)
 https://stream1.freetv.fun/ming-zhu-7.ctv
-FAILED_CHECK -> 東南衛視
-https://stream1.freetv.fun/dong-nan-wei-shi-gao-qing-2.ctv
 FAILED_CHECK -> 東方影視
 https://stream1.freetv.fun/dong-fang-ying-shi-4.ctv
 FAILED_CHECK -> 武漢文體
 https://stream1.freetv.fun/wu-yi-wen-ti-11.ctv
-FAILED_CHECK -> 武漢文體
-https://stream1.freetv.fun/wu-yi-wen-ti-5.ctv
 FAILED_CHECK -> 江蘇影視
 https://stream1.freetv.fun/jiang-su-ying-shi-1.ctv
+FAILED_CHECK -> 武漢文體
+https://stream1.freetv.fun/wu-yi-wen-ti-5.ctv
 FAILED_CHECK -> 江蘇體育休閒
 https://stream1.freetv.fun/jiang-su-ti-yu-2.ctv
-FAILED_CHECK -> 江蘇體育休閒
-https://stream1.freetv.fun/jiang-su-ti-yu-4.ctv
 FAILED_CHECK -> 江蘇體育休閒
 https://stream1.freetv.fun/jiang-su-ti-yu-3.ctv
 FAILED_CHECK -> 江蘇體育休閒
 https://stream1.freetv.fun/jiang-su-ti-yu-1.ctv
-FAILED_CHECK -> 江西衛視
-https://stream1.freetv.fun/jiang-xi-wei-shi-70.ctv
-FAILED_CHECK -> 江西衛視
-https://stream1.freetv.fun/jiang-xi-wei-shi-gao-qing-4.ctv
-FAILED_CHECK -> 民視HD
-https://stream1.freetv.fun/min-shi-1.ctv
-FAILED_CHECK -> 民視新聞HD
-https://stream1.freetv.fun/min-shi-xin-wen-4.ctv
-FAILED_CHECK -> 民視臺灣台
-https://stream1.freetv.fun/min-shi-tai-wan-7.ctv
+FAILED_CHECK -> 江蘇體育休閒
+https://stream1.freetv.fun/jiang-su-ti-yu-4.ctv
 FAILED_CHECK -> 民視第一台
 https://stream1.freetv.fun/min-shi-di-yi-1.ctv
+FAILED_CHECK -> 民視HD
+https://stream1.freetv.fun/min-shi-1.ctv
+FAILED_CHECK -> 民視臺灣台
+https://stream1.freetv.fun/min-shi-tai-wan-7.ctv
+FAILED_CHECK -> 民視新聞HD
+https://stream1.freetv.fun/min-shi-xin-wen-4.ctv
 FAILED_CHECK -> 河南民生
-https://stream1.freetv.fun/he-nan-min-sheng-8.ctv
+https://stream1.freetv.fun/he-nan-min-sheng-1.ctv
 FAILED_CHECK -> 河南民生
 https://stream1.freetv.fun/he-nan-min-sheng-5.ctv
 FAILED_CHECK -> 河南民生
-https://stream1.freetv.fun/he-nan-min-sheng-1.ctv
-FAILED_CHECK -> 河北衛視
-https://stream1.freetv.fun/he-bei-wei-shi-36.ctv
-FAILED_CHECK -> 河北衛視
-https://stream1.freetv.fun/he-bei-wei-shi-80.ctv
-FAILED_CHECK -> 河南都市
-https://stream1.freetv.fun/he-nan-du-shi-10.ctv
+https://stream1.freetv.fun/he-nan-min-sheng-8.ctv
 FAILED_CHECK -> 河南衛視
 https://stream1.freetv.fun/he-nan-wei-shi-9.ctv
 FAILED_CHECK -> 河南都市
 https://stream1.freetv.fun/he-nan-du-shi-1.ctv
 FAILED_CHECK -> 河南都市
 https://stream1.freetv.fun/he-nan-du-shi-7.ctv
-FAILED_CHECK -> 河南衛視
-https://stream1.freetv.fun/he-nan-wei-shi-12.ctv
+FAILED_CHECK -> 河南都市
+https://stream1.freetv.fun/he-nan-du-shi-10.ctv
 FAILED_CHECK -> 海南衛視
 https://stream1.freetv.fun/hai-nan-wei-shi-24.ctv
-FAILED_CHECK -> 深圳都市
-https://stream1.freetv.fun/shen-zhen-du-shi-11.ctv
-FAILED_CHECK -> 深圳衛視
-https://stream1.freetv.fun/shen-zhen-wei-shi-49.ctv
-FAILED_CHECK -> 湖北衛視
-https://stream1.freetv.fun/hu-bei-wei-shi-28.ctv
 FAILED_CHECK -> 深圳衛視
 https://stream1.freetv.fun/shen-zhen-wei-shi-64.ctv
-FAILED_CHECK -> 湖北衛視
-https://stream1.freetv.fun/hu-bei-wei-shi-14.ctv
+FAILED_CHECK -> 深圳都市
+https://stream1.freetv.fun/shen-zhen-du-shi-11.ctv
 FAILED_CHECK -> 深圳衛視
 https://stream1.freetv.fun/shen-zhen-wei-shi-59.ctv
 FAILED_CHECK -> 甄子丹影視
@@ -816,52 +704,46 @@ FAILED_CHECK -> 華視教育文化
 https://stream1.freetv.fun/hua-shi-jiao-yu-ti-yu-wen-hua-1.ctv
 FAILED_CHECK -> 華視新聞FHD
 https://stream1.freetv.fun/hua-shi-xin-wen-2.ctv
-FAILED_CHECK -> 遼寧衛視
-https://stream1.freetv.fun/liao-zhu-wei-shi-46.ctv
 FAILED_CHECK -> 陝西新聞資訊
 https://stream1.freetv.fun/shan-xi-xin-wen-zi-xun-7.ctv
 FAILED_CHECK -> 陝西新聞資訊
 https://stream1.freetv.fun/shan-xi-xin-wen-zi-xun-12.ctv
-FAILED_CHECK -> 金鷹卡通
-https://stream1.freetv.fun/jin-ying-qia-tong-19.ctv
 FAILED_CHECK -> 陝西都市青春
 https://stream1.freetv.fun/shan-xi-du-shi-qing-chun-9.ctv
-FAILED_CHECK -> 陝西衛視
-https://stream1.freetv.fun/shan-xi-wei-shi-biao-qing-1.ctv
 FAILED_CHECK -> 鳳凰香港
 https://stream1.freetv.fun/feng-huang-xiang-gang-13.ctv
-FAILED_CHECK -> 鳳凰香港
-https://stream1.freetv.fun/feng-huang-xiang-gang-10.ctv
 FAILED_CHECK -> 麗水新聞綜合
 https://stream1.freetv.fun/li-shui-xin-wen-zong-he-6.ctv
 FAILED_CHECK -> 鳳凰香港
-https://stream1.freetv.fun/feng-huang-xiang-gang-4.ctv
+https://stream1.freetv.fun/feng-huang-xiang-gang-10.ctv
 FAILED_CHECK -> 鳳凰香港
 https://stream1.freetv.fun/feng-huang-xiang-gang-3.ctv
+FAILED_CHECK -> 鳳凰香港
+https://stream1.freetv.fun/feng-huang-xiang-gang-4.ctv
 FAILED_CHECK -> 鳳凰資訊HD
 https://stream1.freetv.fun/feng-huang-zi-xun-20.ctv
-FAILED_CHECK -> CNN Fast
-https://stream1.freetv.fun/cnn-fast-3.ctv
-FAILED_CHECK -> CNN International
-https://stream1.freetv.fun/cbc-news-international-1.ctv
 FAILED_CHECK -> CNN HD
 https://stream1.freetv.fun/cnn-4.ctv
+FAILED_CHECK -> CNN International
+https://stream1.freetv.fun/cbc-news-international-1.ctv
 FAILED_CHECK -> World Poker Tour
 https://stream1.freetv.fun/world-poker-1.ctv
-FAILED_CHECK -> Popc
-https://stream1.freetv.fun/popc-1.ctv
-FAILED_CHECK -> 明珠
-https://stream1.freetv.fun/ming-zhu-10.ctv
-FAILED_CHECK -> Animax(HK)
-https://stream1.freetv.fun/cctv-12she-hui-yu-fa-2.ctv
-FAILED_CHECK -> Animax(HK)
-https://stream1.freetv.fun/cctv-8dian-shi-ju-7.ctv
-FAILED_CHECK -> NBC News Now FHD
-https://stream1.freetv.fun/nbc-news-now-7.ctv
+FAILED_CHECK -> CNN Fast
+https://stream1.freetv.fun/cnn-fast-3.ctv
 FAILED_CHECK -> KIX[HK]
 https://stream1.freetv.fun/kix-7.ctv
 FAILED_CHECK -> AXN HD
 https://stream1.freetv.fun/axn-8.ctv
+FAILED_CHECK -> 明珠
+https://stream1.freetv.fun/ming-zhu-10.ctv
+FAILED_CHECK -> Popc
+https://stream1.freetv.fun/popc-1.ctv
+FAILED_CHECK -> Animax(HK)
+https://stream1.freetv.fun/cctv-8dian-shi-ju-7.ctv
+FAILED_CHECK -> Animax(HK)
+https://stream1.freetv.fun/cctv-12she-hui-yu-fa-2.ctv
+FAILED_CHECK -> NBC News Now FHD
+https://stream1.freetv.fun/nbc-news-now-7.ctv
 FAILED_CHECK -> CHANNEL [V]
 https://stream1.freetv.fun/lego-channel-2.ctv
 FAILED_CHECK -> CHANNEL [V]
