@@ -30,7 +30,7 @@ dxl_priority = ["电信组播", "济南联通", "上海移动", "电信单播", 
 sjmz_priority = ["济南移动", "上海移动", "济南联通", "电信组播", "青岛联通", "电信单播"]
 
 # ==============================
-# 分组映射
+# 分组映射（小写兼容）
 # ==============================
 GROUP_MAP = {
     "台湾": "台湾频道",
@@ -65,6 +65,8 @@ def read_csv_files(paths, manual_group_map=None):
                 count = 0
                 filename = os.path.basename(path).lower()
                 for row in reader:
+                    if not row or all(cell.strip() == "" for cell in row):
+                        continue
                     if len(row) >= 4:
                         name, group, url, source = row[:4]
                     elif len(row) == 2 and manual_group_map:
@@ -73,8 +75,9 @@ def read_csv_files(paths, manual_group_map=None):
                         source = "手动"
                     else:
                         continue
-                    # 映射分组名称
-                    group = GROUP_MAP.get(group.strip(), group.strip())
+                    # 映射分组名称（小写兼容）
+                    group_key_raw = group.strip().lower()
+                    group = GROUP_MAP.get(group_key_raw, group.strip())
                     channels.append({
                         "name": name.strip(),
                         "group": group,
@@ -134,17 +137,20 @@ def write_m3u(channels_dict, output_file, source_order=None, exclude_sources=Non
                     f.write(f"{extinf}\n{s['url']}\n")
                     total += 1
     print(f"✅ 已生成 {output_file}，共 {total} 条频道")
+    # 输出分组统计
+    for group, name_dict in channels_dict.items():
+        print(f"📺 {group}: {len(name_dict)} 个频道")
 
 # ==============================
 # 主程序
 # ==============================
 def main():
-    # 手动 CSV 分组映射
+    # 手动 CSV 分组映射（修正拼写）
     manual_group_map = {
         "network_hk_manual.csv": "香港频道",
         "network_mo_manual.csv": "澳门频道",
         "network_tw_manual.csv": "台湾频道",
-        "netwotk_intl_manual.csv": "国际频道"
+        "network_intl_manual.csv": "国际频道"
     }
 
     # 固定源
@@ -152,7 +158,7 @@ def main():
 
     # 建立固定源频道名集合（正则匹配用）
     fixed_names = [re.escape(ch["name"]) for ch in fixed_channels]
-    fixed_pattern = re.compile("|".join(fixed_names), re.I)
+    fixed_pattern = re.compile("|".join(fixed_names), re.I) if fixed_names else re.compile("$^")
 
     # 补充源
     extra_channels = read_csv_files([extra_folder])
