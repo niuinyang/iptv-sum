@@ -1,1 +1,2 @@
 https://freetv.fun/test_channels_new.m3u
+https://iptv-org.github.io/iptv/index.m3u
