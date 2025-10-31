@@ -10,6 +10,7 @@ from aiohttp import ClientTimeout
 # 配置区
 # ==============================
 SOURCE_LIST = [
+    "https://freetv.fun/test_channels_new.m3u",
     "https://freetv.fun/test_channels_taiwan_new.m3u",
     "https://freetv.fun/test_channels_hong_kong_new.m3u",
     "https://freetv.fun/test_channels_macau_new.m3u",
