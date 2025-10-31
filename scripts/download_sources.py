@@ -11,11 +11,7 @@ from aiohttp import ClientTimeout
 # ==============================
 SOURCE_LIST = [
     "https://freetv.fun/test_channels_new.m3u",
-    "https://freetv.fun/test_channels_taiwan_new.m3u",
-    "https://freetv.fun/test_channels_hong_kong_new.m3u",
-    "https://freetv.fun/test_channels_macau_new.m3u",
-    "https://freetv.fun/test_channels_singapore_new.m3u",
-    "https://freetv.fun/test_channels_united_states_new.m3u"
+    "https://iptv-org.github.io/iptv/index.m3u",
 ]
 
 # 可选代理备用前缀（通过 jsDelivr 或 Cloudflare Worker 代理 freetv.fun）
