@@ -2,18 +2,18 @@
 bbc,国际,https://stream1.freetv.fun/bbc-1--wj-2.m3u8,手动/查找源,BBC 1
 bbc,国际,https://stream1.freetv.fun/bbc-1--wj-1.m3u8,手动/查找源,BBC 1
 bbc,国际,http://cord-cutter.net:8080/live/cQnq6G/652882/20194.ts,手动/查找源,BBC America
-bbc,国际,https://stream1.freetv.fun/bbc-america-4.m3u8,手动/查找源,BBC America
 bbc,国际,http://cord-cutter.net:8080/live/Ss5DKE/232455/20194.ts,手动/查找源,BBC America
-bbc,国际,https://stream1.freetv.fun/ch-ng-bbc-earth-1.m3u8,手动/查找源,BBC Earth(tw)
+bbc,国际,https://stream1.freetv.fun/bbc-america-4.m3u8,手动/查找源,BBC America
 bbc,国际,https://stream1.freetv.fun/bbc-earth-14.m3u8,手动/查找源,BBC Earth(tw)
 bbc,国际,https://stream1.freetv.fun/bbc-earth-us-1.m3u8,手动/查找源,BBC Earth(tw)
 bbc,国际,https://stream1.freetv.fun/bbc-earth--wj-2.m3u8,手动/查找源,BBC Earth(tw)
+bbc,国际,https://stream1.freetv.fun/ch-ng-bbc-earth-1.m3u8,手动/查找源,BBC Earth(tw)
 bbc,国际,https://stream1.freetv.fun/bbc-earth--wj-1.m3u8,手动/查找源,BBC Earth(tw)
 bbc,国际,https://stream1.freetv.fun/entertainment-hub-2.m3u8,手动/查找源,BBC Entertainment
 bbc,国际,https://stream1.freetv.fun/entertainment-hub-1.m3u8,手动/查找源,BBC Entertainment
 bbc,国际,https://stream1.freetv.fun/ch-ng-bbc-first-1.m3u8,手动/查找源,BBC First
-bbc,国际,https://stream1.freetv.fun/bbc--wj-1.m3u8,手动/查找源,BBC HD
 bbc,国际,https://stream1.freetv.fun/bbc-4.m3u8,手动/查找源,BBC HD
+bbc,国际,https://stream1.freetv.fun/bbc--wj-1.m3u8,手动/查找源,BBC HD
 bbc,国际,https://stream1.freetv.fun/bbc-lifestyle--wj-1.m3u8,手动/查找源,BBC Lifestyle(TW)
 bbc,国际,https://stream1.freetv.fun/bbc-news-1.ctv,手动/查找源,BBC News HD
 bbc,国际,https://stream1.freetv.fun/bbc-news-3.m3u8,手动/查找源,BBC News HD
@@ -25,92 +25,70 @@ bbc,国际,https://stream1.freetv.fun/bbc-2--wj-2.m3u8,手动/查找源,BBC Two
 bbc,国际,https://stream1.freetv.fun/bbc-2--wj-1.m3u8,手动/查找源,BBC Two HD
 bbc,国际,https://stream1.freetv.fun/bbc-world-news--wj-1.m3u8,手动/查找源,BBC World News
 bbc,国际,https://stream1.freetv.fun/bbc-world-news--wj-2.m3u8,手动/查找源,BBC World News
-ABC news,国际,https://stream1.freetv.fun/abc-news--wj-1.m3u8,手动/查找源,ABC NEWS
 ABC news,国际,https://stream1.freetv.fun/abc-news-2.m3u8,手动/查找源,ABC NEWS
-ABC news,国际,https://stream1.freetv.fun/abc-news-1.m3u8,手动/查找源,ABC NEWS
-ABC news,国际,https://stream1.freetv.fun/abc-news-7.m3u8,手动/查找源,ABC NEWS
 ABC news,国际,https://stream1.freetv.fun/ch-ng-abc-news-1.m3u8,手动/查找源,ABC NEWS
-ABC news,国际,https://stream1.freetv.fun/news-24-1.m3u8,手动/查找源,ABC NEWS 24
+ABC news,国际,https://stream1.freetv.fun/abc-news-7.m3u8,手动/查找源,ABC NEWS
+ABC news,国际,https://stream1.freetv.fun/abc-news-1.m3u8,手动/查找源,ABC NEWS
+ABC news,国际,https://stream1.freetv.fun/abc-news--wj-1.m3u8,手动/查找源,ABC NEWS
 ABC news,国际,https://stream1.freetv.fun/news-24-2.m3u8,手动/查找源,ABC NEWS 24
-ABC news,国际,https://stream1.freetv.fun/abc-news-live-10-1.m3u8,手动/查找源,ABC News Live
-ABC news,国际,https://stream1.freetv.fun/abc-news-live-7-1.m3u8,手动/查找源,ABC News Live
-ABC news,国际,https://stream1.freetv.fun/abc-news-live-9-1.m3u8,手动/查找源,ABC News Live
-ABC news,国际,https://stream1.freetv.fun/abc-news-live-1-4.m3u8,手动/查找源,ABC News Live
-ABC news,国际,https://stream1.freetv.fun/abc-news-live-4-1.m3u8,手动/查找源,ABC News Live
-ABC news,国际,https://stream1.freetv.fun/abc-news-live-6-1.m3u8,手动/查找源,ABC News Live
-ABC news,国际,https://stream1.freetv.fun/abc-news-live-8-3.m3u8,手动/查找源,ABC News Live
-ABC news,国际,https://stream1.freetv.fun/abc-news-live-3-1.m3u8,手动/查找源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/news-24-1.m3u8,手动/查找源,ABC NEWS 24
 ABC news,国际,https://stream1.freetv.fun/abc-news-live-5-4.m3u8,手动/查找源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-3-1.m3u8,手动/查找源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-8-3.m3u8,手动/查找源,ABC News Live
 ABC news,国际,https://stream1.freetv.fun/abc-news-live-2-3.m3u8,手动/查找源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-6-1.m3u8,手动/查找源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-7-1.m3u8,手动/查找源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-1-4.m3u8,手动/查找源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-9-1.m3u8,手动/查找源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-10-1.m3u8,手动/查找源,ABC News Live
+ABC news,国际,https://stream1.freetv.fun/abc-news-live-4-1.m3u8,手动/查找源,ABC News Live
 ABC news,国际,http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/22990,手动/查找源,ABC News USA
 ABC news,国际,https://stream1.freetv.fun/nbc-news-2.m3u8,手动/查找源,NBC NEWS
-CNN international,国际,https://stream1.freetv.fun/pro-sport-international-1.m3u8,手动/查找源,CNN International
-CNN international,国际,https://stream1.freetv.fun/cna-international-2.m3u8,手动/查找源,CNN International
-CNN international,国际,https://stream1.freetv.fun/clan-internacional-1.m3u8,手动/查找源,CNN International
 CNN international,国际,https://stream1.freetv.fun/racer-international-1.m3u8,手动/查找源,CNN International
 CNN international,国际,https://stream1.freetv.fun/tastemade-international-3.m3u8,手动/查找源,CNN International
+CNN international,国际,https://stream1.freetv.fun/cna-international-2.m3u8,手动/查找源,CNN International
+CNN international,国际,https://stream1.freetv.fun/clan-internacional-1.m3u8,手动/查找源,CNN International
 CNN international,国际,https://stream1.freetv.fun/cna-international-1.m3u8,手动/查找源,CNN International
-CNN international,国际,https://stream1.freetv.fun/tastemade-international-2.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/afghanistan-international-1.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/muzyka-kino-international-3.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/failarmy-international-1.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/failarmy-international-2.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/muzyka-1-international-2.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/muzyka-2-international-1.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/muzyka-2-international-2.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/detskoe-kino-international-1.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/iran-international-1.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/muzyka-1-international-1.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/piatnitsa--international-2.m3u8,手动/查找源,LBC International
+CNN international,国际,https://stream1.freetv.fun/pro-sport-international-1.m3u8,手动/查找源,CNN International
 CNN international,国际,https://stream1.freetv.fun/the-pet-collective-international-3.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/the-pet-collective-international-2.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/failarmy-international-4.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/the-pet-collective-international-1.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/kino-1-international-1.m3u8,手动/查找源,LBC International
-CNN international,国际,https://stream1.freetv.fun/tnt-international-1.m3u8,手动/查找源,RTV International
-CNN international,国际,https://stream1.freetv.fun/qazaqstan-international-1.m3u8,手动/查找源,RTV International
 CNN international,国际,https://stream1.freetv.fun/das-erste-international-1.m3u8,手动/查找源,RTV International
-CNN international,国际,https://stream1.freetv.fun/tastemade-international-1.m3u8,手动/查找源,RTV International
-CNN international,国际,https://stream1.freetv.fun/failarmy-international-3.m3u8,手动/查找源,RTV International
+CNN international,国际,https://stream1.freetv.fun/3abn-international-2.m3u8,手动/查找源,RTV International
 CNN international,国际,https://stream1.freetv.fun/qazaqstan-international-2.m3u8,手动/查找源,RTV International
 CNN international,国际,https://stream1.freetv.fun/sts-international-1.m3u8,手动/查找源,RTV International
-CNN international,国际,https://stream1.freetv.fun/kino-1-international-4.m3u8,手动/查找源,RTV International
+CNN international,国际,https://stream1.freetv.fun/tastemade-international-1.m3u8,手动/查找源,RTV International
 CNN international,国际,https://stream1.freetv.fun/afghanistan-international-2.m3u8,手动/查找源,RTV International
-CNN international,国际,https://stream1.freetv.fun/3abn-international-2.m3u8,手动/查找源,RTV International
+CNN international,国际,https://stream1.freetv.fun/qazaqstan-international-1.m3u8,手动/查找源,RTV International
+CNN international,国际,https://stream1.freetv.fun/failarmy-international-3.m3u8,手动/查找源,RTV International
+CNN international,国际,https://stream1.freetv.fun/kino-1-international-4.m3u8,手动/查找源,RTV International
+CNN international,国际,https://stream1.freetv.fun/tnt-international-1.m3u8,手动/查找源,RTV International
 cnn hd,国际,https://stream1.freetv.fun/cnt-1.m3u8,手动/查找源,CN HD
 cnn hd,国际,https://stream1.freetv.fun/cnn-int-3.m3u8,手动/查找源,CNN HD
-cnn hd,国际,https://stream1.freetv.fun/cnn-int-1.m3u8,手动/查找源,CNN HD
-cnn hd,国际,http://cord-cutter.net:8080/live/Ss5DKE/232455/47213.ts,手动/查找源,CNN HD
-cnn hd,国际,https://stream1.freetv.fun/cnn-3.m3u8,手动/查找源,CNN HD
 cnn hd,国际,https://stream1.freetv.fun/cnn-int-4.m3u8,手动/查找源,CNN HD
 cnn hd,国际,https://stream1.freetv.fun/cnn-5.m3u8,手动/查找源,CNN HD
-cnn hd,国际,https://stream1.freetv.fun/cnn--wj-1.m3u8,手动/查找源,CNN HD
-cnn hd,国际,http://cord-cutter.net:8080/live/cQnq6G/652882/47213.ts,手动/查找源,CNN HD
 cnn hd,国际,http://cord-cutter.net:8080/live/cQnq6G/652882/57398.ts,手动/查找源,CNN HD
+cnn hd,国际,http://cord-cutter.net:8080/live/cQnq6G/652882/47213.ts,手动/查找源,CNN HD
 cnn hd,国际,https://stream1.freetv.fun/acnn-2.m3u8,手动/查找源,CNN HD
-cnn hd,国际,https://stream1.freetv.fun/cnn-9.m3u8,手动/查找源,CNN HD
+cnn hd,国际,https://stream1.freetv.fun/cnn-int-1.m3u8,手动/查找源,CNN HD
 cnn hd,国际,https://stream1.freetv.fun/acnn-1.m3u8,手动/查找源,CNN HD
-cnn fast,国际,https://stream1.freetv.fun/cnn-fast-2.m3u8,手动/查找源,CNN Fast
+cnn hd,国际,https://stream1.freetv.fun/cnn-9.m3u8,手动/查找源,CNN HD
+cnn hd,国际,https://stream1.freetv.fun/cnn-3.m3u8,手动/查找源,CNN HD
+cnn hd,国际,https://stream1.freetv.fun/cnn--wj-1.m3u8,手动/查找源,CNN HD
+cnn hd,国际,http://cord-cutter.net:8080/live/Ss5DKE/232455/47213.ts,手动/查找源,CNN HD
 cnn fast,国际,https://stream1.freetv.fun/cnn-fast-1.m3u8,手动/查找源,CNN Fast
-MSNBC,国际,https://stream1.freetv.fun/msnbc-6.m3u8,手动/查找源,MSNBC
-MSNBC,国际,https://stream1.freetv.fun/msnbc-2.m3u8,手动/查找源,MSNBC
-MSNBC,国际,http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/21376,手动/查找源,MSNBC
-MSNBC,国际,http://cord-cutter.net:8080/live/cQnq6G/652882/21376.ts,手动/查找源,MSNBC
-MSNBC,国际,https://stream1.freetv.fun/msnbc-5.m3u8,手动/查找源,MSNBC
-MSNBC,国际,http://cord-cutter.net:8080/live/Ss5DKE/232455/21376.ts,手动/查找源,MSNBC
-FOX NEWS,国际,https://stream1.freetv.fun/fox-news-11.m3u8,手动/查找源,Fox News
+cnn fast,国际,https://stream1.freetv.fun/cnn-fast-2.m3u8,手动/查找源,CNN Fast
 FOX NEWS,国际,http://cord-cutter.net:8080/Hydren1@ogbtv.com/0411@1981/1818,手动/查找源,Fox News
-FOX NEWS,国际,https://stream1.freetv.fun/ch-ng-fox-news-channel-1.m3u8,手动/查找源,Fox News Channel
-FOX NEWS,国际,https://stream1.freetv.fun/fox-news-channel-1.m3u8,手动/查找源,Fox News Channel
+FOX NEWS,国际,https://stream1.freetv.fun/fox-news-11.m3u8,手动/查找源,Fox News
 FOX NEWS,国际,https://stream1.freetv.fun/fox-news-channel-2.m3u8,手动/查找源,Fox News Channel
+FOX NEWS,国际,https://stream1.freetv.fun/fox-news-channel-1.m3u8,手动/查找源,Fox News Channel
+FOX NEWS,国际,https://stream1.freetv.fun/ch-ng-fox-news-channel-1.m3u8,手动/查找源,Fox News Channel
 FOX NEWS,国际,https://stream1.freetv.fun/fox-news-channel-3.m3u8,手动/查找源,Fox News Channel
 FOX NEWS,国际,http://1tv41.icu:8080/8MeZqM/335595/1818,手动/查找源,Fox News Channel
-FOX NEWS,国际,https://stream1.freetv.fun/fox-news--wj-1.m3u8,手动/查找源,FOX NEWS NOW
 FOX NEWS,国际,https://stream1.freetv.fun/fox-now-1.m3u8,手动/查找源,FOX NEWS NOW
-fox news channel,国际,https://stream1.freetv.fun/channelnewsasia-1.m3u8,手动/查找源,news channel
+FOX NEWS,国际,https://stream1.freetv.fun/fox-news--wj-1.m3u8,手动/查找源,FOX NEWS NOW
 fox news channel,国际,https://stream1.freetv.fun/nei-monggol-tv-news-channel-1.m3u8,手动/查找源,news channel
-fox news channel,国际,https://stream1.freetv.fun/ch-ng-black-news-channel-1.m3u8,手动/查找源,news channel
-fox news channel,国际,https://stream1.freetv.fun/salem-news-channel-2.m3u8,手动/查找源,news channel
-fox news channel,国际,https://stream1.freetv.fun/one-channel-g-1.m3u8,手动/查找源,news channel
 fox news channel,国际,https://stream1.freetv.fun/channel-news-asia-2.m3u8,手动/查找源,news channel
+fox news channel,国际,https://stream1.freetv.fun/salem-news-channel-2.m3u8,手动/查找源,news channel
+fox news channel,国际,https://stream1.freetv.fun/channelnewsasia-1.m3u8,手动/查找源,news channel
+fox news channel,国际,https://stream1.freetv.fun/ch-ng-black-news-channel-1.m3u8,手动/查找源,news channel
+fox news channel,国际,https://stream1.freetv.fun/one-channel-g-1.m3u8,手动/查找源,news channel
 CARTOONITO,国际,http://148.113.160.48:14096,手动/查找源,Cartoonito TV
