@@ -1,0 +1,56 @@
+name: Download and Commit M3U Sources (daily)
+
+on:
+  schedule:
+    # 每天 04:00 Asia/Taipei (UTC+8) => UTC 20:00 previous day
+    - cron: '0 20 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  download_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout 仓库
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true  # 使用 GITHUB_TOKEN 推送
+          fetch-depth: 0             # 确保完整历史
+
+      # 2. 设置 Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      # 3. 安装依赖
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      # 4. 确保目标文件夹存在
+      - name: Ensure output directory exists
+        run: |
+          mkdir -p input/network/network_sources
+          mkdir -p scripts
+
+      # 5. 运行下载脚本
+      - name: Run download script
+        run: |
+          python scripts/download_network_m3u.py
+
+      # 6. 配置 Git 用户信息
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # 7. 提交并推送更新
+      - name: Commit & Push downloaded files
+        run: |
+          cd $GITHUB_WORKSPACE
+          git add input/network/network_sources
+          git diff --cached --quiet || \
+          git commit -m "Update network M3U sources [ci skip]"
+          git push origin HEAD
