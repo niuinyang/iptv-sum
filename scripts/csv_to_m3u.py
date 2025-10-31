@@ -156,6 +156,9 @@ def main():
     # 固定源
     fixed_channels = read_csv_files(fixed_csv + [fixed_folder], manual_group_map)
 
+    # 建立固定源频道名 -> 分组映射（用于统一分组）
+    name_to_group = {ch["name"]: ch["group"] for ch in fixed_channels}
+
     # 建立固定源频道名集合（正则匹配用）
     fixed_names = [re.escape(ch["name"]) for ch in fixed_channels]
     fixed_pattern = re.compile("|".join(fixed_names), re.I) if fixed_names else re.compile("$^")
@@ -166,11 +169,13 @@ def main():
     # 补充源只保留固定源已有的频道
     extra_filtered = [ch for ch in extra_channels if fixed_pattern.search(ch["name"])]
 
-    # 合并频道
+    # 合并频道（补充源分组统一为固定源分组）
     combined = defaultdict(lambda: defaultdict(list))
     for ch in fixed_channels:
         combined[ch["group"]][ch["name"]].append(ch)
     for ch in extra_filtered:
+        correct_group = name_to_group.get(ch["name"], ch["group"])
+        ch["group"] = correct_group
         combined[ch["group"]][ch["name"]].append(ch)
 
     # 生成 M3U 文件
