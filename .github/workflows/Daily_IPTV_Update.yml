@@ -31,9 +31,9 @@ jobs:
           pip install requests opencc-python-reimplemented aiohttp Pillow opencv-python-headless
 
       # 1️⃣ 下载网络源
-      #- name: Download network sources
-      #  run: |
-      #    python scripts/download_sources.py
+      - name: Download network sources
+        run: |
+          python scripts/download_sources.py
 
       # 2️⃣ 合并本地源
       - name: Merge local sources
