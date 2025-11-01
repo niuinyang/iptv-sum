@@ -2,29 +2,26 @@ import os
 import csv
 import time
 import json
-import subprocess
 import requests
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from collections import defaultdict
 from statistics import mean
 import multiprocessing
-
-# ==============================
-# 文件夹结构
-# ==============================
-OUTPUT_DIR = "output"
-LOG_DIR = os.path.join(OUTPUT_DIR, "log")
-MIDDLE_DIR = os.path.join(OUTPUT_DIR, "middle")
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-os.makedirs(LOG_DIR, exist_ok=True)
-os.makedirs(MIDDLE_DIR, exist_ok=True)
+import subprocess
 
 # ==============================
 # 配置区
 # ==============================
-CSV_FILE = os.path.join(OUTPUT_DIR, "merge_total.csv")  # 输入 CSV
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.m3u")
-CSV_OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.csv")
+OUTPUT_DIR = "output"
+MIDDLE_DIR = os.path.join(OUTPUT_DIR, "middle")
+LOG_DIR = os.path.join(OUTPUT_DIR, "log")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(MIDDLE_DIR, exist_ok=True)
+os.makedirs(LOG_DIR, exist_ok=True)
+
+CSV_FILE = os.path.join(OUTPUT_DIR, "merge_total.csv")  # 输入 CSV 文件
+OUTPUT_M3U = os.path.join(OUTPUT_DIR, "working.m3u")
+WORKING_CSV = os.path.join(OUTPUT_DIR, "working.csv")
 PROGRESS_FILE = os.path.join(MIDDLE_DIR, "progress.json")
 SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
 SUSPECT_FILE = os.path.join(LOG_DIR, "suspect.log")
@@ -101,18 +98,19 @@ def ffprobe_check(url):
     elapsed = round(time.time() - start, 3)
     return ok, elapsed, url
 
-def test_stream(title, url):
+def test_stream(entry):
+    title, url, original_name, logo = entry
     url = url.strip()
     try:
         ok, elapsed, final_url = quick_check(url)
         if not ok:
             ok, elapsed, final_url = ffprobe_check(url)
-        return ok, elapsed, final_url
+        return (ok, elapsed, final_url, title, original_name, logo)
     except Exception as e:
         log_skip("EXCEPTION", title, url)
         if DEBUG:
             print(f"❌ EXCEPTION {title} -> {url} | {e}")
-        return False, 0, url
+        return (False, 0, url, title, original_name, logo)
 
 def detect_optimal_threads():
     test_urls = ["https://www.apple.com","https://www.google.com","https://www.microsoft.com"]
@@ -138,6 +136,15 @@ def detect_optimal_threads():
 def extract_name(title):
     return title.split(",")[-1].strip() if "," in title else title.strip()
 
+def write_working_csv(all_working):
+    with open(WORKING_CSV, "w", newline="", encoding="utf-8-sig") as f:
+        writer = csv.writer(f)
+        writer.writerow(["standard_name", "", "url", "source", "original_name", "logo", "检测时间"])
+        for ok, elapsed, url, title, original_name, logo in all_working:
+            if ok:
+                writer.writerow([title, "", url, "网络源", original_name, logo, elapsed])
+    print(f"📁 生成 working.csv: {WORKING_CSV}")
+
 # ==============================
 # 主逻辑
 # ==============================
@@ -147,28 +154,27 @@ if __name__ == "__main__":
         if os.path.exists(log_file):
             os.remove(log_file)
 
-    # 读取 CSV，读取标准名、URL、原始名、图标
+    # 读取 CSV 并确认列名
     pairs = []
-    original_map = {}
-    icon_map = {}
-    with open(CSV_FILE, encoding="utf-8") as f:
+    with open(CSV_FILE, encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
-        title_col = "standard_name"
-        url_col = "url"
-        original_col = "original_name"
-        icon_col = "logo"
+        fieldnames = reader.fieldnames
+        print("CSV 字段:", fieldnames)
+        required_cols = ["standard_name", "url", "original_name", "logo"]
+        for col in required_cols:
+            if col not in fieldnames:
+                raise ValueError(f"CSV 文件缺少 required 列: '{col}'")
 
         for row in reader:
-            title = row[title_col].strip()
-            url = row[url_col].strip()
-            original = row[original_col].strip() if row.get(original_col) else ""
-            icon = row[icon_col].strip() if row.get(icon_col) else ""
-            pairs.append((title, url))
-            original_map[title] = original
-            icon_map[title] = icon
+            title = row.get("standard_name", "").strip()
+            url = row.get("url", "").strip()
+            original_name = row.get("original_name", "").strip()
+            logo = row.get("logo", "").strip()
+            if title and url:
+                pairs.append((title, url, original_name, logo))
 
     # 过滤
-    filtered_pairs = [(t,u) for t,u in pairs if is_allowed(t,u)]
+    filtered_pairs = [p for p in pairs if is_allowed(p[0], p[1])]
     print(f"🚫 跳过源: {len(pairs)-len(filtered_pairs)} 条")
 
     total = len(filtered_pairs)
@@ -189,66 +195,51 @@ if __name__ == "__main__":
 
     for batch_start in range(done_index, total, BATCH_SIZE):
         batch = filtered_pairs[batch_start:batch_start+BATCH_SIZE]
-        working_batch = []
         with ThreadPoolExecutor(max_workers=threads) as executor:
-            futures = {executor.submit(test_stream,title,url):(title,url) for title,url in batch}
+            futures = {executor.submit(test_stream, entry): entry for entry in batch}
             for future in as_completed(futures):
-                title,url = futures[future]
+                entry = futures[future]
                 try:
-                    ok, elapsed, final_url = future.result()
+                    ok, elapsed, final_url, title, original_name, logo = future.result()
                     if ok:
-                        working_batch.append((title, final_url, elapsed))
+                        all_working.append((ok, elapsed, final_url, title, original_name, logo))
                         if DEBUG:
                             print(f"✅ {extract_name(title)} ({elapsed}s)")
                     else:
-                        log_skip("FAILED_CHECK", title, url)
+                        log_skip("FAILED_CHECK", title, entry[1])
                 except Exception as e:
-                    log_skip("EXCEPTION", title, url)
-        all_working.extend(working_batch)
-        json.dump({"done":min(batch_start+BATCH_SIZE,total)}, open(PROGRESS_FILE,"w",encoding="utf-8"))
-        print(f"🧮 本批完成：{len(working_batch)}/{len(batch)} 可用流 | 已完成 {min(batch_start+BATCH_SIZE,total)}/{total}")
+                    log_skip("EXCEPTION", entry[0], entry[1])
+        json.dump({"done": min(batch_start + BATCH_SIZE, total)}, open(PROGRESS_FILE, "w", encoding="utf-8"))
+        print(f"🧮 本批完成：{len(all_working)}/{min(batch_start + BATCH_SIZE, total)} 可用流 | 已完成 {min(batch_start + BATCH_SIZE, total)}/{total}")
 
     if os.path.exists(PROGRESS_FILE):
         os.remove(PROGRESS_FILE)
 
-    # 分组、排序并写入 M3U 和 CSV
     if all_working:
+        # 写 M3U
         grouped = defaultdict(list)
-        for title,url,elapsed in all_working:
+        for ok, elapsed, url, title, original_name, logo in all_working:
             name = extract_name(title).lower()
-            grouped[name].append((title,url,elapsed))
+            grouped[name].append((title, url, elapsed, original_name, logo))
 
-        # 写 working.m3u
-        if os.path.exists(OUTPUT_FILE):
-            os.remove(OUTPUT_FILE)
+        if os.path.exists(OUTPUT_M3U):
+            os.remove(OUTPUT_M3U)
 
-        with open(OUTPUT_FILE,"w",encoding="utf-8") as f:
+        with open(OUTPUT_M3U, "w", encoding="utf-8") as f:
             f.write("#EXTM3U\n")
             for name in sorted(grouped.keys()):
                 group_sorted = sorted(grouped[name], key=lambda x: x[2])
-                for title,url,_ in group_sorted:
+                for title, url, _, _, _ in group_sorted:
                     f.write(f"#EXTINF:-1,{title}\n{url}\n")
-        print(f"📁 写入完成: {OUTPUT_FILE}")
+        print(f"📁 写入完成: {OUTPUT_M3U}")
 
         # 写 working.csv
-        with open(CSV_OUTPUT_FILE, "w", encoding="utf-8", newline="") as csvf:
-            writer = csv.writer(csvf)
-            writer.writerow(["standard_name", "", "url", "source", "original_name", "logo"])
-            for name in sorted(grouped.keys()):
-                group_sorted = sorted(grouped[name], key=lambda x: x[2])
-                for title,url,_ in group_sorted:
-                    standard_name = extract_name(title)
-                    empty_col = ""
-                    stream_url = url
-                    source = "网络源"
-                    original_name = original_map.get(title, "")
-                    logo_url = icon_map.get(title, "")
-                    writer.writerow([standard_name, empty_col, stream_url, source, original_name, logo_url])
-        print(f"📁 写入完成: {CSV_OUTPUT_FILE}")
+        write_working_csv(all_working)
+
     else:
         print("⚠️ 没有可用流，working.m3u 和 working.csv 未更新")
 
-    elapsed_total = round(time.time()-start_time,2)
+    elapsed_total = round(time.time() - start_time, 2)
     print(f"\n✅ 检测完成，共 {len(all_working)} 条可用流，用时 {elapsed_total} 秒")
-    print(f"⚠️ 失败或过滤源: {SKIPPED_FILE}")
-    print(f"🕵️ 可疑误杀源: {SUSPECT_FILE}")
+    print(f"⚠️ 失败或过滤源日志: {SKIPPED_FILE}")
+    print(f"🕵️ 可疑误杀源日志: {SUSPECT_FILE}")
