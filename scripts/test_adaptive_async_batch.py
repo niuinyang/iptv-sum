@@ -24,6 +24,7 @@ os.makedirs(MIDDLE_DIR, exist_ok=True)
 # ==============================
 CSV_FILE = os.path.join(OUTPUT_DIR, "merge_total.csv")  # 输入 CSV
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.m3u")
+CSV_OUTPUT_FILE = os.path.join(OUTPUT_DIR, "working.csv")
 PROGRESS_FILE = os.path.join(MIDDLE_DIR, "progress.json")
 SKIPPED_FILE = os.path.join(LOG_DIR, "skipped.log")
 SUSPECT_FILE = os.path.join(LOG_DIR, "suspect.log")
@@ -146,21 +147,25 @@ if __name__ == "__main__":
         if os.path.exists(log_file):
             os.remove(log_file)
 
-    # 导入 CSV，自动识别列名
+    # 读取 CSV，读取标准名、URL、原始名、图标
     pairs = []
+    original_map = {}
+    icon_map = {}
     with open(CSV_FILE, encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        fieldnames = reader.fieldnames
-        if not fieldnames:
-            raise ValueError("CSV 文件为空或缺少列名")
-        title_col = next((c for c in fieldnames if "name" in c.lower() or "title" in c.lower()), None)
-        url_col = next((c for c in fieldnames if "url" in c.lower()), None)
-        if not title_col or not url_col:
-            raise ValueError("CSV 文件缺少标题或 URL 列")
+        title_col = "standard_name"
+        url_col = "url"
+        original_col = "original_name"
+        icon_col = "logo"
+
         for row in reader:
             title = row[title_col].strip()
             url = row[url_col].strip()
+            original = row[original_col].strip() if row.get(original_col) else ""
+            icon = row[icon_col].strip() if row.get(icon_col) else ""
             pairs.append((title, url))
+            original_map[title] = original
+            icon_map[title] = icon
 
     # 过滤
     filtered_pairs = [(t,u) for t,u in pairs if is_allowed(t,u)]
@@ -171,7 +176,6 @@ if __name__ == "__main__":
     print(f"⚙️ 动态线程数：{threads}")
     print(f"🚀 开始检测 {total} 条流，每批 {BATCH_SIZE} 条")
 
-    # 批量检测
     all_working = []
     start_time = time.time()
     done_index = 0
@@ -207,14 +211,14 @@ if __name__ == "__main__":
     if os.path.exists(PROGRESS_FILE):
         os.remove(PROGRESS_FILE)
 
-    # 分组、排序并写入 M3U，确保写入
+    # 分组、排序并写入 M3U 和 CSV
     if all_working:
         grouped = defaultdict(list)
         for title,url,elapsed in all_working:
             name = extract_name(title).lower()
             grouped[name].append((title,url,elapsed))
 
-        # 强制删除旧文件
+        # 写 working.m3u
         if os.path.exists(OUTPUT_FILE):
             os.remove(OUTPUT_FILE)
 
@@ -223,11 +227,26 @@ if __name__ == "__main__":
             for name in sorted(grouped.keys()):
                 group_sorted = sorted(grouped[name], key=lambda x: x[2])
                 for title,url,_ in group_sorted:
-                    # 添加EXTINF标签
                     f.write(f"#EXTINF:-1,{title}\n{url}\n")
         print(f"📁 写入完成: {OUTPUT_FILE}")
+
+        # 写 working.csv
+        with open(CSV_OUTPUT_FILE, "w", encoding="utf-8", newline="") as csvf:
+            writer = csv.writer(csvf)
+            writer.writerow(["standard_name", "", "url", "source", "original_name", "logo"])
+            for name in sorted(grouped.keys()):
+                group_sorted = sorted(grouped[name], key=lambda x: x[2])
+                for title,url,_ in group_sorted:
+                    standard_name = extract_name(title)
+                    empty_col = ""
+                    stream_url = url
+                    source = "网络源"
+                    original_name = original_map.get(title, "")
+                    logo_url = icon_map.get(title, "")
+                    writer.writerow([standard_name, empty_col, stream_url, source, original_name, logo_url])
+        print(f"📁 写入完成: {CSV_OUTPUT_FILE}")
     else:
-        print("⚠️ 没有可用流，working.m3u 未更新")
+        print("⚠️ 没有可用流，working.m3u 和 working.csv 未更新")
 
     elapsed_total = round(time.time()-start_time,2)
     print(f"\n✅ 检测完成，共 {len(all_working)} 条可用流，用时 {elapsed_total} 秒")
