@@ -140,13 +140,13 @@ def write_output_files(channels):
             url = ch["url"]
             f.write(f'#EXTINF:-1 tvg-name="{tvg_name_norm}",{display_name}\n{url}\n')
 
-    # 写 CSV
+    # 写 CSV（去掉第二列空列）
     with open(OUTPUT_CSV, "w", newline="", encoding="utf-8-sig") as f:
         writer = csv.writer(f)
-        writer.writerow(["standard_name", "", "url", "source", "original_name", "logo"])
+        writer.writerow(["standard_name", "url", "source", "original_name", "logo"])
         for ch in valid_channels:
             standard_name = normalize_channel_name(ch["tvg_name"] or ch["display_name"])
-            writer.writerow([standard_name, "", ch["url"], "网络源", ch["display_name"], ch.get("logo", "")])
+            writer.writerow([standard_name, ch["url"], "网络源", ch["display_name"], ch.get("logo", "")])
 
     # 写跳过日志
     with open(SKIPPED_LOG, "w", encoding="utf-8") as f:
