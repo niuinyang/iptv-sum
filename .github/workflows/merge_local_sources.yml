@@ -1,171 +1,40 @@
-import os
-import re
-import csv
-import unicodedata
-from urllib.parse import urlparse
+name: Merge Local IPTV Sources
 
-# ==============================
-# 配置区
-# ==============================
-SOURCE_DIR = "input/network/network_sources"  # 下载源目录
-OUTPUT_DIR = "output"
-LOG_DIR = os.path.join(OUTPUT_DIR, "log")
+on:
+  workflow_dispatch:  # 手动触发
 
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-os.makedirs(LOG_DIR, exist_ok=True)
+permissions:
+  contents: write
 
-OUTPUT_M3U = os.path.join(OUTPUT_DIR, "merge_total.m3u")
-OUTPUT_CSV = os.path.join(OUTPUT_DIR, "merge_total.csv")
-SKIPPED_LOG = os.path.join(LOG_DIR, "skipped.log")
+jobs:
+  merge_local:
+    runs-on: ubuntu-latest
 
-# ==============================
-# 工具函数
-# ==============================
-def normalize_channel_name(name: str) -> str:
-    """标准化频道名（去掉符号、空格、大小写统一）"""
-    name = unicodedata.normalize("NFKC", name or "")
-    name = re.sub(r"[\s\[\]（）()【】]", "", name)
-    name = re.sub(r"[-_\.]", "", name)
-    return name.strip().lower()
+    steps:
+      - uses: actions/checkout@v4
 
-def fallback_name_from_url(url: str) -> str:
-    try:
-        p = urlparse(url)
-        host = p.hostname or url
-        return host.split('.')[-2] if host and '.' in host else host
-    except:
-        return url
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-def read_m3u_file(file_path: str):
-    """
-    读取 M3U 文件，返回 (频道名, URL) 列表
-    更鲁棒的解析：优先取 tvg-name，若无则取 EXTINF 逗号后的显示名，若仍无则退回 URL 主机名
-    """
-    channels = []
-    try:
-        with open(file_path, "r", encoding="utf-8", errors="replace") as f:
-            lines = [ln.rstrip("\n") for ln in f]
+      - name: Install dependencies
+        run: |
+          pip install requests
 
-        i = 0
-        while i < len(lines):
-            line = lines[i].strip()
-            if not line:
-                i += 1
-                continue
+      - name: Merge local M3U sources
+        working-directory: ${{ github.workspace }}
+        run: |
+          python scripts/merge_local_sources.py
 
-            # 找到 #EXTINF 行
-            if line.startswith("#EXTINF"):
-                info_line = line
+      - name: Check output files
+        run: |
+          ls -lh output/
+          echo "✅ 检查完成 — 输出目录内容如上"
 
-                # 1) 尝试用 tvg-name="..."`
-                m_name = re.search(r'tvg-name\s*=\s*"([^"]+)"', info_line, re.IGNORECASE)
-                title = m_name.group(1).strip() if m_name else None
-
-                # 2) 若没有 tvg-name，则尝试取 #EXTINF:...,(显示名) 的逗号后面部分（取最后一个逗号之后）
-                if not title:
-                    m_tail = re.search(r'#EXTINF:[^\n]*,(.*)$', info_line, re.IGNORECASE)
-                    if m_tail:
-                        title = m_tail.group(1).strip()
-
-                # 3) 若仍无，尝试 tvg-id 或 tvg-logo 等字段作为备用名（取第一个非空）
-                if not title:
-                    m_id = re.search(r'tvg-id\s*=\s*"([^"]+)"', info_line, re.IGNORECASE)
-                    if m_id:
-                        title = m_id.group(1).strip()
-
-                # 4) 获取后面的 url 行（跳过空行或注释）
-                url_line = ""
-                j = i + 1
-                while j < len(lines):
-                    candidate = lines[j].strip()
-                    if candidate == "" or candidate.startswith("#"):
-                        j += 1
-                        continue
-                    url_line = candidate
-                    break
-
-                # 5) 如果没有 title（极少见），从 url 提取一个 fallback 名
-                if not title:
-                    title = fallback_name_from_url(url_line) or "未知频道"
-
-                # 6) 最后加入（只接受 http/https）
-                if url_line and url_line.lower().startswith(("http://", "https://")):
-                    channels.append((title, url_line))
-                else:
-                    # 非 http 链接也记录为跳过用日志（保留原 name）
-                    channels.append((title, url_line))
-                # 移动索引到 url 行之后
-                i = j + 1
-            else:
-                i += 1
-
-        print(f"📡 已加载 {os.path.basename(file_path)}: {len(channels)} 条频道")
-        return channels
-
-    except Exception as e:
-        print(f"⚠️ 读取 {file_path} 失败: {e}")
-        return []
-
-# ==============================
-# 主逻辑（去重相同 URL）
-# ==============================
-def merge_local_sources():
-    all_channels = []
-    skipped = []
-    seen_urls = set()  # 记录已出现的 URL
-
-    print(f"📂 正在读取文件夹: {os.path.abspath(SOURCE_DIR)}")
-
-    for file in os.listdir(SOURCE_DIR):
-        if not file.endswith(".m3u"):
-            continue
-        file_path = os.path.join(SOURCE_DIR, file)
-        channels = read_m3u_file(file_path)
-
-        for name, url in channels:
-            # 如果没有 URL 或不是 http(s)，记录到 skipped 并跳过
-            if not url or not url.lower().startswith("http"):
-                skipped.append((name, url))
-                continue
-            # 去除相同 URL 的重复源
-            if url in seen_urls:
-                continue
-            seen_urls.add(url)
-            all_channels.append((name, url))
-
-    print(f"\n✅ 合并完成：共 {len(all_channels)} 条频道（已去重相同 URL）")
-    print(f"📁 输出 M3U: {OUTPUT_M3U}")
-    print(f"📁 输出 CSV: {OUTPUT_CSV}")
-
-    # ==============================
-    # 写入 M3U
-    # ==============================
-    with open(OUTPUT_M3U, "w", encoding="utf-8") as f:
-        f.write("#EXTM3U\n")
-        for name, url in all_channels:
-            # 尽量保留原始显示名
-            f.write(f'#EXTINF:-1 tvg-name="{name}",{name}\n{url}\n')
-
-    # ==============================
-    # 写入 CSV
-    # ==============================
-    with open(OUTPUT_CSV, "w", newline="", encoding="utf-8-sig") as f:
-        writer = csv.writer(f)
-        writer.writerow(["tvg-name", "URL"])
-        writer.writerows(all_channels)
-
-    # ==============================
-    # 写入跳过日志
-    # ==============================
-    with open(SKIPPED_LOG, "w", encoding="utf-8") as f:
-        for name, url in skipped:
-            f.write(f"{name},{url}\n")
-
-    print(f"📁 跳过日志: {SKIPPED_LOG}")
-
-
-# ==============================
-# 主入口
-# ==============================
-if __name__ == "__main__":
-    merge_local_sources()
+      - name: Commit merged output
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/*.m3u output/*.csv || true
+          git commit -m "🤖 Auto merge local sources $(date '+%Y-%m-%d %H:%M:%S')" || true
+          git push || true
