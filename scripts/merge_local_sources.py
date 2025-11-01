@@ -2,15 +2,14 @@ import os
 import re
 import csv
 import unicodedata
-import requests
 
 # ==============================
 # 配置区
 # ==============================
-SOURCE_DIR = "input/network/network_sources"  # M3U 文件所在目录
+SOURCE_DIR = "input/network/network_sources"  # M3U 和 TXT 文件所在目录
 OUTPUT_DIR = "output"
 LOG_DIR = os.path.join(OUTPUT_DIR, "log")
-ICON_DIR = "png"  # 这个目录保留，但不再使用下载功能
+ICON_DIR = "png"  # 保留，暂不下载图标
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(LOG_DIR, exist_ok=True)
@@ -39,13 +38,7 @@ def get_icon_path(standard_name, tvg_logo_url):
 
 def read_m3u_file(file_path: str):
     """
-    读取 M3U 文件，返回频道列表，每项是 dict：
-    {
-      'tvg_name': (tvg-name字段，可能None),
-      'display_name': (逗号后显示名),
-      'url': 播放地址,
-      'logo': tvg-logo 的 URL 字符串
-    }
+    读取 M3U 文件，返回频道列表，每项是 dict
     """
     channels = []
     try:
@@ -70,9 +63,7 @@ def read_m3u_file(file_path: str):
                 else:
                     display_name = "未知频道"
 
-                standard_name = normalize_channel_name(tvg_name or display_name)
-
-                icon_path = get_icon_path(standard_name, tvg_logo_url)
+                icon_path = get_icon_path(normalize_channel_name(tvg_name or display_name), tvg_logo_url)
 
                 channels.append({
                     "tvg_name": tvg_name,
@@ -87,6 +78,36 @@ def read_m3u_file(file_path: str):
         print(f"📡 已加载 {os.path.basename(file_path)}: {len(channels)} 条频道")
         return channels
 
+    except Exception as e:
+        print(f"⚠️ 读取 {file_path} 失败: {e}")
+        return []
+
+def read_txt_multi_section_csv(file_path: str):
+    """
+    读取多段标题的CSV格式TXT文件，跳过空行和包含 #genre# 的标题行
+    返回频道列表，每项是 dict
+    """
+    channels = []
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line or "#genre#" in line:
+                    continue  # 跳过空行和标题行
+                parts = line.split(",", 1)
+                if len(parts) != 2:
+                    continue
+                display_name, url = parts[0].strip(), parts[1].strip()
+                if not url.startswith("http"):
+                    continue
+                channels.append({
+                    "tvg_name": display_name,
+                    "display_name": display_name,
+                    "url": url,
+                    "logo": ""
+                })
+        print(f"📡 已加载 {os.path.basename(file_path)}: {len(channels)} 条频道")
+        return channels
     except Exception as e:
         print(f"⚠️ 读取 {file_path} 失败: {e}")
         return []
@@ -110,7 +131,7 @@ def write_output_files(channels):
     print(f"\n✅ 过滤有效频道: {len(valid_channels)} 条，有效 URL 去重后")
     print(f"跳过无效或重复频道: {len(skipped_channels)} 条")
 
-    # 写 M3U，tvg-name 用标准化名，频道显示名用 display_name
+    # 写 M3U
     with open(OUTPUT_M3U, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         for ch in valid_channels:
@@ -119,7 +140,7 @@ def write_output_files(channels):
             url = ch["url"]
             f.write(f'#EXTINF:-1 tvg-name="{tvg_name_norm}",{display_name}\n{url}\n')
 
-    # 写 CSV，第一列标准化名，第二列空，第三列 URL，第四列固定“网络源”，第五列原频道名，第六列图标URL（不下载）
+    # 写 CSV
     with open(OUTPUT_CSV, "w", newline="", encoding="utf-8-sig") as f:
         writer = csv.writer(f)
         writer.writerow(["standard_name", "", "url", "source", "original_name", "logo"])
@@ -143,10 +164,14 @@ def merge_all_sources():
 
     print(f"📂 扫描目录: {SOURCE_DIR}")
     for file in os.listdir(SOURCE_DIR):
+        file_path = os.path.join(SOURCE_DIR, file)
         if file.endswith(".m3u"):
-            file_path = os.path.join(SOURCE_DIR, file)
             chs = read_m3u_file(file_path)
-            all_channels.extend(chs)
+        elif file.endswith(".txt"):
+            chs = read_txt_multi_section_csv(file_path)
+        else:
+            continue
+        all_channels.extend(chs)
 
     print(f"\n📊 合并所有频道，共 {len(all_channels)} 条")
     return all_channels
