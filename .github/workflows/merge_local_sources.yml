@@ -1,0 +1,41 @@
+name: Merge Local IPTV Sources
+
+on:
+  workflow_dispatch:  # 支持手动触发
+
+permissions:
+  contents: write  # 允许写入仓库文件
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          # 如果需要安装依赖，放这里
+          # pip install -r requirements.txt
+
+      - name: Run merge_local_sources.py script
+        run: |
+          python scripts/merge_local_sources.py
+
+      - name: List output directory files
+        run: ls -lh output/
+
+      - name: Commit and push output files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add output/*.m3u output/*.csv output/log/*.log || true
+          git diff --cached --quiet || git commit -m "🤖 Auto merge local sources $(date '+%Y-%m-%d %H:%M:%S')"
+          git push
