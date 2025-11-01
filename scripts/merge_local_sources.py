@@ -7,6 +7,7 @@ import unicodedata
 # 配置区
 # ==============================
 SOURCE_DIR = "input/network/network_sources"  # 下载源目录
+ICON_DIR = "png"                              # 本地图标目录
 OUTPUT_DIR = "output"
 LOG_DIR = os.path.join(OUTPUT_DIR, "log")
 
@@ -21,11 +22,20 @@ SKIPPED_LOG = os.path.join(LOG_DIR, "skipped.log")
 # 工具函数
 # ==============================
 def normalize_channel_name(name: str) -> str:
-    """标准化频道名（去掉符号、空格、大小写统一）"""
+    """标准化频道名（去掉符号、空格、统一大小写）"""
     name = unicodedata.normalize("NFKC", name)
     name = re.sub(r"[\s\[\]（）()【】]", "", name)
     name = re.sub(r"[-_\.]", "", name)
     return name.strip().lower()
+
+
+def get_icon_path(name: str) -> str:
+    """获取图标路径（本地优先，否则用远程链接）"""
+    local_path = os.path.join(ICON_DIR, f"{name}.png")
+    if os.path.exists(local_path):
+        return local_path
+    encoded_name = re.sub(r"\s+", "", name)
+    return f"https://epg.pw/media/logo/{encoded_name}.png"
 
 
 def read_m3u_file(file_path: str):
@@ -62,7 +72,7 @@ def read_m3u_file(file_path: str):
 def merge_local_sources():
     all_channels = []
     skipped = []
-    seen_urls = set()  # 记录已出现的 URL
+    seen_urls = set()
 
     print(f"📂 正在读取文件夹: {os.path.abspath(SOURCE_DIR)}")
 
@@ -76,31 +86,33 @@ def merge_local_sources():
             if not url.startswith("http"):
                 skipped.append((name, url))
                 continue
-            # 去除相同 URL 的重复源
             if url in seen_urls:
                 continue
             seen_urls.add(url)
             all_channels.append((name, url))
 
     print(f"\n✅ 合并完成：共 {len(all_channels)} 条频道（已去重相同 URL）")
-    print(f"📁 输出 M3U: {OUTPUT_M3U}")
-    print(f"📁 输出 CSV: {OUTPUT_CSV}")
 
     # ==============================
-    # 写入 M3U
+    # 写入 M3U（tvg-name 用标准化名）
     # ==============================
     with open(OUTPUT_M3U, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         for name, url in all_channels:
-            f.write(f'#EXTINF:-1 tvg-name="{name}",{name}\n{url}\n')
+            normalized = normalize_channel_name(name)
+            logo = get_icon_path(name)
+            f.write(f'#EXTINF:-1 tvg-name="{normalized}" tvg-logo="{logo}",{name}\n{url}\n')
 
     # ==============================
-    # 写入 CSV
+    # 写入 CSV（列顺序符合要求）
     # ==============================
     with open(OUTPUT_CSV, "w", newline="", encoding="utf-8-sig") as f:
         writer = csv.writer(f)
-        writer.writerow(["tvg-name", "URL"])
-        writer.writerows(all_channels)
+        writer.writerow(["normalized_name", "", "URL", "来源", "tvg-name", "icon_url"])
+        for name, url in all_channels:
+            normalized = normalize_channel_name(name)
+            icon = get_icon_path(name)
+            writer.writerow([normalized, "", url, "网络源", name, icon])
 
     # ==============================
     # 写入跳过日志
@@ -109,7 +121,10 @@ def merge_local_sources():
         for name, url in skipped:
             f.write(f"{name},{url}\n")
 
+    print(f"📁 M3U 输出: {OUTPUT_M3U}")
+    print(f"📁 CSV 输出: {OUTPUT_CSV}")
     print(f"📁 跳过日志: {SKIPPED_LOG}")
+    print("✅ 所有文件生成完成！")
 
 
 # ==============================
