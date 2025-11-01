@@ -22,20 +22,21 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          # 如果需要安装依赖，放这里
-          # pip install -r requirements.txt
+          pip install requests
 
       - name: Run merge_local_sources.py script
         run: |
           python scripts/merge_local_sources.py
 
-      - name: List output directory files
-        run: ls -lh output/
+      - name: List output and icon files
+        run: |
+          ls -lh output/
+          ls -lh png/
 
-      - name: Commit and push output files
+      - name: Commit and push output files and icons
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add output/*.m3u output/*.csv output/log/*.log || true
+          git add output/*.m3u output/*.csv output/log/*.log png/* || true
           git diff --cached --quiet || git commit -m "🤖 Auto merge local sources $(date '+%Y-%m-%d %H:%M:%S')"
           git push
