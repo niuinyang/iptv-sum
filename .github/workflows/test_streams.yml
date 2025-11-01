@@ -39,11 +39,11 @@ jobs:
         run: |
           python scripts/test_adaptive_async_batch.py
 
-      # 6️⃣ 提交生成的 working.m3u 和日志文件
-      - name: Commit working.m3u
+      # 6️⃣ 提交生成的文件和日志
+      - name: Commit generated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/working.m3u output/log
-          git commit -m "🤖 Auto update working.m3u on $(date '+%Y-%m-%d')" || echo "No changes to commit"
+          git add output/working.m3u output/working.csv output/log/*
+          git commit -m "🤖 Auto update working files on $(date '+%Y-%m-%d')" || echo "No changes to commit"
           git push
